@@ -1,0 +1,12 @@
+{
+  "name": "emental",
+  "displayName": "emental",
+  "expo": {
+    "name": "emental",
+    "slug": "emental",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
