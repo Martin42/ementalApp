@@ -6,7 +6,7 @@ import { StyleSheet, Text, View, Image, Linking } from 'react-native';
 
 export default function Botão () {
     return (
-        <View style={{position: 'absolute', top: 50}}>
+        <View>
             <StatusBar style="auto" />
             <Image
                 source={require('../images/relief.png')}
@@ -35,14 +35,15 @@ export default function Botão () {
 
 const styles =  StyleSheet.create({
     relief: {
+       
         width: 200, 
         height: 250,
         margin: 100 ,
         resizeMode: 'contain',
+        marginBottom: '95%',
     },
 
     registo: {
-        marginTop: 300,
         marginLeft: 10,
         marginRight: 10,
         borderWidth: 1.5,
@@ -61,7 +62,7 @@ const styles =  StyleSheet.create({
         borderStyle: 'solid',
         borderRadius: 20,
         overflow: 'hidden',
-        backgroundColor: '#6578B3'
+        backgroundColor: '#6578B3',
         
     },
 
@@ -97,6 +98,7 @@ const styles =  StyleSheet.create({
         textAlign: 'center',
         marginTop: 1,
         fontSize: 15,
+        marginBottom: '15%',
     },
 
 })
