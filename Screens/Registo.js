@@ -7,6 +7,7 @@ import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput } from 'reac
 function Registo ({navigation}) {
     return (
       <View style={styles.container}>
+          <StatusBar style="auto" />
           <TouchableOpacity onPress={() => navigation.navigate('Login')}>
         <Text>Registo</Text>
         </TouchableOpacity>

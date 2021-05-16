@@ -45,7 +45,7 @@ function Login({navigation}){
                 <Text style={styles.subtitle} > Ainda não tens conta? 
                 
                       <Text 
-                      style={styles.link2}
+                      style={styles.link}
                       onPress={() => navigation.navigate('Registo')}
                       > 
                          Regista-te 
@@ -78,36 +78,6 @@ const styles = StyleSheet.create({
         
     },
   
-    registo: {
-        marginTop: '90%',
-        width: '80%',
-        borderWidth: 1.5,
-        borderColor: '#6578B3',
-        borderStyle: 'solid',
-        borderRadius: 20,
-        overflow: 'hidden',
-        
-    },
-  
-    login: {
-        marginTop: '2%',
-        width: '80%',
-        borderColor: '#6578B3',
-        borderStyle: 'solid',
-        borderRadius: 20,
-        overflow: 'hidden',
-        backgroundColor: '#6578B3',
-        
-    },
-  
-    registoText: {
-        color: '#6578B3',
-        textAlign: 'center',
-        margin: '3%',   
-        fontWeight: 'bold',
-        fontSize: 18,
-    },
-  
     loginText: {
         color: 'white',
         textAlign: 'center',
@@ -133,17 +103,8 @@ const styles = StyleSheet.create({
         fontSize: 15,
     },
   
-    link: {
-        color: '#6578B3',
-        textDecorationLine: 'underline',
-        textDecorationColor: '#6578B3',
-        textAlign: 'center',
-        marginTop: '.2%',
-        fontSize: 15,
-        marginBottom: '15%',
-    },
   
-    link2: {
+    link: {
       color: '#6578B3',
       textDecorationLine: 'none',
       textDecorationColor: '#6578B3',
