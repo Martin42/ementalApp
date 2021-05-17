@@ -17,6 +17,7 @@ function Selecionar ({navigation}) {
 
               <TouchableOpacity 
                     style={styles.estudante}
+                    onPress={() => navigation.navigate('Info')}
                      
                     >
                   <Text style={styles.buttonText}>Estudante</Text>
