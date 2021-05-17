@@ -43,9 +43,9 @@ function Selecionar ({navigation}) {
       backgroundColor: '#CFE0FB',
       margin: '5%',
       borderColor: '#CFE0FB',
-      borderRadius: '1%',
-      height: '80%',
-      width: '80%',
+      borderRadius: 20,
+      height: '90%',
+      width: '85%',
 
     }
   

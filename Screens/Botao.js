@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 
 
-function Botão({navigation}) {
+function Botao({navigation}) {
     return (
             <View style={styles.container}>
                   <StatusBar style="auto" />
@@ -121,4 +121,4 @@ function Botão({navigation}) {
   
   });
 
-  export default Botão;
+  export default Botao;
