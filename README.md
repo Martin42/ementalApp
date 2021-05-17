@@ -2,7 +2,7 @@
 Destinado para a aplicação relief by eMental
 
 
-Todo o processod deve ser recorded :) 
+Todo o processos deve ser recorded :) 
 
 
 
