@@ -42,13 +42,13 @@ function Login({navigation}){
                     <Text style={styles.loginText}>Entrar</Text>
             </TouchableOpacity>
 
-                <Text style={styles.subtitle} > Ainda não tens conta? 
+                <Text style={styles.subtitle} > Ainda não tens conta?  
                 
-                      <Text 
+                       <Text 
                       style={styles.link}
                       onPress={() => navigation.navigate('Registo')}
                       > 
-                         Regista-te 
+                          Regista-te 
                       </Text> 
                       
                 </Text>
@@ -113,6 +113,7 @@ const styles = StyleSheet.create({
       fontSize: 15,
       marginBottom: '15%',
       fontWeight: 'bold',
+      
     },
   
     inputField: {
