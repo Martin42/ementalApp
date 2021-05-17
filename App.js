@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Selecionar from './Screens/Registo/Selecionar';
 import Login from './Screens/Login';
+import Info from './Screens/Registo/Info';
 import Botao from './Screens/Botao';
 
 
