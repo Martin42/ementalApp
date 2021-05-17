@@ -7,7 +7,7 @@ import { StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 function Selecionar ({navigation}) {
     return (
       <View style={styles.container}>
-          <StatusBar style="auto" />
+          <StatusBar style="hidden" />
 
           <View style={styles.balao}>
 
