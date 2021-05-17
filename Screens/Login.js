@@ -17,7 +17,7 @@ function Login({navigation}){
                 <View style={styles.inputField}> 
                   
                           <TextInput 
-                            placeholder='Email'
+                            placeholder='Nome do Utilizador'
                             placeholderTextColor= '#D7D7D7'
                             style={styles.inputEmail}
                         
