@@ -4,7 +4,12 @@ import { StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
 
 
+
+
 function Selecionar ({navigation}) {
+
+
+
     return (
       <View style={styles.container}>
           <StatusBar style="hidden" />
@@ -17,7 +22,9 @@ function Selecionar ({navigation}) {
 
               <TouchableOpacity 
                     style={styles.estudante}
-                    onPress={() => navigation.navigate('Info')}
+                    onPress={() => navigation.navigate('Info', {
+                      status: 0,
+                    })}
                      
                     >
                   <Text style={styles.buttonText}>Estudante</Text>
@@ -25,11 +32,19 @@ function Selecionar ({navigation}) {
 
               <TouchableOpacity
                     style={styles.pds}
+                    onPress={() => {
+                      
+                      navigation.navigate('Info', {
+                        status: 1,
+                      });
+                      
+                    
+                    }} 
               >
                   <Text style={styles.buttonText}>Profissional de Saúde Mental</Text>
               </TouchableOpacity>
 
-              <Text style={styles.subtitle2}>Já tens conta?<Text style={styles.link} onPress={() => navigation.navigate('Login')}> Faz Login </Text></Text>
+              <Text style={styles.subtitle2}>Já tens conta?<Text style={styles.link} onPress={() =>  navigation.navigate('Login')}> Faz Login </Text></Text>
 
           </View>
       </View>
