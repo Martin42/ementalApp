@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 30,
         fontWeight: 'bold',
-        marginLeft: '10%',
+        marginLeft: '15%',
         marginRight: '10%',
         marginTop: '15%',
         marginBottom: '5%',
@@ -53,8 +53,9 @@ const styles = StyleSheet.create({
 
     subtitle: {
         fontSize: 20,
+        color: '#6B6B6B',
         fontWeight: 'normal',
-        marginLeft: '10%',
+        marginLeft: '15%',
         marginRight: '10%',
         marginTop: '3%',
         marginBottom: '5%',
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginLeft: '70%',
         marginRight: 0,
-        marginTop: '15%',
+        marginTop: '30%',
         marginBottom: '5%',
     },
 });
