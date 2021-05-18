@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginRight: '10%',
         marginBottom: '5%',
-        marginTop: '5%',
+        marginTop: '10%',
         marginLeft: '10%',
     },
 
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
     sara2: {
         width: '100%',
         height: '45%',
-        marginTop: '10%',
+        marginTop: '5%',
         resizeMode: 'contain',
     },
 
