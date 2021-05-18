@@ -4,20 +4,18 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 
 
 
-function Info({route}) {
-
-    console.log(route.params.status);
+function Info({ }) {
     return (
         <View style={styles.container}>
             <StatusBar style="auto" />
             <Image
                 source={require('../../images/emental.png')}
-                style={styles.emental}
+                style={styles.image}
             />
+            <Text style={styles.subtitle}>O que é a eMental</Text>
+        </View> 
 
-        </View>
-
-
+        
     )
 }
 
@@ -25,17 +23,25 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'white',
+        width: '100%',
         alignItems: 'center',
         justifyContent: 'center',
         width: '100%',
     },
 
-    emental: {
-        width: '45%', 
-        height: '22%',
-        marginTop: '25%',
+    image: {
+        marginTop: '30%',
+        width: '20%',
+        height: '7%',
         resizeMode: 'contain',
-    }
+    },
+
+    subtitle: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        marginLeft: '10%',
+        marginRight: '10%',
+      },
 });
 
 export default Info;
