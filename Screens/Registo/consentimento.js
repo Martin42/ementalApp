@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity} from "react-native";
+import { ScrollView, View, Text, StyleSheet, TouchableOpacity} from "react-native";
 
 
 function Consentimento({ route, navigation }) {
@@ -11,16 +11,35 @@ function Consentimento({ route, navigation }) {
         <View style={styles.container}>
             <StatusBar style="auto" />
 
-            <View style={styles.balao}>
+            <ScrollView style={styles.balao}>
                 <View>
-                    <TouchableOpacity
-                    onPress={() => navigation.navigate('Pedido', {status: route.params.status})}
+                    <Text style={styles.title}>Consentimento</Text>
+                    <Text style={styles.texto}>A tua colaboração é voluntária e muito importante! Agradecemos o preenchimento dos questionários, sublinhando a natureza anónima de todos os dados recolhidos. Os resultados serão utilizados apenas no contexto do estudo em curso garantindo confidencialidade.</Text>
+                    <Text style={styles.texto}>Podes desistir do estudo em qualquer momento e sem qualquer consequência negativa.</Text>
+                    <Text style={styles.texto}>O estudo dá cumprimento ao estipulado no Regulamento Geral de Proteção de Dados (RGPD) garantindo a segurança, anonimato e confidencialidade de todos os dados facultados pelos participantes, em todas as fases do projeto (colheita, análise e tratamento de dados, divulgação de resultados). Assegura-se ainda a destruição dos dados após a apresentação do relatório sobre resultados da implementação do Projeto.</Text>
+                    <Text style={styles.texto}>Desde já muito obrigada pela tua colaboração!</Text>
+                    <Text style={styles.textobold}>Aceito participar neste estudo e permito a utilização dos dados, que de forma voluntária forneço, confiando em que apenas serão utilizados para fins científicos e publicações que dela decorram e nas garantias de confidencialidade e anonimato que me são dados pelos investigadores.</Text>
                     
+                    <TouchableOpacity 
+                    style={styles.participar}
+                        onPress={() =>{ if (route.params.status == 0) {
+                            navigation.navigate('Info', { //alterar
+                                status: route.params.status})
+                        }else{
+                            navigation.navigate('Pedido', {
+                                status: route.params.status,})
+                        }}
+                    }
                     >
+
+                    <Text style={styles.buttonText}>Aceito participar</Text>
+                    </TouchableOpacity>
+                    
+                    <TouchableOpacity style={{marginTop:'100%'}}>
                         <Text style={styles.next}>Seguinte</Text>
                     </TouchableOpacity>
                 </View>
-            </View>
+            </ScrollView>
         </View>
     )
 }
@@ -30,6 +49,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'white',
+        alignItems: 'center',
         justifyContent: 'center',
         width: '100%',
     },
@@ -40,6 +60,8 @@ const styles = StyleSheet.create({
         borderRadius: 30,
         height: '85%',
         width: '80%',
+        marginTop: '15%',
+        marginBottom: '15%',
     },
 
     title: {
@@ -56,9 +78,41 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginLeft: '70%',
         marginRight: 0,
-        marginTop: '30%',
+        marginTop: '100%',
         marginBottom: '5%',
     },
+
+    texto: {
+        marginLeft: '10%',
+        marginRight: '10%',
+        paddingBottom: '8%',
+        fontSize: 15,
+    },
+
+    textobold: {
+        marginLeft: '10%',
+        marginRight: '10%',
+        paddingBottom: '10%',
+        fontWeight: 'bold',
+        fontSize: 15,
+    },
+
+    buttonText: {
+        fontSize: 18,
+        marginLeft: '4%',
+        marginTop: '4%',
+    },
+
+    participar :{
+        marginTop: '15%',
+        borderRadius: 15,
+        overflow: 'hidden',
+        backgroundColor: 'white',
+        marginLeft: '10%',
+        marginRight: '10%',
+        height: '5%',
+        
+      },
 });
 
 export default Consentimento;
