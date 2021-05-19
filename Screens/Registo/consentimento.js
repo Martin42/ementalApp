@@ -13,7 +13,10 @@ function Consentimento({ route, navigation }) {
 
             <View style={styles.balao}>
                 <View>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                    onPress={() => navigation.navigate('Pedido', {status: route.params.status})}
+                    
+                    >
                         <Text style={styles.next}>Seguinte</Text>
                     </TouchableOpacity>
                 </View>
