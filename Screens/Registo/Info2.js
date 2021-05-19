@@ -37,7 +37,8 @@ function Info2({route, navigation}){
                 </View>
 
                 <View>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                     onPress={() => navigation.navigate('Consentimento', { status: route.params.status }) }>
                         <Text style={styles.next}>Seguinte</Text>
                     </TouchableOpacity>
                 </View>
@@ -88,7 +89,10 @@ function Info2({route, navigation}){
                 </View>
 
                 <View>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Consentimento', { status: route.params.status }) }
+                    
+                    >
                         <Text style={styles.next2}>Seguinte</Text>
                     </TouchableOpacity>
                 </View>
