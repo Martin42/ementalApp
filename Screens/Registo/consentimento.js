@@ -1,16 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity} from "react-native";
 
 
-function Consentimento({route, navigation}){
+function Consentimento({ route, navigation }) {
 
     console.log(route.params.status);
 
     return (
         <View style={styles.container}>
             <StatusBar style="auto" />
-            <Text>Hello</Text>
+
+            <View style={styles.balao}>
+                <View>
+                    <TouchableOpacity>
+                        <Text style={styles.next}>Seguinte</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
         </View>
     )
 }
@@ -18,14 +25,37 @@ function Consentimento({route, navigation}){
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: 'white',
-      alignItems:'center',
-      justifyContent: 'center',
-      width: '100%',
-  
+        flex: 1,
+        backgroundColor: 'white',
+        justifyContent: 'center',
+        width: '100%',
     },
 
+    balao: {
+        backgroundColor: '#CFE0FB',
+        borderColor: '#CFE0FB',
+        borderRadius: 30,
+        height: '85%',
+        width: '80%',
+    },
+
+    title: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        marginLeft: '10%',
+        marginRight: '10%',
+        marginTop: '15%',
+        marginBottom: '5%',
+    },
+
+    next: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginLeft: '70%',
+        marginRight: 0,
+        marginTop: '30%',
+        marginBottom: '5%',
+    },
 });
 
 export default Consentimento;
