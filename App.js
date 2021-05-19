@@ -7,7 +7,7 @@ import Botao from './Screens/Botao';
 import Info from './Screens/Registo/Info';
 import Info2 from './Screens/Registo/Info2';
 import Consentimento from './Screens/Registo/Consentimento';
-import Pedido from './Screens/Registo/pedido';
+import Pedido from './Screens/Registo/Pedido';
 
 
 const Stack = createStackNavigator();
