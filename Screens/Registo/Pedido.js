@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, SafeAreaView} from "react-native";
+import TextArea from 'react-native-textarea';
+
 
 
 function Pedido({ route, navigation }) {
@@ -38,11 +40,14 @@ function Pedido({ route, navigation }) {
                         
                         />
 
-                        <TextInput 
+                        <TextArea 
                             style={styles.inputMensagem}
                             placeholder= 'Mensagem'
                             backgroundColor= '#CFE0FB'
                             placeholderTextColor= 'white'
+                            multiline={true}
+                            
+                            
                         
                         
                         />
@@ -115,7 +120,7 @@ const styles = StyleSheet.create({
         marginBottom: '7%',
         color: 'black',
         borderRadius: 20,
-        height: '90%',
+        height: '100%',
       },
 
       inputEmail: {
@@ -125,7 +130,7 @@ const styles = StyleSheet.create({
         marginBottom: '7%',
         color: 'black',
         borderRadius: 20,
-        height: '90%',
+        height: '100%',
 
       },
 
@@ -135,8 +140,10 @@ const styles = StyleSheet.create({
         marginBottom: '7%',
         color: 'black',
         borderRadius: 20,
+        paddingLeft: 15,
         height: '100%',
-        padding: 15,
+        marginBottom: '80%', // espaço do input para o seguinte
+      
        
 
       },
