@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { ScrollView, View, Text, StyleSheet, TouchableOpacity} from "react-native";
+import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Image} from "react-native";
 import Checkbox from 'react-native-check-box';
 
 
@@ -33,18 +33,17 @@ function Consentimento({ route, navigation }) {
                     <Text style={styles.texto}>Desde já muito obrigada pela tua colaboração!</Text>
                     <Text style={styles.textobold}>Aceito participar neste estudo e permito a utilização dos dados, que de forma voluntária forneço, confiando em que apenas serão utilizados para fins científicos e publicações que dela decorram e nas garantias de confidencialidade e anonimato que me são dados pelos investigadores.</Text>
                     
-                
-                    <Text style={styles.buttonText}>
+               
+                    
                         
                         <Checkbox 
                                     onClick={() => validate()}
                                     isChecked={check}
+                                    unCheckedImage={<Image source={require('../../images/unCheckedParticipar.png')} style={styles.aceito} />} 
+                                    checkedImage={<Image source={require('../../images/checkedParticipar.png')} style={styles.aceito} />} 
                                 
                                 />
                             
-                            Aceito participar
-                            
-                        </Text>
 
                         { check ? (
                             <TouchableOpacity
@@ -104,7 +103,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginLeft: '70%',
         marginRight: 0,
-        marginTop: '20%',
         marginBottom: '5%',
     },
 
@@ -112,13 +110,12 @@ const styles = StyleSheet.create({
         marginLeft: '10%',
         marginRight: '10%',
         paddingBottom: '5%',
-        fontSize: 18,
+        fontSize: 17,
     },
 
     textobold: {
         marginLeft: '10%',
         marginRight: '10%',
-        paddingBottom: '5%',
         fontWeight: 'bold',
         fontSize: 17,
     },
@@ -135,9 +132,16 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         marginLeft: '10%',
         marginRight: '10%',
-        height: '5%',
         
       },
+
+      aceito: {
+          marginLeft: '10%',
+          marginRight: '10%',  
+          resizeMode: 'contain',
+          width: '80%',
+
+      }
 });
 
 export default Consentimento;
