@@ -46,7 +46,7 @@ function Pedido({ route, navigation }) {
                             backgroundColor= '#CFE0FB'
                             placeholderTextColor= 'white'
                             multiline={true}
-                            
+                            containerStyle={styles.inputMensagemContainer}
                             
                         
                         
@@ -141,10 +141,15 @@ const styles = StyleSheet.create({
         color: 'black',
         borderRadius: 20,
         paddingLeft: 15,
-        height: '100%',
-        marginBottom: '80%', // espaço do input para o seguinte
-      
-       
+        height: '120%',
+        textAlignVertical: 'top',
+        paddingTop: 25,
+        paddingRight: 15,
+
+      },
+
+      inputMensagemContainer: {
+            marginBottom: '50%', // espaço do input para o seguinte
 
       },
 
