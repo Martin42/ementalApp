@@ -4,6 +4,12 @@ import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput } from 'reac
 
 
 function Registo({navigation, route}){
+
+    console.log(route.params.status);
+    console.log(route.params.nome);
+    console.log(route.params.email);
+    console.log(route.params.mensagem);
+
     return (
       <View style={styles.container}>
           <StatusBar style="auto" />

@@ -1,5 +1,6 @@
+import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, SafeAreaView} from "react-native";
 import TextArea from 'react-native-textarea';
 
@@ -7,6 +8,10 @@ import TextArea from 'react-native-textarea';
 
 function Pedido({ route, navigation }) {
     console.log(route.params.status);
+
+    const [nome, setNome] = useState('');
+    const [email, setEmail] = useState('');
+    const [mensagem, setMensagem] = useState('');
 
     return (
         <SafeAreaView style={styles.container}>
@@ -27,6 +32,7 @@ function Pedido({ route, navigation }) {
                             placeholder= 'Nome'
                             backgroundColor= '#CFE0FB'
                             placeholderTextColor= 'white'
+                            onChangeText={nome => setNome(nome)}
                         
                         
                         />
@@ -36,6 +42,7 @@ function Pedido({ route, navigation }) {
                             placeholder= 'Email'
                             backgroundColor= '#CFE0FB'
                             placeholderTextColor= 'white'
+                            onChangeText={email => setEmail(email)}
                         
                         
                         />
@@ -47,13 +54,14 @@ function Pedido({ route, navigation }) {
                             placeholderTextColor= 'white'
                             multiline={true}
                             containerStyle={styles.inputMensagemContainer}
+                            onChangeText={mensagem => setMensagem(mensagem)}
                             
                         
                         
                         />
 
                         <TouchableOpacity
-                            onPress={() => navigation.navigate('Registo', { status: route.params.status }) }
+                            onPress={() => navigation.navigate('Registo', { status: route.params.status, nome: nome, email: email, mensagem: mensagem }) }
                         
                         >
                             <Text style={styles.next}>Seguinte</Text>
