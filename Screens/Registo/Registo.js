@@ -3,12 +3,12 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput } from 'react-native';
 
 
-function Login({navigation}){
+function Registo({navigation, route}){
     return (
       <View style={styles.container}>
           <StatusBar style="auto" />
           <Image
-                    source={require('../images/relief.png')}
+                    source={require('../../images/relief.png')}
                     style={styles.relief}
                 />
 
@@ -31,7 +31,6 @@ function Login({navigation}){
                         
                           />
 
-                      <Text style={styles.subtitle2}> Esqueceste-te da palavra-passe? </Text>
 
                   </View>
 
@@ -39,16 +38,16 @@ function Login({navigation}){
         
 
             <TouchableOpacity style={styles.entrar}>
-                    <Text style={styles.loginText}>Entrar</Text>
+                    <Text style={styles.loginText}>Finalizar Registo</Text>
             </TouchableOpacity>
 
-                <Text style={styles.subtitle} > Ainda não tens conta?  
+                <Text style={styles.subtitle} > Já tens conta?  
                 
                        <Text 
                       style={styles.link}
-                      onPress={() => navigation.navigate('Selecionar')}
+                      onPress={() => navigation.navigate('Login')}
                       > 
-                          Regista-te 
+                          Faz Login
                       </Text> 
                       
                 </Text>
@@ -160,4 +159,4 @@ const styles = StyleSheet.create({
   
   });
 
-  export default Login;
+  export default Registo;

@@ -48,7 +48,7 @@ function Consentimento({ route, navigation }) {
                         { check ? (
                             <TouchableOpacity
                             onPress={() =>{ if (route.params.status == 0) {
-                                    navigation.navigate('Info', { //alterar
+                                    navigation.navigate('Registo', { //alterar
                                         status: route.params.status})
                                 }else{
                                     navigation.navigate('Pedido', {

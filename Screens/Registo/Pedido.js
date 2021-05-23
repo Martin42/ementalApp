@@ -53,7 +53,7 @@ function Pedido({ route, navigation }) {
                         />
 
                         <TouchableOpacity
-                            onPress={() => navigation.navigate('Consentimento', { status: route.params.status }) }
+                            onPress={() => navigation.navigate('Registo', { status: route.params.status }) }
                         
                         >
                             <Text style={styles.next}>Seguinte</Text>

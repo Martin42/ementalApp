@@ -15,7 +15,7 @@ function Botao({navigation}) {
   
               <TouchableOpacity 
                   style={styles.registo}
-                  onPress={() => navigation.navigate('Registo')}
+                  onPress={() => navigation.navigate('Selecionar')}
                   >
                  
                       <Text style={styles.registoText}>Registo</Text>

@@ -123,6 +123,7 @@ const styles = StyleSheet.create({
         marginLeft: '10%',
         marginRight: '10%',
         marginBottom: '5%',
+        marginTop: '5%',
       
     },
 
@@ -188,8 +189,8 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         marginLeft: '70%',
-        marginTop: '11%',
-        marginBottom: '5%',
+        marginTop: '30%',
+      
     },
 
     next2: {
