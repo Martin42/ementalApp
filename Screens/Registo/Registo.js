@@ -2,7 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput } from 'react-native';
 import { useState } from 'react/cjs/react.development';
-import { auth } from '../../Firebase';
+import { auth, db } from '../../Firebase';
+
 
 
 function Registo({navigation, route}){
@@ -14,11 +15,11 @@ function Registo({navigation, route}){
     const RegistoFinal = () => {
       auth
         .createUserWithEmailAndPassword(emailRegisto, passwordRegisto)
-        .then(
-          alert('Registado com sucesso'),
+        .then(() => {
+          alert('Registado com sucesso');
           navigation.replace('Login')
-          )
-        .catch(error => alert(error.message));
+        })
+        .catch(error => alert(error.message));  
     }
 
 
