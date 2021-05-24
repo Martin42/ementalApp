@@ -18,7 +18,9 @@ function Registo({navigation, route}){
                     style={styles.relief}
                 />
 
-      <View style={styles.container}>
+      <View style={styles.container}> 
+
+      {/* KeyboardAvoidingView para o teclado não interferir com a página ? */}
 
                 <View style={styles.inputField}> 
                   
