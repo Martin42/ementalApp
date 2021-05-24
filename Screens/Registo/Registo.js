@@ -17,7 +17,6 @@ function Registo({navigation, route}){
         .then(
           alert('Registado com sucesso'),
           navigation.replace('Login')
-          
           )
         .catch(error => alert(error.message));
     }
