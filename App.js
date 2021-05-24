@@ -9,6 +9,7 @@ import Info2 from './Screens/Registo/Info2';
 import Consentimento from './Screens/Registo/Consentimento';
 import Pedido from './Screens/Registo/Pedido';
 import Registo from './Screens/Registo/Registo';
+import Homepage from './Screens/App/Homepage';
 
 
 const Stack = createStackNavigator();
@@ -29,6 +30,7 @@ export default function App() {
               <Stack.Screen name='Consentimento' component={Consentimento} />
               <Stack.Screen name='Pedido' component={Pedido} />
               <Stack.Screen name='Registo' component={Registo} />
+              <Stack.Screen name='Homepage' component={Homepage} options={{gestureEnabled: false}}/>
           </Stack.Navigator>
         </NavigationContainer>
   );

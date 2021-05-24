@@ -1,4 +1,3 @@
-import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, SafeAreaView} from "react-native";
@@ -61,7 +60,7 @@ function Pedido({ route, navigation }) {
                         />
 
                         <TouchableOpacity
-                            onPress={() => navigation.navigate('Registo', { status: route.params.status, nome: nome, email: email, mensagem: mensagem }) }
+                            onPress={() => navigation.navigate('Registo', { status: route.params.status, nomePedido: nome, emailPedido: email, mensagemPedido: mensagem }) }
                         
                         >
                             <Text style={styles.next}>Seguinte</Text>

@@ -30,7 +30,8 @@
     "react-native-web": "^0.16.2",
     "react-native-webview": "^11.4.4",
     "react-native-youtube-iframe": "^2.0.1",
-    "react-navigation": "^4.4.4"
+    "react-navigation": "^4.4.4",
+    "firebase": "8.2.3"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"

@@ -1,14 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput } from 'react-native';
+import { useState } from 'react/cjs/react.development';
+import { auth } from '../../Firebase';
 
 
 function Registo({navigation, route}){
 
-    console.log(route.params.status);
-    console.log(route.params.nome);
-    console.log(route.params.email);
-    console.log(route.params.mensagem);
+    const [emailRegisto, setemailRegisto] = useState('');
+    const [passwordRegisto, setpasswordRegisto] = useState('');
+
+
+    const RegistoFinal = () => {
+      auth
+        .createUserWithEmailAndPassword(emailRegisto, passwordRegisto)
+        .then(
+          alert('Registado com sucesso'),
+          navigation.replace('Login')
+          
+          )
+        .catch(error => alert(error.message));
+    }
+
+
 
     return (
       <View style={styles.container}>
@@ -28,6 +42,7 @@ function Registo({navigation, route}){
                             placeholder='Nome do Utilizador'
                             placeholderTextColor= '#D7D7D7'
                             style={styles.inputEmail}
+                            onChangeText={emailRegisto => setemailRegisto(emailRegisto)}
                         
                           />
                     
@@ -36,6 +51,7 @@ function Registo({navigation, route}){
                             placeholder='Palavra-Passe'
                             placeholderTextColor= '#D7D7D7'
                             style={styles.inputPassword}
+                            onChangeText={passwordRegisto => setpasswordRegisto(passwordRegisto)}
                         
                           />
 
@@ -45,7 +61,10 @@ function Registo({navigation, route}){
             
         
 
-            <TouchableOpacity style={styles.entrar}>
+            <TouchableOpacity 
+                style={styles.entrar}
+                onPress={() => RegistoFinal()}
+                >
                     <Text style={styles.loginText}>Finalizar Registo</Text>
             </TouchableOpacity>
 

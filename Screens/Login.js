@@ -1,9 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import { useEffect } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput } from 'react-native';
+import { useState } from 'react/cjs/react.development';
+import { auth } from '../Firebase';
+
 
 
 function Login({navigation}){
+
+    const [LoginEmail, setLoginEmail] = useState('');
+    const [LoginPassword, setLoginPassword] = useState('');
+
+    const signIn = () => {
+      auth
+          .signInWithEmailAndPassword(LoginEmail, LoginPassword)
+          .then(() => {
+            navigation.replace('Homepage');
+          })
+          .catch((error) => alert(error.message));
+    };
+
+
     return (
       <View style={styles.container}>
           <StatusBar style="auto" />
@@ -20,6 +38,7 @@ function Login({navigation}){
                             placeholder='Nome do Utilizador'
                             placeholderTextColor= '#D7D7D7'
                             style={styles.inputEmail}
+                            onChangeText={LoginEmail => setLoginEmail(LoginEmail)}
                         
                           />
                     
@@ -28,6 +47,7 @@ function Login({navigation}){
                             placeholder='Palavra-Passe'
                             placeholderTextColor= '#D7D7D7'
                             style={styles.inputPassword}
+                            onChangeText={LoginPassword => setLoginPassword(LoginPassword)}
                         
                           />
 
@@ -38,7 +58,10 @@ function Login({navigation}){
             
         
 
-            <TouchableOpacity style={styles.entrar}>
+            <TouchableOpacity 
+                  style={styles.entrar}
+                  onPress={() => signIn()}
+                  >
                     <Text style={styles.loginText}>Entrar</Text>
             </TouchableOpacity>
 
