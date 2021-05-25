@@ -33,7 +33,7 @@ function Botao({navigation}) {
   
                   <Text style={styles.subtitle}> Ainda não conheces o projeto? </Text>
   
-                  <Text style={styles.link} onPress={() => Linking.openURL('https://depressaodeep.wixsite.com/emental')}>
+                  <Text style={styles.link} onPress={() => Linking.openURL('http://emental.web.ua.pt')}>
                       Visita o nosso website
                   </Text>
         </View>
