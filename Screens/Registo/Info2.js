@@ -4,9 +4,6 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
-
-
-
 function Info2({route, navigation}){
 
     console.log(route.params.status);
@@ -38,7 +35,7 @@ function Info2({route, navigation}){
 
                 <View>
                     <TouchableOpacity
-                     onPress={() => navigation.navigate('Consentimento', { status: route.params.status, nomePedido: 'estudante', emailPedido: 'null', mensagemPedido: 'null' }) }>
+                     onPress={() => navigation.navigate('Info3', { status: route.params.status, nomePedido: 'estudante', emailPedido: 'null', mensagemPedido: 'null' }) }>
                         <Text style={styles.next}>Seguinte</Text>
                     </TouchableOpacity>
                 </View>
@@ -90,7 +87,7 @@ function Info2({route, navigation}){
 
                 <View>
                     <TouchableOpacity
-                        onPress={() => navigation.navigate('Consentimento', { status: route.params.status }) } // alterar consentimento
+                        onPress={() => navigation.navigate('Info3', { status: route.params.status }) } // alterar consentimento
                     
                     >
                         <Text style={styles.next2}>Seguinte</Text>

@@ -28,10 +28,10 @@ function Consentimento({ route, navigation }) {
                 <View>
                     <Text style={styles.title}>Consentimento</Text>
                     <Text style={styles.texto}>A tua colaboração é voluntária e muito importante! Agradecemos o preenchimento dos questionários, sublinhando a natureza anónima de todos os dados recolhidos. Os resultados serão utilizados apenas no contexto do estudo em curso garantindo confidencialidade.</Text>
-                    <Text style={styles.texto}>Podes desistir do estudo em qualquer momento e sem qualquer consequência negativa.</Text>
-                    <Text style={styles.texto}>O estudo dá cumprimento ao estipulado no Regulamento Geral de Proteção de Dados (RGPD) garantindo a segurança, anonimato e confidencialidade de todos os dados facultados pelos participantes, em todas as fases do projeto (colheita, análise e tratamento de dados, divulgação de resultados). Assegura-se ainda a destruição dos dados após a apresentação do relatório sobre resultados da implementação do Projeto.</Text>
+                    <Text style={styles.texto}>Podes desistir em qualquer momento e sem qualquer consequência negativa.</Text>
+                    <Text style={styles.texto}>Esta aplicação dá cumprimento ao estipulado no Regulamento Geral de Proteção de Dados (RGPD) garantindo a segurança, anonimato e confidencialidade de todos os dados facultados pelos participantes. </Text>
                     <Text style={styles.texto}>Desde já muito obrigada pela tua colaboração!</Text>
-                    <Text style={styles.textobold}>Aceito participar neste estudo e permito a utilização dos dados, que de forma voluntária forneço, confiando em que apenas serão utilizados para fins científicos e publicações que dela decorram e nas garantias de confidencialidade e anonimato que me são dados pelos investigadores.</Text>
+                    <Text style={styles.textobold}>Aceito prosseguir com a utilização da aplicação e permito a utilização dos dados, que de forma voluntária forneço, confiando em que apenas serão utilizados para fins científicos  nas garantias de confidencialidade e anonimato que me são dados pelos investigadores.</Text>
                     
                
                     
