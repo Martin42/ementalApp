@@ -2,13 +2,22 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { View, Text, StyleSheet} from "react-native";
+import { auth, db } from '../../Firebase';
 
 function Homepage(){
+
+const getData = () => {
+    db
+        .collection('users')
+        .doc(auth.currentUser.uid)
+        .get();
+}
 
 return(
     <View style={styles.container}>
         <StatusBar style={'auto'} />
         <Text>Hello</Text>
+        
     </View>
 )
 }

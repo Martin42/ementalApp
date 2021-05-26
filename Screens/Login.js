@@ -18,6 +18,9 @@ function Login({navigation}){
             navigation.replace('Homepage');
           })
           .catch((error) => alert(error.message));
+          console.log(auth.currentUser.uid);
+
+          
     };
 
 

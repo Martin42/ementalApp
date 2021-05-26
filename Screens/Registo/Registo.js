@@ -17,10 +17,22 @@ function Registo({navigation, route}){
         .createUserWithEmailAndPassword(emailRegisto, passwordRegisto)
         .then(() => {
           alert('Registado com sucesso');
-          navigation.replace('Login')
+          navigation.replace('Login');
+          db.collection('users')
+          .doc(auth.currentUser.uid)
+          .set({
+            name: route.params.nomePedido,
+            email: route.params.emailPedido,
+            mensagem: route.params.mensagemPedido,
+            status: route.params.status,
+          });
         })
         .catch(error => alert(error.message));  
+
+        console.log(auth);
     }
+
+    
 
 
 
