@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
+
 
 
 
@@ -8,25 +9,34 @@ function Info({ route, navigation }) {
 
     console.log(route.params.status);
     return (
-        <View style={styles.container}>
-            <StatusBar style="auto" />
+       
+        <View  style={styles.container}>
+       
 
-            <Image
-                source={require('../../images/emental.png')}
-                style={styles.emental}
-            />  
+                       <StatusBar style="auto" />
+                        <Image
+                            source={require('../../images/emental.png')}
+                            style={styles.emental}
+                        /> 
 
-            <Text style={styles.title}>O que é o eMental</Text>
+                    <View style={{flex: 2}}>
+                        <Text style={styles.title}>O que é o eMental</Text>
 
-            <Text style={styles.subtitle}>O projeto eMental envolve uma equipa multidisciplinar e visa finalizar e avaliar intervenções digitais dirigidas a jovens, estruturadas em conteúdos digitais transmedia, de promoção da literacia em depressão e suicídio. Pretende-se ainda desenhar uma proposta de futura intervenção alargada à população jovem portuguesa. </Text>
-            
-            <TouchableOpacity
-            onPress={() => navigation.navigate('Info2', {status: route.params.status }) }
-            
-            >
-            <Text style={styles.next}>Seguinte</Text>
-            </TouchableOpacity>
-            </View>
+                        <Text style={styles.subtitle}>O projeto eMental envolve uma equipa multidisciplinar e visa finalizar e avaliar intervenções digitais dirigidas a jovens, estruturadas em conteúdos digitais transmedia, de promoção da literacia em depressão e suicídio. Pretende-se ainda desenhar uma proposta de futura intervenção alargada à população jovem portuguesa. </Text>
+                        
+                    
+                        <TouchableOpacity
+                        onPress={() => navigation.navigate('Info2', {status: route.params.status }) }
+                       
+                        
+                        >
+                                    <Text style={styles.next}>Seguinte</Text>
+                        </TouchableOpacity>
+                    </View> 
+                  
+             
+        </View>
+       
     )
 }
 
@@ -34,18 +44,21 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'white',
+        alignItems: 'center',
         width: '100%',
+     
+    
+
     },
 
     emental: {
-        alignContent: 'flex-end',
-        justifyContent: 'flex-end',
-        width: '80%',
+  
+        width: '100%',
         height: '25%',
-        marginTop: '30%',
-        marginRight: 0,
-        marginLeft: '20%',
-        resizeMode: 'center',
+        marginTop: '20%',
+        resizeMode: 'contain',
+        marginLeft: '30%',
+  
     },
 
     title: {
@@ -55,6 +68,7 @@ const styles = StyleSheet.create({
         marginRight: '10%',
         marginTop: '15%',
         marginBottom: '5%',
+        
     },
 
     subtitle: {
@@ -65,14 +79,17 @@ const styles = StyleSheet.create({
         marginRight: '10%',
         marginTop: '3%',
         marginBottom: '5%',
+      
+        
     },
     next: {
         fontSize: 20,
         fontWeight: 'bold',
-        marginLeft: '70%',
-        marginRight: 0,
-        marginTop: '30%',
-        marginBottom: '5%',
+        marginRight: '10%',
+        textAlign: 'right'
+       
+    
+   
     },
 });
 
