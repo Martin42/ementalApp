@@ -33,17 +33,12 @@ function Consentimento({ route, navigation }) {
                     <Text style={styles.texto}>Desde já muito obrigada pela tua colaboração!</Text>
                     <Text style={styles.textobold}>Aceito prosseguir com a utilização da aplicação e permito a utilização dos dados, que de forma voluntária forneço, confiando em que apenas serão utilizados para fins científicos  nas garantias de confidencialidade e anonimato que me são dados pelos investigadores.</Text>
                     
-               
-                    
-                        
-                        <Checkbox 
-                                    onClick={() => validate()}
-                                    isChecked={check}
-                                    unCheckedImage={<Image source={require('../../images/unCheckedParticipar.png')} style={styles.aceito} />} 
-                                    checkedImage={<Image source={require('../../images/checkedParticipar.png')} style={styles.aceito} />} 
-                                
-                                />
-                            
+                    <Checkbox 
+                        onClick={() => validate()}
+                        isChecked={check}
+                        unCheckedImage={<Image source={require('../../images/unCheckedParticipar.png')} style={styles.aceito} />} 
+                        checkedImage={<Image source={require('../../images/checkedParticipar.png')} style={styles.aceito} />} 
+                    />
 
                         { check ? (
                             <TouchableOpacity
@@ -89,16 +84,16 @@ const styles = StyleSheet.create({
     },
 
     title: {
-        fontSize: 30,
+        fontSize: 22,
         fontWeight: 'bold',
         marginLeft: '10%',
         marginRight: '10%',
-        marginTop: '15%',
+        marginTop: '10%',
         marginBottom: '5%',
     },
 
     next: {
-        fontSize: 20,
+        fontSize: 15,
         fontWeight: 'bold',
         marginLeft: '70%',
         marginRight: 0,
@@ -109,20 +104,14 @@ const styles = StyleSheet.create({
         marginLeft: '10%',
         marginRight: '10%',
         paddingBottom: '5%',
-        fontSize: 17,
+        fontSize: 15,
     },
 
     textobold: {
         marginLeft: '10%',
         marginRight: '10%',
         fontWeight: 'bold',
-        fontSize: 17,
-    },
-
-    buttonText: {
-        fontSize: 18,
-        marginLeft: '4%',
-        marginTop: '4%',
+        fontSize: 15,
     },
 
     participar :{
@@ -140,7 +129,8 @@ const styles = StyleSheet.create({
           resizeMode: 'contain',
           width: '80%',
 
-      }
+      },
+
 });
 
 export default Consentimento;
