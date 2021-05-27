@@ -22,13 +22,6 @@ function Botao({navigation}) {
                   
               </TouchableOpacity>
 
-              <TouchableOpacity
-                  onPress={() => navigation.navigate('QiSara')} //remover este touchableopacity depois
-                  >
-                      
-                    <Text>Questionario</Text>
-              </TouchableOpacity>
-  
               <TouchableOpacity 
                   style={styles.login}
                   onPress={() => navigation.navigate('Login')}
