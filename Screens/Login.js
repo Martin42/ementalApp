@@ -1,7 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput } from 'react-native';
-import { useState } from 'react/cjs/react.development';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard} from 'react-native';
 import { auth } from '../Firebase';
 
 
@@ -18,13 +17,18 @@ function Login({navigation}){
             navigation.replace('Homepage');
           })
           .catch((error) => alert(error.message));
-          console.log(auth.currentUser.uid);
+       
 
           
     };
 
 
     return (
+      <KeyboardAvoidingView
+       style={styles.container}
+       >
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+
       <View style={styles.container}>
           <StatusBar style="auto" />
           <Image
@@ -32,54 +36,55 @@ function Login({navigation}){
                     style={styles.relief}
                 />
 
-      <View style={styles.container}>
-
-                <View style={styles.inputField}> 
-                  
-                          <TextInput 
-                            placeholder='Nome do Utilizador'
-                            placeholderTextColor= '#D7D7D7'
-                            style={styles.inputEmail}
-                            onChangeText={LoginEmail => setLoginEmail(LoginEmail)}
+            <View style={styles.container2}>
+                      <View style={styles.inputField}> 
                         
-                          />
-                    
-                          <TextInput 
-                            secureTextEntry={true}
-                            placeholder='Palavra-Passe'
-                            placeholderTextColor= '#D7D7D7'
-                            style={styles.inputPassword}
-                            onChangeText={LoginPassword => setLoginPassword(LoginPassword)}
-                        
-                          />
+                                <TextInput 
+                                  placeholder='Email'
+                                  placeholderTextColor= '#D7D7D7'
+                                  style={styles.inputEmail}
+                                  onChangeText={LoginEmail => setLoginEmail(LoginEmail)}
+                              
+                                />
+                          
+                                <TextInput 
+                                  secureTextEntry={true}
+                                  placeholder='Palavra-Passe'
+                                  placeholderTextColor= '#D7D7D7'
+                                  style={styles.inputPassword}
+                                  onChangeText={LoginPassword => setLoginPassword(LoginPassword)}
+                              
+                                />
 
-                      <Text style={styles.subtitle2}> Esqueceste-te da palavra-passe? </Text>
+                            <Text style={styles.subtitle2}> Esqueceste-te da palavra-passe? </Text>
 
-                  </View>
-
+                        </View>
+              </View>
             
         
+                  <View style={styles.container3}>
+                      <TouchableOpacity 
+                            style={styles.entrar}
+                            onPress={() => signIn()}
+                            >
+                              <Text style={styles.loginText}>Entrar</Text>
+                      </TouchableOpacity>
 
-            <TouchableOpacity 
-                  style={styles.entrar}
-                  onPress={() => signIn()}
-                  >
-                    <Text style={styles.loginText}>Entrar</Text>
-            </TouchableOpacity>
-
-                <Text style={styles.subtitle} > Ainda não tens conta?  
-                
-                       <Text 
-                      style={styles.link}
-                      onPress={() => navigation.navigate('Selecionar')}
-                      > 
-                          Regista-te 
-                      </Text> 
-                      
-                </Text>
-        </View>
+                          <Text style={styles.subtitle} > Ainda não tens conta?  
+                          
+                                <Text 
+                                style={styles.link}
+                                onPress={() => navigation.navigate('Selecionar')}
+                                > 
+                                    Regista-te 
+                                </Text> 
+                                
+                          </Text>
+                  </View>
    
       </View>
+      </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
   )
 }
 
@@ -90,23 +95,34 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
       width: '100%',
-  
+     
     },
-    
-  
-      relief: {
+
+    relief: {
          
-        width: '45%', 
-        height: '22%',
-        marginTop: '25%',
-        resizeMode: 'contain',
-        
+      width: '45%', 
+      height: '22%',
+      marginTop: '25%',
+      resizeMode: 'contain',
+      
+  },
+
+    container2: {
+      flex: 4,
+      alignItems: 'center',
+      width: '100%',
     },
+
+    container3: {
+      flex: 2,
+      alignItems: 'center',
+      width: '100%',
+    },
+  
   
     loginText: {
         color: 'white',
         textAlign: 'center',
-        margin: '3%', 
         fontWeight: 'bold',
         fontSize: 18, 
   
@@ -134,20 +150,17 @@ const styles = StyleSheet.create({
       textDecorationLine: 'none',
       textDecorationColor: '#6578B3',
       textAlign: 'center',
-      marginTop: '.2%',
       fontSize: 15,
-      marginBottom: '15%',
       fontWeight: 'bold',
+  
+      
       
     },
   
     inputField: {
-    
       width: '80%',
-      height: '10%',
-      marginBottom:'10%',
-      
-     
+      height: '100%',
+      marginTop:'27%',
     },
   
     inputEmail: {
@@ -156,7 +169,6 @@ const styles = StyleSheet.create({
         padding: 5,
         fontSize: 15,
         fontWeight: 'bold',
-        marginBottom: '3%',
         color: 'black',
         
       
@@ -168,17 +180,20 @@ const styles = StyleSheet.create({
       padding: 5,
       fontSize: 15,
       fontWeight: 'bold',
-      marginTop: '5%',
+      marginTop: '3%',
+      
     }, 
   
     entrar: {
-      marginTop: '50%',
+      marginTop: '3%',
       borderColor: '#6578B3',
       borderStyle: 'solid',
       borderRadius: 20,
       overflow: 'hidden',
       backgroundColor: '#6578B3',
       width: '80%',
+      padding: '2%',
+   
     }
   
   
