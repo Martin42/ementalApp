@@ -70,15 +70,13 @@ function Login({navigation}){
                               <Text style={styles.loginText}>Entrar</Text>
                       </TouchableOpacity>
 
-                          <Text style={styles.subtitle} > Ainda não tens conta?  
+                          <Text style={styles.subtitle} > Ainda não tens conta?  <Text 
+                                                                                    style={styles.link}
+                                                                                    onPress={() => navigation.navigate('Selecionar')}
+                                                                                    > 
+                                                                                        Regista-te 
+                                                                                    </Text>  
                           
-                                <Text 
-                                style={styles.link}
-                                onPress={() => navigation.navigate('Selecionar')}
-                                > 
-                                    Regista-te 
-                                </Text> 
-                                
                           </Text>
                   </View>
    
