@@ -22,14 +22,13 @@ function Botao({navigation}) {
                       <Text style={styles.registoText}>Registo</Text>
                   
               </TouchableOpacity>
-  
+
               <TouchableOpacity 
                   style={styles.login}
                   onPress={() => navigation.navigate('Login')}
                   >
                       
-                          <Text style={styles.loginText}>Login</Text>
-                      
+                    <Text style={styles.loginText}>Login</Text>
               </TouchableOpacity>
   
                   <Text style={styles.subtitle}> Ainda não conheces o projeto? </Text>
