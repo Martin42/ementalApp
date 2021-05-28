@@ -26,6 +26,7 @@ function Login({navigation}){
     return (
       <KeyboardAvoidingView
        style={styles.container}
+       
        >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
          
       width: '45%', 
       height: '22%',
-      marginTop: '25%',
+      marginTop: '26%',
       resizeMode: 'contain',
       
   },
@@ -158,7 +159,7 @@ const styles = StyleSheet.create({
     inputField: {
       width: '80%',
       height: '100%',
-      marginTop:'27%',
+      marginTop:'25%',
     },
   
     inputEmail: {

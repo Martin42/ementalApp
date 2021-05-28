@@ -10,9 +10,18 @@ function Registo({navigation, route}){
 
     const [emailRegisto, setemailRegisto] = useState('');
     const [passwordRegisto, setpasswordRegisto] = useState('');
+    const [passwordConfirmacao, setpasswordConfirmacao] = useState('');
 
 
     const RegistoFinal = () => {
+
+      // if (passwordRegisto != passwordConfirmacao) {
+      //   alert('Não foi possível confirmar a palavra passe')
+      // } else if (emailRegisto === '' || passwordRegisto === '' || passwordConfirmacao === '') {
+      //             alert('Por favor preencha todos os campos')
+
+      //         } else {
+
       auth
         .createUserWithEmailAndPassword(emailRegisto, passwordRegisto)
         .then(() => {
@@ -23,13 +32,13 @@ function Registo({navigation, route}){
           .set({
             name: route.params.nomePedido,
             email: route.params.emailPedido,
-            mensagem: route.params.mensagemPedido,
+            area: route.params.mensagemPedido,
             status: route.params.status,
           });
         })
         .catch(error => alert(error.message));  
 
-        console.log(auth);
+      // }
     }
 
     
@@ -51,10 +60,10 @@ function Registo({navigation, route}){
                 <View style={styles.inputField}> 
                   
                           <TextInput 
-                            placeholder='Nome do Utilizador'
+                            placeholder='Email'
                             placeholderTextColor= '#D7D7D7'
                             style={styles.inputEmail}
-                            onChangeText={emailRegisto => setemailRegisto(emailRegisto)}
+                            onEndEditing={emailRegisto => setemailRegisto(emailRegisto)}
                         
                           />
                     
@@ -63,9 +72,19 @@ function Registo({navigation, route}){
                             placeholder='Palavra-Passe'
                             placeholderTextColor= '#D7D7D7'
                             style={styles.inputPassword}
-                            onChangeText={passwordRegisto => setpasswordRegisto(passwordRegisto)}
+                            onEndEditing={passwordRegisto => setpasswordRegisto(passwordRegisto)}
                         
                           />
+
+                            <TextInput 
+                            secureTextEntry={true}
+                            placeholder='Confirme a Palavra-Passe'
+                            placeholderTextColor= '#D7D7D7'
+                            style={styles.inputPassword}
+                            onEndEditing={passwordConfirmacao => setpasswordConfirmacao(passwordConfirmacao)}
+                        
+                          />
+
 
 
                   </View>

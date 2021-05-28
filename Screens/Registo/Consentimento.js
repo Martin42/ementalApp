@@ -93,7 +93,8 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: 'bold',
         marginRight: '10%',
-        textAlign: 'right'
+        textAlign: 'right',
+        marginBottom: '10%',
     },
 
     texto: {
@@ -115,6 +116,7 @@ const styles = StyleSheet.create({
           marginRight: '10%',  
           resizeMode: 'center',
           width: '80%',
+        
       
     
       
