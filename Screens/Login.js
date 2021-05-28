@@ -45,6 +45,7 @@ function Login({navigation}){
                                   placeholderTextColor= '#D7D7D7'
                                   style={styles.inputEmail}
                                   onChangeText={LoginEmail => setLoginEmail(LoginEmail)}
+                                  keyboardType='email-address'
                               
                                 />
                           
