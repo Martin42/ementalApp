@@ -15,7 +15,7 @@ function Homepage() {
 
     return (
         <ScrollView style={styles.container}>
-            <View>
+            <View style={styles.container}>
             <StatusBar style={'auto'} />
 
             <Text style={styles.title1}>Conteúdos</Text>
@@ -121,14 +121,12 @@ const styles = StyleSheet.create({
     },
 
     conteudo: { //Imagem da Sara (conteudos)
-        width: '90%',
-        height: '35%',
+
         marginLeft:'5%',
         marginRight: '5%',
-        alignItems: 'center',
-        justifyContent: 'center',
         marginTop: '3%',
-        resizeMode: 'contain',
+        width: 100, // Com scroll view as percentagens partem o scroll na página !!!
+        height: 100,
 
     },
 
