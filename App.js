@@ -11,8 +11,9 @@ import Consentimento from './Screens/Registo/Consentimento';
 import Pedido from './Screens/Registo/Pedido';
 import Registo from './Screens/Registo/Registo';
 import Homepage from './Screens/App/Homepage';
-import QiSara from './Screens/App/Sara/QiSara';
-import QiSara2 from './Screens/App/Sara/QiSara2';
+import QiSaraA from './Screens/App/Sara/QiSaraA';
+import QiSaraB from './Screens/App/Sara/QiSaraB';
+import QiSaraC from './Screens/App/Sara/QiSaraC';
 
 const Stack = createStackNavigator();
 
@@ -34,8 +35,9 @@ export default function App() {
               <Stack.Screen name='Pedido' component={Pedido} />
               <Stack.Screen name='Registo' component={Registo} />
               <Stack.Screen name='Homepage' component={Homepage} options={{gestureEnabled: false}}/>
-              <Stack.Screen name='QiSara' component={QiSara} />
-              <Stack.Screen name='QiSara2' component={QiSara2} />
+              <Stack.Screen name='QiSaraA' component={QiSaraA} />
+              <Stack.Screen name='QiSaraB' component={QiSaraB} />
+              <Stack.Screen name='QiSaraC' component={QiSaraC} />
           </Stack.Navigator>
         </NavigationContainer>
   );
