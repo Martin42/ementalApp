@@ -13,6 +13,8 @@ function Homepage({ route, navigation }) {
     //         .get();
     // }
 
+
+
     return (
         <ScrollView style={styles.container}>
             <View>
@@ -59,6 +61,11 @@ function Homepage({ route, navigation }) {
                 <Text style={styles.title4}>Exclusivo a profissionais de saúde</Text>
 
             </View>
+
+
+
+          
+
 
         </ScrollView>
     )
