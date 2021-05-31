@@ -15,13 +15,8 @@ function Homepage({ route, navigation }) {
 
     return (
         <ScrollView style={styles.container}>
-<<<<<<< HEAD
-            <View style={styles.container}>
-            <StatusBar style={'auto'} />
-=======
             <View>
                 <StatusBar style={'auto'} />
->>>>>>> 15174f3e3e89fc923a0d6d93f7d64e7f612003ac
 
                 <Text style={styles.title1}>Conteúdos</Text>
 
