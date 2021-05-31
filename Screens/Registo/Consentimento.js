@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginRight: '10%',
         textAlign: 'right',
-        marginBottom: '10%',
+        marginBottom: '15%',
     },
 
     texto: {
@@ -115,7 +115,8 @@ const styles = StyleSheet.create({
           marginLeft: '10%',
           marginRight: '10%',  
           resizeMode: 'center',
-          width: '80%',
+          width: 280,
+          height: 100,
         
       
     

@@ -33,7 +33,7 @@ export default function App() {
               <Stack.Screen name='Consentimento' component={Consentimento} />
               <Stack.Screen name='Pedido' component={Pedido} />
               <Stack.Screen name='Registo' component={Registo} />
-              <Stack.Screen name='Homepage' component={Homepage} options={{gestureEnabled: false}}/>
+              <Stack.Screen name='Homepage' component={Homepage} />
               <Stack.Screen name='QiSara' component={QiSara} />
               <Stack.Screen name='QiSara2' component={QiSara2} />
           </Stack.Navigator>
