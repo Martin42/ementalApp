@@ -93,14 +93,14 @@ function Registo({navigation, route}){
                     <Text style={styles.loginText}>Finalizar Registo</Text>
             </TouchableOpacity>
 
-                <Text style={styles.subtitle} > Já tens conta?  
+                <Text style={styles.subtitle} > Já tens conta?  <Text 
+                                                                    style={styles.link}
+                                                                    onPress={() => navigation.navigate('Login')}
+                                                                    > 
+                                                                    Faz Login
+                                                                    </Text> 
                 
-                       <Text 
-                      style={styles.link}
-                      onPress={() => navigation.navigate('Login')}
-                      > 
-                          Faz Login
-                      </Text> 
+                     
                       
                 </Text>
 
