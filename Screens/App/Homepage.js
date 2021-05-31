@@ -1,10 +1,10 @@
 
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity} from "react-native";
 import { auth, db } from '../../Firebase';
 
-function Homepage() {
+function Homepage({ route, navigation }) {
 
     const getData = () => {
         db
@@ -15,29 +15,40 @@ function Homepage() {
 
     return (
         <ScrollView style={styles.container}>
+<<<<<<< HEAD
             <View style={styles.container}>
             <StatusBar style={'auto'} />
+=======
+            <View>
+                <StatusBar style={'auto'} />
+>>>>>>> 15174f3e3e89fc923a0d6d93f7d64e7f612003ac
 
-            <Text style={styles.title1}>Conteúdos</Text>
+                <Text style={styles.title1}>Conteúdos</Text>
 
-            <Text style={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim.</Text>
+                <Text style={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim.</Text>
             </View>
             <View style={styles.container2}>
 
                 <Text style={styles.title2}>Websérie</Text>
 
                 <Text style={styles.title3}>A Ferida Sara</Text>
-                <Image
-                    source={require('../../images/Sara.png')}
-                    style={styles.conteudo}
 
-                />
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('QiSaraA')}
+
+                >
+                    <Image
+                        source={require('../../images/Sara.png')}
+                        style={styles.conteudo}
+
+                    />
+                </TouchableOpacity>
                 <Text style={styles.title2}>Podcast</Text>
                 <Text style={styles.title3}>Um Marco na Vida</Text>
 
 
                 <Image
-                    source={require('../../images/Sara.png')}
+                    source={require('../../images/marcoNaVida.png')}
                     style={styles.conteudo}
 
                 />
@@ -46,12 +57,12 @@ function Homepage() {
 
                 <Text style={styles.title3}>40 segundos</Text>
                 <Image
-                    source={require('../../images/Sara.png')}
+                    source={require('../../images/conteudoBloqueado.png')}
                     style={styles.conteudo}
 
                 />
                 <Text style={styles.title4}>Exclusivo a profissionais de saúde</Text>
-                
+
             </View>
 
         </ScrollView>
@@ -114,16 +125,21 @@ const styles = StyleSheet.create({
     },
 
     title4: {
-        alignItems:'center',
+        textAlign: 'center',
+        marginTop: '3%',
+        marginBottom: '10%',
         marginLeft: '10%',
         marginRight: '10%',
         fontSize: 10,
     },
 
     conteudo: { //Imagem da Sara (conteudos)
-
-        marginLeft:'5%',
-        marginRight: '5%',
+        width: 332,
+        height: 169,
+        marginLeft: '8%',
+        marginRight: '8%',
+        alignItems: 'center',
+        justifyContent: 'center',
         marginTop: '3%',
         width: 100, // Com scroll view as percentagens partem o scroll na página !!!
         height: 100,

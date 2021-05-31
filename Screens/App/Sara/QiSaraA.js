@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ScrollView, Checkbox, StatusBar, StyleSheet, TouchableOpacity, Text, Image, View } from "react-native";
 import { NavigationEvents, withOrientation } from 'react-navigation';
 
-function QiSara2({route, navigation}){
+function QiSaraA({route, navigation}){
 
     return(
         <View style={styles.container}>
@@ -10,12 +10,12 @@ function QiSara2({route, navigation}){
 
             <View style={styles.balao}>
                 <Text style={styles.title}>Questionário Inicial</Text>
-                <Text style={styles.subtitle}>Secção B: ffe</Text>
-                <Text style={styles.texto}>ff</Text>
+                <Text style={styles.subtitle}>Secção A: Consentimento de Participação e Confidencialidade</Text>
+                <Text style={styles.texto}>A1. Aceito participar neste estudo e permito a utilização dos dados, que de forma voluntária forneço, confiando em que apenas serão utilizados para fins científicos e publicações que dela decorram e nas garantias de confidencialidade e anonimato que me são dados pelos investigadores.</Text>
 
                 <TouchableOpacity style={styles.botao}
-                    onPress={() => navigation.navigate('Login')}>
-                  <Text style={styles.buttonText}>blabla</Text>
+                    onPress={() => navigation.navigate('QiSaraB')}>
+                  <Text style={styles.buttonText}>Aceito participar</Text>
               </TouchableOpacity>                 
                 
             </View>
@@ -93,19 +93,21 @@ const styles = StyleSheet.create({
 
     buttonText: {
         fontSize: 15,
-        marginLeft: '4%',
-        marginTop: '4%',
+        color: 'black',
+        borderRadius: 30,
+        marginLeft: '8%',
+        marginTop: '5%',
     },
 
     botao:{
-        marginTop: '7%',
+        marginTop: '5%',
         borderRadius: 30,
         overflow: 'hidden',
         backgroundColor: 'white',
         marginLeft: '10%',
         marginRight: '10%',
-        height: 42,
+        height: 50,
       },
 });
 
-export default QiSara2;
+export default QiSaraA;
