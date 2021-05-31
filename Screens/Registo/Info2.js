@@ -15,7 +15,7 @@ function Info2({route, navigation}){
                 <View style={styles.container}>
                     <Text style={styles.title}>A Ferida Sara</Text>
 
-                    <Text style={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel.</Text>
+                    <Text style={styles.text}>"DEEP" É uma intervenção psicoeducativa de formato audiovisual, estruturada numa web-série designada "A Ferida Sara", de base narrativa, sobre a vida da estudante universitária Sara, intercalados com episódios psicoeducativos.</Text>
                 
                     <Image 
                         source={require('../../images/Sara.png')}
@@ -46,7 +46,7 @@ function Info2({route, navigation}){
                         
                             <Text style={estilos.title4}>40 Segundos</Text>
 
-                            <Text style={estilos.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel.</Text>
+                            <Text style={estilos.text}>“40 segundos” é uma intervenção psicoeducativa,​ composta por vídeos, promotores da sensibilização para o diálogo sobre sinais de risco suicidário. A intervenção visa sensibilizar os intervenientes para a importância da saúde mental e para os procedimentos de atuação ao lidar com um indivíduo com ideias suicidas.</Text>
 
                             <Image 
                                     source={require('../../images/40.png')}
@@ -56,11 +56,11 @@ function Info2({route, navigation}){
                         
                     </View>
                     
-                    <View style={estilos.container}>
+                    <View style={estilos.container1}>
 
                             <Text style={estilos.title}>A Ferida Sara</Text>
 
-                            <Text style={estilos.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel.</Text>
+                            <Text style={estilos.text}>"DEEP" É uma intervenção psicoeducativa de formato audiovisual, estruturada numa web-série designada "A Ferida Sara", de base narrativa, sobre a vida da estudante universitária Sara, intercalados com episódios psicoeducativos.</Text>
                         
                       
                             <Image 
@@ -155,13 +155,19 @@ const styles = StyleSheet.create({
 const estilos = StyleSheet.create({
 
     container: {
-        flex: 2,
+        flex: 1.2,
+        backgroundColor: 'white',
+        width: '100%',
+      },
+
+      container1: {
+        flex: 1,
         backgroundColor: 'white',
         width: '100%',
       },
   
       container2: {
-          flex: 1,
+          flex: .4,
           backgroundColor: 'white',
           width: '100%',
       

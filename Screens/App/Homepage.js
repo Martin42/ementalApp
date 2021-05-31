@@ -6,12 +6,12 @@ import { auth, db } from '../../Firebase';
 
 function Homepage({ route, navigation }) {
 
-    const getData = () => {
-        db
-            .collection('users')
-            .doc(auth.currentUser.uid)
-            .get();
-    }
+    // const getData = () => {
+    //     db
+    //         .collection('users')
+    //         .doc(auth.currentUser.uid)
+    //         .get();
+    // }
 
     return (
         <ScrollView style={styles.container}>
@@ -129,16 +129,13 @@ const styles = StyleSheet.create({
     },
 
     conteudo: { //Imagem da Sara (conteudos)
-        width: 332,
-        height: 169,
+        width: 365,
+        height: 180,
         marginLeft: '8%',
         marginRight: '8%',
-        alignItems: 'center',
-        justifyContent: 'center',
         marginTop: '3%',
-        width: 100, // Com scroll view as percentagens partem o scroll na página !!!
-        height: 100,
-
+        resizeMode: 'contain',
+       
     },
 
 
