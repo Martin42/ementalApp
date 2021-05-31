@@ -20,7 +20,7 @@ function Info({ route, navigation }) {
                         /> 
 
                     <View style={{flex: 2}}>
-                        <Text style={styles.title}>O que é o eMental</Text>
+                        <Text style={styles.title}>O que é o eMental ?</Text>
 
                         <Text style={styles.subtitle}>O projeto eMental envolve uma equipa multidisciplinar e visa finalizar e avaliar intervenções digitais dirigidas a jovens, estruturadas em conteúdos digitais transmedia, de promoção da literacia em depressão e suicídio. Pretende-se ainda desenhar uma proposta de futura intervenção alargada à população jovem portuguesa. </Text>
                         

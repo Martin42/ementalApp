@@ -1,7 +1,6 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput, SafeAreaView, KeyboardAvoidingView, ScrollView} from "react-native";
-import TextArea from 'react-native-textarea';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView} from "react-native";
+
 
 
 
@@ -15,7 +14,7 @@ function Pedido({ route, navigation }) {
 
     return (
 
-        <KeyboardAvoidingView style={{flex: 1}} behavior='height' enabled> 
+        <ScrollView contentContainerStyle={styles.container}> 
             <View style={styles.container}>
             
                 <Text style={styles.title}>Pedido de Acesso</Text>
@@ -67,7 +66,7 @@ function Pedido({ route, navigation }) {
                             </TouchableOpacity>
                         </View> 
             </View>     
-        </KeyboardAvoidingView>
+        </ScrollView>
     )
 
 
@@ -79,6 +78,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'white',
         width: '100%',
+       
     },
 
     container2: {

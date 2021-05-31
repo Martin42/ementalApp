@@ -1,4 +1,4 @@
-import { StyleSheet, Text, Image, View } from "react-native";
+import { StyleSheet, Text, Image, View, ScrollView } from "react-native";
 import React from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -41,7 +41,7 @@ function Info2({route, navigation}){
 
     else {
         return (
-            <View style={estilos.container}>
+            <ScrollView contentContainerStyle={estilos.container}>
                     <View style={estilos.container}>
                         
                             <Text style={estilos.title4}>40 Segundos</Text>
@@ -83,7 +83,7 @@ function Info2({route, navigation}){
                             </TouchableOpacity>
                     </View>
         
-        </View>
+        </ScrollView>
     )}
 
 }
