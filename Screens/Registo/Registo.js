@@ -1,7 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput } from 'react-native';
-import { useState } from 'react/cjs/react.development';
+import React, { useState} from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput, ScrollView } from 'react-native';
 import { auth, db } from '../../Firebase';
 
 
@@ -46,19 +44,22 @@ function Registo({navigation, route}){
 
 
     return (
-      <View style={styles.container}>
-          <StatusBar style="auto" />
-          <Image
-                    source={require('../../images/relief.png')}
-                    style={styles.relief}
-                />
+      <ScrollView contentContainerStyle={styles.container}>
+        
 
-      <View style={styles.container}> 
+       
 
-      {/* KeyboardAvoidingView para o teclado não interferir com a página ? */}
 
-                <View style={styles.inputField}> 
+        <View style={styles.container2}>
+
                   
+
+                        <Image
+                                    source={require('../../images/relief.png')}
+                                    style={styles.relief}
+                                />
+                  
+      
                           <TextInput 
                             placeholder='Email'
                             placeholderTextColor= '#D7D7D7'
@@ -80,17 +81,10 @@ function Registo({navigation, route}){
                             secureTextEntry={true}
                             placeholder='Confirme a Palavra-Passe'
                             placeholderTextColor= '#D7D7D7'
-                            style={styles.inputPassword}
+                            style={styles.inputConfirmacao}
                             onEndEditing={passwordConfirmacao => setpasswordConfirmacao(passwordConfirmacao)}
                         
                           />
-
-
-
-                  </View>
-
-            
-        
 
             <TouchableOpacity 
                 style={styles.entrar}
@@ -109,9 +103,11 @@ function Registo({navigation, route}){
                       </Text> 
                       
                 </Text>
-        </View>
+
+                </View>
+      
    
-      </View>
+      </ScrollView>
   )
 }
 
@@ -124,13 +120,22 @@ const styles = StyleSheet.create({
       width: '100%',
   
     },
+
+    container2: {
+      flex: 2,
+      backgroundColor: 'white',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '100%',
+  
+    },
+    
     
   
       relief: {
-         
+        marginTop: '10%',
         width: '45%', 
         height: '22%',
-        marginTop: '25%',
         resizeMode: 'contain',
         
     },
@@ -172,15 +177,7 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       
     },
-  
-    inputField: {
-    
-      width: '80%',
-      height: '10%',
-      marginBottom:'10%',
-      
-     
-    },
+
   
     inputEmail: {
         borderColor: '#D7D7D7',
@@ -188,8 +185,9 @@ const styles = StyleSheet.create({
         padding: 5,
         fontSize: 15,
         fontWeight: 'bold',
-        marginBottom: '3%',
         color: 'black',
+        width: '80%',
+        marginTop: '23%',
         
       
     },
@@ -200,11 +198,24 @@ const styles = StyleSheet.create({
       padding: 5,
       fontSize: 15,
       fontWeight: 'bold',
-      marginTop: '5%',
+      marginTop: '3%',
+      width: '80%',
     }, 
   
+
+    inputConfirmacao: {
+      borderColor: '#D7D7D7',
+      borderBottomWidth: 1,
+      padding: 5,
+      fontSize: 15,
+      fontWeight: 'bold',
+      marginTop: '3%',
+      width: '80%',
+    }, 
+
+
     entrar: {
-      marginTop: '50%',
+      marginTop: '30%',
       borderColor: '#6578B3',
       borderStyle: 'solid',
       borderRadius: 20,
