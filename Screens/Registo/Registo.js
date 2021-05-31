@@ -198,7 +198,7 @@ const styles = StyleSheet.create({
       padding: 5,
       fontSize: 15,
       fontWeight: 'bold',
-      marginTop: '3%',
+      marginTop: '4%',
       width: '80%',
     }, 
   
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
       padding: 5,
       fontSize: 15,
       fontWeight: 'bold',
-      marginTop: '3%',
+      marginTop: '4%',
       width: '80%',
     }, 
 
