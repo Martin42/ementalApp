@@ -42,50 +42,46 @@ function Info2({route, navigation}){
     else {
         return (
             <ScrollView contentContainerStyle={estilos.container}>
-                    <View style={estilos.container}>
-                        
-                            <Text style={estilos.title4}>40 Segundos</Text>
+                <View style={estilos.container}>  
+                    <Text style={estilos.title4}>40 Segundos</Text>
 
-                            <Text style={estilos.text}>“40 segundos” é uma intervenção psicoeducativa,​ composta por vídeos, promotores da sensibilização para o diálogo sobre sinais de risco suicidário. A intervenção visa sensibilizar os intervenientes para a importância da saúde mental e para os procedimentos de atuação ao lidar com um indivíduo com ideias suicidas.</Text>
+                    <Text style={estilos.text}>“40 segundos” é uma intervenção psicoeducativa,​ composta por vídeos, promotores da sensibilização para o diálogo sobre sinais de risco suicidário. A intervenção visa sensibilizar os intervenientes para a importância da saúde mental e para os procedimentos de atuação ao lidar com um indivíduo com ideias suicidas.</Text>
 
-                            <Image 
-                                    source={require('../../images/40.png')}
-                                    style={estilos.segundos}
-                                
-                            />
-                        
-                    </View>
+                    <Image 
+                        source={require('../../images/40.png')}
+                        style={estilos.segundos}
+                    />
+                </View>
+                
+                <View style={estilos.container1}>
+
+                        <Text style={estilos.title}>A Ferida Sara</Text>
+
+                        <Text style={estilos.text}>"DEEP" É uma intervenção psicoeducativa de formato audiovisual, estruturada numa web-série designada "A Ferida Sara", de base narrativa, sobre a vida da estudante universitária Sara, intercalados com episódios psicoeducativos.</Text>
                     
-                    <View style={estilos.container1}>
-
-                            <Text style={estilos.title}>A Ferida Sara</Text>
-
-                            <Text style={estilos.text}>"DEEP" É uma intervenção psicoeducativa de formato audiovisual, estruturada numa web-série designada "A Ferida Sara", de base narrativa, sobre a vida da estudante universitária Sara, intercalados com episódios psicoeducativos.</Text>
+                    
+                        <Image 
+                            source={require('../../images/Sara.png')}
+                            style={estilos.sara2}
                         
-                      
-                            <Image 
-                                source={require('../../images/Sara.png')}
-                                style={estilos.sara2}
-                            
-                            />
-                    </View>
+                        />
+                </View>
 
-                    <View style={estilos.container2}>
-                            <Text style={estilos.title3}>Um Marco na Vida</Text>
+                <View style={estilos.container2}>
+                        <Text style={estilos.title3}>Um Marco na Vida</Text>
 
-                            <Text style={estilos.text}> Em breve!</Text>
-                      
-                            <TouchableOpacity
-                                onPress={() => navigation.navigate('Info3', { status: route.params.status }) } 
-                            
-                            >
-                                <Text style={estilos.next2}>Seguinte</Text>
-                            </TouchableOpacity>
-                    </View>
-        
-        </ScrollView>
-    )}
-
+                        <Text style={estilos.text}> Em breve!</Text>
+                    
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Info3', { status: route.params.status }) } 
+                        
+                        >
+                            <Text style={estilos.next2}>Seguinte</Text>
+                        </TouchableOpacity>
+                </View>
+            </ScrollView>
+        )
+    }
 }
 
 
@@ -106,7 +102,7 @@ const styles = StyleSheet.create({
       },
 
     title: {
-        fontSize: 30,
+        fontSize: 22,
         fontWeight: 'bold',
         marginLeft: '10%',
         marginBottom: '5%',
@@ -115,7 +111,7 @@ const styles = StyleSheet.create({
     },
 
     title2: {
-        fontSize: 30,
+        fontSize: 22,
         fontWeight: 'bold',
         marginLeft: '10%',
         marginBottom: '5%',
@@ -141,12 +137,11 @@ const styles = StyleSheet.create({
     },
 
     next: {
-        fontSize: 20,
+        fontSize: 17,
         fontWeight: 'bold',
         marginTop: '20%',
         marginRight: '10%',
         textAlign: 'right'
-      
     },
 
 
@@ -174,7 +169,7 @@ const estilos = StyleSheet.create({
         },
 
         title: {
-            fontSize: 30,
+            fontSize: 22,
             fontWeight: 'bold',
             marginLeft: '10%',
             marginTop: '5%',
@@ -183,13 +178,13 @@ const estilos = StyleSheet.create({
         },
   
       title3:{
-          fontSize: 30,
+          fontSize: 22,
           fontWeight: 'bold',
           marginLeft: '10%',
       },
   
       title4:{
-          fontSize: 30,
+          fontSize: 22,
           fontWeight: 'bold',
           marginTop: '10%',
           marginLeft: '10%',
@@ -222,7 +217,7 @@ const estilos = StyleSheet.create({
       },
   
       next2: {
-        fontSize: 20,
+        fontSize: 17,
         fontWeight: 'bold',
         marginRight: '10%',
         textAlign: 'right'

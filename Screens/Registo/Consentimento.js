@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     },
 
     next: {
-        fontSize: 15,
+        fontSize: 17,
         fontWeight: 'bold',
         marginRight: '10%',
         textAlign: 'right',
@@ -111,18 +111,13 @@ const styles = StyleSheet.create({
         fontSize: 15,
     },
 
-      aceito: {
-          marginLeft: '10%',
-          marginRight: '10%',  
-          resizeMode: 'center',
-          width: 280,
-          height: 100,
-        
-      
-    
-      
-
-      },
+    aceito: {
+        marginLeft: '10%',
+        marginRight: '10%',  
+        resizeMode: 'center',
+        width: 280,
+        height: 100,
+    },
 
 });
 

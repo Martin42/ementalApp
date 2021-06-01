@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     },
 
     title: {
-        fontSize: 30,
+        fontSize: 22,
         fontWeight: 'bold',
         marginLeft: '10%',
         marginRight: '10%',
@@ -51,15 +51,14 @@ const styles = StyleSheet.create({
     },
 
     next: {
-        fontSize: 20,
+        fontSize: 17,
         fontWeight: 'bold',
-        marginLeft: '70%',
-        marginTop: '90%',
-      
+        marginLeft: '40%',
+        marginTop: '120%',
     },
 
 });
 
 
 
-    export default Info3;
+export default Info3;

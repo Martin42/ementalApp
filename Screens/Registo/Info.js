@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     },
 
     title: {
-        fontSize: 30,
+        fontSize: 22,
         fontWeight: 'bold',
         marginLeft: '15%',
         marginRight: '10%',
@@ -83,11 +83,12 @@ const styles = StyleSheet.create({
         
     },
     next: {
-        fontSize: 20,
+        fontSize: 17,
         fontWeight: 'bold',
         marginRight: '10%',
         textAlign: 'right',
         marginTop: '25%',
+
        
     
    
