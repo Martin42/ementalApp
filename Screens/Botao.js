@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, Linking } from 'react-native';
 
+ 
 
 function Botao({navigation}) {
     return (
@@ -12,7 +13,7 @@ function Botao({navigation}) {
                       style={styles.relief}
                   />
   
-  
+            <View style={styles.container2}>
               <TouchableOpacity 
                   style={styles.registo}
                   onPress={() => navigation.navigate('Selecionar')}
@@ -24,7 +25,7 @@ function Botao({navigation}) {
 
               <TouchableOpacity 
                   style={styles.login}
-                  onPress={() => navigation.navigate('Login')}
+                  onPress={() => navigation.navigate('Login')} 
                   >
                       
                     <Text style={styles.loginText}>Login</Text>
@@ -35,6 +36,7 @@ function Botao({navigation}) {
                   <Text style={styles.link} onPress={() => Linking.openURL('http://emental.web.ua.pt')}>
                       Visita o nosso website
                   </Text>
+                </View>
         </View>
     )
   }
@@ -46,27 +48,36 @@ function Botao({navigation}) {
       alignItems: 'center',
       justifyContent: 'center',
       width: '100%',
-  
+
+     
+    },
+
+    container2: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '100%',
+      marginTop: '60%',
+     
     },
     
   
       relief: {
-         
+        marginTop: '25%',
         width: '45%', 
         height: '22%',
-        marginTop: '25%',
         resizeMode: 'contain',
         
     },
   
     registo: {
-        marginTop: '90%',
         width: '80%',
         borderWidth: 1.5,
         borderColor: '#6578B3',
         borderStyle: 'solid',
         borderRadius: 20,
         overflow: 'hidden',
+        padding: '2%',
         
     },
   
@@ -78,13 +89,13 @@ function Botao({navigation}) {
         borderRadius: 20,
         overflow: 'hidden',
         backgroundColor: '#6578B3',
+        padding: '2%',
         
     },
   
     registoText: {
         color: '#6578B3',
         textAlign: 'center',
-        margin: '3%',   
         fontWeight: 'bold',
         fontSize: 18,
     },
@@ -92,7 +103,6 @@ function Botao({navigation}) {
     loginText: {
         color: 'white',
         textAlign: 'center',
-        margin: '3%', 
         fontWeight: 'bold',
         fontSize: 18, 
   
@@ -102,7 +112,7 @@ function Botao({navigation}) {
         fontWeight: 'bold',
         color: '#D7D7D7',
         textAlign: 'center',
-        marginTop: '6%',
+        marginTop: '5%',
         fontSize: 15,
     },
   
@@ -112,9 +122,8 @@ function Botao({navigation}) {
         textDecorationLine: 'underline',
         textDecorationColor: '#6578B3',
         textAlign: 'center',
-        marginTop: '.2%',
         fontSize: 15,
-        marginBottom: '15%',
+        marginTop: '.2%',
     },
   
   

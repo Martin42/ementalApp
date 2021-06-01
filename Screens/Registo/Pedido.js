@@ -1,24 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput, SafeAreaView} from "react-native";
-import TextArea from 'react-native-textarea';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView} from "react-native";
+
 
 
 
 function Pedido({ route, navigation }) {
-    console.log(route.params.status);
+
+    console.log(route.params.status)
 
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [mensagem, setMensagem] = useState('');
 
     return (
-        <SafeAreaView style={styles.container}>
 
-            <StatusBar style= "auto" />
+        <ScrollView contentContainerStyle={styles.container}> 
+            <View style={styles.container}>
             
-            
-            <View style={{marginTop: '15%'}}>
                 <Text style={styles.title}>Pedido de Acesso</Text>
 
                 <Text style={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra</Text>
@@ -31,9 +29,7 @@ function Pedido({ route, navigation }) {
                             placeholder= 'Nome'
                             backgroundColor= '#CFE0FB'
                             placeholderTextColor= 'white'
-                            onChangeText={nome => setNome(nome)}
-                        
-                        
+                            onEndEditing={nome => setNome(nome)}
                         />
 
                         <TextInput 
@@ -41,39 +37,36 @@ function Pedido({ route, navigation }) {
                             placeholder= 'Email'
                             backgroundColor= '#CFE0FB'
                             placeholderTextColor= 'white'
-                            onChangeText={email => setEmail(email)}
-                        
-                        
+                            onEndEditing={email => setEmail(email)}
+                            keyboardType='email-address'
                         />
 
-                        <TextArea 
+                        <TextInput 
                             style={styles.inputMensagem}
-                            placeholder= 'Mensagem'
+                            placeholder= 'Área de Especialidade'
                             backgroundColor= '#CFE0FB'
                             placeholderTextColor= 'white'
-                            multiline={true}
-                            containerStyle={styles.inputMensagemContainer}
-                            onChangeText={mensagem => setMensagem(mensagem)}
-                            
-                        
-                        
+                            onEndEditing={mensagem => setMensagem(mensagem)}
                         />
+                        </View>
 
-                        <TouchableOpacity
-                            onPress={() => navigation.navigate('Registo', { status: route.params.status, nomePedido: nome, emailPedido: email, mensagemPedido: mensagem }) }
-                        
-                        >
-                            <Text style={styles.next}>Seguinte</Text>
-                        </TouchableOpacity>
+                        <View style={styles.container2}>
+                            <TouchableOpacity
+                                onPress={() => { if (nome == '' || email == '' || mensagem == '') {
+                                                        alert('Por favor preencha todos os campos')
 
-                    </View>
+                                                    } else {   
 
-                
-
-            </View>
-
-                
-        </SafeAreaView>
+                                                        navigation.navigate('Registo', { status: route.params.status, nomePedido: nome, emailPedido: email, mensagemPedido: mensagem }) 
+                                                    }
+                                        }
+                                    }
+                            >
+                                <Text style={styles.next}>Seguinte</Text>
+                            </TouchableOpacity>
+                        </View> 
+            </View>     
+        </ScrollView>
     )
 
 
@@ -85,6 +78,13 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'white',
         width: '100%',
+       
+    },
+
+    container2: {
+        flex: .5,
+        backgroundColor: 'white',
+        width: '100%',
     },
 
     title: {
@@ -93,6 +93,7 @@ const styles = StyleSheet.create({
         marginLeft: '10%',
         marginRight: '10%',
         marginBottom: '5%',
+        marginTop: '15%',
       
     },
 
@@ -110,7 +111,7 @@ const styles = StyleSheet.create({
     },
 
     inputField: {
-    
+        flex: 3,
         width: '80%',
         height: '15%',
         marginBottom:'10%',
@@ -124,48 +125,35 @@ const styles = StyleSheet.create({
         padding: 15,
         fontSize: 18,
         fontWeight: 'bold',
-        marginBottom: '7%',
+        marginBottom: '5%',
         color: 'black',
         borderRadius: 20,
-        height: '100%',
+      
       },
 
       inputEmail: {
         padding: 15,
         fontSize: 18,
         fontWeight: 'bold',
-        marginBottom: '7%',
+        marginBottom: '5%',
         color: 'black',
         borderRadius: 20,
-        height: '100%',
-
       },
 
       inputMensagem: {
         fontSize: 18,
         fontWeight: 'bold',
-        marginBottom: '7%',
         color: 'black',
         borderRadius: 20,
-        paddingLeft: 15,
-        height: '120%',
-        textAlignVertical: 'top',
-        paddingTop: 25,
-        paddingRight: 15,
-
-      },
-
-      inputMensagemContainer: {
-            marginBottom: '50%', // espaço do input para o seguinte
-
+        padding: 15,
+     
       },
 
       next: {
         fontSize: 20,
         fontWeight: 'bold',
-        marginLeft: '70%',
-        marginTop: '20%',
-        marginBottom: '5%',
+        marginRight: '10%',
+        textAlign: 'right',
     },
 
 });

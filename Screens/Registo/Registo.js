@@ -1,7 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput } from 'react-native';
-import { useState } from 'react/cjs/react.development';
+import React, { useState} from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput, ScrollView } from 'react-native';
 import { auth, db } from '../../Firebase';
 
 
@@ -10,9 +8,18 @@ function Registo({navigation, route}){
 
     const [emailRegisto, setemailRegisto] = useState('');
     const [passwordRegisto, setpasswordRegisto] = useState('');
+    const [passwordConfirmacao, setpasswordConfirmacao] = useState('');
 
 
     const RegistoFinal = () => {
+
+      // if (passwordRegisto != passwordConfirmacao) {
+      //   alert('Não foi possível confirmar a palavra passe')
+      // } else if (emailRegisto === '' || passwordRegisto === '' || passwordConfirmacao === '') {
+      //             alert('Por favor preencha todos os campos')
+
+      //         } else {
+
       auth
         .createUserWithEmailAndPassword(emailRegisto, passwordRegisto)
         .then(() => {
@@ -23,13 +30,13 @@ function Registo({navigation, route}){
           .set({
             name: route.params.nomePedido,
             email: route.params.emailPedido,
-            mensagem: route.params.mensagemPedido,
+            area: route.params.mensagemPedido,
             status: route.params.status,
           });
         })
         .catch(error => alert(error.message));  
 
-        console.log(auth);
+      // }
     }
 
     
@@ -37,24 +44,27 @@ function Registo({navigation, route}){
 
 
     return (
-      <View style={styles.container}>
-          <StatusBar style="auto" />
-          <Image
-                    source={require('../../images/relief.png')}
-                    style={styles.relief}
-                />
+      <ScrollView contentContainerStyle={styles.container}>
+        
 
-      <View style={styles.container}> 
+       
 
-      {/* KeyboardAvoidingView para o teclado não interferir com a página ? */}
 
-                <View style={styles.inputField}> 
+        <View style={styles.container2}>
+
                   
+
+                        <Image
+                                    source={require('../../images/relief.png')}
+                                    style={styles.relief}
+                                />
+                  
+      
                           <TextInput 
-                            placeholder='Nome do Utilizador'
+                            placeholder='Email'
                             placeholderTextColor= '#D7D7D7'
                             style={styles.inputEmail}
-                            onChangeText={emailRegisto => setemailRegisto(emailRegisto)}
+                            onEndEditing={emailRegisto => setemailRegisto(emailRegisto)}
                         
                           />
                     
@@ -63,15 +73,18 @@ function Registo({navigation, route}){
                             placeholder='Palavra-Passe'
                             placeholderTextColor= '#D7D7D7'
                             style={styles.inputPassword}
-                            onChangeText={passwordRegisto => setpasswordRegisto(passwordRegisto)}
+                            onEndEditing={passwordRegisto => setpasswordRegisto(passwordRegisto)}
                         
                           />
 
-
-                  </View>
-
-            
-        
+                            <TextInput 
+                            secureTextEntry={true}
+                            placeholder='Confirme a Palavra-Passe'
+                            placeholderTextColor= '#D7D7D7'
+                            style={styles.inputConfirmacao}
+                            onEndEditing={passwordConfirmacao => setpasswordConfirmacao(passwordConfirmacao)}
+                        
+                          />
 
             <TouchableOpacity 
                 style={styles.entrar}
@@ -80,19 +93,21 @@ function Registo({navigation, route}){
                     <Text style={styles.loginText}>Finalizar Registo</Text>
             </TouchableOpacity>
 
-                <Text style={styles.subtitle} > Já tens conta?  
+                <Text style={styles.subtitle} > Já tens conta?  <Text 
+                                                                    style={styles.link}
+                                                                    onPress={() => navigation.navigate('Login')}
+                                                                    > 
+                                                                    Faz Login
+                                                                    </Text> 
                 
-                       <Text 
-                      style={styles.link}
-                      onPress={() => navigation.navigate('Login')}
-                      > 
-                          Faz Login
-                      </Text> 
+                     
                       
                 </Text>
-        </View>
+
+                </View>
+      
    
-      </View>
+      </ScrollView>
   )
 }
 
@@ -105,13 +120,22 @@ const styles = StyleSheet.create({
       width: '100%',
   
     },
+
+    container2: {
+      flex: 2,
+      backgroundColor: 'white',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '100%',
+  
+    },
+    
     
   
       relief: {
-         
+        marginTop: '10%',
         width: '45%', 
         height: '22%',
-        marginTop: '25%',
         resizeMode: 'contain',
         
     },
@@ -153,15 +177,7 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       
     },
-  
-    inputField: {
-    
-      width: '80%',
-      height: '10%',
-      marginBottom:'10%',
-      
-     
-    },
+
   
     inputEmail: {
         borderColor: '#D7D7D7',
@@ -169,8 +185,9 @@ const styles = StyleSheet.create({
         padding: 5,
         fontSize: 15,
         fontWeight: 'bold',
-        marginBottom: '3%',
         color: 'black',
+        width: '80%',
+        marginTop: '23%',
         
       
     },
@@ -181,11 +198,24 @@ const styles = StyleSheet.create({
       padding: 5,
       fontSize: 15,
       fontWeight: 'bold',
-      marginTop: '5%',
+      marginTop: '4%',
+      width: '80%',
     }, 
   
+
+    inputConfirmacao: {
+      borderColor: '#D7D7D7',
+      borderBottomWidth: 1,
+      padding: 5,
+      fontSize: 15,
+      fontWeight: 'bold',
+      marginTop: '4%',
+      width: '80%',
+    }, 
+
+
     entrar: {
-      marginTop: '50%',
+      marginTop: '30%',
       borderColor: '#6578B3',
       borderStyle: 'solid',
       borderRadius: 20,

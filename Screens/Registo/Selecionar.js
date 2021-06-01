@@ -44,7 +44,7 @@ function Selecionar ({navigation}) {
                   <Text style={styles.buttonText}>Profissional de Saúde Mental</Text>
               </TouchableOpacity>
 
-              <Text style={styles.descricao}>Já tens conta?<Text style={styles.link} onPress={() =>  navigation.navigate('Login')}> Faz Login </Text></Text>
+              <Text style={styles.descricao}>Já tens conta ?<Text style={styles.link} onPress={() =>  navigation.navigate('Login')}> Efetua o Login</Text></Text>
 
           </View>
       </View>
@@ -96,6 +96,7 @@ const styles = StyleSheet.create({
     marginLeft: '10%',
     marginRight: '10%',
     height: 42,
+   
     
   },
 

@@ -14,8 +14,6 @@ function Consentimento({ route, navigation }) {
     }
 
 
-    console.log(route.params.status);
-
     return (
         <View style={styles.container}>
             <StatusBar style="auto" />
@@ -77,7 +75,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#CFE0FB',
         borderColor: '#CFE0FB',
         borderRadius: 30,
-        height: '85%',
         width: '80%',
         marginTop: '15%',
         marginBottom: '15%',
@@ -95,9 +92,9 @@ const styles = StyleSheet.create({
     next: {
         fontSize: 15,
         fontWeight: 'bold',
-        marginLeft: '70%',
-        marginRight: 0,
-        marginBottom: '5%',
+        marginRight: '10%',
+        textAlign: 'right',
+        marginBottom: '15%',
     },
 
     texto: {
@@ -114,20 +111,16 @@ const styles = StyleSheet.create({
         fontSize: 15,
     },
 
-    participar :{
-        borderRadius: 15,
-        overflow: 'hidden',
-        backgroundColor: 'white',
-        marginLeft: '10%',
-        marginRight: '10%',
-        
-      },
-
       aceito: {
           marginLeft: '10%',
           marginRight: '10%',  
-          resizeMode: 'contain',
-          width: '80%',
+          resizeMode: 'center',
+          width: 280,
+          height: 100,
+        
+      
+    
+      
 
       },
 

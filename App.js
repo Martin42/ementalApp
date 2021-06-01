@@ -19,6 +19,9 @@ const Stack = createStackNavigator();
 
 export default function App() {
   return (
+
+<>
+
     <NavigationContainer>
           <Stack.Navigator 
           screenOptions={{
@@ -39,7 +42,15 @@ export default function App() {
               <Stack.Screen name='QiSaraB' component={QiSaraB} />
               <Stack.Screen name='QiSaraC' component={QiSaraC} />
           </Stack.Navigator>
+
+
+
         </NavigationContainer>
+
+
+        </>
+    
+
   );
 }
 
