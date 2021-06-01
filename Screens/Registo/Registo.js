@@ -64,7 +64,7 @@ function Registo({navigation, route}){
                             placeholder='Email'
                             placeholderTextColor= '#D7D7D7'
                             style={styles.inputEmail}
-                            onEndEditing={emailRegisto => setemailRegisto(emailRegisto)}
+                            onChangeText={emailRegisto => setemailRegisto(emailRegisto)}
                         
                           />
                     
@@ -73,18 +73,18 @@ function Registo({navigation, route}){
                             placeholder='Palavra-Passe'
                             placeholderTextColor= '#D7D7D7'
                             style={styles.inputPassword}
-                            onEndEditing={passwordRegisto => setpasswordRegisto(passwordRegisto)}
+                            onChangeText={passwordRegisto => setpasswordRegisto(passwordRegisto)}
                         
                           />
 
-                            <TextInput 
+                            {/* <TextInput 
                             secureTextEntry={true}
                             placeholder='Confirme a Palavra-Passe'
                             placeholderTextColor= '#D7D7D7'
                             style={styles.inputConfirmacao}
                             onEndEditing={passwordConfirmacao => setpasswordConfirmacao(passwordConfirmacao)}
                         
-                          />
+                          /> */}
 
             <TouchableOpacity 
                 style={styles.entrar}

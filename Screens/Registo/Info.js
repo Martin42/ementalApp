@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     },
 
     subtitle: {
-        fontSize: 20,
+        fontSize: 15,
         color: '#6B6B6B',
         fontWeight: 'normal',
         marginLeft: '15%',
@@ -86,7 +86,8 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         marginRight: '10%',
-        textAlign: 'right'
+        textAlign: 'right',
+        marginTop: '25%',
        
     
    
