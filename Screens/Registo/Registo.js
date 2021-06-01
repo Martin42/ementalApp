@@ -13,12 +13,12 @@ function Registo({navigation, route}){
 
     const RegistoFinal = () => {
 
-      // if (passwordRegisto != passwordConfirmacao) {
-      //   alert('Não foi possível confirmar a palavra passe')
-      // } else if (emailRegisto === '' || passwordRegisto === '' || passwordConfirmacao === '') {
-      //             alert('Por favor preencha todos os campos')
+      if (passwordRegisto != passwordConfirmacao) {
+        alert('Não foi possível confirmar a palavra passe')
+      } else if (emailRegisto === '' || passwordRegisto === '' || passwordConfirmacao === '') {
+                  alert('Por favor preencha todos os campos')
 
-      //         } else {
+              } else {
 
       auth
         .createUserWithEmailAndPassword(emailRegisto, passwordRegisto)
@@ -36,19 +36,13 @@ function Registo({navigation, route}){
         })
         .catch(error => alert(error.message));  
 
-      // }
+      }
+
     }
-
-    
-
 
 
     return (
       <ScrollView contentContainerStyle={styles.container}>
-        
-
-       
-
 
         <View style={styles.container2}>
 
@@ -65,6 +59,7 @@ function Registo({navigation, route}){
                             placeholderTextColor= '#D7D7D7'
                             style={styles.inputEmail}
                             onChangeText={emailRegisto => setemailRegisto(emailRegisto)}
+                            keyboardType='email-address'
                         
                           />
                     
@@ -74,17 +69,18 @@ function Registo({navigation, route}){
                             placeholderTextColor= '#D7D7D7'
                             style={styles.inputPassword}
                             onChangeText={passwordRegisto => setpasswordRegisto(passwordRegisto)}
-                        
+                            
                           />
 
-                            {/* <TextInput 
+                            <TextInput 
                             secureTextEntry={true}
                             placeholder='Confirme a Palavra-Passe'
                             placeholderTextColor= '#D7D7D7'
                             style={styles.inputConfirmacao}
-                            onEndEditing={passwordConfirmacao => setpasswordConfirmacao(passwordConfirmacao)}
+                            onChangeText={passwordConfirmacao => setpasswordConfirmacao(passwordConfirmacao)}
+                            
                         
-                          /> */}
+                          />
 
             <TouchableOpacity 
                 style={styles.entrar}
