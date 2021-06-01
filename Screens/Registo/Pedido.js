@@ -15,7 +15,7 @@ function Pedido({ route, navigation }) {
     return (
 
         <ScrollView contentContainerStyle={styles.container}> 
-            <View style={styles.container}>
+            <View style={styles.container1}>
             
                 <Text style={styles.title}>Pedido de Acesso</Text>
 
@@ -78,13 +78,23 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'white',
         width: '100%',
-       
+
+    },
+
+    container1: {
+        flex: 1,
+        backgroundColor: 'white',
+        width: '100%',
+        alignContent: 'center',
+        justifyContent: 'center',
     },
 
     container2: {
         flex: .5,
         backgroundColor: 'white',
         width: '100%',
+        alignContent: 'center',
+        justifyContent: 'center',
     },
 
     title: {
@@ -117,6 +127,8 @@ const styles = StyleSheet.create({
         marginBottom:'10%',
         marginLeft: '10%',
         marginTop: '5%',
+        alignContent: 'center',
+        justifyContent: 'center',
     
        
       },
