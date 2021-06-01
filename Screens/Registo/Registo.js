@@ -129,40 +129,36 @@ const styles = StyleSheet.create({
       width: '100%',
   
     },
-    
-    
   
-      relief: {
-        marginTop: '10%',
-        width: '45%', 
-        height: '22%',
-        resizeMode: 'contain',
-        
+    relief: {
+      marginTop: '10%',
+      width: '45%', 
+      height: '22%',
+      resizeMode: 'contain',
     },
   
     loginText: {
-        color: 'white',
-        textAlign: 'center',
-        margin: '3%', 
-        fontWeight: 'bold',
-        fontSize: 18, 
-  
+      color: 'white',
+      textAlign: 'center',
+      margin: '3%', 
+      fontWeight: 'bold',
+      fontSize: 18, 
     },
   
     subtitle: {
-        fontWeight: 'bold',
-        color: '#D7D7D7',
-        textAlign: 'center',
-        marginTop: '6%',
-        fontSize: 15,
+      fontWeight: 'bold',
+      color: '#D7D7D7',
+      textAlign: 'center',
+      marginTop: '6%',
+      fontSize: 20,
     },
   
     subtitle2: {
-        marginTop: '4%',
-        fontWeight: 'bold',
-        color: '#D7D7D7',
-        textAlign: 'center',
-        fontSize: 15,
+      marginTop: '4%',
+      fontWeight: 'bold',
+      color: '#D7D7D7',
+      textAlign: 'center',
+      fontSize: 20,
     },
   
   
@@ -175,7 +171,6 @@ const styles = StyleSheet.create({
       fontSize: 15,
       marginBottom: '15%',
       fontWeight: 'bold',
-      
     },
 
   
@@ -188,8 +183,6 @@ const styles = StyleSheet.create({
         color: 'black',
         width: '80%',
         marginTop: '23%',
-        
-      
     },
   
     inputPassword: {
