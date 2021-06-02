@@ -10,7 +10,7 @@ function Consentimento({ route, navigation }) {
 
     function validate(){
         setCheck(true);
-
+        
     }
 
 

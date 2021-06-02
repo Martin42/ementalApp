@@ -19,9 +19,16 @@ function Pedido({ route, navigation }) {
             
                 <Text style={styles.title}>Pedido de Acesso</Text>
 
-                <Text style={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra</Text>
+                <Text style={styles.text}>Se és profissional de saúde e gostarias de ter acesso a todo o conteúdo audiovisual disponível na uMind (incluindo conteúdo sensivel e tal) 
+                                                    pede acesso aos nossos administradores e junta-te à equipa.
+                                                    Em breve receberás um update sobre o resultado da tua aprovação, até lá disfruta da aplicação com as limitações de conteúdo sensível.
+                                                    Escreve uma breve mensagem que permita o administrador comprovar a tua profissão e o que esperas da nossa aplicação.
+
+                                                    Caso não estejas interessado(a), prossegue para a homepage no botão "continuar como estudante".</Text>
             
                 <Text style={styles.text2}> Por favor, preencha os campos abaixo:</Text>
+
+                </View>
 
                     <View  style={styles.inputField}>
                         <TextInput 
@@ -65,7 +72,7 @@ function Pedido({ route, navigation }) {
                                 <Text style={styles.next}>Seguinte</Text>
                             </TouchableOpacity>
                         </View> 
-            </View>     
+              
         </ScrollView>
     )
 
@@ -78,11 +85,13 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'white',
         width: '100%',
+        alignContent: 'center',
+        justifyContent: 'center',
 
     },
 
     container1: {
-        flex: 1,
+        flex: 2,
         backgroundColor: 'white',
         width: '100%',
         alignContent: 'center',
@@ -90,7 +99,7 @@ const styles = StyleSheet.create({
     },
 
     container2: {
-        flex: .5,
+        flex: 1,
         backgroundColor: 'white',
         width: '100%',
         alignContent: 'center',
@@ -103,7 +112,7 @@ const styles = StyleSheet.create({
         marginLeft: '10%',
         marginRight: '10%',
         marginBottom: '5%',
-        marginTop: '15%',
+   
       
     },
 
@@ -121,12 +130,11 @@ const styles = StyleSheet.create({
     },
 
     inputField: {
-        flex: 3,
+        flex: 1,
         width: '80%',
         height: '15%',
         marginBottom:'10%',
         marginLeft: '10%',
-        marginTop: '5%',
         alignContent: 'center',
         justifyContent: 'center',
     
