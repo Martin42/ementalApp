@@ -32,15 +32,20 @@ function Consentimento({ route, navigation }) {
                     
                     {/* <Text style={{textAlign: 'center', paddingBottom: 20}}><Image source={require('../../images/arrow.png')} style={styles.arrow}/></Text> */} 
 
+                    <View style={{width: '100%'}}>
                     <Checkbox 
+                        style={styles.checkbox}
                         onClick={() => validate()}
                         isChecked={check}
                         unCheckedImage={<Image source={require('../../images/unCheckedParticipar.png')} style={styles.aceito} />} 
                         checkedImage={<Image source={require('../../images/checkedParticipar.png')} style={styles.aceito} />} 
                     />
 
+                    </View>
+
                         { check ? (
                             <TouchableOpacity
+                            style={styles.touchable}
                             onPress={() =>{ if (route.params.status == 0) {
                                     navigation.navigate('Registo', { status: route.params.status, nomePedido: 'estudante', emailPedido: 'null', mensagemPedido: 'null' })
                                 }else{
@@ -93,8 +98,23 @@ const styles = StyleSheet.create({
     next: {
         fontSize: 17,
         fontWeight: 'bold',
-        marginRight: '10%',
-        textAlign: 'right',
+     
+    
+    },
+
+    touchable: {
+        width: '20%', 
+        marginRight: '3%',
+        position: 'absolute',
+        right: 0,
+        top: '83%',
+  
+    },
+
+    checkbox: {
+        width: '100%', 
+        height: '23.5%', 
+        marginTop: '5%',
         marginBottom: '15%',
     },
 
@@ -116,8 +136,11 @@ const styles = StyleSheet.create({
         marginLeft: '10%',
         marginRight: '10%',  
         resizeMode: 'center',
+        height: 50,
         width: 280,
-        height: 100,
+        marginBottom: '10%',
+
+       
     },
 
     arrow: {

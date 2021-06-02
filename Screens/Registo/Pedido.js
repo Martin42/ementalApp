@@ -59,6 +59,7 @@ function Pedido({ route, navigation }) {
 
                         <View style={styles.container2}>
                             <TouchableOpacity
+                                style={styles.touchable}
                                 onPress={() => { if (nome == '' || email == '' || mensagem == '') {
                                                         alert('Por favor preencha todos os campos')
 
@@ -172,8 +173,14 @@ const styles = StyleSheet.create({
       next: {
         fontSize: 17,
         fontWeight: 'bold',
-        marginRight: '10%',
-        textAlign: 'right',
+    },
+
+    touchable: {
+        width: '20%', 
+        position: 'absolute', 
+        right: 0,
+        marginRight: '3%',
+        marginBottom: '8%',
     },
 
 });
