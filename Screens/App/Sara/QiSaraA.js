@@ -9,9 +9,9 @@ function QiSaraA({route, navigation}){
             <StatusBar style="auto" />
 
             <View style={styles.balao}>
-                <Text style={styles.title}>Questionário Inicial</Text>
-                <Text style={styles.subtitle}>Secção A: Consentimento de Participação e Confidencialidade</Text>
-                <Text style={styles.texto}>A1. Aceito participar neste estudo e permito a utilização dos dados, que de forma voluntária forneço, confiando em que apenas serão utilizados para fins científicos e publicações que dela decorram e nas garantias de confidencialidade e anonimato que me são dados pelos investigadores.</Text>
+                <Text style={styles.title}>Do you mind?</Text>
+                <Text style={styles.texto}>Antes de iniciares a visualização d'A Ferida Sara pedimos que respondas a este questionário.</Text>
+                <Text style={styles.texto}>Aceito participar neste estudo e permito a utilização dos dados, que de forma voluntária forneço, confiando em que apenas serão utilizados para fins científicos e publicações que dela decorram e nas garantias de confidencialidade e anonimato que me são dados pelos investigadores.</Text>
 
                 <TouchableOpacity style={styles.botao}
                     onPress={() => navigation.navigate('QiSaraB')}>
@@ -75,6 +75,7 @@ const styles = StyleSheet.create({
         marginRight: '10%',
         paddingBottom: '5%',
         fontSize: 15,
+        color: 'black',
     },
 
     textobold: {
@@ -89,6 +90,15 @@ const styles = StyleSheet.create({
         marginRight: '10%',  
         resizeMode: 'contain',
         width: '80%',
+        marginTop: '2%',
+    },
+
+    aceito2: {
+        marginLeft: '10%',
+        marginRight: '10%',  
+        resizeMode: 'contain',
+        width: '80%',
+        marginBottom:'10%',
     },
 
     buttonText: {
