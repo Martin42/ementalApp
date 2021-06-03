@@ -127,6 +127,7 @@ const styles = StyleSheet.create({
     textDecorationLine: 'none',
     textDecorationColor: '#6578B3',
     color: '#6578B3',
+    fontSize: 15,
   }
 
 

@@ -9,8 +9,12 @@ function Consentimento({ route, navigation }) {
     const [check, setCheck] = useState(false);
 
     function validate(){
-        setCheck(true);
-        
+
+        if (check === false) {
+            setCheck(true);
+        } else {
+            setCheck(false);
+        }
     }
 
 
@@ -20,7 +24,8 @@ function Consentimento({ route, navigation }) {
 
             <ScrollView 
                 style={styles.balao} 
-                persistentScrollbar={true}
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
             >
                 <View>
                     <Text style={styles.title}>Consentimento</Text>
@@ -30,7 +35,7 @@ function Consentimento({ route, navigation }) {
                     <Text style={styles.texto}>Desde já muito obrigada pela tua colaboração!</Text>
                     <Text style={styles.textobold}>Aceito prosseguir com a utilização da aplicação e permito a utilização dos dados, que de forma voluntária forneço, confiando em que apenas serão utilizados para fins científicos  nas garantias de confidencialidade e anonimato que me são dados pelos investigadores.</Text>
                     
-                    {/* <Text style={{textAlign: 'center', paddingBottom: 20}}><Image source={require('../../images/arrow.png')} style={styles.arrow}/></Text> */} 
+                    <Text style={{textAlign: 'center', padding: 20 }}><Image source={require('../../images/arrow.png')} style={styles.arrow}/></Text> 
 
                     <View style={{width: '100%'}}>
                     <Checkbox 
