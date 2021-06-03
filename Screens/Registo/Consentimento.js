@@ -42,8 +42,8 @@ function Consentimento({ route, navigation }) {
                         style={styles.checkbox}
                         onClick={() => validate()}
                         isChecked={check}
-                        unCheckedImage={<Image source={require('../../images/unCheckedParticipar.png')} style={styles.aceito} />} 
-                        checkedImage={<Image source={require('../../images/checkedParticipar.png')} style={styles.aceito} />} 
+                        unCheckedImage={<Image source={require('../../images/Participar_unchecked.png')} style={styles.aceito} />} 
+                        checkedImage={<Image source={require('../../images/Participar_checked.png')} style={styles.aceito} />} 
                     />
 
                     </View>

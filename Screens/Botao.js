@@ -2,42 +2,49 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, Linking } from 'react-native';
 
- 
 
 function Botao({navigation}) {
     return (
-            <View style={styles.container}>
-                  <StatusBar style="auto" />
-                  <Image
-                      source={require('../images/relief.png')}
-                      style={styles.relief}
-                  />
-  
-            <View style={styles.container2}>
-              <TouchableOpacity 
-                  style={styles.registo}
-                  onPress={() => navigation.navigate('Selecionar')}
-                  >
-                 
-                      <Text style={styles.registoText}>Registo</Text>
-                  
-              </TouchableOpacity>
+      <View style={styles.container}>
+        <StatusBar style="auto" />
+        <Image
+            source={require('../images/relief.png')}
+            style={styles.relief}
+        />
 
-              <TouchableOpacity 
-                  style={styles.login}
-                  onPress={() => navigation.navigate('Login')} 
-                  >
-                      
-                    <Text style={styles.loginText}>Login</Text>
-              </TouchableOpacity>
-  
-                  <Text style={styles.subtitle}> Ainda não conheces o projeto? </Text>
-  
-                  <Text style={styles.link} onPress={() => Linking.openURL('http://emental.web.ua.pt')}>
-                      Visita o nosso website
-                  </Text>
-                </View>
+        <View style={styles.container2}>
+          <TouchableOpacity 
+            style={styles.registo}
+            onPress={() => navigation.navigate('Selecionar')}
+            >
+            
+            <Text style={styles.registoText}>Registo</Text>
+              
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={styles.registo}
+            onPress={() => navigation.navigate('QiSaraF')}
+            >
+            
+            <Text style={styles.registoText}>QiSara</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={styles.login}
+            onPress={() => navigation.navigate('Login')} 
+            >
+                
+            <Text style={styles.loginText}>Login</Text>
+          </TouchableOpacity>
+
+          <Text style={styles.subtitle}> Ainda não conheces o projeto? </Text>
+
+          <Text style={styles.link} onPress={() => Linking.openURL('http://emental.web.ua.pt')}>
+              Visita o nosso website
+          </Text>
         </View>
+      </View>
     )
   }
 

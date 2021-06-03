@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     marginLeft: '10%',
     marginRight: '10%',
-    height: 42,
+    height: 50,
   },
 
   pds:{
@@ -105,13 +105,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     marginLeft: '10%',
     marginRight: '10%',
-    height: 42,
+    height: 50,
   },
 
   buttonText: {
     fontSize: 15,
-    marginLeft: '4%',
-    marginTop: '4%',
+    marginLeft: '8%',
+    marginTop: '5%',
   },
 
   descricao: {
