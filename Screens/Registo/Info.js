@@ -26,6 +26,7 @@ function Info({ route, navigation }) {
                         
                     
                         <TouchableOpacity
+                        style={styles.touchable}
                         onPress={() => navigation.navigate('Info2', {status: route.params.status }) }
                        
                         
@@ -85,13 +86,17 @@ const styles = StyleSheet.create({
     next: {
         fontSize: 17,
         fontWeight: 'bold',
+        textAlign: 'center',
+    },
+
+    touchable: {
+        width: '20%',
+        alignSelf: 'flex-end',
         marginRight: '10%',
-        textAlign: 'right',
-        marginTop: '25%',
+        marginBottom: '10%',
+        marginTop: '27%',
 
        
-    
-   
     },
 });
 

@@ -19,12 +19,11 @@ function Pedido({ route, navigation }) {
             
                 <Text style={styles.title}>Pedido de Acesso</Text>
 
-                <Text style={styles.text}>Se és profissional de saúde e gostarias de ter acesso a todo o conteúdo audiovisual disponível na uMind (incluindo conteúdo sensivel e tal) 
-                                                    pede acesso aos nossos administradores e junta-te à equipa.
-                                                    Em breve receberás um update sobre o resultado da tua aprovação, até lá disfruta da aplicação com as limitações de conteúdo sensível.
-                                                    Escreve uma breve mensagem que permita o administrador comprovar a tua profissão e o que esperas da nossa aplicação.
-
-                                                    Caso não estejas interessado(a), prossegue para a homepage no botão "continuar como estudante".</Text>
+                <Text style={styles.text}>
+                    Se é profissional de saúde e gostaria de ter acesso a todo o conteúdo audiovisual disponível na uMind, pedimos-lhe que faça aqui o seu pedido. 
+                    Após a confirmação por parte da equipa de administradores, terá acesso à intervenção '40 Segundos'. 
+                    Enquanto o pedido não é processado, terá acesso à aplicação enquanto estudante mas rapidamente tentaremos resolver o pedido ! 
+                </Text>
             
                 <Text style={styles.text2}> Por favor, preencha os campos abaixo:</Text>
 
@@ -177,10 +176,9 @@ const styles = StyleSheet.create({
 
     touchable: {
         width: '20%', 
-        position: 'absolute', 
-        right: 0,
-        marginRight: '3%',
-        marginBottom: '8%',
+        alignSelf: 'flex-end',
+        marginRight: '8%',
+  
     },
 
 });

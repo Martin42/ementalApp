@@ -29,10 +29,12 @@ function Info2({route, navigation}){
 
                     <Text style={styles.text}> Em breve!</Text>
               
-                    <TouchableOpacity
-                     onPress={() => navigation.navigate('Info3', { status: route.params.status, nomePedido: 'estudante', emailPedido: 'null', mensagemPedido: 'null' }) }>
-                        <Text style={styles.next}>Seguinte</Text>
-                    </TouchableOpacity>
+                    <View style={styles.touchable}>
+                        <TouchableOpacity
+                        onPress={() => navigation.navigate('Info3', { status: route.params.status, nomePedido: 'estudante', emailPedido: 'null', mensagemPedido: 'null' }) }>
+                            <Text style={styles.next}>Seguinte</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
 
         
@@ -41,21 +43,20 @@ function Info2({route, navigation}){
 
     else {
         return (
-            <ScrollView contentContainerStyle={estilos.container}>
-                <View style={estilos.container}>  
-                    <Text style={estilos.title4}>40 Segundos</Text>
+            <View style={{flex: 1}}>
+            <ScrollView>
+               
+                    <Text style={estilos.title40}>40 Segundos</Text>
 
-                    <Text style={estilos.text}>“40 segundos” é uma intervenção psicoeducativa,​ composta por vídeos, promotores da sensibilização para o diálogo sobre sinais de risco suicidário. A intervenção visa sensibilizar os intervenientes para a importância da saúde mental e para os procedimentos de atuação ao lidar com um indivíduo com ideias suicidas.</Text>
+                    <Text style={estilos.text}>É uma intervenção psicoeducativa,​ composta por vídeos, promotores da sensibilização para o diálogo sobre sinais de risco suicidário. A intervenção visa sensibilizar os intervenientes para a importância da saúde mental e para os procedimentos de atuação ao lidar com um indivíduo com ideias suicidas.</Text>
 
                     <Image 
                         source={require('../../images/40.png')}
                         style={estilos.segundos}
                     />
-                </View>
-                
-                <View style={estilos.container1}>
+         
 
-                        <Text style={estilos.title}>A Ferida Sara</Text>
+                        <Text style={estilos.titleSara}>A Ferida Sara</Text>
 
                         <Text style={estilos.text}>"DEEP" É uma intervenção psicoeducativa de formato audiovisual, estruturada numa web-série designada "A Ferida Sara", de base narrativa, sobre a vida da estudante universitária Sara, intercalados com episódios psicoeducativos.</Text>
                     
@@ -65,21 +66,20 @@ function Info2({route, navigation}){
                             style={estilos.sara2}
                         
                         />
-                </View>
+               
+                        <Text style={estilos.titleMarco}>Um Marco na Vida</Text>
 
-                <View style={estilos.container2}>
-                        <Text style={estilos.title3}>Um Marco na Vida</Text>
-
-                        <Text style={estilos.text}> Em breve!</Text>
-                    
+                        <Text style={estilos.text}> Podcast a ser adicionado em breve!</Text>
+                    <View  style={estilos.touchable}>
                         <TouchableOpacity
                             onPress={() => navigation.navigate('Info3', { status: route.params.status }) } 
                         
                         >
                             <Text style={estilos.next2}>Seguinte</Text>
                         </TouchableOpacity>
-                </View>
+                    </View>
             </ScrollView>
+            </View>
         )
     }
 }
@@ -139,9 +139,17 @@ const styles = StyleSheet.create({
     next: {
         fontSize: 17,
         fontWeight: 'bold',
+        textAlign: 'center'
+    },
+
+    touchable: {
+        width: '20%',
+        alignSelf: 'flex-end',
+        marginRight: '8%',
+        marginBottom: '10%',
         marginTop: '20%',
-        marginRight: '10%',
-        textAlign: 'right'
+
+       
     },
 
 
@@ -149,81 +157,70 @@ const styles = StyleSheet.create({
 
 const estilos = StyleSheet.create({
 
-    container: {
-        flex: 1.2,
-        backgroundColor: 'white',
-        width: '100%',
-      },
-
-      container1: {
-        flex: 1,
-        backgroundColor: 'white',
-        width: '100%',
-      },
-  
-      container2: {
-          flex: .4,
-          backgroundColor: 'white',
-          width: '100%',
-      
-        },
-
-        title: {
-            fontSize: 22,
-            fontWeight: 'bold',
-            marginLeft: '10%',
-            marginTop: '5%',
+    title40:{
+        fontSize: 22,
+        fontWeight: 'bold',
+        marginTop: '15%',
+        marginLeft: '10%',
         
-          
-        },
-  
-      title3:{
-          fontSize: 22,
-          fontWeight: 'bold',
-          marginLeft: '10%',
-      },
-  
-      title4:{
-          fontSize: 22,
-          fontWeight: 'bold',
-          marginTop: '10%',
-          marginLeft: '10%',
-         
-      },
-  
-      sara2: {
-          width: '80%',
-          height: '40%',
-          resizeMode: 'contain',
-          marginLeft: '10%',
-          marginTop: '3%',
-      },
-  
-      segundos: {
-          resizeMode: 'contain',
-          width: '80%',
-          height: '40%',
-          marginLeft: '10%',
-          marginRight: '10%',
-          marginTop: '3%',
-        
-      },
-  
-      text: {
-          marginLeft: '10%',
-          marginRight: '10%',
-          fontSize: 15,
-          textAlign: 'justify',
-      },
-  
-      next2: {
+    },
+
+    titleSara: {
+        fontSize: 22,
+        fontWeight: 'bold',
+        marginLeft: '10%',
+        marginTop: '10%',   
+    },
+
+    titleMarco:{
+        fontSize: 22,
+        fontWeight: 'bold',
+        marginLeft: '10%',
+        marginTop: '10%'
+    },
+
+    sara2: {
+        width: 350,
+        height: 175,
+        resizeMode: 'contain',
+        alignSelf: 'center',
+        marginTop: '4%',
+    },
+
+    segundos: {
+        width: 350,
+        height: 175,
+        resizeMode: 'contain',
+        alignSelf: 'center',
+    },
+
+    text: {
+        marginLeft: '10%',
+        marginRight: '10%',
+        marginTop: '2%',
+        marginBottom: '2%',
+        fontSize: 15,
+        textAlign: 'justify',
+    
+    },
+
+    next2: {
         fontSize: 17,
         fontWeight: 'bold',
-        marginRight: '10%',
-        textAlign: 'right'
-      
-      },
+        textAlign: 'right',
+       
+    },
   
+    touchable: {
+        width: '20%',
+        alignSelf: 'flex-end',
+        marginRight: '10%',
+        marginBottom: '10%',
+        marginTop: '5%',
+
+       
+    },
+
 
 })
 
