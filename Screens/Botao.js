@@ -23,14 +23,6 @@ function Botao({navigation}) {
           </TouchableOpacity>
 
           <TouchableOpacity 
-            style={styles.registo}
-            onPress={() => navigation.navigate('QiSaraF')}
-            >
-            
-            <Text style={styles.registoText}>QiSara</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity 
             style={styles.login}
             onPress={() => navigation.navigate('Login')} 
             >
