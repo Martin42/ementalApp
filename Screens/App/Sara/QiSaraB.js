@@ -197,16 +197,16 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         marginLeft: '10%',
         marginRight: '10%',
-        height: 50,
+        height: 42,
         marginBottom: '10%'
       },
 
     inputMensagem: {
-        fontSize: 15,
+        fontSize: 14,
         color: 'black',
         borderRadius: 30,
-        marginLeft: '8%',
-        marginTop: '4%',
+        marginLeft: '9%',
+        marginTop: '3%',
     },
 
     container: {
