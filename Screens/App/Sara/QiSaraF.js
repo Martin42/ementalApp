@@ -377,6 +377,7 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
         width: '80%',
         marginBottom:'10%',
+        marginTop: '2%',
     },
 
     buttonText: {
