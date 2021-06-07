@@ -1,8 +1,15 @@
+<<<<<<< Updated upstream
 
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity} from "react-native";
 import { auth, db } from '../../Firebase';
+=======
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from "react-native";
+
+>>>>>>> Stashed changes
 
 function PlaylistSara({ route, navigation }) {
 
@@ -13,6 +20,7 @@ function PlaylistSara({ route, navigation }) {
 
                 <Text style={styles.title1}>A Ferida Sara</Text>
 
+<<<<<<< Updated upstream
                 <Text style={styles.text}>Esta websérie explica a vida de Sara, uma recém estudante do ensino superior, que apresenta sintomas depressivos.</Text>
             </View>
             <View style={styles.container2}>
@@ -30,18 +38,56 @@ function PlaylistSara({ route, navigation }) {
                 
             </View>
 
+=======
+                <Text style={styles.text}>Esta websérie explica a jornada de Sara, uma recém estudante do ensino superior, que apresenta sintomas depressivos.</Text>
+            </View>
+            <View style={styles.container2}>
+
+                <View style={styles.container3}>
+
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
+
+                        />
+                    </TouchableOpacity>
+
+                   
+                    <Text style={styles.title2}>Episódio 1</Text>
+                    <Text style={styles.text}>Psicoeducativo</Text>
+
+
+                </View>
+
+                
+
+            </View>
+
+
+
+>>>>>>> Stashed changes
         </ScrollView>
     )
 }
 
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#CFE0FB',
         width: '100%',
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     },
 
     container2: {
@@ -54,6 +100,15 @@ const styles = StyleSheet.create({
 
     },
 
+<<<<<<< Updated upstream
+=======
+    container3: {
+        flex: 1,
+        flexDirection: 'column',
+
+    },
+
+>>>>>>> Stashed changes
     text: {
         marginLeft: '10%',
         marginRight: '10%',
@@ -70,7 +125,11 @@ const styles = StyleSheet.create({
 
     },
     title2: {
+<<<<<<< Updated upstream
         fontSize: 30,
+=======
+        fontSize: 20,
+>>>>>>> Stashed changes
         fontWeight: 'bold',
         marginLeft: '10%',
         marginRight: '10%',
@@ -98,19 +157,33 @@ const styles = StyleSheet.create({
         fontSize: 10,
     },
 
+<<<<<<< Updated upstream
     conteudo: { //Imagem da Sara (conteudos)
         width: 365,
         height: 180,
+=======
+    episodio: { //Imagem do episodio
+        width: 150,
+        height: 90,
+>>>>>>> Stashed changes
         marginLeft: '8%',
         marginRight: '8%',
         marginTop: '3%',
         resizeMode: 'contain',
+<<<<<<< Updated upstream
        
+=======
+
+>>>>>>> Stashed changes
     },
 
 
 
 });
 
+<<<<<<< Updated upstream
 export default PlaylistSara;
 
+=======
+export default PlaylistSara;
+>>>>>>> Stashed changes
