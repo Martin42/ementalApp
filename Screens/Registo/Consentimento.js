@@ -9,8 +9,12 @@ function Consentimento({ route, navigation }) {
     const [check, setCheck] = useState(false);
 
     function validate(){
-        setCheck(true);
 
+        if (check === false) {
+            setCheck(true);
+        } else {
+            setCheck(false);
+        }
     }
 
 
@@ -20,7 +24,8 @@ function Consentimento({ route, navigation }) {
 
             <ScrollView 
                 style={styles.balao} 
-                persistentScrollbar={true}
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
             >
                 <View>
                     <Text style={styles.title}>Consentimento</Text>
@@ -30,17 +35,22 @@ function Consentimento({ route, navigation }) {
                     <Text style={styles.texto}>Desde já muito obrigada pela tua colaboração!</Text>
                     <Text style={styles.textobold}>Aceito prosseguir com a utilização da aplicação e permito a utilização dos dados, que de forma voluntária forneço, confiando em que apenas serão utilizados para fins científicos  nas garantias de confidencialidade e anonimato que me são dados pelos investigadores.</Text>
                     
-                    {/* <Text style={{textAlign: 'center', paddingBottom: 20}}><Image source={require('../../images/arrow.png')} style={styles.arrow}/></Text> */} 
+                    <Text style={{textAlign: 'center', padding: 20 }}><Image source={require('../../images/arrow.png')} style={styles.arrow}/></Text> 
 
+                    <View style={{width: '100%'}}>
                     <Checkbox 
+                        style={styles.checkbox}
                         onClick={() => validate()}
                         isChecked={check}
                         unCheckedImage={<Image source={require('../../images/Participar_unchecked.png')} style={styles.aceito} />} 
                         checkedImage={<Image source={require('../../images/Participar_checked.png')} style={styles.aceito} />} 
                     />
 
+                    </View>
+
                         { check ? (
                             <TouchableOpacity
+                            style={styles.touchable}
                             onPress={() =>{ if (route.params.status == 0) {
                                     navigation.navigate('Registo', { status: route.params.status, nomePedido: 'estudante', emailPedido: 'null', mensagemPedido: 'null' })
                                 }else{
@@ -93,8 +103,21 @@ const styles = StyleSheet.create({
     next: {
         fontSize: 17,
         fontWeight: 'bold',
-        marginRight: '10%',
-        textAlign: 'right',
+    },
+
+    touchable: {
+        width: '20%', 
+        marginRight: '3%',
+        position: 'absolute',
+        right: 0,
+        top: '83%',
+  
+    },
+
+    checkbox: {
+        width: '100%', 
+        height: '23.5%', 
+        marginTop: '5%',
         marginBottom: '15%',
     },
 
@@ -116,8 +139,11 @@ const styles = StyleSheet.create({
         marginLeft: '10%',
         marginRight: '10%',  
         resizeMode: 'center',
+        height: 50,
         width: 280,
-        height: 100,
+        marginBottom: '10%',
+
+       
     },
 
     arrow: {

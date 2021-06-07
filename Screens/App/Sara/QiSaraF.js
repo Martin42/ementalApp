@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 import { ScrollView, StatusBar, StyleSheet, TouchableOpacity, Text, Image, View } from "react-native";
-import { NavigationEvents, withOrientation } from 'react-navigation';
-import TextArea from 'react-native-textarea';
 import Checkbox from 'react-native-check-box';
 
 function QiSaraF({route, navigation}){
+
+
+    const TrueChecked=(<Image source={require('../../../images/verdadeira_checked.png')} style={styles.aceito} />)
+    const TrueUnchecked=(<Image source={require('../../../images/verdadeira_unchecked.png')} style={styles.aceito} />)
+
+    const FalseUnchecked=(<Image source={require('../../../images/falsa_unchecked.png')} style={styles.aceito2} />)
+    const FalseChecked=(<Image source={require('../../../images/falsa_checked.png')} style={styles.aceito2} />)
+
+
     const [mensagem, setMensagem] = useState('');
     const [check, setCheck] = useState(false);
     const [valid, setValid] = useState(false);
@@ -117,166 +124,223 @@ function QiSaraF({route, navigation}){
     
     return(
         <View style={styles.container}>
-            <StatusBar style="auto" />
             <ScrollView 
                 style={styles.balao}
-                persistentScrollbar={true}
+                showsVerticalScrollIndicator={false}
             >
 
-                <View style={styles.balao}>
+                <View>
                     <Text style={styles.subtitle}>Conhecimentos sobre depressão</Text>
                     <Text style={styles.texto}>Depois de ler as afirmações que se seguem, assinala a opção que consideras mais correta: verdadeira ou falsa.</Text>
 
 
                     <Text style={styles.textobold}>31. Uma pessoa que está em stress constante desenvolve necessariamente depressão.</Text>
 
+
+                <View style={styles.checkUp}>
                     <Checkbox
+                        style={styles.checkbox} 
                         onClick={() => validate()}
                         isChecked={check}
-                        unCheckedImage={<Image source={require('../../../images/verdadeira_unchecked.png')} style={styles.aceito} />} 
-                        checkedImage={<Image source={require('../../../images/verdadeira_checked.png')} style={styles.aceito} />} 
+                        unCheckedImage={TrueUnchecked} 
+                        checkedImage={TrueChecked}  
                     />
+                </View>
 
-                    <Checkbox 
+                <View style={styles.checkDown}>
+                    <Checkbox
+                        style={styles.checkbox}  
                         onClick={() => troca()}
                         isChecked={valid}
-                        unCheckedImage={<Image source={require('../../../images/falsa_unchecked.png')} style={styles.aceito2} />} 
-                        checkedImage={<Image source={require('../../../images/falsa_checked.png')} style={styles.aceito2} />} 
+                        unCheckedImage={FalseUnchecked} 
+                        checkedImage={FalseChecked}  
                     />
-                        
+                </View>     
                     <Text style={styles.textobold}>32. Mudanças de vida, problemas familiares, financeiros, nos estudos ou no trabalho podem causar depressão.</Text>
                     
+                <View style={styles.checkUp}>
                     <Checkbox
+                        style={styles.checkbox} 
                         onClick={() => validate2()}
                         isChecked={check2}
-                        unCheckedImage={<Image source={require('../../../images/verdadeira_unchecked.png')} style={styles.aceito} />} 
-                        checkedImage={<Image source={require('../../../images/verdadeira_checked.png')} style={styles.aceito} />} 
+                        unCheckedImage={TrueUnchecked} 
+                        checkedImage={TrueChecked} 
                     />
+                </View>
 
-                    <Checkbox 
+                <View style={styles.checkDown}>
+                    <Checkbox
+                        style={styles.checkbox}  
                         onClick={() => troca2()}
                         isChecked={valid2}
-                        unCheckedImage={<Image source={require('../../../images/falsa_unchecked.png')} style={styles.aceito2} />} 
-                        checkedImage={<Image source={require('../../../images/falsa_checked.png')} style={styles.aceito2} />} 
+                        unCheckedImage={FalseUnchecked} 
+                        checkedImage={FalseChecked} 
                     />
+                </View>
 
                     <Text style={styles.textobold}>33. Atividades como ver filmes, ler livres, tornar-se fisicamente ativo ou mudar a imagem pessoal podem contribuir para melhorar a depressão.</Text>
                     
+                <View style={styles.checkUp}> 
                     <Checkbox
+                        style={styles.checkbox} 
                         onClick={() => validate3()}
                         isChecked={check3}
-                        unCheckedImage={<Image source={require('../../../images/verdadeira_unchecked.png')} style={styles.aceito} />} 
-                        checkedImage={<Image source={require('../../../images/verdadeira_checked.png')} style={styles.aceito} />} 
+                        unCheckedImage={TrueUnchecked} 
+                        checkedImage={TrueChecked}
                     />
+                </View>
 
-                    <Checkbox 
+                <View style={styles.checkDown}>
+                    <Checkbox
+                        style={styles.checkbox}  
                         onClick={() => troca3()}
                         isChecked={valid3}
-                        unCheckedImage={<Image source={require('../../../images/falsa_unchecked.png')} style={styles.aceito2} />} 
-                        checkedImage={<Image source={require('../../../images/falsa_checked.png')} style={styles.aceito2} />} 
+                        unCheckedImage={FalseUnchecked} 
+                        checkedImage={FalseChecked} 
                     />
+                </View>
 
                     <Text style={styles.textobold}>34. O apoio de familiares e amigos pode contribuir para melhorar a depressão.</Text>
                     
+                <View style={styles.checkUp}>
                     <Checkbox
+                        style={styles.checkbox} 
                         onClick={() => validate4()}
                         isChecked={check4}
-                        unCheckedImage={<Image source={require('../../../images/verdadeira_unchecked.png')} style={styles.aceito} />} 
-                        checkedImage={<Image source={require('../../../images/verdadeira_checked.png')} style={styles.aceito} />} 
+                        unCheckedImage={TrueUnchecked} 
+                        checkedImage={TrueChecked} 
                     />
+                </View>
 
-                    <Checkbox 
+                <View style={styles.checkDown}>
+                    <Checkbox
+                        style={styles.checkbox}  
                         onClick={() => troca4()}
                         isChecked={valid4}
-                        unCheckedImage={<Image source={require('../../../images/falsa_unchecked.png')} style={styles.aceito2} />} 
-                        checkedImage={<Image source={require('../../../images/falsa_checked.png')} style={styles.aceito2} />} 
+                        unCheckedImage={FalseUnchecked} 
+                        checkedImage={FalseChecked} 
                     />
+                </View>
 
                     <Text style={styles.textobold}>35. Ter sempre pensamentos negativos relativos à vida e ao futuro podem ser sinais de depressão.</Text>
                     
+                <View style={styles.checkUp}>
                     <Checkbox
+                        style={styles.checkbox} 
                         onClick={() => validate5()}
                         isChecked={check5}
-                        unCheckedImage={<Image source={require('../../../images/verdadeira_unchecked.png')} style={styles.aceito} />} 
-                        checkedImage={<Image source={require('../../../images/verdadeira_checked.png')} style={styles.aceito} />} 
+                        unCheckedImage={TrueUnchecked} 
+                        checkedImage={TrueChecked}  
                     />
+                </View>
 
-                    <Checkbox 
+                <View style={styles.checkDown}>
+                    <Checkbox
+                        style={styles.checkbox}  
                         onClick={() => troca5()}
                         isChecked={valid5}
-                        unCheckedImage={<Image source={require('../../../images/falsa_unchecked.png')} style={styles.aceito2} />} 
-                        checkedImage={<Image source={require('../../../images/falsa_checked.png')} style={styles.aceito2} />} 
+                        unCheckedImage={FalseUnchecked} 
+                        checkedImage={FalseChecked} 
                     />
+                </View>
 
                     <Text style={styles.textobold}>36. Sentir-se triste, frustrado ou com falta de confiança em si mesmo podem ser sinais de depressão.</Text>
                     
+                <View style={styles.checkUp}>    
                     <Checkbox
+                        style={styles.checkbox} 
                         onClick={() => validate6()}
                         isChecked={check6}
-                        unCheckedImage={<Image source={require('../../../images/verdadeira_unchecked.png')} style={styles.aceito} />} 
-                        checkedImage={<Image source={require('../../../images/verdadeira_checked.png')} style={styles.aceito} />} 
+                        unCheckedImage={TrueUnchecked} 
+                        checkedImage={TrueChecked} 
                     />
+                </View>
 
-                    <Checkbox 
+                <View style={styles.checkDown}>
+                    <Checkbox
+                        style={styles.checkbox}  
                         onClick={() => troca6()}
                         isChecked={valid6}
-                        unCheckedImage={<Image source={require('../../../images/falsa_unchecked.png')} style={styles.aceito2} />} 
-                        checkedImage={<Image source={require('../../../images/falsa_checked.png')} style={styles.aceito2} />} 
+                        unCheckedImage={FalseUnchecked} 
+                        checkedImage={FalseChecked} 
                     />
+                </View>
 
                     <Text style={styles.textobold}>37. Uma pessoa com depressão isola-se sempre da família e amigos.</Text>
                     
+                <View style={styles.checkUp}>
                     <Checkbox
+                        style={styles.checkbox} 
                         onClick={() => validate7()}
                         isChecked={check7}
-                        unCheckedImage={<Image source={require('../../../images/verdadeira_unchecked.png')} style={styles.aceito} />} 
-                        checkedImage={<Image source={require('../../../images/verdadeira_checked.png')} style={styles.aceito} />} 
+                        unCheckedImage={TrueUnchecked} 
+                        checkedImage={TrueChecked} 
                     />
+                </View>
 
-                    <Checkbox 
+                <View style={styles.checkDown}>
+                    <Checkbox
+                        style={styles.checkbox}  
                         onClick={() => troca7()}
                         isChecked={valid7}
-                        unCheckedImage={<Image source={require('../../../images/falsa_unchecked.png')} style={styles.aceito2} />} 
-                        checkedImage={<Image source={require('../../../images/falsa_checked.png')} style={styles.aceito2} />} 
+                        unCheckedImage={FalseUnchecked} 
+                        checkedImage={FalseChecked} 
                     />
+                </View>
                     
                     <Text style={styles.textobold}>38. A falta de cuidado consigo próprio (higiene pessoal, vestuário) podem ser sintomas de depressão.</Text>
                     
+                <View style={styles.checkUp}>
                     <Checkbox
+                        style={styles.checkbox} 
                         onClick={() => validate8()}
                         isChecked={check8}
-                        unCheckedImage={<Image source={require('../../../images/verdadeira_unchecked.png')} style={styles.aceito} />} 
-                        checkedImage={<Image source={require('../../../images/verdadeira_checked.png')} style={styles.aceito} />} 
+                        unCheckedImage={TrueUnchecked} 
+                        checkedImage={TrueChecked} 
                     />
+                </View>
 
-                    <Checkbox 
+                <View style={styles.checkDown}>
+                    <Checkbox
+                        style={styles.checkbox}  
                         onClick={() => troca8()}
                         isChecked={valid8}
-                        unCheckedImage={<Image source={require('../../../images/falsa_unchecked.png')} style={styles.aceito2} />} 
-                        checkedImage={<Image source={require('../../../images/falsa_checked.png')} style={styles.aceito2} />} 
+                        unCheckedImage={FalseUnchecked} 
+                        checkedImage={FalseChecked} 
                     />
+                </View>
 
                     <Text style={styles.textobold}>39. Uma pessoa com depressão pode tomar atitudes perigosas em relação aos outros ou a si próprio.</Text>
                     
+                <View style={styles.checkUp}>
                     <Checkbox
+                        style={styles.checkbox} 
                         onClick={() => validate9()}
-                        isChecked={check9}
-                        unCheckedImage={<Image source={require('../../../images/verdadeira_unchecked.png')} style={styles.aceito} />} 
-                        checkedImage={<Image source={require('../../../images/verdadeira_checked.png')} style={styles.aceito} />} 
+                        isChecked={check8}
+                        unCheckedImage={TrueUnchecked} 
+                        checkedImage={TrueChecked} 
                     />
+                </View>
 
-                    <Checkbox 
+                <View style={styles.checkDown}>
+                    <Checkbox
+                        style={styles.checkbox}  
                         onClick={() => troca9()}
-                        isChecked={valid9}
-                        unCheckedImage={<Image source={require('../../../images/falsa_unchecked.png')} style={styles.aceito2} />} 
-                        checkedImage={<Image source={require('../../../images/falsa_checked.png')} style={styles.aceito2} />} 
+                        isChecked={valid8}
+                        unCheckedImage={FalseUnchecked} 
+                        checkedImage={FalseChecked} 
                     />
+                </View>
 
+
+                <View style={styles.seguinteContainer}>
                     <TouchableOpacity
                         onPress={() => navigation.navigate('QiSaraF')}
                         >
                         <Text style={styles.next}>Terminar</Text>
                     </TouchableOpacity>
+                </View>
+
                 </View>
             </ScrollView>
         </View>
@@ -285,25 +349,6 @@ function QiSaraF({route, navigation}){
 }
 
 const styles = StyleSheet.create({
-    inputField: {
-        marginTop: '5%',
-        borderRadius: 30,
-        overflow: 'hidden',
-        backgroundColor: 'white',
-        marginLeft: '10%',
-        marginRight: '10%',
-        height: 50,
-        marginBottom: '10%'
-    },
-
-    inputMensagem: {
-        fontSize: 15,
-        color: 'black',
-        borderRadius: 30,
-        marginLeft: '8%',
-        marginTop: '4%',
-    },
-
     container: {
         flex: 1,
         backgroundColor: 'white',
@@ -344,9 +389,20 @@ const styles = StyleSheet.create({
     next: {
         fontSize: 17,
         fontWeight: 'bold',
-        marginLeft: '70%',
         marginTop: '10%',
         color: 'black'
+    },
+
+    
+    seguinteContainer: {
+        width: '25%',
+        alignSelf: 'flex-end', 
+        marginRight: '10%', 
+        paddingBottom: '10%',
+    },
+
+    checkbox: {
+        alignSelf: 'center',
     },
 
     texto: {
@@ -364,47 +420,28 @@ const styles = StyleSheet.create({
     },
 
     aceito: {
-        marginLeft: '10%',
-        marginRight: '10%',  
         resizeMode: 'contain',
-        width: '80%',
-        marginTop: '2%',
+        height: 45,
     },
 
     aceito2: {
-        marginLeft: '10%',
-        marginRight: '10%',  
         resizeMode: 'contain',
-        width: '80%',
-        marginBottom:'10%',
-        marginTop: '2%',
+        height: 45,
     },
 
-    buttonText: {
-        fontSize: 15,
-        marginLeft: '8%',
-        marginTop: '5%',
+    checkDown: {
+        height: 45, 
+        marginTop: '2%', 
+        marginBottom: '5%'
     },
 
-    botao:{
-        marginTop: '7%',
-        borderRadius: 30,
-        overflow: 'hidden',
-        backgroundColor: 'white',
-        marginLeft: '10%',
-        marginRight: '10%',
-        height: 42,
+    checkUp: {
+        height: 45, 
+        marginTop: '4%',
     },
 
-    opcao :{
-        marginTop: '5%',
-        borderRadius: 30,
-        overflow: 'hidden',
-        backgroundColor: 'white',
-        marginLeft: '10%',
-        marginRight: '10%',
-        height: 50,
-    },
+
+  
 });
 
 export default QiSaraF;
