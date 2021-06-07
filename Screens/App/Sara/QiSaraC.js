@@ -1,35 +1,26 @@
 import React, { useState } from 'react';
 import { ScrollView, StatusBar, StyleSheet, TouchableOpacity, Text, Image, View } from "react-native";
-import { NavigationEvents, withOrientation } from 'react-navigation';
-import TextArea from 'react-native-textarea';
 import Checkbox from 'react-native-check-box';
 
 function QiSaraC({route, navigation}){
+
+    const SimUnchecked = (<Image source={require('../../../images/Sim_unchecked.png')} style={styles.aceito} />)
+    const SimChecked  = (<Image source={require('../../../images/Sim_checked.png')} style={styles.aceito} />)
+
+    const NaoUnchecked = (<Image source={require('../../../images/Nao_unchecked.png')} style={styles.aceito2} />)
+    const NaoChecked = (<Image source={require('../../../images/Nao_checked.png')} style={styles.aceito2} />)
+
+
     const [mensagem, setMensagem] = useState('');
     const [check, setCheck] = useState(false);
     const [valid, setValid] = useState(false);
     const [check2, setCheck2] = useState(false);
     const [valid2, setValid2] = useState(false);
 
-    function validate(){
-        setCheck(true);
-        setValid(false);
-    }
-
-    function validate2(){
-        setCheck2(true);
-        setValid2(false);
-    }
-
-    function troca(){
-        setCheck(false);
-        setValid(true);
-    }
-
-    function troca2(){
-        setCheck2(false);
-        setValid2(true);
-    }
+    function validate(){ setCheck(true); setValid(false); }
+    function validate2(){setCheck2(true); setValid2(false); }
+    function troca(){ setCheck(false); setValid(true); }
+    function troca2(){ setCheck2(false); setValid2(true); }
     
     return(
         <View style={styles.container}>
@@ -40,39 +31,52 @@ function QiSaraC({route, navigation}){
 
                 <Text style={styles.textobold}>8. Realizaste ou estás a realizar algum tratamento?</Text>
 
+            <View style={styles.checkUp}>
                 <Checkbox
+                    style={styles.checkbox}  
                     onClick={() => validate()}
                     isChecked={check}
-                    unCheckedImage={<Image source={require('../../../images/Sim_unchecked.png')} style={styles.aceito} />} 
-                    checkedImage={<Image source={require('../../../images/Sim_checked.png')} style={styles.aceito} />} 
+                    unCheckedImage={SimUnchecked} 
+                    checkedImage={SimChecked} 
                 />
+            </View>
 
+            <View style={styles.checkDown}>
                 <Checkbox 
+                    style={styles.checkbox}  
                     onClick={() => troca()}
                     isChecked={valid}
-                    unCheckedImage={<Image source={require('../../../images/Nao_unchecked.png')} style={styles.aceito2} />} 
-                    checkedImage={<Image source={require('../../../images/Nao_checked.png')} style={styles.aceito2} />} 
+                    unCheckedImage={NaoUnchecked} 
+                    checkedImage={NaoChecked} 
                 />
+            </View>
                     
                 <Text style={styles.textobold}>9. Se sim, que tipo de tratamento?</Text>
                 {/* falta aqui 3 opçoes de resposta */}
 
                 <Text style={styles.textobold}>10. Alguém muito próximo de ti teve ou tem depressão?</Text>
                 
+            <View style={styles.checkUp}>
                 <Checkbox
+                    style={styles.checkbox}  
                     onClick={() => validate2()}
                     isChecked={check2}
-                    unCheckedImage={<Image source={require('../../../images/Sim_unchecked.png')} style={styles.aceito} />} 
-                    checkedImage={<Image source={require('../../../images/Sim_checked.png')} style={styles.aceito} />} 
+                    unCheckedImage={SimUnchecked} 
+                    checkedImage={SimChecked} 
                 />
+            </View>
 
+            <View style={styles.checkDown}>
                 <Checkbox 
+                    style={styles.checkbox}  
                     onClick={() => troca2()}
                     isChecked={valid2}
-                    unCheckedImage={<Image source={require('../../../images/Nao_unchecked.png')} style={styles.aceito2} />} 
-                    checkedImage={<Image source={require('../../../images/Nao_checked.png')} style={styles.aceito2} />} 
+                    unCheckedImage={NaoUnchecked} 
+                    checkedImage={NaoChecked} 
                 />
+            </View>
 
+            
                 <Text style={styles.textobold}>11. Essa pessoa é:</Text>
                 {/* falta aqui 3 opçoes de resposta */}
 
@@ -85,11 +89,13 @@ function QiSaraC({route, navigation}){
                 <Text style={styles.textobold}>14. Que tipo de tratamento?</Text>
                 {/* falta aqui 3 opçoes de resposta */}
 
+            <View style={styles.seguinteContainer}>
                 <TouchableOpacity
                     onPress={() => navigation.navigate('QiSaraD')}
                     >
                     <Text style={styles.next}>Seguinte</Text>
                 </TouchableOpacity>
+            </View>
             </View>
         </View>
     )
@@ -97,25 +103,6 @@ function QiSaraC({route, navigation}){
 }
 
 const styles = StyleSheet.create({
-    inputField: {
-        marginTop: '5%',
-        borderRadius: 30,
-        overflow: 'hidden',
-        backgroundColor: 'white',
-        marginLeft: '10%',
-        marginRight: '10%',
-        height: 50,
-        marginBottom: '10%'
-    },
-
-    inputMensagem: {
-        fontSize: 15,
-        color: 'black',
-        borderRadius: 30,
-        marginLeft: '8%',
-        marginTop: '4%',
-    },
-
     container: {
         flex: 1,
         backgroundColor: 'white',
@@ -134,15 +121,6 @@ const styles = StyleSheet.create({
         marginBottom: '15%',
     },
 
-    title: {
-        fontSize: 22,
-        fontWeight: 'bold',
-        marginLeft: '10%',
-        marginRight: '10%',
-        marginTop: '10%',
-        marginBottom: '5%',
-    },
-
     subtitle: {
         fontSize: 16,
         fontWeight: 'bold',
@@ -156,16 +134,16 @@ const styles = StyleSheet.create({
     next: {
         fontSize: 17,
         fontWeight: 'bold',
-        marginLeft: '70%',
         marginTop: '10%',
         color: 'black'
     },
 
-    texto: {
-        marginLeft: '10%',
-        marginRight: '10%',
-        paddingBottom: '5%',
-        fontSize: 15,
+    seguinteContainer: {
+        width: '20%',
+        alignSelf: 'flex-end', 
+        marginRight: '10%', 
+        marginTop: '10%', 
+        paddingBottom: '10%',
     },
 
     textobold: {
@@ -175,46 +153,29 @@ const styles = StyleSheet.create({
         fontSize: 15,
     },
 
-    aceito: {
-        marginLeft: '10%',
-        marginRight: '10%',  
+    aceito: { 
+        height: 45, 
         resizeMode: 'contain',
-        width: '80%',
-        marginTop: '2%',
     },
 
-    aceito2: {
-        marginLeft: '10%',
-        marginRight: '10%',  
+    aceito2: { 
         resizeMode: 'contain',
-        width: '80%',
-        marginBottom:'10%',
+        height: 45,
     },
 
-    buttonText: {
-        fontSize: 15,
-        marginLeft: '8%',
-        marginTop: '5%',
+    checkbox: {
+        alignSelf: 'center',
     },
 
-    botao:{
-        marginTop: '7%',
-        borderRadius: 30,
-        overflow: 'hidden',
-        backgroundColor: 'white',
-        marginLeft: '10%',
-        marginRight: '10%',
-        height: 42,
+    checkDown: {
+        height: 45, 
+        marginTop: '2%', 
+        marginBottom: '5%'
     },
 
-    opcao :{
-        marginTop: '5%',
-        borderRadius: 30,
-        overflow: 'hidden',
-        backgroundColor: 'white',
-        marginLeft: '10%',
-        marginRight: '10%',
-        height: 50,
+    checkUp: {
+        height: 45, 
+        marginTop: '4%',
     },
 });
 

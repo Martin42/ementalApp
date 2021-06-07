@@ -2,6 +2,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity} from "react-native";
+import Icon from 'react-native-vector-icons/Ionicons';
+import Icon1 from 'react-native-vector-icons/AntDesign';
 import { auth, db } from '../../Firebase';
 
 function Homepage({ route, navigation }) {
@@ -16,6 +18,7 @@ function Homepage({ route, navigation }) {
 
 
     return (
+        <View style={styles.container}>
         <ScrollView style={styles.container}>
             <View>
                 <StatusBar style={'auto'} />
@@ -62,12 +65,29 @@ function Homepage({ route, navigation }) {
 
             </View>
 
-
-
-          
-
-
         </ScrollView>
+
+            <View style={styles.tabBar}>
+                <View style={{flex: 1}}>
+                <TouchableOpacity style={{padding: '10%', width: '50%', alignSelf: 'center'}}>
+                        <Icon name='notifications-outline' size={30} color='black' style={{alignSelf: 'center'}}/>
+                </TouchableOpacity>
+                </View>
+
+                <View style={{flex: 1}}>
+                <TouchableOpacity style={{padding: '10%', width: '50%', alignSelf: 'center'}}>
+                        <Icon name='home-sharp' size={30} color='black' style={{alignSelf: 'center'}}/>
+                </TouchableOpacity>
+                </View>
+
+                <View style={{flex: 1}}>
+                <TouchableOpacity style={{padding: '10%', width: '50%', alignSelf: 'center'}}>
+                        <Icon1 name='questioncircleo' size={32} color='black' style={{alignSelf: 'center'}}/>
+                </TouchableOpacity>
+                </View>
+
+            </View>
+        </View>
     )
 }
 
@@ -135,7 +155,7 @@ const styles = StyleSheet.create({
         fontSize: 10,
     },
 
-    conteudo: { //Imagem da Sara (conteudos)
+    conteudo: {       //Imagem da Sara (conteudos)
         width: 365,
         height: 180,
         marginLeft: '8%',
@@ -144,6 +164,16 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
        
     },
+
+    tabBar: {
+        flexDirection: 'row', 
+        backgroundColor: 'white',
+        borderTopWidth: 1,
+        borderColor: '#D7D7D7',
+        
+    },
+
+    
 
 
 

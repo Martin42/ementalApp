@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { ScrollView, StatusBar, StyleSheet, TouchableOpacity, Text, Image, View } from "react-native";
-import { NavigationEvents, withOrientation } from 'react-navigation';
 import TextArea from 'react-native-textarea';
 import Checkbox from 'react-native-check-box';
 
 function QiSaraE({route, navigation}){
+
+
     const [mensagem, setMensagem] = useState('');
     const [check, setCheck] = useState(false);
     const [valid, setValid] = useState(false);
@@ -108,10 +109,10 @@ function QiSaraE({route, navigation}){
             <StatusBar style="auto" />
             <ScrollView 
                 style={styles.balao}
-                persistentScrollbar={true}
+                showsVerticalScrollIndicator={false}
             >
 
-                <View style={styles.balao}>
+                <View>
                     <Text style={styles.subtitle}>Conhecimentos sobre depressão</Text>
                     <Text style={styles.texto}>Depois de ler as afirmações que se seguem, assinala a opção que consideras mais correta: verdadeira ou falsa.</Text>
 

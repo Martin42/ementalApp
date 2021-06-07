@@ -103,8 +103,6 @@ const styles = StyleSheet.create({
     next: {
         fontSize: 17,
         fontWeight: 'bold',
-     
-    
     },
 
     touchable: {
