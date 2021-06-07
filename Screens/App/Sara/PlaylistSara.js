@@ -1,38 +1,43 @@
 
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity} from "react-native";
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from "react-native";
 
 function PlaylistSara({ route, navigation }) {
 
     return (
         <ScrollView style={styles.container}>
             <View>
-                <StatusBar style={'auto'} />
 
                 <Text style={styles.title1}>A Ferida Sara</Text>
 
-                <Text style={styles.text}>Esta websérie explica a vida de Sara, uma recém estudante do ensino superior, que apresenta sintomas depressivos.</Text>
+                <Text style={styles.text}>Esta websérie explica a jornada de Sara, uma recém estudante do ensino superior, que apresenta sintomas depressivos.</Text>
             </View>
             <View style={styles.container2}>
 
-                <TouchableOpacity
-                    onPress={() => navigation.navigate('Ep1_Sara')}
+                <View style={styles.container3}>
 
-                >
-                    <Image
-                        source={require('../../../images/Sara.png')}
-                        style={styles.conteudo}
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
 
-                    />
-                </TouchableOpacity>
-                
+                        />
+                    </TouchableOpacity>
+
+
+                    <Text style={styles.title2}>Episódio 1</Text>
+                    <Text style={styles.text}>Psicoeducativo</Text>
+
+                </View>  
+
             </View>
 
-        </ScrollView>
+        </ScrollView >
     )
 }
-
 
 
 const styles = StyleSheet.create({
@@ -53,6 +58,12 @@ const styles = StyleSheet.create({
 
     },
 
+    container3: {
+        flex: 1,
+        flexDirection: 'column',
+
+    },
+
     text: {
         marginLeft: '10%',
         marginRight: '10%',
@@ -69,7 +80,7 @@ const styles = StyleSheet.create({
 
     },
     title2: {
-        fontSize: 30,
+        fontSize: 20,
         fontWeight: 'bold',
         marginLeft: '10%',
         marginRight: '10%',
@@ -97,14 +108,14 @@ const styles = StyleSheet.create({
         fontSize: 10,
     },
 
-    conteudo: { //Imagem da Sara (conteudos)
-        width: 365,
-        height: 180,
+    episodio: { //Imagem do episodio
+        width: 150,
+        height: 90,
         marginLeft: '8%',
         marginRight: '8%',
         marginTop: '3%',
         resizeMode: 'contain',
-       
+
     },
 
 
