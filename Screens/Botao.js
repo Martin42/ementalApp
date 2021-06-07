@@ -22,6 +22,8 @@ function Botao({navigation}) {
               
           </TouchableOpacity>
 
+ 
+
           <TouchableOpacity 
             style={styles.login}
             onPress={() => navigation.navigate('Login')} 

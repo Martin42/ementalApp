@@ -3,7 +3,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import MainStackNavigator from './Navigation/MainNavigator';
 
 
-
 export default function App() {
 
     return (
