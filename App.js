@@ -20,6 +20,7 @@ import QiSaraC from './Screens/App/Sara/QiSaraC';
 import QiSaraD from './Screens/App/Sara/QiSaraD';
 import QiSaraE from './Screens/App/Sara/QiSaraE';
 import QiSaraF from './Screens/App/Sara/QiSaraF';
+import Ep1_Sara from './Screens/App/Sara/Ep1_Sara';
 
 const Stack = createStackNavigator();
 
@@ -53,6 +54,7 @@ export default function App() {
             <Stack.Screen name='QiSaraD' component={QiSaraD} />
             <Stack.Screen name='QiSaraE' component={QiSaraE} />
             <Stack.Screen name='QiSaraF' component={QiSaraF} />
+            <Stack.Screen name='Ep1_Sara' component={Ep1_Sara} />
           </Stack.Navigator>
 
 
