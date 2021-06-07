@@ -2,7 +2,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity} from "react-native";
-import { auth, db } from '../../Firebase';
+
 
 function PlaylistSara({ route, navigation }) {
 
@@ -22,7 +22,7 @@ function PlaylistSara({ route, navigation }) {
 
                 >
                     <Image
-                        source={require('../../images/Sara.png')}
+                        source={require('../../../images/Sara.png')}
                         style={styles.conteudo}
 
                     />
