@@ -1,9 +1,13 @@
 
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+<<<<<<< Updated upstream
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity} from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
 import Icon1 from 'react-native-vector-icons/AntDesign';
+=======
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from "react-native";
+>>>>>>> Stashed changes
 import { auth, db } from '../../Firebase';
 
 function Homepage({ route, navigation }) {
@@ -55,12 +59,20 @@ function Homepage({ route, navigation }) {
 
                 <Text style={styles.title2}>Vídeos</Text>
 
-                <Text style={styles.title3}>40 segundos</Text>
-                <Image
-                    source={require('../../images/conteudoBloqueado.png')}
-                    style={styles.conteudo}
 
-                />
+                <Text style={styles.title3}>40 segundos</Text>
+
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('PlaylistSara')}
+
+                >
+                    <Image
+                        source={require('../../images/conteudoBloqueado.png')}
+                        style={styles.conteudo}
+
+                    />
+                </TouchableOpacity>
+            
                 <Text style={styles.title4}>Exclusivo a profissionais de saúde</Text>
 
             </View>
@@ -74,11 +86,15 @@ function Homepage({ route, navigation }) {
                 </TouchableOpacity>
                 </View>
 
+<<<<<<< Updated upstream
                 <View style={{flex: 1}}>
                 <TouchableOpacity style={{padding: '10%', width: '50%', alignSelf: 'center'}}>
                         <Icon name='home-sharp' size={30} color='black' style={{alignSelf: 'center'}}/>
                 </TouchableOpacity>
                 </View>
+=======
+
+>>>>>>> Stashed changes
 
                 <View style={{flex: 1}}>
                 <TouchableOpacity style={{padding: '10%', width: '50%', alignSelf: 'center'}}>
@@ -155,14 +171,18 @@ const styles = StyleSheet.create({
         fontSize: 10,
     },
 
+<<<<<<< Updated upstream
     conteudo: {       //Imagem da Sara (conteudos)
+=======
+    conteudo: { //Imagem da Sara e etc (conteúdos)
+>>>>>>> Stashed changes
         width: 365,
         height: 180,
         marginLeft: '8%',
         marginRight: '8%',
         marginTop: '3%',
         resizeMode: 'contain',
-       
+
     },
 
     tabBar: {
