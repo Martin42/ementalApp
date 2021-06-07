@@ -17,7 +17,7 @@ function PlaylistSara({ route, navigation }) {
             <View style={styles.container2}>
 
                 <TouchableOpacity
-                    onPress={() => navigation.navigate('QiSaraA')}
+                    onPress={() => navigation.navigate('Ep1_Sara')}
 
                 >
                     <Image
