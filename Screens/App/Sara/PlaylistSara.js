@@ -3,7 +3,6 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from "react-native";
 
-
 function PlaylistSara({ route, navigation }) {
 
     return (
@@ -19,7 +18,7 @@ function PlaylistSara({ route, navigation }) {
                 <View style={styles.container3}>
 
                     <TouchableOpacity
-                        onPress={() => navigation.navigate('')}
+                        onPress={() => navigation.navigate('Ep1_Sara')}
                     >
                         <Image
                             source={require('../../../images/thumbnail.png')}
@@ -32,7 +31,7 @@ function PlaylistSara({ route, navigation }) {
                     <Text style={styles.title2}>Episódio 1</Text>
                     <Text style={styles.text}>Psicoeducativo</Text>
 
-                </View>
+                </View>  
 
             </View>
 
