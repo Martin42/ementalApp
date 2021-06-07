@@ -200,25 +200,37 @@ function QiSaraB({route, navigation}){
                     <Text style={styles.textobold}>7. Aproximadamente há quanto tempo?</Text>
                     
                     {/* erro aqui!! */}
-                    
+                <View style={styles.checkUp}>
                     <Checkbox
+                        style={styles.checkbox}  
                         onClick={() => clicar1()}
                         isChecked={botao1}
                         unCheckedImage={<Image source={require('../../../images/hamaisdeumano_unchecked.png')} style={styles.aceito} />} 
                         checkedImage={<Image source={require('../../../images/hamaisdeumano_checked.png')} style={styles.aceito} />} 
                     />
-                    <Checkbox 
+                </View>
+
+                <View style={styles.checkMid}>
+
+                    <Checkbox
+                        style={styles.checkbox} 
                         onClick={() => clicar2()}
                         isChecked={botao2}
                         unCheckedImage={<Image source={require('../../../images/entreumetres_unchecked.png')} style={styles.aceito} />} 
                         checkedImage={<Image source={require('../../../images/entreumetres_checked.png')} style={styles.aceito} />} 
                     />
+                </View>
+
+
+                <View style={styles.checkDown}>
                     <Checkbox
+                        style={styles.checkbox} 
                         onClick={() => clicar3()}
                         isChecked={botao3}
                         unCheckedImage={<Image source={require('../../../images/ultimostres_unchecked.png')} style={styles.aceito2} />} 
                         checkedImage={<Image source={require('../../../images/ultimostres_checked.png')} style={styles.aceito2} />} 
                     />
+                </View>
 
                     <View style={styles.seguinteContainer}>
                     <TouchableOpacity
@@ -345,6 +357,12 @@ const styles = StyleSheet.create({
         height: 45, 
         marginTop: '4%',
     },
+
+    checkMid: {
+        height: 45, 
+        marginTop: '2%',
+    },
+
 
 
 });

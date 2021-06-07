@@ -24,15 +24,16 @@ function Info({ route, navigation }) {
 
                         <Text style={styles.subtitle}>O projeto eMental envolve uma equipa multidisciplinar e visa finalizar e avaliar intervenções digitais dirigidas a jovens, estruturadas em conteúdos digitais transmedia, de promoção da literacia em depressão e suicídio. Pretende-se ainda desenhar uma proposta de futura intervenção alargada à população jovem portuguesa. </Text>
                         
-                    
-                        <TouchableOpacity
-                        style={styles.touchable}
-                        onPress={() => navigation.navigate('Info2', {status: route.params.status }) }
-                       
-                        
-                        >
-                                    <Text style={styles.next}>Seguinte</Text>
-                        </TouchableOpacity>
+                        <View style={styles.seguinteContainer}>
+                            <TouchableOpacity
+                            onPress={() => navigation.navigate('Info2', {status: route.params.status }) }
+
+                            >
+                                        <Text style={styles.next}>Seguinte</Text>
+                            </TouchableOpacity>
+                        </View>
+
+
                     </View> 
                   
              
@@ -89,15 +90,13 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
 
-    touchable: {
+    seguinteContainer: {
         width: '20%',
-        alignSelf: 'flex-end',
-        marginRight: '10%',
-        marginBottom: '10%',
-        marginTop: '27%',
-
-       
+        alignSelf: 'flex-end', 
+        marginRight: '10%', 
+        marginTop: '25%', 
     },
+
 });
 
 export default Info;

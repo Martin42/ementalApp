@@ -113,7 +113,6 @@ function QiSaraD({route, navigation}){
     
     return(
         <View style={styles.container}>
-            <StatusBar style="auto" />
             <ScrollView 
                 style={styles.balao}
                 showsVerticalScrollIndicator={false}
