@@ -28,7 +28,6 @@ import PlaylistSara from '../Screens/App/Sara/PlaylistSara';
 
 
 
-
 const Stack = createStackNavigator();
 
 const MainStackNavigator = () => {
