@@ -7,6 +7,9 @@ import Botao from './Screens/Botao';
 import Info from './Screens/Registo/Info';
 import Info2 from './Screens/Registo/Info2';
 import Info3 from './Screens/Registo/Info3';
+import Info4 from './Screens/Registo/Info4';
+import Info5 from './Screens/Registo/Info5';
+import Info6 from './Screens/Registo/Info6';
 import Consentimento from './Screens/Registo/Consentimento';
 import Pedido from './Screens/Registo/Pedido';
 import Registo from './Screens/Registo/Registo';
@@ -34,6 +37,9 @@ export default function App() {
               <Stack.Screen name='Info' component={Info} /> 
               <Stack.Screen name='Info2' component={Info2} />
               <Stack.Screen name='Info3' component={Info3} />
+              <Stack.Screen name='Info4' component={Info4} />
+              <Stack.Screen name='Info5' component={Info5} />
+              <Stack.Screen name='Info6' component={Info6} />
               <Stack.Screen name='Consentimento' component={Consentimento} />
               <Stack.Screen name='Pedido' component={Pedido} />
               <Stack.Screen name='Registo' component={Registo} />
