@@ -24,7 +24,7 @@ import QiSaraE from '../Screens/App/Sara/QiSaraE';
 import QiSaraF from '../Screens/App/Sara/QiSaraF';
 import Homepage from '../Screens/App/Homepage';
 import Ep1_Sara from '../Screens/App/Sara/Ep1_Sara';
-import PlaylistSara from './Screens/App/Sara/PlaylistSara';
+import PlaylistSara from '../Screens/App/Sara/PlaylistSara';
 
 
 
