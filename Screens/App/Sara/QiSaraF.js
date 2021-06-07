@@ -275,7 +275,7 @@ function QiSaraF({route, navigation}){
                     <TouchableOpacity
                         onPress={() => navigation.navigate('QiSaraF')}
                         >
-                        <Text style={styles.next}>Seguinte</Text>
+                        <Text style={styles.next}>Terminar</Text>
                     </TouchableOpacity>
                 </View>
             </ScrollView>
@@ -377,6 +377,7 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
         width: '80%',
         marginBottom:'10%',
+        marginTop: '2%',
     },
 
     buttonText: {

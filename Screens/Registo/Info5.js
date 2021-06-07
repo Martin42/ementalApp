@@ -3,7 +3,7 @@ import { SafeAreaView, StyleSheet, Text, Image, View } from "react-native";
 import React from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-function Info3({route, navigation}){
+function Info5({route, navigation}){
 
     console.log(route.params.status);
 
@@ -13,22 +13,19 @@ function Info3({route, navigation}){
 
                 <Text style={styles.title}>Instruções de uso</Text>
                 
-                <Text style={styles.text}>Nesta aplicação estão presentes conteúdos audio visuais ao qual como utilizador poderás visualizar dependendo do teu estatuto. Caso queiras alterar o teu estatuto, assim o poderás fazer na área de 'Pedido de Acesso'.</Text>
+                <Text style={styles.text}>Em cada vídeo encontra-se uma zona de comentários ao qual poderás sempre deixar as tuas dúvidas, todos os comentários serão primeiro confirmados e comprovados por um profissional de saúde antes de tornar-se visível para todos.</Text>
 
                 <Image 
-                        source={require('../../images/ex1.png')}
+                        source={require('../../images/ex3.png')}
                         style={styles.example}
                     />
 
+
                 <View>
                     <TouchableOpacity
-                        onPress={() => navigation.navigate('Info4', { status: route.params.status}) }>
+                        style={styles.touchable}
+                        onPress={() => navigation.navigate('Info6', { status: route.params.status}) }>
                         <Text style={styles.next}>Seguinte</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('Consentimento', { status: route.params.status}) }>
-                        <Text style={styles.next}>Skip</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -84,4 +81,4 @@ const styles = StyleSheet.create({
 
 
 
-export default Info3;
+export default Info5;

@@ -25,6 +25,9 @@ function QiSaraB({route, navigation}){
     const [valid4, setValid4] = useState(false);
     const [check5, setCheck5] = useState(false);
     const [valid5, setValid5] = useState(false);
+    const [botao1, setBotao1] = useState(false);
+    const [botao2, setBotao2] = useState(false);
+    const [botao3, setBotao3] = useState(false);
 
     const [mensagem, setMensagem] = useState('');
 
@@ -41,6 +44,24 @@ function QiSaraB({route, navigation}){
     function troca3(){ setCheck3(false); setValid3(true); }
     function troca4(){ setCheck4(false); setValid4(true); }
     function troca5(){ setCheck5(false); setValid5(true); }
+
+    function clicar1(){
+        setBotao1(true);
+        setBotao2(false);
+        setBotao3(false);
+    }
+
+    function clicar2(){
+        setBotao2(true);
+        setBotao1(false);
+        setBotao3(false);
+    }
+
+    function clicar3(){
+        setBotao3(true);
+        setBotao1(false);
+        setBotao2(false);
+    }
 
 
     return(
@@ -177,7 +198,27 @@ function QiSaraB({route, navigation}){
                 </View>
 
                     <Text style={styles.textobold}>7. Aproximadamente há quanto tempo?</Text>
-                    {/* falta aqui 3 opçoes de resposta */}
+                    
+                    {/* erro aqui!! */}
+                    
+                    <Checkbox
+                        onClick={() => clicar1()}
+                        isChecked={botao1}
+                        unCheckedImage={<Image source={require('../../../images/hamaisdeumano_unchecked.png')} style={styles.aceito} />} 
+                        checkedImage={<Image source={require('../../../images/hamaisdeumano_checked.png')} style={styles.aceito} />} 
+                    />
+                    <Checkbox 
+                        onClick={() => clicar2()}
+                        isChecked={botao2}
+                        unCheckedImage={<Image source={require('../../../images/entreumetres_unchecked.png')} style={styles.aceito} />} 
+                        checkedImage={<Image source={require('../../../images/entreumetres_checked.png')} style={styles.aceito} />} 
+                    />
+                    <Checkbox
+                        onClick={() => clicar3()}
+                        isChecked={botao3}
+                        unCheckedImage={<Image source={require('../../../images/ultimostres_unchecked.png')} style={styles.aceito2} />} 
+                        checkedImage={<Image source={require('../../../images/ultimostres_checked.png')} style={styles.aceito2} />} 
+                    />
 
                     <View style={styles.seguinteContainer}>
                     <TouchableOpacity
@@ -223,11 +264,11 @@ const styles = StyleSheet.create({
       },
 
     inputMensagem: {
-        fontSize: 15,
+        fontSize: 14,
         color: 'black',
         borderRadius: 30,
-        marginLeft: '8%',
-        marginTop: '4%',
+        marginLeft: '9%',
+        marginTop: '3%',
     },
 
 
