@@ -1,9 +1,11 @@
 
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity} from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
-import Icon1 from 'react-native-vector-icons/AntDesign';
+import Icon1 from 'react-native-vector-icons/MaterialIcons';
+import Icon2 from 'react-native-vector-icons/AntDesign';
+import Checkbox from 'react-native-check-box';
 import { auth, db } from '../../Firebase';
 
 function Homepage({ route, navigation }) {
@@ -14,7 +16,6 @@ function Homepage({ route, navigation }) {
     //         .doc(auth.currentUser.uid)
     //         .get();
     // }
-
 
 
     return (
@@ -69,21 +70,33 @@ function Homepage({ route, navigation }) {
 
             <View style={styles.tabBar}>
                 <View style={{flex: 1}}>
-                <TouchableOpacity style={{padding: '10%', width: '50%', alignSelf: 'center'}}>
-                        <Icon name='notifications-outline' size={30} color='black' style={{alignSelf: 'center'}}/>
-                </TouchableOpacity>
+                <Checkbox 
+                    style={styles.icon}
+                    onClick={() => navigation.navigate('Homepage')} // Alterar para Notificações
+                    isChecked={false}
+                    unCheckedImage={<Icon name='notifications' size={28} color='#D2D2D2'/>}
+                    checkedImage={<Icon name='notifications' size={28} color='#6578B3'/>}
+                />           
                 </View>
 
                 <View style={{flex: 1}}>
-                <TouchableOpacity style={{padding: '10%', width: '50%', alignSelf: 'center'}}>
-                        <Icon name='home-sharp' size={30} color='black' style={{alignSelf: 'center'}}/>
-                </TouchableOpacity>
+                <Checkbox 
+                    style={styles.icon}
+                    onClick={() => navigation.navigate('Homepage')}
+                    isChecked={true}
+                    unCheckedImage={<Icon1 name='home' size={30} color='#D2D2D2' />}
+                    checkedImage={<Icon1 name='home' size={30} color='#6578B3'/>}
+                />   
                 </View>
 
                 <View style={{flex: 1}}>
-                <TouchableOpacity style={{padding: '10%', width: '50%', alignSelf: 'center'}}>
-                        <Icon1 name='questioncircleo' size={32} color='black' style={{alignSelf: 'center'}}/>
-                </TouchableOpacity>
+                <Checkbox 
+                    style={styles.icon}
+                    onClick={() => navigation.navigate('Homepage')} // Alterar para Apoio
+                    isChecked={false}
+                    unCheckedImage={<Icon2 name='questioncircle' size={28} color='#D2D2D2' />}
+                    checkedImage={<Icon2 name='questioncircle' size={28} color='#6578B3'/>}
+                />  
                 </View>
 
             </View>
@@ -115,6 +128,11 @@ const styles = StyleSheet.create({
         marginLeft: '10%',
         marginRight: '10%',
         fontSize: 15,
+    },
+
+    icon: {
+        padding: '10%', 
+        alignSelf: 'center',
     },
 
     title1: {
