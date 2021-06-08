@@ -13,10 +13,14 @@ function PlaylistSara({ route, navigation }) {
 
                 <Text style={styles.text}>Esta websérie explica a jornada de Sara, uma recém estudante do ensino superior, que apresenta sintomas depressivos.</Text>
             </View>
+
             <View style={styles.container2}>
 
-                <View style={styles.container3}>
+                <View style={styles.containerepisodios}>
 
+                {/* Episodio 1 */}
+                
+                <View style={styles.container3}>
                     <TouchableOpacity
                         onPress={() => navigation.navigate('Ep1_Sara')}
                     >
@@ -27,14 +31,242 @@ function PlaylistSara({ route, navigation }) {
                         />
                     </TouchableOpacity>
 
+                    <View>
+                        <Text style={styles.title2}>Episódio 1</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
 
-                    <Text style={styles.title2}>Episódio 1</Text>
-                    <Text style={styles.text}>Psicoeducativo</Text>
+                {/* Episodio 2 */}
 
-                </View>  
+                <View style={styles.container3}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
 
+                        />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={styles.title2}>Episódio 2</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
+
+                {/* Episodio 3 */}
+
+                <View style={styles.container3}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
+
+                        />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={styles.title2}>Episódio 3</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
+
+                {/* Episodio 4 */}
+
+                <View style={styles.container3}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
+
+                        />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={styles.title2}>Episódio 4</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
+
+                {/* Episodio 5 */}
+
+                <View style={styles.container3}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
+
+                        />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={styles.title2}>Episódio 5</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
+
+                {/* Episodio 6 */}
+
+                <View style={styles.container3}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
+
+                        />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={styles.title2}>Episódio 6</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
+
+                {/* Episodio 7 */}
+
+                <View style={styles.container3}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
+
+                        />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={styles.title2}>Episódio 7</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
+
+                {/* Episodio 8 */}
+
+                <View style={styles.container3}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
+
+                        />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={styles.title2}>Episódio 8</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
+
+                {/* Episodio 9 */}
+
+                <View style={styles.container3}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
+
+                        />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={styles.title2}>Episódio 9</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
+
+                {/* Episodio 10 */}
+
+                <View style={styles.container3}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
+
+                        />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={styles.title2}>Episódio 10</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
+
+                {/* Episodio 11 */}
+
+                <View style={styles.container3}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
+
+                        />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={styles.title2}>Episódio 11</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
+
+                {/* Episodio 12 */}
+
+                <View style={styles.container3}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
+
+                        />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={styles.title2}>Episódio 12</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
+
+                {/* Episodio 13 */}
+
+                <View style={styles.container3}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
+
+                        />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={styles.title2}>Episódio 13</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
+
+                </View>
             </View>
-
         </ScrollView >
     )
 }
@@ -49,6 +281,7 @@ const styles = StyleSheet.create({
     },
 
     container2: {
+        flex: 1,
         backgroundColor: 'white',
         borderTopLeftRadius: 60,
         borderTopRightRadius: 60,
@@ -60,7 +293,17 @@ const styles = StyleSheet.create({
 
     container3: {
         flex: 1,
-        flexDirection: 'column',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: '5%',
+
+    },
+
+    containerepisodios: {
+        flex:1,
+        marginTop: '2%',
+       marginBottom: '8%',
 
     },
 
