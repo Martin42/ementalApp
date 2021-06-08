@@ -13,10 +13,13 @@ function PlaylistSara({ route, navigation }) {
 
                 <Text style={styles.text}>Esta websérie explica a jornada de Sara, uma recém estudante do ensino superior, que apresenta sintomas depressivos.</Text>
             </View>
+
             <View style={styles.container2}>
+
                 <View style={styles.containerepisodios}>
 
                 {/* Episodio 1 */}
+                
                 <View style={styles.container3}>
                     <TouchableOpacity
                         onPress={() => navigation.navigate('Ep1_Sara')}
