@@ -1,5 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, Image, View } from "react-native";
+import { StyleSheet, Text, Image, View } from "react-native";
 import React from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -13,24 +12,23 @@ function Info3({route, navigation}){
 
                 <Text style={styles.title}>Instruções de uso</Text>
                 
-                <Text style={styles.text}>Nesta aplicação estão presentes conteúdos audio visuais ao qual como utilizador poderás visualizar dependendo do teu estatuto. Caso queiras alterar o teu estatuto, assim o poderás fazer na área de 'Pedido de Acesso'.</Text>
+                <Text style={styles.text}>Nesta aplicação estão presentes conteúdos audio visuais ao qual como utilizador poderás visualizar dependendo do teu estatuto. Qualquer profissional de saúde verificado pela equipa terá acesso a conteúdo exclusivo.</Text>
 
                 <Image 
                         source={require('../../images/ex1.png')}
                         style={styles.example}
                     />
 
-                <View>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('Info4', { status: route.params.status}) }>
-                        <Text style={styles.next}>Seguinte</Text>
-                    </TouchableOpacity>
+               
 
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('Consentimento', { status: route.params.status}) }>
-                        <Text style={styles.next}>Skip</Text>
-                    </TouchableOpacity>
-                </View>
+                    <View style={styles.seguinteContainer}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Info4', { status: route.params.status}) }>
+                            <Text style={styles.next}>Seguinte</Text>
+                        </TouchableOpacity>
+                    </View>
+
+                
             </View>
     )
 }
@@ -65,8 +63,15 @@ const styles = StyleSheet.create({
         fontSize: 17,
         fontWeight: 'bold',
         marginTop: '5%',
-        marginRight: '10%',
-        textAlign: 'right'
+        textAlign: 'center',
+    },
+
+    seguinteContainer: {
+        width: '20%',
+        alignSelf: 'flex-end', 
+        marginRight: '8%', 
+        marginTop: '12%', 
+
     },
 
     example: {

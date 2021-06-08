@@ -21,9 +21,9 @@ function Info6({route, navigation}){
                     />
 
 
-                <View>
+                <View style={styles.seguinteContainer}>
                     <TouchableOpacity
-                        style={styles.touchable}
+                    
                         onPress={() => navigation.navigate('Consentimento', { status: route.params.status}) }>
                         <Text style={styles.next}>Seguinte</Text>
                     </TouchableOpacity>
@@ -62,8 +62,15 @@ const styles = StyleSheet.create({
         fontSize: 17,
         fontWeight: 'bold',
         marginTop: '5%',
-        marginRight: '10%',
-        textAlign: 'right'
+        textAlign: 'center',
+    },
+
+    seguinteContainer: {
+        width: '20%',
+        alignSelf: 'flex-end', 
+        marginRight: '8%', 
+        marginTop: '2%', 
+
     },
 
     example: {

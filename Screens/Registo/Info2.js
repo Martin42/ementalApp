@@ -29,7 +29,7 @@ function Info2({route, navigation}){
 
                     <Text style={styles.text}> Em breve!</Text>
               
-                    <View style={styles.touchable}>
+                    <View style={styles.seguinteContainer}>
                         <TouchableOpacity
                         onPress={() => navigation.navigate('Info3', { status: route.params.status, nomePedido: 'estudante', emailPedido: 'null', mensagemPedido: 'null' }) }>
                             <Text style={styles.next}>Seguinte</Text>
@@ -70,7 +70,8 @@ function Info2({route, navigation}){
                         <Text style={estilos.titleMarco}>Um Marco na Vida</Text>
 
                         <Text style={estilos.text}> Podcast a ser adicionado em breve!</Text>
-                    <View  style={estilos.touchable}>
+                    
+                    <View  style={estilos.seguinteContainer}>
                         <TouchableOpacity
                             onPress={() => navigation.navigate('Info3', { status: route.params.status }) } 
                         
@@ -142,14 +143,11 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
 
-    touchable: {
+    seguinteContainer: {
         width: '20%',
-        alignSelf: 'flex-end',
-        marginRight: '8%',
-        marginBottom: '10%',
-        marginTop: '20%',
-
-       
+        alignSelf: 'flex-end', 
+        marginRight: '8%', 
+        marginTop: '28%', 
     },
 
 
@@ -211,16 +209,13 @@ const estilos = StyleSheet.create({
        
     },
   
-    touchable: {
+    seguinteContainer: {
         width: '20%',
-        alignSelf: 'flex-end',
-        marginRight: '10%',
-        marginBottom: '10%',
+        alignSelf: 'flex-end', 
+        marginRight: '10%', 
         marginTop: '5%',
-
-       
+        paddingBottom: '10%' 
     },
-
 
 })
 

@@ -22,9 +22,9 @@ function Info4({route, navigation}){
                         style={styles.example}
                     />
 
-                <View>
+                <View style={styles.seguinteContainer}>
                     <TouchableOpacity
-                        style={styles.touchable}
+            
                         onPress={() => navigation.navigate('Info5', { status: route.params.status}) }>
                         <Text style={styles.next}>Seguinte</Text>
                     </TouchableOpacity>
@@ -64,9 +64,16 @@ const styles = StyleSheet.create({
     next: {
         fontSize: 17,
         fontWeight: 'bold',
-        marginTop: 0,
-        marginRight: '10%',
-        textAlign: 'right'
+        marginTop: '5%',
+        textAlign: 'center',
+    },
+
+    seguinteContainer: {
+        width: '20%',
+        alignSelf: 'flex-end', 
+        marginRight: '8%', 
+        marginTop: '2%', 
+
     },
 
     example: {
