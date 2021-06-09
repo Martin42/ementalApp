@@ -13,7 +13,7 @@ function Info5({route, navigation}){
 
                 <Text style={styles.title}>Instruções de uso</Text>
                 
-                <Text style={styles.text}>Em cada vídeo encontra-se uma zona de comentários ao qual poderás sempre deixar as tuas dúvidas, todos os comentários serão primeiro confirmados e comprovados por um profissional de saúde antes de tornar-se visível para todos.</Text>
+                <Text style={styles.text}>Em cada vídeo encontra-se uma zona de comentários ao qual poderás sempre deixar as tuas dúvidas, todos os comentários serão primeiro confirmados e comprovados por um profissional de saúde antes de se tornar visível para todos.</Text>
 
                 <Image 
                         source={require('../../images/ex3.png')}

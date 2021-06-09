@@ -13,7 +13,9 @@ function Info6({route, navigation}){
 
                 <Text style={styles.title}>Instruções de uso</Text>
                 
-                <Text style={styles.text}>Caso queiras entrar em contacto com um profissional de saúde diretamente, na página 'Linhas de Apoio' terás várias linhas de apoio e a secção de Contacto com estes, basta colocar o Nome(opcional), o Asssunto e o devido corpo da mensagem a enviar, posto isto é só aguardar por resposta.</Text>
+                <Text style={styles.text}>Através da página 'Linhas de Apoio', terás acesso a vários contactos de emergência e ajuda, para além da 
+                            possibilidade de enviares um pedido de esclarecimento para um dos nossos profissionais de saúde. Posto isto,
+                            basta aguardar por uma resposta.</Text>
 
                 <Image 
                         source={require('../../images/ex4.png')}

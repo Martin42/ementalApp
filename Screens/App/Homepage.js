@@ -1,6 +1,5 @@
-
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity} from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
@@ -92,7 +91,7 @@ function Homepage({ route, navigation }) {
                 <View style={{flex: 1}}>
                 <Checkbox 
                     style={styles.icon}
-                    onClick={() => navigation.navigate('Homepage')} // Alterar para Apoio
+                    onClick={() => navigation.navigate('Apoio')} 
                     isChecked={false}
                     unCheckedImage={<Icon2 name='questioncircle' size={28} color='#D2D2D2' />}
                     checkedImage={<Icon2 name='questioncircle' size={28} color='#6578B3'/>}
