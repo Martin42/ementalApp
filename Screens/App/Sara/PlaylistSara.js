@@ -1,38 +1,275 @@
 
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity} from "react-native";
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from "react-native";
 
 function PlaylistSara({ route, navigation }) {
 
     return (
         <ScrollView style={styles.container}>
             <View>
-                <StatusBar style={'auto'} />
 
                 <Text style={styles.title1}>A Ferida Sara</Text>
 
-                <Text style={styles.text}>Esta websérie explica a vida de Sara, uma recém estudante do ensino superior, que apresenta sintomas depressivos.</Text>
+                <Text style={styles.text}>Esta websérie explica a jornada de Sara, uma recém estudante do ensino superior, que apresenta sintomas depressivos.</Text>
             </View>
+
             <View style={styles.container2}>
 
-                <TouchableOpacity
-                    onPress={() => navigation.navigate('Ep1_Sara')}
+                <View style={styles.containerepisodios}>
 
-                >
-                    <Image
-                        source={require('../../../images/Sara.png')}
-                        style={styles.conteudo}
-
-                    />
-                </TouchableOpacity>
+                {/* Episodio 1 */}
                 
-            </View>
+                <View style={styles.container3}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
 
-        </ScrollView>
+                        />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={styles.title2}>Episódio 1</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
+
+                {/* Episodio 2 */}
+
+                <View style={styles.container3}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
+
+                        />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={styles.title2}>Episódio 2</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
+
+                {/* Episodio 3 */}
+
+                <View style={styles.container3}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
+
+                        />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={styles.title2}>Episódio 3</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
+
+                {/* Episodio 4 */}
+
+                <View style={styles.container3}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
+
+                        />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={styles.title2}>Episódio 4</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
+
+                {/* Episodio 5 */}
+
+                <View style={styles.container3}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
+
+                        />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={styles.title2}>Episódio 5</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
+
+                {/* Episodio 6 */}
+
+                <View style={styles.container3}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
+
+                        />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={styles.title2}>Episódio 6</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
+
+                {/* Episodio 7 */}
+
+                <View style={styles.container3}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
+
+                        />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={styles.title2}>Episódio 7</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
+
+                {/* Episodio 8 */}
+
+                <View style={styles.container3}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
+
+                        />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={styles.title2}>Episódio 8</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
+
+                {/* Episodio 9 */}
+
+                <View style={styles.container3}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
+
+                        />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={styles.title2}>Episódio 9</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
+
+                {/* Episodio 10 */}
+
+                <View style={styles.container3}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
+
+                        />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={styles.title2}>Episódio 10</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
+
+                {/* Episodio 11 */}
+
+                <View style={styles.container3}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
+
+                        />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={styles.title2}>Episódio 11</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
+
+                {/* Episodio 12 */}
+
+                <View style={styles.container3}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
+
+                        />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={styles.title2}>Episódio 12</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
+
+                {/* Episodio 13 */}
+
+                <View style={styles.container3}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ep1_Sara')}
+                    >
+                        <Image
+                            source={require('../../../images/thumbnail.png')}
+                            style={styles.episodio}
+
+                        />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={styles.title2}>Episódio 13</Text>
+                        <Text style={styles.text}>Psicoeducativo</Text>
+                    </View>
+                </View>
+
+                </View>
+            </View>
+        </ScrollView >
     )
 }
-
 
 
 const styles = StyleSheet.create({
@@ -44,12 +281,29 @@ const styles = StyleSheet.create({
     },
 
     container2: {
+        flex: 1,
         backgroundColor: 'white',
         borderTopLeftRadius: 60,
         borderTopRightRadius: 60,
         height: '100%',
         width: '100%',
         marginTop: '10%',
+
+    },
+
+    container3: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: '5%',
+
+    },
+
+    containerepisodios: {
+        flex:1,
+        marginTop: '2%',
+       marginBottom: '8%',
 
     },
 
@@ -69,7 +323,7 @@ const styles = StyleSheet.create({
 
     },
     title2: {
-        fontSize: 30,
+        fontSize: 20,
         fontWeight: 'bold',
         marginLeft: '10%',
         marginRight: '10%',
@@ -97,14 +351,14 @@ const styles = StyleSheet.create({
         fontSize: 10,
     },
 
-    conteudo: { //Imagem da Sara (conteudos)
-        width: 365,
-        height: 180,
+    episodio: { //Imagem do episodio
+        width: 150,
+        height: 90,
         marginLeft: '8%',
         marginRight: '8%',
         marginTop: '3%',
         resizeMode: 'contain',
-       
+
     },
 
 
