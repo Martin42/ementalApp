@@ -27,7 +27,7 @@ function Botao({navigation}) {
             onPress={() => navigation.navigate('PlaylistMarco')}
             >
             
-            <Text style={styles.registoText}>Marco</Text>
+            <Text style={styles.registoText}></Text>
               
           </TouchableOpacity>
 

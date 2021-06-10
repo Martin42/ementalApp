@@ -328,7 +328,7 @@ const styles = StyleSheet.create({
         marginLeft: '10%',
         marginRight: '10%',
         marginBottom: '3%',
-        marginTop: '13%',
+        marginTop: '4%',
 
     },
 
@@ -354,9 +354,8 @@ const styles = StyleSheet.create({
     episodio: { //Imagem do episodio
         width: 150,
         height: 90,
-        marginLeft: '8%',
-        marginRight: '8%',
-        marginTop: '3%',
+        marginLeft: '13%',
+        marginTop: '5%',
         resizeMode: 'contain',
 
     },
