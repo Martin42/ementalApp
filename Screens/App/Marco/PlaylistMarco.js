@@ -130,8 +130,8 @@ const styles = StyleSheet.create({
     title2: {
         fontSize: 20,
         fontWeight: 'bold',
-        marginBottom: '3%',
-        marginTop: '50%',
+        marginBottom: '5%',
+        marginTop: '45%',
 
     },
 
@@ -155,10 +155,10 @@ const styles = StyleSheet.create({
     },
 
     icone: { //Icone play
-        width: 55,
-        height: 55,
+        width: 60,
+        height: 60,
         marginLeft: '30%',
-        marginTop: '25%',
+        marginTop: '20%',
         resizeMode: 'contain',
     },
 

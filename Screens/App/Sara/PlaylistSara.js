@@ -327,7 +327,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginLeft: '10%',
         marginRight: '10%',
-        marginBottom: '3%',
+        marginBottom: '5%',
         marginTop: '4%',
 
     },
