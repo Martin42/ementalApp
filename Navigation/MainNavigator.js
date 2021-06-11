@@ -27,6 +27,8 @@ import Ep1_Sara from '../Screens/App/Sara/Ep1_Sara';
 import PlaylistSara from '../Screens/App/Sara/PlaylistSara';
 import Apoio from '../Screens/App/Apoio';
 import Esclarecimento from '../Screens/App/Esclarecimento';
+import Conversa from '../Screens/App/Conversa';
+import Responder from '../Screens/App/Responder';
 
 
 
@@ -63,6 +65,8 @@ const MainStackNavigator = () => {
                 <Stack.Screen name='QiSaraF' component={QiSaraF} />
                 <Stack.Screen name='Apoio' component={Apoio} />
                 <Stack.Screen name='Esclarecimento' component={Esclarecimento} />
+                <Stack.Screen name='Conversa' component={Conversa} />
+                <Stack.Screen name='Responder' component={Responder} />
                 <Stack.Screen name='Ep1_Sara' component={Ep1_Sara} />
                 <Stack.Screen name='PlaylistSara' component={PlaylistSara} />
                 

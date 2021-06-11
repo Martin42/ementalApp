@@ -28,19 +28,22 @@ function Apoio({ route, navigation }) {
             <View style={styles.container2}>
 
                 <Text style={styles.title3}>Contacta com a nossa equipa de profissionais</Text>
-{/* 
-                <View style={{flexDirection: 'row', marginLeft: '10%', marginRight: '10%'}}>
-                        <View style={{flex: 1, backgroundColor: '#CFE0FB', padding: '8%', borderWidth: 1, borderTopLeftRadius: 30, borderBottomLeftRadius: 30,borderColor: '#CFE0FB', marginRight: '1%'}}>
-                            <Text style={{textAlign: 'center'}}>2</Text>
-                            <Text style={{textAlign: 'center'}}>ABR</Text>
+
+                <View style={styles.ticketContainer}>
+                        <View style={styles.ticketLeft}>
+                            <Text  style={styles.setLeft}>2</Text>
+                            <Text  style={styles.setLeft}>ABR</Text>
                         </View>
 
-                        <View style={{flex: 5, backgroundColor: '#ECEDEF', padding: '6%', borderWidth: 1, borderTopRightRadius: 30, borderBottomRightRadius: 30, borderColor: '#ECEDEF', justifyContent: 'center'}}>
-                            <Text>Assunto:  <Text>Sintomas depressivos</Text> </Text>
-                            <Text>Estado: <Text> Resolvido </Text></Text>
-                           
+                        <View style={styles.ticketRight}>
+                            <TouchableOpacity
+                            onPress={() => navigation.navigate('Conversa')}
+                            >
+                            <Text style={{fontSize: 13, fontWeight: 'bold'}}>Assunto:  <Text style={{fontWeight: 'normal'}}>Sintomas depressivos</Text> </Text>
+                            <Text style={{fontSize: 13, fontWeight: 'bold'}}>Estado: <Text style={{fontWeight: 'normal'}}> Resolvido </Text></Text>
+                            </TouchableOpacity>
                         </View>
-                </View> */}
+                </View>
 
 
                 <View style={styles.ticketContainer}>
@@ -243,6 +246,12 @@ const styles = StyleSheet.create({
         borderBottomRightRadius: 30, 
         borderColor: '#ECEDEF', 
         justifyContent: 'center',
+    },
+
+    setLeft: {
+       fontSize: 12, 
+       fontWeight: 'bold', 
+       alignSelf: 'center'
     }
     
 

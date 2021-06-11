@@ -1,54 +1,46 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, TextInput} from "react-native";
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity} from "react-native";
 import Icon from 'react-native-vector-icons/AntDesign';
 import TextArea from 'react-native-textarea';
 
-function Esclarecimento({route, navigation}){
+function Responder({route, navigation}){
     return (
         <View style={styles.container}>
             <View style={styles.header}>
                
                <TouchableOpacity
                     style={styles.arrowLeft}
-                    onPress={() => navigation.navigate('Apoio')}
+                    onPress={() => navigation.navigate('Conversa')}
                >
                     <Icon name='left' size={28} color={'black'} />
                 </TouchableOpacity>
 
-                <Text style={styles.title}>Pedido de Esclarecimento</Text>
+                <Text style={styles.title}>Responder</Text>
 
             </View>
 
-            <ScrollView contentContainerStyle={styles.container}>
-
-                    <View style={styles.introText}>
-                        <Text style={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, ve.</Text>
+            <ScrollView 
+                style={styles.container}
+                persistentScrollbar={true}
+                >
+ 
+                    <View style={styles.subtitleContainer}>
+                        <Text style={styles.subtitle}>Assunto: </Text>
+                        <Text style={styles.subtitleReg}>Sintomas Depressivos </Text>
                     </View>
 
-                    <View  style={styles.inputField}>
-                        <TextInput
-                            style={styles.inputText}
-                            placeholder={'Nome (Opcional)'}
-                            backgroundColor= '#CFE0FB'
-                            placeholderTextColor= 'white'
-                        />
-
-                        <TextInput 
-                            style={styles.inputText}  
-                            backgroundColor= '#CFE0FB'
-                            placeholderTextColor= 'white'
-                            placeholder={'Assunto'}
-                        />
-
+                    <View style={styles.inputField}>
                         <TextArea 
-                            style={styles.inputMensagem} 
+                            style={styles.inputMensagem}
+                            placeholder={'Mensagem'}
                             backgroundColor= '#CFE0FB'
                             placeholderTextColor= 'white'
-                            placeholder={'Mensagem'}
-                            multiline={true}
+                            multinline={true}
+                        
                         />
+                    </View>
 
-                        <View style={{marginTop: '40%'}} >
+                    <View style={{marginTop: '40%'}} >
                                     <TouchableOpacity
                                             onPress={() => navigation.navigate('Apoio')}
                                             style={styles.enviar}
@@ -56,8 +48,9 @@ function Esclarecimento({route, navigation}){
                                                 <Text style={{color: 'white', textAlign: 'center', fontSize: 18, fontWeight: 'bold'}}> Enviar </Text>
                                     </TouchableOpacity>
                         </View>
-                       
-                    </View>
+
+                   
+                  
             </ScrollView>
 
                
@@ -71,9 +64,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'white',
         width: '100%',
-        alignContent: 'center',
-        justifyContent: 'center',
-
+   
     },
 
     arrowLeft: {
@@ -82,6 +73,18 @@ const styles = StyleSheet.create({
         top: 45, 
         alignSelf: 'center'
     },
+
+    enviar:{
+        borderColor: '#6578B3',
+        borderRadius: 20,
+        overflow: 'hidden',
+        backgroundColor: '#6578B3',
+        width: '80%',
+        padding: '3%',
+        alignSelf: 'center',
+    
+      },
+
 
     header: {
         backgroundColor: '#CFE0FB', 
@@ -96,23 +99,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
       },
 
-    inputField: {
-        flex: 4,
-        width: '80%',
+      inputField: {
         marginBottom:'10%',
         marginLeft: '10%',
-        marginTop: '5%',
+        marginRight: '10%',
         alignContent: 'center',
-      },
-
-      inputText: {
-        padding: 15,
-        fontSize: 18,
-        fontWeight: 'bold',
-        marginBottom: '5%',
-        color: 'black',
-        borderRadius: 20,
-      
       },
 
       inputMensagem: {
@@ -123,18 +114,6 @@ const styles = StyleSheet.create({
         padding: 15,
         textAlign: 'left',
 
-     
-      },
-
-      enviar:{
-        borderColor: '#6578B3',
-        borderRadius: 20,
-        overflow: 'hidden',
-        backgroundColor: '#6578B3',
-        width: '100%',
-        padding: '3%',
-        alignSelf: 'center',
-    
       },
 
       introText: {
@@ -148,16 +127,34 @@ const styles = StyleSheet.create({
         textAlign: 'justify', 
         marginTop: '15%'
       },
-
-  
-      
+ 
       title: {
         textAlign: 'center', 
         fontWeight: 'bold', 
         fontSize: 20,
-      }
+      },
+
+      subtitle: {
+        textAlign: 'left', 
+        fontWeight: 'bold', 
+        fontSize: 18,
+      },
+
+      subtitleReg: {
+        textAlign: 'left', 
+        fontWeight: 'normal', 
+        fontSize: 17,
+        marginTop: '1%'
+      },
+
+      subtitleContainer: {
+        flex: 1,
+        marginTop: '7%', 
+        marginLeft: '10%',
+        marginBottom: '5%',
+      },
 
 
 })
 
-export default Esclarecimento;
+export default Responder;
