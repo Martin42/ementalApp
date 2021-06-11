@@ -24,6 +24,10 @@ import QiSaraF from '../Screens/App/Sara/QiSaraF';
 import Homepage from '../Screens/App/Homepage';
 import Ep1_Sara from '../Screens/App/Sara/Ep1_Sara';
 import PlaylistSara from '../Screens/App/Sara/PlaylistSara';
+import Apoio from '../Screens/App/Apoio';
+import Esclarecimento from '../Screens/App/Esclarecimento';
+import Conversa from '../Screens/App/Conversa';
+import Responder from '../Screens/App/Responder';
 import PlaylistMarco from '../Screens/App/Marco/PlaylistMarco'
 
 
@@ -57,6 +61,10 @@ const MainStackNavigator = () => {
                 <Stack.Screen name='QiSaraD' component={QiSaraD} />
                 <Stack.Screen name='QiSaraE' component={QiSaraE} />
                 <Stack.Screen name='QiSaraF' component={QiSaraF} />
+                <Stack.Screen name='Apoio' component={Apoio} />
+                <Stack.Screen name='Esclarecimento' component={Esclarecimento} />
+                <Stack.Screen name='Conversa' component={Conversa} />
+                <Stack.Screen name='Responder' component={Responder} />
                 <Stack.Screen name='Ep1_Sara' component={Ep1_Sara} />
                 <Stack.Screen name='PlaylistSara' component={PlaylistSara} /> 
                 <Stack.Screen name='PlaylistMarco' component={PlaylistMarco} />

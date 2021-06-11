@@ -1,5 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, Image, View } from "react-native";
+import { StyleSheet, Text, Image, View } from "react-native";
 import React from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -21,9 +20,9 @@ function Info5({route, navigation}){
                     />
 
 
-                <View>
+                <View style={styles.seguinteContainer}>
                     <TouchableOpacity
-                        style={styles.touchable}
+                      
                         onPress={() => navigation.navigate('Consentimento', { status: route.params.status}) }>
                         <Text style={styles.next}>Seguinte</Text>
                     </TouchableOpacity>
@@ -62,8 +61,15 @@ const styles = StyleSheet.create({
         fontSize: 17,
         fontWeight: 'bold',
         marginTop: '5%',
-        marginRight: '10%',
-        textAlign: 'right'
+        textAlign: 'center',
+    },
+
+    seguinteContainer: {
+        width: '20%',
+        alignSelf: 'flex-end', 
+        marginRight: '8%', 
+        marginTop: '12%', 
+
     },
 
     example: {

@@ -1,5 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, Image, View, ScrollView } from "react-native";
+import { StyleSheet, Text, Image, View } from "react-native";
 import React from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -22,16 +21,18 @@ function Info3({route, navigation}){
                         style={styles.example}
                     />
 
-                <View>
-                    <TouchableOpacity
-                        style={styles.touchable}
-                        onPress={() => navigation.navigate('Info4', { status: route.params.status}) }>
-                        <Text style={styles.next}>Seguinte</Text>
-                    </TouchableOpacity>
-                </View>
+               
 
-                </View>
-            </ScrollView>
+                    <View style={styles.seguinteContainer}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Info4', { status: route.params.status}) }>
+                            <Text style={styles.next}>Seguinte</Text>
+                        </TouchableOpacity>
+                    </View>
+
+                
+            </View>
+        </ScrollView>
     )
 }
 
@@ -72,9 +73,16 @@ const styles = StyleSheet.create({
     next: {
         fontSize: 17,
         fontWeight: 'bold',
-        marginTop: '20%',
-        marginRight: '10%',
-        textAlign: 'right'
+        marginTop: '5%',
+        textAlign: 'center',
+    },
+
+    seguinteContainer: {
+        width: '20%',
+        alignSelf: 'flex-end', 
+        marginRight: '8%', 
+        marginTop: '12%', 
+
     },
 
     example: {

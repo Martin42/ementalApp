@@ -1,9 +1,10 @@
-
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity} from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
-import Icon1 from 'react-native-vector-icons/AntDesign';
+import Icon1 from 'react-native-vector-icons/MaterialIcons';
+import Icon2 from 'react-native-vector-icons/AntDesign';
+import Checkbox from 'react-native-check-box';
 import { auth, db } from '../../Firebase';
 
 function Homepage({ route, navigation }) {
@@ -14,7 +15,6 @@ function Homepage({ route, navigation }) {
     //         .doc(auth.currentUser.uid)
     //         .get();
     // }
-
 
 
     return (
@@ -34,10 +34,12 @@ function Homepage({ route, navigation }) {
                 <Text style={styles.title3}>A Ferida Sara</Text>
 
                 <TouchableOpacity
+                    style={{alignSelf: 'center'}}
                     onPress={() => navigation.navigate('QiSaraA')}
 
                 >
                     <Image
+                    
                         source={require('../../images/Sara.png')}
                         style={styles.conteudo}
 
@@ -46,21 +48,30 @@ function Homepage({ route, navigation }) {
                 <Text style={styles.title2}>Podcast</Text>
                 <Text style={styles.title3}>Um Marco na Vida</Text>
 
+                <TouchableOpacity
+                     style={{alignSelf: 'center'}}
+                     onPress={() => navigation.navigate('PlaylistMarco')}
+                >
+                    <Image
+                        source={require('../../images/marcoNaVida.png')}
+                        style={styles.conteudo}
 
-                <Image
-                    source={require('../../images/marcoNaVida.png')}
-                    style={styles.conteudo}
-
-                />
+                    />
+                </TouchableOpacity>
 
                 <Text style={styles.title2}>Vídeos</Text>
 
                 <Text style={styles.title3}>40 segundos</Text>
-                <Image
-                    source={require('../../images/conteudoBloqueado.png')}
-                    style={styles.conteudo}
 
-                />
+                <TouchableOpacity
+                     style={{alignSelf: 'center'}}
+                >
+                    <Image
+                        source={require('../../images/conteudoBloqueado.png')}
+                        style={styles.conteudo}
+
+                    />
+                </TouchableOpacity>
                 <Text style={styles.title4}>Exclusivo a profissionais de saúde</Text>
 
             </View>
@@ -69,21 +80,33 @@ function Homepage({ route, navigation }) {
 
             <View style={styles.tabBar}>
                 <View style={{flex: 1}}>
-                <TouchableOpacity style={{padding: '10%', width: '50%', alignSelf: 'center'}}>
-                        <Icon name='notifications-outline' size={30} color='black' style={{alignSelf: 'center'}}/>
-                </TouchableOpacity>
+                <Checkbox 
+                    style={styles.icon}
+                    onClick={() => navigation.navigate('Homepage')} // Alterar para Notificações
+                    isChecked={false}
+                    unCheckedImage={<Icon name='notifications' size={28} color='#D2D2D2'/>}
+                    checkedImage={<Icon name='notifications' size={28} color='#6578B3'/>}
+                />           
                 </View>
 
                 <View style={{flex: 1}}>
-                <TouchableOpacity style={{padding: '10%', width: '50%', alignSelf: 'center'}}>
-                        <Icon name='home-sharp' size={30} color='black' style={{alignSelf: 'center'}}/>
-                </TouchableOpacity>
+                <Checkbox 
+                    style={styles.icon}
+                    onClick={() => navigation.navigate('Homepage')}
+                    isChecked={true}
+                    unCheckedImage={<Icon1 name='home' size={30} color='#D2D2D2' />}
+                    checkedImage={<Icon1 name='home' size={30} color='#6578B3'/>}
+                />   
                 </View>
 
                 <View style={{flex: 1}}>
-                <TouchableOpacity style={{padding: '10%', width: '50%', alignSelf: 'center'}}>
-                        <Icon1 name='questioncircleo' size={32} color='black' style={{alignSelf: 'center'}}/>
-                </TouchableOpacity>
+                <Checkbox 
+                    style={styles.icon}
+                    onClick={() => navigation.navigate('Apoio')} 
+                    isChecked={false}
+                    unCheckedImage={<Icon2 name='questioncircle' size={28} color='#D2D2D2' />}
+                    checkedImage={<Icon2 name='questioncircle' size={28} color='#6578B3'/>}
+                />  
                 </View>
 
             </View>
@@ -104,9 +127,7 @@ const styles = StyleSheet.create({
     container2: {
         backgroundColor: 'white',
         borderTopLeftRadius: 60,
-        borderTopRightRadius: 60,
-        height: '100%',
-        width: '100%',
+        borderTopRightRadius: 60, 
         marginTop: '10%',
 
     },
@@ -115,6 +136,11 @@ const styles = StyleSheet.create({
         marginLeft: '10%',
         marginRight: '10%',
         fontSize: 15,
+    },
+
+    icon: {
+        padding: '10%', 
+        alignSelf: 'center',
     },
 
     title1: {
@@ -158,8 +184,6 @@ const styles = StyleSheet.create({
     conteudo: {       //Imagem da Sara (conteudos)
         width: 365,
         height: 180,
-        marginLeft: '8%',
-        marginRight: '8%',
         marginTop: '3%',
         resizeMode: 'contain',
        
