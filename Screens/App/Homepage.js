@@ -50,6 +50,7 @@ function Homepage({ route, navigation }) {
 
                 <TouchableOpacity
                      style={{alignSelf: 'center'}}
+                     onPress={() => navigation.navigate('PlaylistMarco')}
                 >
                     <Image
                         source={require('../../images/marcoNaVida.png')}
