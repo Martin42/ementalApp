@@ -34,10 +34,12 @@ function Homepage({ route, navigation }) {
                 <Text style={styles.title3}>A Ferida Sara</Text>
 
                 <TouchableOpacity
+                    style={{alignSelf: 'center'}}
                     onPress={() => navigation.navigate('QiSaraA')}
 
                 >
                     <Image
+                    
                         source={require('../../images/Sara.png')}
                         style={styles.conteudo}
 
@@ -46,21 +48,29 @@ function Homepage({ route, navigation }) {
                 <Text style={styles.title2}>Podcast</Text>
                 <Text style={styles.title3}>Um Marco na Vida</Text>
 
+                <TouchableOpacity
+                     style={{alignSelf: 'center'}}
+                >
+                    <Image
+                        source={require('../../images/marcoNaVida.png')}
+                        style={styles.conteudo}
 
-                <Image
-                    source={require('../../images/marcoNaVida.png')}
-                    style={styles.conteudo}
-
-                />
+                    />
+                </TouchableOpacity>
 
                 <Text style={styles.title2}>Vídeos</Text>
 
                 <Text style={styles.title3}>40 segundos</Text>
-                <Image
-                    source={require('../../images/conteudoBloqueado.png')}
-                    style={styles.conteudo}
 
-                />
+                <TouchableOpacity
+                     style={{alignSelf: 'center'}}
+                >
+                    <Image
+                        source={require('../../images/conteudoBloqueado.png')}
+                        style={styles.conteudo}
+
+                    />
+                </TouchableOpacity>
                 <Text style={styles.title4}>Exclusivo a profissionais de saúde</Text>
 
             </View>
@@ -116,9 +126,7 @@ const styles = StyleSheet.create({
     container2: {
         backgroundColor: 'white',
         borderTopLeftRadius: 60,
-        borderTopRightRadius: 60,
-        height: '100%',
-        width: '100%',
+        borderTopRightRadius: 60, 
         marginTop: '10%',
 
     },
@@ -175,8 +183,6 @@ const styles = StyleSheet.create({
     conteudo: {       //Imagem da Sara (conteudos)
         width: 365,
         height: 180,
-        marginLeft: '8%',
-        marginRight: '8%',
         marginTop: '3%',
         resizeMode: 'contain',
        
