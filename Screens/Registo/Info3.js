@@ -8,14 +8,16 @@ function Info3({route, navigation}){
 
     return(
             
+            <ScrollView contentContainerStyle={{flex: 1}}>
             <View style={styles.container}>
 
                 <Text style={styles.title}>Instruções de uso</Text>
                 
-                <Text style={styles.text}>Nesta aplicação estão presentes conteúdos audio visuais ao qual como utilizador poderás visualizar dependendo do teu estatuto. Qualquer profissional de saúde verificado pela equipa terá acesso a conteúdo exclusivo.</Text>
+                <Text style={styles.text}>Durante a intervenção só poderás ver uma única vez cada episódio. Inicialmente não terás todos os episódios disponíveis e receberás uma notificação sempre que um novo se desbloqueia.</Text>
+                <Text style={styles.texto}>Terás de responder a um questionário anónimo antes e após cada intervenção.</Text>
 
                 <Image 
-                        source={require('../../images/ex1.png')}
+                        source={require('../../images/ex2.png')}
                         style={styles.example}
                     />
 
@@ -30,6 +32,7 @@ function Info3({route, navigation}){
 
                 
             </View>
+        </ScrollView>
     )
 }
 
@@ -59,6 +62,14 @@ const styles = StyleSheet.create({
         textAlign: 'justify',
     },
 
+    texto: {
+        marginLeft: '10%',
+        marginRight: '10%',
+        marginBottom: '10%',
+        fontSize: 15,
+        textAlign: 'justify',
+    },
+
     next: {
         fontSize: 17,
         fontWeight: 'bold',
@@ -76,12 +87,12 @@ const styles = StyleSheet.create({
 
     example: {
         marginTop: '5%',
-        marginBottom: '10%',
+        marginBottom: '0%',
         borderWidth: 1,
         borderColor: 'black',
         resizeMode: 'contain',
-        width: '50%',
-        height: '50%',
+        width: '40%',
+        height: '40%',
         alignSelf: 'center',
     },
 

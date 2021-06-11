@@ -15,7 +15,7 @@ function Info2({route, navigation}){
                 <View style={styles.container}>
                     <Text style={styles.title}>A Ferida Sara</Text>
 
-                    <Text style={styles.text}>"DEEP" É uma intervenção psicoeducativa de formato audiovisual, estruturada numa web-série designada "A Ferida Sara", de base narrativa, sobre a vida da estudante universitária Sara, intercalados com episódios psicoeducativos.</Text>
+                    <Text style={styles.text}>"DEEP" É uma intervenção psicoeducativa de formato audiovisual, estruturada numa websérie designada "A Ferida Sara", de base narrativa, sobre a vida da estudante universitária Sara, intercalados com episódios psicoeducativos.</Text>
                 
                     <Image 
                         source={require('../../images/Sara.png')}
@@ -31,7 +31,7 @@ function Info2({route, navigation}){
               
                     <View style={styles.seguinteContainer}>
                         <TouchableOpacity
-                        onPress={() => navigation.navigate('Info3', { status: route.params.status, nomePedido: 'estudante', emailPedido: 'null', mensagemPedido: 'null' }) }>
+                        onPress={() => navigation.navigate('Info4', { status: route.params.status, nomePedido: 'estudante', emailPedido: 'null', mensagemPedido: 'null' }) }>
                             <Text style={styles.next}>Seguinte</Text>
                         </TouchableOpacity>
                     </View>

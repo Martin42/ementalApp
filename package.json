@@ -36,7 +36,6 @@
     "react-native-youtube-iframe": "^2.0.1",
     "react-navigation": "^4.4.4",
     "react-navigation-tabs": "^2.11.1"
-
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"

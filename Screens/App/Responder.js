@@ -42,7 +42,7 @@ function Responder({route, navigation}){
 
                     <View style={{marginTop: '40%'}} >
                                     <TouchableOpacity
-                                            onPress={() => navigation.navigate('Apoio')}
+                                            onPress={() => navigation.navigate('Conversa')}
                                             style={styles.enviar}
                                             >
                                                 <Text style={{color: 'white', textAlign: 'center', fontSize: 18, fontWeight: 'bold'}}> Enviar </Text>

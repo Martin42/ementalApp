@@ -1,5 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, Image, View, ScrollView } from "react-native";
+import { StyleSheet, Text, Image, View } from "react-native";
 import React from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -9,16 +8,14 @@ function Info4({route, navigation}){
 
     return(
             
-            <ScrollView contentContainerStyle={{flex: 1}}>
             <View style={styles.container}>
 
                 <Text style={styles.title}>Instruções de uso</Text>
                 
-                <Text style={styles.text}>Só será possível ver um conteúdo de cada vez, precisando sempre de terminar o atual em que se encontra antes de proseguir. No momento de visualização do primeiro episódio, será obrigatório responder um questionário inicial anónimo, também será obrigatório responder um outro questionário no final da visualização do conteúdo audio visual na sua totalidade.</Text>
-                <Text style={styles.text}>Inicialmente não terás todos episódios disponíveis, estes tem uma calendarização programada ao qual receberás uma notificação sempre que fica disponível um episódio novo.</Text>
+                <Text style={styles.text}>Em cada episódio existe uma zona de comentários onde poderás sempre deixar as tuas observações ou dúvidas. Todos os comentários serão primeiro aprovados pela equipa de profissionais de saúde antes de se tornarem visíveis.</Text>
 
                 <Image 
-                        source={require('../../images/ex2.png')}
+                        source={require('../../images/ex3.png')}
                         style={styles.example}
                     />
 
@@ -29,9 +26,7 @@ function Info4({route, navigation}){
                         <Text style={styles.next}>Seguinte</Text>
                     </TouchableOpacity>
                 </View>
-
-                </View>
-            </ScrollView>
+            </View>
     )
 }
 
@@ -82,8 +77,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: 'black',
         resizeMode: 'contain',
-        width: '40%',
-        height: '40%',
+        width: '50%',
+        height: '50%',
         alignSelf: 'center',
     },
 

@@ -1,5 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, Image, View } from "react-native";
+import { StyleSheet, Text, Image, View } from "react-native";
 import React from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -13,10 +12,10 @@ function Info5({route, navigation}){
 
                 <Text style={styles.title}>Instruções de uso</Text>
                 
-                <Text style={styles.text}>Em cada vídeo encontra-se uma zona de comentários ao qual poderás sempre deixar as tuas dúvidas, todos os comentários serão primeiro confirmados e comprovados por um profissional de saúde antes de se tornar visível para todos.</Text>
+                <Text style={styles.text}>Caso queiras entrar em contacto direto com um profissional de saúde, na página 'Linhas de Apoio' existe uma secção de contactos de emergência e a possibilidade de enviar um pedido de esclarecimento à nossa equipa de profissionais de saúde. Para isto basta apenas redigir o assunto e a mensagem e, por fim, aguardar pela resposta.</Text>
 
                 <Image 
-                        source={require('../../images/ex3.png')}
+                        source={require('../../images/ex4.png')}
                         style={styles.example}
                     />
 
@@ -24,7 +23,7 @@ function Info5({route, navigation}){
                 <View style={styles.seguinteContainer}>
                     <TouchableOpacity
                       
-                        onPress={() => navigation.navigate('Info6', { status: route.params.status}) }>
+                        onPress={() => navigation.navigate('Consentimento', { status: route.params.status}) }>
                         <Text style={styles.next}>Seguinte</Text>
                     </TouchableOpacity>
                 </View>
