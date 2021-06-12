@@ -28,7 +28,7 @@ import Apoio from '../Screens/App/Apoio';
 import Esclarecimento from '../Screens/App/Esclarecimento';
 import Conversa from '../Screens/App/Conversa';
 import Responder from '../Screens/App/Responder';
-import PlaylistMarco from '../Screens/App/Marco/PlaylistMarco'
+import PlaylistMarco from '../Screens/App/Marco/PlaylistMarco';
 
 
 
