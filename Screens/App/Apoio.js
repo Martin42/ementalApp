@@ -8,14 +8,6 @@ import { auth, db } from '../../Firebase';
 
 function Apoio({ route, navigation }) {
 
-    // const getData = () => {
-    //     db
-    //         .collection('users')
-    //         .doc(auth.currentUser.uid)
-    //         .get();
-    // }
-
-
     return (
         <View style={styles.container}>
         <ScrollView style={styles.container}>

@@ -9,13 +9,6 @@ import { auth, db } from '../../Firebase';
 
 function Homepage({ route, navigation }) {
 
-    // const getData = () => {
-    //     db
-    //         .collection('users')
-    //         .doc(auth.currentUser.uid)
-    //         .get();
-    // }
-
 
     return (
         <View style={styles.container}>
