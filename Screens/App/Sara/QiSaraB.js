@@ -1,17 +1,8 @@
 import React, { useState } from 'react';
-import { ScrollView, StyleSheet, TouchableOpacity, Text, Image, View } from "react-native";
+import { CheckBox, ScrollView, StyleSheet, TouchableOpacity, Text, Image, View } from "react-native";
 import TextArea from 'react-native-textarea';
-import Checkbox from 'react-native-check-box';
 
 function QiSaraB({route, navigation}){
-
-    // Imagens A Carregar nas CheckBoxes
-
-    const SimUnchecked = (<Image source={require('../../../images/Sim_unchecked.png')} style={styles.aceito} />)
-    const SimChecked  = (<Image source={require('../../../images/Sim_checked.png')} style={styles.aceito} />)
-
-    const NaoUnchecked = (<Image source={require('../../../images/Nao_unchecked.png')} style={styles.aceito2} />)
-    const NaoChecked = (<Image source={require('../../../images/Nao_checked.png')} style={styles.aceito2} />)
 
     // UseStates
 
@@ -63,7 +54,6 @@ function QiSaraB({route, navigation}){
         setBotao2(false);
     }
 
-
     return(
         <View style={styles.container}>
 
@@ -72,33 +62,30 @@ function QiSaraB({route, navigation}){
                 showsVerticalScrollIndicator={false}
             >
 
-                    <Text style={styles.subtitle}>Conhecimentos sobre depressão</Text>
-                    <Text style={styles.textobold}>1. Sabes o que é a depressão?</Text>
+                <Text style={styles.subtitle}>Conhecimentos sobre depressão</Text>
+                <Text style={styles.textobold}>1. Sabes o que é a depressão?</Text>
 
-                <View style={styles.checkUp}>
-                    <Checkbox
+                <View style={styles.container}>
+                    <View style={styles.checkboxContainer}>
+                        <CheckBox
+                        value={check}
+                        onValueChange={setCheck}
                         style={styles.checkbox}
-                        onClick={() => validate()}
-                        isChecked={check}
-                        unCheckedImage={SimUnchecked} 
-                        checkedImage={SimChecked} 
-                    />
+                        />
+                        <Text style={styles.label}>Sim</Text>
+
+                        <CheckBox
+                        value={valid}
+                        onValueChange={setValid}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label2}>Não</Text>
+                    </View>
                 </View>
 
-                <View style={styles.checkDown}>
-                    <Checkbox
-                        style={styles.checkbox}    
-                        onClick={() => troca()}
-                        isChecked={valid}
-                        unCheckedImage={NaoUnchecked} 
-                        checkedImage={NaoChecked} 
-                    />
+                <Text style={styles.textobold}>2. Descreve depressão em duas palavras:</Text>
 
-                </View>
-
-                    <Text style={styles.textobold}>2. Descreve depressão em duas palavras:</Text>
-
-                    <View style={styles.inputField}>
+                <View style={styles.inputField}>
                         <TextArea
                         style={styles.inputMensagem}
                         placeholder= 'Responde aqui...'
@@ -107,137 +94,125 @@ function QiSaraB({route, navigation}){
                         containerStyle={styles.inputMensagemContainer}
                         onChangeText={mensagem => setMensagem(mensagem)}
                         />
-                    </View>                
-                    
-                    <Text style={styles.textobold}>3. Consideras ter conhecimentos suficientes que te permitam detetar sintomas de depressão em algum familiar ou amigo/colega próximo?</Text>
+                    </View>      
+                
+                <Text style={styles.textobold}>3. Consideras ter conhecimentos suficientes que te permitam detetar sintomas de depressão em algum familiar ou amigo/colega próximo?</Text>
 
-                <View style={styles.checkUp}>
-                    <Checkbox
-                        style={styles.checkbox}    
-                        onClick={() => validate2()}
-                        isChecked={check2}
-                        unCheckedImage={SimUnchecked} 
-                        checkedImage={SimChecked} 
-                    />
-                </View>
-
-                <View style={styles.checkDown}>
-                    <Checkbox
-                        style={styles.checkbox}     
-                        onClick={() => troca2()}
-                        isChecked={valid2}
-                        unCheckedImage={NaoUnchecked} 
-                        checkedImage={NaoChecked} 
-                    />
-                </View>
-
-                    <Text style={styles.textobold}>4. Alertarias essa pessoa, dizendo-lhe que pode estar a sofrer de depressão?</Text>
-
-                <View style={styles.checkUp}>
-                    <Checkbox
+                <View style={styles.container}>
+                    <View style={styles.checkboxContainer}>
+                        <CheckBox
+                        value={check2}
+                        onValueChange={setCheck2}
                         style={styles.checkbox}
-                        onClick={() => validate3()}
-                        isChecked={check3}
-                        unCheckedImage={SimUnchecked} 
-                        checkedImage={SimChecked} 
-                    />
-                </View>
+                        />
+                        <Text style={styles.label}>Sim</Text>
 
-                <View style={styles.checkDown}>
-                    <Checkbox
-                        style={styles.checkbox}     
-                        onClick={() => troca3()}
-                        isChecked={valid3}
-                        unCheckedImage={NaoUnchecked} 
-                        checkedImage={NaoChecked} 
-                    />
-                </View>
-
-                    <Text style={styles.textobold}>5. Recomendarias a essa pessoa que procurasse apoio de profissionais de saúde?</Text>
-
-                <View style={styles.checkUp}>
-                    <Checkbox
-                        style={styles.checkbox}    
-                        onClick={() => validate4()}
-                        isChecked={check4}
-                        unCheckedImage={SimUnchecked} 
-                        checkedImage={SimChecked} 
-                    />
-                </View>
-
-                <View style={styles.checkDown}>
-                    <Checkbox
-                        style={styles.checkbox}     
-                        onClick={() => troca4()}
-                        isChecked={valid4}
-                        unCheckedImage={NaoUnchecked} 
-                        checkedImage={NaoChecked} 
-                    />
-                </View>
-
-                    <Text style={styles.textobold}>6. Consideras que já tiveste (ou tens) alguma depressão?</Text>
-
-                <View style={styles.checkUp}>
-                    <Checkbox
-                        style={styles.checkbox}    
-                        onClick={() => validate5()}
-                        isChecked={check5}
-                        unCheckedImage={SimUnchecked} 
-                        checkedImage={SimChecked} 
-                    />
-                </View>
-
-                <View style={styles.checkDown}>
-                    <Checkbox
-                        style={styles.checkbox}     
-                        onClick={() => troca5()}
-                        isChecked={valid5}
-                        unCheckedImage={NaoUnchecked} 
-                        checkedImage={NaoChecked} 
-                    />
-                </View>
-
-                    <Text style={styles.textobold}>7. Aproximadamente há quanto tempo?</Text>
-                    
-                    {/* erro aqui!! */}
-                <View style={styles.checkUp}>
-                    <Checkbox
-                        style={styles.checkbox}  
-                        onClick={() => clicar1()}
-                        isChecked={botao1}
-                        unCheckedImage={<Image source={require('../../../images/hamaisdeumano_unchecked.png')} style={styles.aceito} />} 
-                        checkedImage={<Image source={require('../../../images/hamaisdeumano_checked.png')} style={styles.aceito} />} 
-                    />
-                </View>
-
-                <View style={styles.checkMid}>
-
-                    <Checkbox
-                        style={styles.checkbox} 
-                        onClick={() => clicar2()}
-                        isChecked={botao2}
-                        unCheckedImage={<Image source={require('../../../images/entreumetres_unchecked.png')} style={styles.aceito} />} 
-                        checkedImage={<Image source={require('../../../images/entreumetres_checked.png')} style={styles.aceito} />} 
-                    />
-                </View>
-
-
-                <View style={styles.checkDown}>
-                    <Checkbox
-                        style={styles.checkbox} 
-                        onClick={() => clicar3()}
-                        isChecked={botao3}
-                        unCheckedImage={<Image source={require('../../../images/ultimostres_unchecked.png')} style={styles.aceito2} />} 
-                        checkedImage={<Image source={require('../../../images/ultimostres_checked.png')} style={styles.aceito2} />} 
-                    />
-                </View>
-
-                    <View style={styles.seguinteContainer}>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('QiSaraC')}>
-                        <Text style={styles.next}>Seguinte</Text>
-                    </TouchableOpacity>
+                        <CheckBox
+                        value={valid2}
+                        onValueChange={setValid2}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label2}>Não</Text>
                     </View>
+                </View>
+            
+                <Text style={styles.textobold}>4. Alertarias essa pessoa, dizendo-lhe que pode estar a sofrer de depressão?</Text>
+
+                <View style={styles.container}>
+                    <View style={styles.checkboxContainer}>
+                        <CheckBox
+                        value={check3}
+                        onValueChange={setCheck3}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label}>Sim</Text>
+
+                        <CheckBox
+                        value={valid3}
+                        onValueChange={setValid3}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label2}>Não</Text>
+                    </View>
+                </View>
+
+                <Text style={styles.textobold}>5. Recomendarias a essa pessoa que procurasse apoio de profissionais de saúde?</Text>
+
+                <View style={styles.container}>
+                    <View style={styles.checkboxContainer}>
+                        <CheckBox
+                        value={check4}
+                        onValueChange={setCheck4}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label}>Sim</Text>
+
+                        <CheckBox
+                        value={valid4}
+                        onValueChange={setValid4}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label2}>Não</Text>
+                    </View>
+                </View>
+
+                <Text style={styles.textobold}>6. Consideras que já tiveste (ou tens) alguma depressão?</Text>
+
+                <View style={styles.container}>
+                    <View style={styles.checkboxContainer}>
+                        <CheckBox
+                        value={check5}
+                        onValueChange={setCheck5}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label}>Sim</Text>
+
+                        <CheckBox
+                        value={valid5}
+                        onValueChange={setValid5}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label2}>Não</Text>
+                    </View>
+                </View>
+
+                <Text style={styles.textobold}>7. Aproximadamente há quanto tempo?</Text>
+                
+                <View style={styles.container2}>
+                    <View style={styles.checkboxContainer2}>
+                        <CheckBox
+                        value={check}
+                        onValueChange={setCheck}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label}>Há mais de 1 ano</Text>
+                    </View>
+
+                    <View style={styles.checkboxContainer2}>
+                        <CheckBox
+                        value={check}
+                        onValueChange={setCheck}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label}>Entre 1 ano e 3 meses</Text>
+                    </View>
+
+                    <View style={styles.checkboxContainer2}>
+                        <CheckBox
+                        value={check}
+                        onValueChange={setCheck}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label}>Nos últimos 3 meses</Text>
+                    </View>
+                </View>
+
+                <View style={styles.seguinteContainer}>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('QiSaraC')}>
+                    <Text style={styles.next}>Seguinte</Text>
+                </TouchableOpacity>
+                </View>
               
             </ScrollView>
         </View>
@@ -249,7 +224,6 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: 'white',
         alignItems: 'center',
         justifyContent: 'center',
         width: '100%',
@@ -270,7 +244,7 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         backgroundColor: 'white',
         height: 45,
-        width: '70%',
+        width: '80%',
         marginBottom: '10%',
         alignSelf: 'center',
       },
@@ -363,7 +337,33 @@ const styles = StyleSheet.create({
         marginTop: '2%',
     },
 
+    container2: {
+        marginLeft: '15%',
+        marginRight: '15%',
+        marginTop: 8,
+    },
 
+    checkboxContainer: {
+        flexDirection: 'row',
+        marginBottom: '10%',
+        marginTop: '3%',
+    },
+
+    checkboxContainer2: {
+        flexDirection: 'row',
+    },
+
+    checkbox: {
+        alignSelf: "center",
+    },
+
+    label: {
+        margin: 8,
+        marginRight:'15%',
+    },
+    label2: {
+        margin: 8,
+    },
 
 });
 

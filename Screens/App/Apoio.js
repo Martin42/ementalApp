@@ -5,6 +5,7 @@ import Icon1 from 'react-native-vector-icons/MaterialIcons';
 import Icon2 from 'react-native-vector-icons/AntDesign';
 import Checkbox from 'react-native-check-box';
 import { auth, db } from '../../Firebase';
+import { color } from 'react-native-reanimated';
 
 function Apoio({ route, navigation }) {
 
@@ -32,7 +33,7 @@ function Apoio({ route, navigation }) {
                             onPress={() => navigation.navigate('Conversa')}
                             >
                             <Text style={{fontSize: 13, fontWeight: 'bold'}}>Assunto:  <Text style={{fontWeight: 'normal'}}>Sintomas depressivos</Text> </Text>
-                            <Text style={{fontSize: 13, fontWeight: 'bold'}}>Estado: <Text style={{fontWeight: 'normal'}}> Resolvido </Text></Text>
+                            <Text style={{fontSize: 13, fontWeight: 'bold'}}>Estado: <Text style={{fontWeight: 'normal', color: 'green'}}> Resolvido </Text></Text>
                             </TouchableOpacity>
                         </View>
                 </View>
@@ -43,7 +44,7 @@ function Apoio({ route, navigation }) {
                             <TouchableOpacity
                                 onPress={() => navigation.navigate('Esclarecimento')}
                             >
-                                <Icon2 name='plus' size={22} color={'#6578B3'} style={{alignSelf: 'center'}} />
+                                <Icon2 name='plus' size={25} color={'#6578B3'} style={{alignSelf: 'center'}} />
                             </TouchableOpacity>
                         </View>
 
@@ -53,7 +54,7 @@ function Apoio({ route, navigation }) {
                 </View>
 
                 <View style={styles.contacto}>
-                    <Text style={styles.title2}>Telefone da Amizade</Text>
+                    <Text style={styles.titulo2}>Telefone da Amizade</Text>
                     <Text style={styles.text2}>16h – 23h</Text>
                     <Text style={styles.text2}>228 323 535</Text>
                 </View>
@@ -84,7 +85,7 @@ function Apoio({ route, navigation }) {
                     <Text style={styles.text2}> 808 24 24 24</Text>
                 </View>
 
-                <View style={styles.contacto}>
+                <View style={styles.contacto2}>
                     <Text style={styles.title2}>INEM</Text>
                     <Text style={styles.text2}>Permanente</Text>
                     <Text style={styles.text2}>112</Text>
@@ -181,7 +182,16 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginRight: '10%',
         marginBottom: '3%',
-        marginTop: '13%',
+        marginTop: '7%',
+
+    },
+
+    titulo2: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginRight: '10%',
+        marginBottom: '3%',
+        marginTop: '15%',
 
     },
 
@@ -208,7 +218,13 @@ const styles = StyleSheet.create({
         borderColor: '#ECEDEF',
         width: '80%', 
         alignSelf: 'center', 
-        paddingBottom: '2%'
+        paddingBottom: '7%'
+    },
+
+    contacto2: {
+        width: '80%', 
+        alignSelf: 'center', 
+        paddingBottom: '7%'
     },
 
     ticketContainer: {
@@ -241,9 +257,10 @@ const styles = StyleSheet.create({
     },
 
     setLeft: {
-       fontSize: 12, 
+       fontSize: 18, 
        fontWeight: 'bold', 
-       alignSelf: 'center'
+       alignSelf: 'center',
+       color: '#6578B3',
     }
     
 

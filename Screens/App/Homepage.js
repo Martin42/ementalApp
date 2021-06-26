@@ -16,7 +16,7 @@ function Homepage({ route, navigation }) {
             <View>
                 <StatusBar style={'auto'} />
 
-                <Text style={styles.title1}>Conteúdos</Text>
+                <Text style={styles.title1}>Intervenções</Text>
 
                 <Text style={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim.</Text>
             </View>
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
         marginBottom: '10%',
         marginLeft: '10%',
         marginRight: '10%',
-        fontSize: 10,
+        fontSize: 15,
     },
 
     conteudo: {       //Imagem da Sara (conteudos)
