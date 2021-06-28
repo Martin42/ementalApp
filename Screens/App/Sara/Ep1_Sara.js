@@ -171,7 +171,7 @@ function Ep1_Sara({route, navigation}){
             </View>
                
                   
-                
+            </View>
 
         </ScrollView>
     )
