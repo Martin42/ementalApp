@@ -38,13 +38,6 @@ function Ep1_Sara({route, navigation}){
   
 
     // Player 
-
-    const onStateChange = useCallback((state) => {
-      if (state === "ended") {
-        setPlaying(false);
-        Alert.alert("You got Jebaited!");
-      }
-    }, []);
   
     const togglePlaying = useCallback(() => {
       setPlaying((prev) => !prev);
@@ -62,7 +55,6 @@ function Ep1_Sara({route, navigation}){
                     height={300}
                     play={playing}
                     videoId={route.params.video}
-                    onChangeState={onStateChange}
             />
       
             <Text style={styles.title1}>Comentários</Text>
