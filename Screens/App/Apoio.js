@@ -9,14 +9,6 @@ import { color } from 'react-native-reanimated';
 
 function Apoio({ route, navigation }) {
 
-    // const getData = () => {
-    //     db
-    //         .collection('users')
-    //         .doc(auth.currentUser.uid)
-    //         .get();
-    // }
-
-
     return (
         <View style={styles.container}>
         <ScrollView style={styles.container}>
