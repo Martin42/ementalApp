@@ -1,8 +1,52 @@
-import React, { useState } from 'react';
-import { CheckBox, ScrollView, StyleSheet, TouchableOpacity, Text, Image, View } from "react-native";
+import React, { useState, useEffect } from 'react';
+import { ScrollView, StyleSheet, TouchableOpacity, Text, Image, View, CheckBox} from "react-native";
 import TextArea from 'react-native-textarea';
+import { auth, db } from '../../../Firebase';
+
 
 function QiSaraB({route, navigation}){
+
+    const [respostas, setRespostas] = useState(0);
+
+
+    async function getPergunta1(){
+        const questionario = db.collection('Questionário Sara'); // fetch all answers to then update
+        const snapshot = await questionario.get();
+        snapshot.forEach(doc => {
+            setRespostas(Object.keys(doc.data()).length);  // check object lenght to add on line 28 and 35 .
+        });
+    
+        console.log('linha 19 ' + respostas); // first log returning undefined - why? --> useeffect seems to solve this.
+    }
+
+    
+    useEffect(() => {
+        getPergunta1();
+    })
+
+
+    function setQuestionario(){
+
+                    setRespostas(respostas + 1);
+                    console.log('linha 31 ' + respostas);
+                
+ 
+                    if (check == true) {
+                        db
+                        .collection('Questionário Sara')
+                        .doc('Pergunta 1')
+                        .set({
+                            [respostas]: 'Sim' // [currentUser] --> Como meter variavel como doc field 
+                        }, { merge: true })
+                    } else {
+                        db
+                        .collection('Questionário Sara')
+                        .doc('Pergunta 1')
+                        .set({
+                            [respostas]: 'Não'
+                        }, { merge: true })
+                    }
+    }
 
     // UseStates
 
@@ -24,17 +68,48 @@ function QiSaraB({route, navigation}){
 
     // funções de validação
 
-    function validate(){ setCheck(true); setValid(false); }
-    function validate2(){ setCheck2(true); setValid2(false); }
-    function validate3(){ setCheck3(true); setValid3(false); }
-    function validate4(){ setCheck4(true); setValid4(false); }
-    function validate5(){ setCheck5(true); setValid5(false); }
+    function validate(){ 
+        setCheck(true); 
+        setValid(false);
+    }
+    function validate2(){ 
+        setCheck2(true); 
+        setValid2(false);
+    }
+    function validate3(){ 
+        setCheck3(true); 
+        setValid3(false);
+     }
+    function validate4(){ 
+        setCheck4(true); 
+        setValid4(false);
+     }
+    function validate5(){ 
+        setCheck5(true); 
+        setValid5(false);
+     }
     
-    function troca(){ setCheck(false); setValid(true); }
-    function troca2(){ setCheck2(false); setValid2(true); }
-    function troca3(){ setCheck3(false); setValid3(true); }
-    function troca4(){ setCheck4(false); setValid4(true); }
-    function troca5(){ setCheck5(false); setValid5(true); }
+    function troca(){ 
+            setCheck(false); 
+            setValid(true);
+        }
+
+    function troca2(){ 
+            setCheck2(false); 
+            setValid2(true);
+     }
+    function troca3(){ 
+            setCheck3(false); 
+            setValid3(true);
+     }
+    function troca4(){ 
+            setCheck4(false); 
+            setValid4(true);
+     }
+    function troca5(){ 
+            setCheck5(false); 
+            setValid5(true);
+     }
 
     function clicar1(){
         setBotao1(true);
@@ -43,15 +118,16 @@ function QiSaraB({route, navigation}){
     }
 
     function clicar2(){
-        setBotao2(true);
         setBotao1(false);
+        setBotao2(true);
         setBotao3(false);
+
     }
 
     function clicar3(){
-        setBotao3(true);
         setBotao1(false);
         setBotao2(false);
+        setBotao3(true);
     }
 
     return(
@@ -69,14 +145,14 @@ function QiSaraB({route, navigation}){
                     <View style={styles.checkboxContainer}>
                         <CheckBox
                         value={check}
-                        onValueChange={setCheck}
+                        onValueChange={() => validate()}
                         style={styles.checkbox}
                         />
                         <Text style={styles.label}>Sim</Text>
 
                         <CheckBox
                         value={valid}
-                        onValueChange={setValid}
+                        onValueChange={() => troca()}
                         style={styles.checkbox}
                         />
                         <Text style={styles.label2}>Não</Text>
@@ -100,16 +176,16 @@ function QiSaraB({route, navigation}){
 
                 <View style={styles.container}>
                     <View style={styles.checkboxContainer}>
-                        <CheckBox
+                    <CheckBox
                         value={check2}
-                        onValueChange={setCheck2}
+                        onValueChange={() => validate2()}
                         style={styles.checkbox}
                         />
                         <Text style={styles.label}>Sim</Text>
 
                         <CheckBox
                         value={valid2}
-                        onValueChange={setValid2}
+                        onValueChange={() => troca2()}
                         style={styles.checkbox}
                         />
                         <Text style={styles.label2}>Não</Text>
@@ -120,16 +196,15 @@ function QiSaraB({route, navigation}){
 
                 <View style={styles.container}>
                     <View style={styles.checkboxContainer}>
-                        <CheckBox
+                    <CheckBox
                         value={check3}
-                        onValueChange={setCheck3}
+                        onValueChange={() => validate3()}
                         style={styles.checkbox}
                         />
                         <Text style={styles.label}>Sim</Text>
-
                         <CheckBox
                         value={valid3}
-                        onValueChange={setValid3}
+                        onValueChange={() => troca3()}
                         style={styles.checkbox}
                         />
                         <Text style={styles.label2}>Não</Text>
@@ -140,16 +215,16 @@ function QiSaraB({route, navigation}){
 
                 <View style={styles.container}>
                     <View style={styles.checkboxContainer}>
-                        <CheckBox
+                    <CheckBox
                         value={check4}
-                        onValueChange={setCheck4}
+                        onValueChange={() => validate4()}
                         style={styles.checkbox}
                         />
                         <Text style={styles.label}>Sim</Text>
 
                         <CheckBox
                         value={valid4}
-                        onValueChange={setValid4}
+                        onValueChange={() => troca4()}
                         style={styles.checkbox}
                         />
                         <Text style={styles.label2}>Não</Text>
@@ -160,16 +235,16 @@ function QiSaraB({route, navigation}){
 
                 <View style={styles.container}>
                     <View style={styles.checkboxContainer}>
-                        <CheckBox
+                    <CheckBox
                         value={check5}
-                        onValueChange={setCheck5}
+                        onValueChange={() => validate5()}
                         style={styles.checkbox}
                         />
                         <Text style={styles.label}>Sim</Text>
 
                         <CheckBox
                         value={valid5}
-                        onValueChange={setValid5}
+                        onValueChange={() => troca5()}
                         style={styles.checkbox}
                         />
                         <Text style={styles.label2}>Não</Text>
@@ -180,39 +255,41 @@ function QiSaraB({route, navigation}){
                 
                 <View style={styles.container2}>
                     <View style={styles.checkboxContainer2}>
-                        <CheckBox
-                        value={check}
-                        onValueChange={setCheck}
+                    <CheckBox
+                        value={botao1}
+                        onValueChange={() => clicar1()}
                         style={styles.checkbox}
                         />
                         <Text style={styles.label}>Há mais de 1 ano</Text>
                     </View>
 
                     <View style={styles.checkboxContainer2}>
-                        <CheckBox
-                        value={check}
-                        onValueChange={setCheck}
+                    <CheckBox
+                        value={botao2}
+                        onValueChange={() => clicar2()}
                         style={styles.checkbox}
                         />
                         <Text style={styles.label}>Entre 1 ano e 3 meses</Text>
                     </View>
 
                     <View style={styles.checkboxContainer2}>
-                        <CheckBox
-                        value={check}
-                        onValueChange={setCheck}
+                    <CheckBox
+                        value={botao3}
+                        onValueChange={() => clicar3()}
                         style={styles.checkbox}
                         />
                         <Text style={styles.label}>Nos últimos 3 meses</Text>
                     </View>
                 </View>
 
-                <View style={styles.seguinteContainer}>
+                {/* Aparecer apenas quando as respostas estão todas dadas aka --> if check || valid == true && check2 || valid2 == true (...) */}
+                
+                <View style={styles.seguinteContainer}> 
                 <TouchableOpacity
-                    onPress={() => navigation.navigate('QiSaraC')}>
+                    onPress={() => {navigation.navigate('QiSaraC'), setQuestionario()}}> 
                     <Text style={styles.next}>Seguinte</Text>
                 </TouchableOpacity>
-                </View>
+                </View> 
               
             </ScrollView>
         </View>

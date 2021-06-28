@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity} from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
@@ -7,9 +7,29 @@ import Icon2 from 'react-native-vector-icons/AntDesign';
 import Checkbox from 'react-native-check-box';
 import { auth, db } from '../../Firebase';
 
+
+
 function Homepage({ route, navigation }) {
 
+    const [currentStatus, setCurrentStatus] = useState('');
 
+    const currentUser = auth.currentUser.uid;
+
+   function getStatus (){ db
+                        .collection('users')
+                        .doc(currentUser)
+                        .get()
+                        .then(doc => {
+                            setCurrentStatus(doc.data().status)
+                            
+                        });
+                    }
+
+    useEffect(() => {
+        getStatus();
+    },[])
+       
+if (currentStatus == 1) {
     return (
         <View style={styles.container}>
         <ScrollView style={styles.container}>
@@ -105,6 +125,91 @@ function Homepage({ route, navigation }) {
             </View>
         </View>
     )
+} else {
+    return (
+        <View style={styles.container}>
+        <ScrollView style={styles.container}>
+            <View>
+                <StatusBar style={'auto'} />
+
+                <Text style={styles.title1}>Intervenções</Text>
+
+                <Text style={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim.</Text>
+            </View>
+            <View style={styles.container2}>
+
+                <Text style={styles.title2}>Websérie</Text>
+
+                <Text style={styles.title3}>A Ferida Sara</Text>
+
+                <TouchableOpacity
+                    style={{alignSelf: 'center'}}
+                    onPress={() => navigation.navigate('QiSaraA')}
+
+                >
+                    <Image
+                    
+                        source={require('../../images/Sara.png')}
+                        style={styles.conteudo}
+
+                    />
+                </TouchableOpacity>
+                <Text style={styles.title2}>Podcast</Text>
+                <Text style={styles.title3}>Um Marco na Vida</Text>
+
+                <TouchableOpacity
+                     style={{alignSelf: 'center', marginBottom: '10%'}}
+                     onPress={() => navigation.navigate('PlaylistMarco')}
+                >
+                    <Image
+                        source={require('../../images/marcoNaVida.png')}
+                        style={styles.conteudo}
+
+                    />
+                </TouchableOpacity>
+
+
+            </View>
+
+        </ScrollView>
+
+            <View style={styles.tabBar}>
+                <View style={{flex: 1}}>
+                <Checkbox 
+                    style={styles.icon}
+                    onClick={() => navigation.navigate('Homepage')} // Alterar para Notificações
+                    isChecked={false}
+                    unCheckedImage={<Icon name='notifications' size={28} color='#D2D2D2'/>}
+                    checkedImage={<Icon name='notifications' size={28} color='#6578B3'/>}
+                />           
+                </View>
+
+                <View style={{flex: 1}}>
+                <Checkbox 
+                    style={styles.icon}
+                    onClick={() => navigation.navigate('Homepage')}
+                    isChecked={true}
+                    unCheckedImage={<Icon1 name='home' size={30} color='#D2D2D2' />}
+                    checkedImage={<Icon1 name='home' size={30} color='#6578B3'/>}
+                />   
+                </View>
+
+                <View style={{flex: 1}}>
+                <Checkbox 
+                    style={styles.icon}
+                    onClick={() => navigation.navigate('Apoio')} 
+                    isChecked={false}
+                    unCheckedImage={<Icon2 name='questioncircle' size={28} color='#D2D2D2' />}
+                    checkedImage={<Icon2 name='questioncircle' size={28} color='#6578B3'/>}
+                />  
+                </View>
+
+            </View>
+        </View>
+    )
+}
+
+   
 }
 
 
