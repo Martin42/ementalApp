@@ -3,6 +3,7 @@ import { ScrollView, Checkbox, StatusBar, StyleSheet, TouchableOpacity, Text, Im
 import { Entypo } from '@expo/vector-icons'
 import YoutubePlayer from "react-native-youtube-iframe";
 import { db, auth } from '../../../Firebase';
+import { AntDesign } from '@expo/vector-icons';
 
 function Ep1_Sara({route, navigation}){
 
@@ -57,21 +58,45 @@ function Ep1_Sara({route, navigation}){
 
     return(
         <ScrollView contentContainerStyle={styles.container}>
-            <View style={{height: 40, backgroundColor: 'white'}}>
-                <Entypo name="chevron-thin-left" size={24} color="black" style={styles.icon}>
-                <Text>{route.params.titulo}</Text>
-                </Entypo>
+            <View style={{flexDirection: 'row', height: 40, marginTop: '7.5%', alignItems: 'center', marginBottom: '2.5%'}}>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('PlaylistSara')}
+                    style={styles.icon}>
+                    <Entypo name="chevron-thin-left" size={24} color="black"/>
+                </TouchableOpacity>
+
+                <Text
+                    style={{fontSize: 20}}>
+                        {route.params.titulo}
+                </Text>
+
             </View>
+
+            <View>
 
             <YoutubePlayer
                     height={300}
                     play={playing}
                     videoId={route.params.video}
             />
+
+            </View>
+
+          
       
             <Text style={styles.title1}>Comentários</Text>
+                                    
+            <View style={[{flexDirection:'row'}], styles.inputField2}>
 
-                {comentarios.map(e => <Text>{e}</Text>)}
+                <Text style={{marginLeft: '25%'}}>
+                    astronada
+                </Text>
+
+
+                <View style={{flex: 1}}>
+                    <AntDesign name="smile-circle" size={50} color="lightblue"/>
+                      
+                {/* {comentarios.map(e => <Text>{e}</Text>)} */}
 
                 {/* Como remover o comentário depois de submetido  */}
 
@@ -117,6 +142,33 @@ function Ep1_Sara({route, navigation}){
                     </Modal>   
                     
                 </View>
+
+
+                <View style={styles.inputComment}>
+                    <Text style={[{flexDirection:'column'}], styles.inputMensagem2}>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porttitor nulla magna tincidunt quisque quis. Quis vulputate viverra vulputate senectus. Dignissim tempus ut venenatis, in velit dignissim lectus vitae.
+                    </Text>
+                </View>
+
+            </View>        
+
+            <View style={styles.inputField}>
+                    <TextInput
+                    style={styles.inputMensagem}
+                    placeholder= 'Comente aqui...'
+                    backgroundColor= '#CFE0FB'
+                    placeholderTextColor= 'black'
+                    multiline={true}
+                    onChangeText={mensagem => setMensagem(mensagem)}
+                    />
+
+                <TouchableOpacity
+                    onPress={setComment}
+                >
+                    <Text>Submeter</Text>     
+                </TouchableOpacity>   
+                    
+            </View>
                
                   
                 
@@ -132,7 +184,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'white',
         width: '100%',
-        marginTop: '10%'
     },
 
     title1: {
@@ -141,6 +192,7 @@ const styles = StyleSheet.create({
         marginLeft: '10%',
         marginRight: '10%',
         marginBottom: '5%',
+        marginTop: '-5%',
     },
 
     inputField: {
@@ -149,8 +201,12 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         marginLeft: '10%',
         marginRight: '10%',
-        
-      },
+    },
+
+    inputField2: {
+        marginLeft: '10%',
+        marginRight: '10%',
+    },
 
     inputMensagem: {
         fontSize: 18,
@@ -161,6 +217,28 @@ const styles = StyleSheet.create({
         textAlign: 'left',
     },
 
+    inputMensagem2: {
+        fontSize: 18,
+        color: 'black',
+        borderRadius: 20,
+        padding: 15,
+        textAlign: 'left',
+    },
+
+    inputComment: {
+        backgroundColor: '#CFE0FB',
+        borderRadius: 20,
+        padding: 0,
+        textAlign: 'left',
+        width: '80%',
+        marginLeft: '20%',
+    },
+
+    icon: {
+        marginLeft: '5%',
+        marginRight: '5%',
+    },
+  
     entendi: {
         marginTop: '15%',
         width: '80%',
