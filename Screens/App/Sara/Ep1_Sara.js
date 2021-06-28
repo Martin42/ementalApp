@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect} from 'react';
-import { ScrollView, Checkbox, StatusBar, StyleSheet, TouchableOpacity, Text, Image, View, Alert , TextInput} from "react-native";
+import { ScrollView, Checkbox, StatusBar, StyleSheet, TouchableOpacity, Text, Image, View, Alert , TextInput, Modal} from "react-native";
 import { Entypo } from '@expo/vector-icons'
 import YoutubePlayer from "react-native-youtube-iframe";
 import { db, auth } from '../../../Firebase';
@@ -14,7 +14,10 @@ function Ep1_Sara({route, navigation}){
 
     const [mensagem, setMensagem] = useState();
     const [playing, setPlaying] = useState(false);
+    const [modal, setModal] = useState(false);
 
+    
+    
 
     function setComment (){
         db
@@ -25,6 +28,10 @@ function Ep1_Sara({route, navigation}){
             }) 
     }
 
+ 
+    const comentarios = [];
+  
+
     async function getComments (){
         const commentRef = db.collection(route.params.episodio);
         const snapshot = await commentRef.get();
@@ -32,11 +39,16 @@ function Ep1_Sara({route, navigation}){
             if (doc.data().aprovado === 'false') {
                 console.log('Precisa de Aprovação');
             } else {
-                console.log(doc.data().comentario);
+       
+               console.log( doc.data().comentario);
+               comentarios.push(doc.data().comentario);
+               
+               
             }
         });
         }
   
+
 
     // Player 
   
@@ -83,6 +95,52 @@ function Ep1_Sara({route, navigation}){
 
                 <View style={{flex: 1}}>
                     <AntDesign name="smile-circle" size={50} color="lightblue"/>
+                      
+                {/* {comentarios.map(e => <Text>{e}</Text>)} */}
+
+                {/* Como remover o comentário depois de submetido  */}
+
+                <View style={styles.inputField}>
+                        <TextInput
+                        style={styles.inputMensagem}
+                        placeholder= 'Comente aqui...'
+                        backgroundColor= '#CFE0FB'
+                        placeholderTextColor= 'black'
+                        multiline={true}
+                        onChangeText={mensagem => setMensagem(mensagem)}
+                        />
+
+                    <TouchableOpacity
+                        onPress={()=> {setComment(); setModal(true)}}
+                    >
+                        <Text>Submeter</Text>     
+                    </TouchableOpacity>
+
+                    <Modal
+                        animationType='fade'
+                        transparent={true}
+                        visible={modal}
+                    >
+                        <View style={styles.modalView}>
+                            <View style={styles.modalContainer}>
+                            <Image 
+                                source={require('../../../images/comentario-pop.png')}
+                                style={styles.modalImage}
+                            />
+                            <Text style={styles.modalTitle}>O teu comentário precisa de aprovação!</Text>
+                            <Text style={styles.modalSubtitle}>Terás de aguardar que o teu comentário seja aprovado.</Text>
+                            <TouchableOpacity
+                                style={styles.entendi}
+                                onPress={()=> { setModal(false)}}
+                            >
+                                <Text style={styles.entendiText}>Entendi!</Text>
+                            </TouchableOpacity>
+                            </View>
+                        </View>
+                        
+                    
+                    </Modal>   
+                    
                 </View>
 
 
@@ -180,6 +238,69 @@ const styles = StyleSheet.create({
         marginLeft: '5%',
         marginRight: '5%',
     },
+  
+    entendi: {
+        marginTop: '15%',
+        width: '80%',
+        borderColor: '#6578B3',
+        borderStyle: 'solid',
+        borderRadius: 20,
+        overflow: 'hidden',
+        backgroundColor: '#6578B3',
+        padding: '4%',
+    },
+
+    modalView: {
+        alignContent: 'center',
+        justifyContent: 'center', 
+        flex: 1,
+    },
+
+    modalContainer: {
+        marginLeft: '12%', 
+        marginRight: '12%', 
+        backgroundColor:'white', 
+        alignItems: 'center', 
+        padding: 25, 
+        shadowColor: 'red', 
+        shadowOffset: {width: 0, height: 2}, 
+        shadowOpacity: 0.25, 
+        shadowRadius: 4, 
+        elevation: 4, 
+        borderWidth: 1, 
+        borderRadius: 30, 
+        borderColor: 'white',
+    },
+
+    modalImage:{
+        marginBottom:'12%', 
+        marginTop: '5%', 
+        height: 130, 
+        width: '66%'
+    },
+
+    modalTitle: {
+        fontWeight: 'bold', 
+        fontSize: 20, 
+        textAlign: 'center',
+        marginBottom: '10%',  
+        marginLeft: '5%', 
+        marginRight: '5%',
+    },
+
+    modalSubtitle: {
+        fontSize: 15, 
+        textAlign: 'center', 
+        marginLeft: '10%', 
+        marginRight: '10%'
+    },
+
+    entendiText: {
+        textAlign: 'center', 
+        color: 'white', 
+        fontWeight: 'bold'
+    }
+
 });
 
 export default Ep1_Sara;
