@@ -48,7 +48,9 @@ function Info2({route, navigation}){
                
                     <Text style={estilos.title40}>40 Segundos</Text>
 
-                    <Text style={estilos.text}>É uma intervenção psicoeducativa,​ composta por vídeos, promotores da sensibilização para o diálogo sobre sinais de risco suicidário. A intervenção visa sensibilizar os intervenientes para a importância da saúde mental e para os procedimentos de atuação ao lidar com um indivíduo com ideias suicidas.</Text>
+                    <Text style={estilos.text}>É uma intervenção audiovisual, de sensibilização para o diálogo sobre sinais de risco suicidário. A intervenção visa sensibilizar os intervenientes para a importância da saúde mental e para os procedimentos de atuação ao lidar com o invidíduo com ideias suicídas. </Text>
+
+                    <Text style={estilos.text}>Pode ser útil para trabalhar em contexto clínico ou em grupos de apoio</Text>
 
                     <Image 
                         source={require('../../images/40.png')}

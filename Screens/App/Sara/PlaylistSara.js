@@ -22,7 +22,7 @@ function PlaylistSara({ route, navigation }) {
                 
                 <View style={styles.container3}>
                     <TouchableOpacity
-                        onPress={() => navigation.navigate('Ep1_Sara')}
+                        onPress={() => navigation.navigate('Ep1_Sara', {episodio: 'EP1SARA', video: 'd1YBv2mWll0', titulo: 'A Ferida Sara - Ep. 1 Psicoeducativo'})}
                     >
                         <Image
                             source={require('../../../images/thumbnail.png')}
