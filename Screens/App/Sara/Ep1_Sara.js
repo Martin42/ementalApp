@@ -100,23 +100,19 @@ function Ep1_Sara({route, navigation}){
 
                 {/* Como remover o comentário depois de submetido  */}
 
-                <View style={styles.inputField}>
-                        <TextInput
-                        style={styles.inputMensagem}
-                        placeholder= 'Comente aqui...'
-                        backgroundColor= '#CFE0FB'
-                        placeholderTextColor= 'black'
-                        multiline={true}
-                        onChangeText={mensagem => setMensagem(mensagem)}
-                        />
+                </View>
 
-                    <TouchableOpacity
-                        onPress={()=> {setComment(); setModal(true)}}
-                    >
-                        <Text>Submeter</Text>     
-                    </TouchableOpacity>
+                <View style={styles.inputComment}>
+                    <Text style={[{flexDirection:'column'}], styles.inputMensagem2}>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porttitor nulla magna tincidunt quisque quis. Quis vulputate viverra vulputate senectus. Dignissim tempus ut venenatis, in velit dignissim lectus vitae.
+                    </Text>
+                </View>
 
-                    <Modal
+            </View>
+
+
+
+            <Modal
                         animationType='fade'
                         transparent={true}
                         visible={modal}
@@ -139,39 +135,31 @@ function Ep1_Sara({route, navigation}){
                         </View>
                         
                     
-                    </Modal>   
-                    
-                </View>
+                    </Modal>
 
 
-                <View style={styles.inputComment}>
-                    <Text style={[{flexDirection:'column'}], styles.inputMensagem2}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porttitor nulla magna tincidunt quisque quis. Quis vulputate viverra vulputate senectus. Dignissim tempus ut venenatis, in velit dignissim lectus vitae.
-                    </Text>
-                </View>
+
+           
+                
+            <View style={styles.inputField}>
+                        <TextInput
+                        style={styles.inputMensagem}
+                        placeholder= 'Comente aqui...'
+                        backgroundColor= '#CFE0FB'
+                        placeholderTextColor= 'black'
+                        multiline={true}
+                        onChangeText={mensagem => setMensagem(mensagem)}
+                        />
+
+                    <TouchableOpacity
+                        onPress={()=> {setComment(); setModal(true)}}>
+                        <Text>Submeter</Text>     
+                    </TouchableOpacity>
 
             </View>        
 
-            <View style={styles.inputField}>
-                    <TextInput
-                    style={styles.inputMensagem}
-                    placeholder= 'Comente aqui...'
-                    backgroundColor= '#CFE0FB'
-                    placeholderTextColor= 'black'
-                    multiline={true}
-                    onChangeText={mensagem => setMensagem(mensagem)}
-                    />
+           
 
-                <TouchableOpacity
-                    onPress={setComment}
-                >
-                    <Text>Submeter</Text>     
-                </TouchableOpacity>   
-                    
-            </View>
-               
-                  
-            </View>
 
         </ScrollView>
     )
