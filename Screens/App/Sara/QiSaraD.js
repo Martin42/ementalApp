@@ -6,6 +6,156 @@ import { auth, db } from '../../../Firebase';
 
 function QiSaraD({route, navigation}){
 
+    const currentUser = auth.currentUser.uid;
+    const collection = route.params.collection;
+
+    function setQuestionario(){
+        //pergunta 15
+
+        if (check == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta15: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta15: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 16
+
+        if (check2 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta16: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta16: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 17
+
+        if (check3 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta17: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta17: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 18
+
+        if (check4 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta18: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta18: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 19
+
+        if (check5 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta19: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta19: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 20 
+
+        if (check6 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta20: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta20: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 21
+
+        if (check7 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta21: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta21: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 22
+
+        if (check8 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta22: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta22: 'Falsa'
+            }, {merge: true})
+        }
+
+
+    }
    
     // UseStates
 
@@ -258,14 +408,19 @@ function QiSaraD({route, navigation}){
                     </View>
                 </View>
 
-                {/* Aparecer apenas quando as respostas estão todas dadas aka --> if check || valid == true && check2 || valid2 == true (...) */}
                 
-                <View style={styles.seguinteContainer}> 
-                <TouchableOpacity
-                    onPress={() => {navigation.navigate('QiSaraE')}}> 
-                    <Text style={styles.next}>Seguinte</Text>
-                </TouchableOpacity>
-                </View> 
+                { (check == true || valid == true) && (check2 == true || valid2 == true) && (check3 == true || valid3 == true) && (check4 == true || valid4 == true) && (check5 == true || valid5 == true) && (check6 == true || valid6 == true) && (check7 == true || valid7 == true) && (check8 == true || valid8 == true) ? (
+                    <View style={styles.seguinteContainer}> 
+                    <TouchableOpacity
+                        onPress={() => {navigation.navigate('QiSaraE', {collection: route.params.collection}), setQuestionario()}}> 
+                        <Text style={styles.next}>Seguinte</Text>
+                    </TouchableOpacity>
+                    </View> 
+                ): (
+                    <Text></Text>
+                )}
+
+               
               
             </ScrollView>
         </View>
@@ -286,7 +441,6 @@ const styles = StyleSheet.create({
         width: '20%',
         alignSelf: 'flex-end', 
         marginRight: '10%', 
-        marginTop: '10%', 
         paddingBottom: '10%',
     },
 

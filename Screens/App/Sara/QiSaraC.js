@@ -7,7 +7,201 @@ import { auth, db } from '../../../Firebase';
 
 function QiSaraC({route, navigation}){
 
-   
+    const currentUser = auth.currentUser.uid;
+    const collection = route.params.collection;
+
+    function setQuestionario(){
+            //pergunta 8 
+
+            if (check == true) {
+                db
+                .collection(collection)
+                .doc(currentUser)
+                .set({
+                    pergunta8: 'Sim'
+                }, {merge: true})
+            } else {
+                db
+                .collection(collection)
+                .doc(currentUser)
+                .set({
+                    pergunta8: 'Não'
+                }, {merge: true})
+            }
+
+            //pergunta 9
+
+            if (botao1 == true) {
+                db
+                .collection(collection)
+                .doc(currentUser)
+                .set({
+                    pergunta9: 'Tratamento Medicamentoso'
+                }, {merge: true})
+            } else if (botao2 == true) {
+                db
+                .collection(collection)
+                .doc(currentUser)
+                .set({
+                    pergunta9: 'Tratamento Medicamentoso e Psicológico'
+                }, {merge: true})
+            } else {
+                db
+                .collection(collection)
+                .doc(currentUser)
+                .set({
+                    pergunta9: 'Terapias alternativas'
+                }, {merge: true})
+            }
+
+            //pergunta 10 
+
+            if (check2 == true) {
+                db
+                .collection(collection)
+                .doc(currentUser)
+                .set({
+                    pergunta10: 'Sim'
+                }, {merge: true})
+            } else {
+                db
+                .collection(collection)
+                .doc(currentUser)
+                .set({
+                    pergunta10: 'Não'
+                }, {merge: true})
+            }
+
+            //pergunta 11
+
+            if (botao4 == true) {
+                db
+                .collection(collection)
+                .doc(currentUser)
+                .set({
+                    pergunta11: 'Familiar'
+                }, {merge: true})
+            } else if (botao5 == true) {
+                db
+                .collection(collection)
+                .doc(currentUser)
+                .set({
+                    pergunta11: 'Colega de Universidade'
+                }, {merge: true})
+            } else if (botao6 == true) {
+                db
+                .collection(collection)
+                .doc(currentUser)
+                .set({
+                    pergunta11: 'Amigas'
+                }, {merge: true})
+            } else {
+                db
+                .collection(collection)
+                .doc(currentUser)
+                .set({
+                    pergunta11: ''
+                }, {merge: true})
+            }
+
+            //pergunta 12
+
+            if (botao7 == true) {
+                db
+                .collection(collection)
+                .doc(currentUser)
+                .set({
+                    pergunta12: 'Há mais de 1 ano'
+                }, {merge: true})
+            } else if (botao8 == true) {
+                db
+                .collection(collection)
+                .doc(currentUser)
+                .set({
+                    pergunta12: 'Entre 1 ano e 3 meses'
+                }, {merge: true})
+            } else if (botao9 == true) {
+                db
+                .collection(collection)
+                .doc(currentUser)
+                .set({
+                    pergunta12: 'Nos últimos 3 meses'
+                }, {merge: true})
+            } else {
+                db
+                .collection(collection)
+                .doc(currentUser)
+                .set({
+                    pergunta12: ''
+                }, {merge: true})
+            }
+
+            //pergunta 13
+
+            if (botao10 == true) {
+                db
+                .collection(collection)
+                .doc(currentUser)
+                .set({
+                    pergunta13: 'Sim'
+                }, {merge: true})
+            } else if (botao11 == true) {
+                db
+                .collection(collection)
+                .doc(currentUser)
+                .set({
+                    pergunta13: 'Não'
+                }, {merge: true})
+            } else if (botao12 == true) {
+                db
+                .collection(collection)
+                .doc(currentUser)
+                .set({
+                    pergunta13: 'Não sei'
+                }, {merge: true})
+            } else {
+                db
+                .collection(collection)
+                .doc(currentUser)
+                .set({
+                    pergunta13: ''
+                }, {merge: true})
+            }
+
+            //pergunta 14
+
+            if (botao13 == true) {
+                db
+                .collection(collection)
+                .doc(currentUser)
+                .set({
+                    pergunta14: 'Tratamento medicamentoso'
+                }, {merge: true})
+            } else if (botao14 == true) {
+                db
+                .collection(collection)
+                .doc(currentUser)
+                .set({
+                    pergunta14: 'Tratamento medicamentoso e psicológico'
+                }, {merge: true})
+            } else if (botao15 == true) {
+                db
+                .collection(collection)
+                .doc(currentUser)
+                .set({
+                    pergunta14: 'Terapias alternativas'
+                }, {merge: true})
+            } else {
+                db
+                .collection(collection)
+                .doc(currentUser)
+                .set({
+                    pergunta14: ''
+                }, {merge: true})
+            }
+
+    }
+
     // UseStates
 
     const [check, setCheck] = useState(false);
@@ -226,139 +420,168 @@ function QiSaraC({route, navigation}){
                         <Text style={styles.label2}>Não</Text>
                     </View>
                 </View>
+
+                {check2 ? (
+                    <>
+                     <Text style={styles.textobold}>11. Essa pessoa é:</Text>
+
+                     <View style={styles.container2}>
+                     <View style={styles.checkboxContainer2}>
+                         <CheckBox
+                             value={botao4}
+                             onValueChange={() => clicar4()}
+                             style={styles.checkbox}
+                             />
+                             <Text style={styles.label}>Familiar</Text>
+                         </View>
+     
+                         <View style={styles.checkboxContainer2}>
+                         <CheckBox
+                             value={botao5}
+                             onValueChange={() => clicar5()}
+                             style={styles.checkbox}
+                             />
+                             <Text style={styles.label}>Colega da Universidade</Text>
+                         </View>
+     
+                         <View style={styles.checkboxContainer3}>
+                         <CheckBox
+                             value={botao6}
+                             onValueChange={() => clicar6()}
+                             style={styles.checkbox}
+                             />
+                             <Text style={styles.label}>Amigo</Text>
+                         </View>
+                     </View>
+     
+                     <Text style={styles.textobold}>12. Aproximadamente há quanto tempo?</Text>
+     
+                     <View style={styles.container2}>
+                     <View style={styles.checkboxContainer2}>
+                         <CheckBox
+                             value={botao7}
+                             onValueChange={() => clicar7()}
+                             style={styles.checkbox}
+                             />
+                             <Text style={styles.label}>Há mais de 1 ano</Text>
+                         </View>
+     
+                         <View style={styles.checkboxContainer2}>
+                         <CheckBox
+                             value={botao8}
+                             onValueChange={() => clicar8()}
+                             style={styles.checkbox}
+                             />
+                             <Text style={styles.label}>Entre 1 ano e 3 meses</Text>
+                         </View>
+     
+                         <View style={styles.checkboxContainer3}>
+                         <CheckBox
+                             value={botao9}
+                             onValueChange={() => clicar9()}
+                             style={styles.checkbox}
+                             />
+                             <Text style={styles.label}>Nos últimos 3 meses</Text>
+                         </View>
+                     </View>
+     
+                     <Text style={styles.textobold}>13. Essa pessoa realizou ou está a realizar algum tratamento?</Text>
+     
+                     <View style={styles.container2}>
+                     <View style={styles.checkboxContainer2}>
+                         <CheckBox
+                             value={botao10}
+                             onValueChange={() => clicar10()}
+                             style={styles.checkbox}
+                             />
+                             <Text style={styles.label}>Sim</Text>
+                         </View>
+     
+                         <View style={styles.checkboxContainer2}>
+                         <CheckBox
+                             value={botao11}
+                             onValueChange={() => clicar11()}
+                             style={styles.checkbox}
+                             />
+                             <Text style={styles.label}>Não</Text>
+                         </View>
+     
+                         <View style={styles.checkboxContainer3}>
+                         <CheckBox
+                             value={botao12}
+                             onValueChange={() => clicar12()}
+                             style={styles.checkbox}
+                             />
+                             <Text style={styles.label}>Não sei</Text>
+                         </View>
+                     </View>
+     
+                     <Text style={styles.textobold}>14. Que tipo de tratamento?</Text>
+                     
+                     <View style={styles.container2}>
+                         <View style={styles.checkboxContainer2}>
+                         <CheckBox
+                             value={botao13}
+                             onValueChange={() => clicar13()}
+                             style={styles.checkbox}
+                             />
+                             <Text style={styles.label}>Tratamento medicamentoso</Text>
+                         </View>
+     
+                         <View style={styles.checkboxContainer2}>
+                         <CheckBox
+                             value={botao14}
+                             onValueChange={() => clicar14()}
+                             style={styles.checkbox}
+                             />
+                             <Text style={styles.label}>Tratamento medicamentoso e psicológico</Text>
+                         </View>
+     
+                         <View style={styles.checkboxContainer2}>
+                         <CheckBox
+                             value={botao15}
+                             onValueChange={() => clicar15()}
+                             style={styles.checkbox}
+                             />
+                             <Text style={styles.label}>Terapias alternativas</Text>
+                         </View>
+                     </View>
+                </>
+                ) : (
+                    <Text></Text>
+                )}
             
-                <Text style={styles.textobold}>11. Essa pessoa é:</Text>
-
-                <View style={styles.container2}>
-                <View style={styles.checkboxContainer2}>
-                    <CheckBox
-                        value={botao4}
-                        onValueChange={() => clicar4()}
-                        style={styles.checkbox}
-                        />
-                        <Text style={styles.label}>Familiar</Text>
-                    </View>
-
-                    <View style={styles.checkboxContainer2}>
-                    <CheckBox
-                        value={botao5}
-                        onValueChange={() => clicar5()}
-                        style={styles.checkbox}
-                        />
-                        <Text style={styles.label}>Colega da Universidade</Text>
-                    </View>
-
-                    <View style={styles.checkboxContainer3}>
-                    <CheckBox
-                        value={botao6}
-                        onValueChange={() => clicar6()}
-                        style={styles.checkbox}
-                        />
-                        <Text style={styles.label}>Amigo</Text>
-                    </View>
-                </View>
-
-                <Text style={styles.textobold}>12. Aproximadamente há quanto tempo?</Text>
-
-                <View style={styles.container2}>
-                <View style={styles.checkboxContainer2}>
-                    <CheckBox
-                        value={botao7}
-                        onValueChange={() => clicar7()}
-                        style={styles.checkbox}
-                        />
-                        <Text style={styles.label}>Há mais de 1 ano</Text>
-                    </View>
-
-                    <View style={styles.checkboxContainer2}>
-                    <CheckBox
-                        value={botao8}
-                        onValueChange={() => clicar8()}
-                        style={styles.checkbox}
-                        />
-                        <Text style={styles.label}>Entre 1 ano e 3 meses</Text>
-                    </View>
-
-                    <View style={styles.checkboxContainer3}>
-                    <CheckBox
-                        value={botao9}
-                        onValueChange={() => clicar9()}
-                        style={styles.checkbox}
-                        />
-                        <Text style={styles.label}>Nos últimos 3 meses</Text>
-                    </View>
-                </View>
-
-                <Text style={styles.textobold}>13. Essa pessoa realizou ou está a realizar algum tratamento?</Text>
-
-                <View style={styles.container2}>
-                <View style={styles.checkboxContainer2}>
-                    <CheckBox
-                        value={botao10}
-                        onValueChange={() => clicar10()}
-                        style={styles.checkbox}
-                        />
-                        <Text style={styles.label}>Sim</Text>
-                    </View>
-
-                    <View style={styles.checkboxContainer2}>
-                    <CheckBox
-                        value={botao11}
-                        onValueChange={() => clicar11()}
-                        style={styles.checkbox}
-                        />
-                        <Text style={styles.label}>Não</Text>
-                    </View>
-
-                    <View style={styles.checkboxContainer3}>
-                    <CheckBox
-                        value={botao12}
-                        onValueChange={() => clicar12()}
-                        style={styles.checkbox}
-                        />
-                        <Text style={styles.label}>Não sei</Text>
-                    </View>
-                </View>
-
-                <Text style={styles.textobold}>14. Que tipo de tratamento?</Text>
-                
-                <View style={styles.container2}>
-                    <View style={styles.checkboxContainer2}>
-                    <CheckBox
-                        value={botao13}
-                        onValueChange={() => clicar13()}
-                        style={styles.checkbox}
-                        />
-                        <Text style={styles.label}>Tratamento medicamentoso</Text>
-                    </View>
-
-                    <View style={styles.checkboxContainer2}>
-                    <CheckBox
-                        value={botao14}
-                        onValueChange={() => clicar14()}
-                        style={styles.checkbox}
-                        />
-                        <Text style={styles.label}>Tratamento medicamentoso e psicológico</Text>
-                    </View>
-
-                    <View style={styles.checkboxContainer2}>
-                    <CheckBox
-                        value={botao15}
-                        onValueChange={() => clicar15()}
-                        style={styles.checkbox}
-                        />
-                        <Text style={styles.label}>Terapias alternativas</Text>
-                    </View>
-                </View>
-
+               
                 {/* Aparecer apenas quando as respostas estão todas dadas aka --> if check || valid == true && check2 || valid2 == true (...) */}
-                
+
+                { (check == true || valid == true) && (botao1 == true || botao2 == true || botao3 == true) && (valid2 == true) ? (
+
+                    <View style={styles.seguinteContainer}> 
+                    <TouchableOpacity
+                        onPress={() => {navigation.navigate('QiSaraD', {collection: route.params.collection}), setQuestionario()}}> 
+                        <Text style={styles.next}>Seguinte</Text>
+                    </TouchableOpacity>
+                    </View>                     
+
+                ) : (
+                    <Text></Text>
+                ) }
+
+
+                { (check == true || valid == true) && (botao1 == true || botao2 == true || botao3 == true) && (check2 == true) && (botao4 == true || botao5 == true || botao6 == true) && (botao7 == true || botao8 == true || botao9 == true) && (botao10 == true || botao11 == true || botao12 == true) && (botao13 == true || botao14 == true || botao15 == true) ? (
+
                 <View style={styles.seguinteContainer}> 
                 <TouchableOpacity
-                    onPress={() => {navigation.navigate('QiSaraD')}}> 
+                    onPress={() => {navigation.navigate('QiSaraD', {collection: route.params.collection}), setQuestionario()}}> 
                     <Text style={styles.next}>Seguinte</Text>
                 </TouchableOpacity>
-                </View> 
+                </View>                     
+
+                ) : (
+                <Text></Text>
+                ) }
+                
+               
               
             </ScrollView>
         </View>
@@ -379,7 +602,6 @@ const styles = StyleSheet.create({
         width: '20%',
         alignSelf: 'flex-end', 
         marginRight: '10%', 
-        marginTop: '10%', 
         paddingBottom: '10%',
     },
 

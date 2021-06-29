@@ -12,8 +12,20 @@ import { auth, db } from '../../Firebase';
 function Homepage({ route, navigation }) {
 
     const [currentStatus, setCurrentStatus] = useState('');
+    const [questionarioStatus, setQuestionarioStatus] = useState(false);
 
     const currentUser = auth.currentUser.uid;
+
+    function getQuestionarioStatus(){
+        db
+        .collection('Questionário Sara Inicial')
+        .doc(currentUser)
+        .get()
+        .then(doc => {
+            setQuestionarioStatus(doc.data().concluido)
+        })
+    }
+
 
    function getStatus (){ db
                         .collection('users')
@@ -27,8 +39,11 @@ function Homepage({ route, navigation }) {
 
     useEffect(() => {
         getStatus();
+        getQuestionarioStatus();
     },[])
-       
+
+    console.log(questionarioStatus);   
+
 if (currentStatus == 1) {
     return (
         <View style={styles.container}>
@@ -48,7 +63,12 @@ if (currentStatus == 1) {
 
                 <TouchableOpacity
                     style={{alignSelf: 'center'}}
-                    onPress={() => navigation.navigate('QiSaraA')}
+                    onPress={() => {if (questionarioStatus == 'true') {
+                        navigation.navigate('PlaylistSara');
+                    } else {
+                        navigation.navigate('QiSaraA');
+                    }
+                }}
 
                 >
                     <Image
@@ -144,7 +164,12 @@ if (currentStatus == 1) {
 
                 <TouchableOpacity
                     style={{alignSelf: 'center'}}
-                    onPress={() => navigation.navigate('QiSaraA')}
+                    onPress={() => {if (questionarioStatus == 'true') {
+                        navigation.navigate('PlaylistSara');
+                    } else {
+                        navigation.navigate('QiSaraA');
+                    }
+                }}
 
                 >
                     <Image
@@ -226,6 +251,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderTopLeftRadius: 60,
         borderTopRightRadius: 60, 
+        height: '100%',
+        width: '100%',
         marginTop: '10%',
 
     },

@@ -6,6 +6,183 @@ import { auth, db } from '../../../Firebase';
 
 function QiSaraF({route, navigation}){
 
+    const currentUser = auth.currentUser.uid;
+    const collection = route.params.collection;
+
+    function setQuestionario(){
+        //pergunta 31
+
+        if (check == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta31: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta31: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 32
+
+        if (check2 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta32: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta32: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 33
+
+        if (check3 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta33: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta33: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 34
+
+        if (check4 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta34: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta34: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 35
+
+        if (check5 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta35: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta35: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 36 
+
+        if (check6 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta36: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta36: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 37
+
+        if (check7 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta37: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta37: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 38
+
+        if (check8 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta38: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta38: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 39
+
+        if (check9 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta39: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta39: 'Falsa'
+            }, {merge: true})
+        }
+
+        // Garantir que o questionário já foi respondido
+
+        db
+        .collection(collection)
+        .doc(currentUser)
+        .set({
+            concluido: 'true'
+        }, {merge: true})
+
+
+    }
    
     // UseStates
 
@@ -289,12 +466,18 @@ function QiSaraF({route, navigation}){
 
                 {/* Aparecer apenas quando as respostas estão todas dadas aka --> if check || valid == true && check2 || valid2 == true (...) */}
                 
-                <View style={styles.seguinteContainer}> 
-                <TouchableOpacity
-                    onPress={() => {navigation.navigate('PlaylistSara')}}> 
-                    <Text style={styles.next}>Terminar</Text>
-                </TouchableOpacity>
-                </View> 
+             
+                { (check == true || valid == true) && (check2 == true || valid2 == true) && (check3 == true || valid3 == true) && (check4 == true || valid4 == true) && (check5 == true || valid5 == true) && (check6 == true || valid6 == true) && (check7 == true || valid7 == true) && (check8 == true || valid8 == true) && (check9 == true || valid9 == true) ? (
+                    <View style={styles.seguinteContainer}> 
+                    <TouchableOpacity
+                        onPress={() => {navigation.navigate('PlaylistSara'), setQuestionario()}}> 
+                        <Text style={styles.next}>Terminar</Text>
+                    </TouchableOpacity>
+                    </View> 
+                ): (
+                    <Text></Text>
+                )}
+              
               
             </ScrollView>
         </View>
@@ -303,6 +486,7 @@ function QiSaraF({route, navigation}){
 }
 
 const styles = StyleSheet.create({
+
 
     container: {
         flex: 1,
@@ -315,7 +499,6 @@ const styles = StyleSheet.create({
         width: '25%',
         alignSelf: 'flex-end', 
         marginRight: '10%', 
-        marginTop: '10%', 
         paddingBottom: '10%',
     },
 
