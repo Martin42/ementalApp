@@ -11,11 +11,10 @@ function Ep1_Sara({route, navigation}){
         getComments();
     },[mensagem])
 
-
     const [mensagem, setMensagem] = useState();
     const [playing, setPlaying] = useState(false);
     const [modal, setModal] = useState(false);
-
+    const [comments, setComments] = useState([]);
     
     
 
@@ -28,27 +27,23 @@ function Ep1_Sara({route, navigation}){
             }) 
     }
 
- 
-    const comentarios = [];
-  
-
     async function getComments (){
         const commentRef = db.collection(route.params.episodio);
-        const snapshot = await commentRef.get();
+        const snapshot = await commentRef.get()
+        const comentarios = [];
         snapshot.forEach(doc => {
             if (doc.data().aprovado === 'false') {
                 console.log('Precisa de Aprovação');
             } else {
-       
-               console.log( doc.data().comentario);
-               comentarios.push(doc.data().comentario);
-               
-               
+                console.log(doc.data().comentario);
+                comentarios.push(doc.data().comentario);
+                console.log(comentarios)
             }
-        });
-        }
-  
+            
+        })
 
+        setComments(...comments, comentarios)
+    }
 
     // Player 
   
@@ -85,31 +80,28 @@ function Ep1_Sara({route, navigation}){
           
       
             <Text style={styles.title1}>Comentários</Text>
-                                    
-            <View style={[{flexDirection:'row'}], styles.inputField2}>
 
-                <Text style={{marginLeft: '25%'}}>
-                    astronada
-                </Text>
+            {comments.map((e) => (
+                <View style={[{flexDirection:'row'}], styles.inputField2}>
+
+            <Text style={{marginLeft: '25%'}}>
+                astronada
+            </Text>
 
 
-                <View style={{flex: 1}}>
-                    <AntDesign name="smile-circle" size={50} color="lightblue"/>
-                      
-                {/* {comentarios.map(e => <Text>{e}</Text>)} */}
-
-                {/* Como remover o comentário depois de submetido  */}
-
-                </View>
-
-                <View style={styles.inputComment}>
-                    <Text style={[{flexDirection:'column'}], styles.inputMensagem2}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porttitor nulla magna tincidunt quisque quis. Quis vulputate viverra vulputate senectus. Dignissim tempus ut venenatis, in velit dignissim lectus vitae.
-                    </Text>
-                </View>
+            <View style={{flex: 1}}>
+                <AntDesign name="smile-circle" size={50} color="lightblue"/>
 
             </View>
 
+            <View style={styles.inputComment}>
+                <Text style={[{flexDirection:'column'}], styles.inputMensagem2}>
+                {e}
+                </Text>
+            </View>
+
+            </View>
+            ))}
 
 
             <Modal
