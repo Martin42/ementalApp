@@ -440,7 +440,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         height: 45,
         width: '80%',
-        marginBottom: '10%',
+        marginBottom: '15%',
         alignSelf: 'center',
       },
 

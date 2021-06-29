@@ -4,7 +4,7 @@ import TextArea from 'react-native-textarea';
 import { auth, db } from '../../../Firebase';
 
 
-function QiSaraD({route, navigation}){
+function QiSaraE({route, navigation}){
 
    
     // UseStates
@@ -432,4 +432,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default QiSaraD;
+export default QiSaraE;
