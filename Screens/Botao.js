@@ -21,15 +21,6 @@ function Botao({navigation}) {
             <Text style={styles.registoText}>Registo</Text>
               
           </TouchableOpacity>
-
-          <TouchableOpacity 
-            style={styles.registo}
-            onPress={() => navigation.navigate('QiMarcoA')}
-            >
-            
-            <Text style={styles.registoText}>marco</Text>
-              
-          </TouchableOpacity>
           
           <TouchableOpacity 
             style={styles.login}
