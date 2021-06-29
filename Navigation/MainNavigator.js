@@ -29,7 +29,10 @@ import Esclarecimento from '../Screens/App/Esclarecimento';
 import Conversa from '../Screens/App/Conversa';
 import Responder from '../Screens/App/Responder';
 import PlaylistMarco from '../Screens/App/Marco/PlaylistMarco';
-
+import QiMarcoA from '../Screens/App/Marco/QiMarcoA';
+import QiMarcoB from '../Screens/App/Marco/QiMarcoB';
+import QiMarcoC from '../Screens/App/Marco/QiMarcoC';
+import QiMarcoD from '../Screens/App/Marco/QiMarcoD';
 
 
 const Stack = createStackNavigator();
@@ -61,6 +64,10 @@ const MainStackNavigator = () => {
                 <Stack.Screen name='QiSaraD' component={QiSaraD} />
                 <Stack.Screen name='QiSaraE' component={QiSaraE} />
                 <Stack.Screen name='QiSaraF' component={QiSaraF} />
+                <Stack.Screen name='QiMarcoA' component={QiMarcoA} />
+                <Stack.Screen name='QiMarcoB' component={QiMarcoB} />
+                <Stack.Screen name='QiMarcoC' component={QiMarcoC} />
+                <Stack.Screen name='QiMarcoD' component={QiMarcoD} />
                 <Stack.Screen name='Apoio' component={Apoio} />
                 <Stack.Screen name='Esclarecimento' component={Esclarecimento} />
                 <Stack.Screen name='Conversa' component={Conversa} />
