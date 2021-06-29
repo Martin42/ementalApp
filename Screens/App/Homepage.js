@@ -63,7 +63,7 @@ if (currentStatus == 1) {
 
                 <TouchableOpacity
                      style={{alignSelf: 'center'}}
-                     onPress={() => navigation.navigate('PlaylistMarco')}
+                     onPress={() => navigation.navigate('QiMarcoA')}
                 >
                     <Image
                         source={require('../../images/marcoNaVida.png')}

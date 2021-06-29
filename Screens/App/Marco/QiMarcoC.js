@@ -4,7 +4,7 @@ import TextArea from 'react-native-textarea';
 import { auth, db } from '../../../Firebase';
 
 
-function QiSaraF({route, navigation}){
+function QiMarcoC({route, navigation}){
 
    
     // UseStates
@@ -25,8 +25,6 @@ function QiSaraF({route, navigation}){
     const [valid7, setValid7] = useState(false);
     const [check8, setCheck8] = useState(false);
     const [valid8, setValid8] = useState(false);
-    const [check9, setCheck9] = useState(false);
-    const [valid9, setValid9] = useState(false);
 
     // funções de validação
 
@@ -62,10 +60,6 @@ function QiSaraF({route, navigation}){
         setCheck8(true); 
         setValid8(false);
     }
-    function validate9(){ 
-        setCheck9(true); 
-        setValid9(false);
-    }
     
     function troca(){ 
         setCheck(false); 
@@ -100,10 +94,6 @@ function QiSaraF({route, navigation}){
         setCheck8(false); 
         setValid8(true);
     }
-    function troca9(){ 
-        setCheck9(false); 
-        setValid9(true);
-    }
 
     return(
         <View style={styles.container}>
@@ -116,7 +106,7 @@ function QiSaraF({route, navigation}){
                 <Text style={styles.subtitle}>Conhecimentos sobre depressão</Text>
                 <Text style={styles.texto}>Depois de ler as afirmações que se seguem, assinala a opção que consideras mais correta: verdadeira ou falsa.</Text>
 
-                <Text style={styles.textobold}>31. Uma pessoa que está em stress constante desenvolve necessariamente depressão.</Text>
+                <Text style={styles.textobold}>9. As pessoas com depressão são de famílias com baixos recursos económicos.</Text>
 
                 <View style={styles.container}>
                     <View style={styles.checkboxContainer}>
@@ -135,7 +125,7 @@ function QiSaraF({route, navigation}){
                     </View>
                 </View>
 
-                <Text style={styles.textobold}>32. Mudanças de vida, problemas familiares, financeiros, nos estudos ou no trabalho podem causar depressão.</Text>
+                <Text style={styles.textobold}>10. Se uma pessoa próxima de mim estivesse com depressão, eu ouvia-a sem julgar ou criticar.</Text>
 
                 <View style={styles.container}>
                     <View style={styles.checkboxContainer}>
@@ -154,7 +144,7 @@ function QiSaraF({route, navigation}){
                     </View>
                 </View>
                 
-                <Text style={styles.textobold}>33. Atividades como ver filmes, ler livres, tornar-se fisicamente ativo ou mudar a imagem pessoal podem contribuir para melhorar a depressão.</Text>
+                <Text style={styles.textobold}>11. O consumo de álcool pode causar depressão.</Text>
 
                 <View style={styles.container}>
                     <View style={styles.checkboxContainer}>
@@ -173,7 +163,7 @@ function QiSaraF({route, navigation}){
                     </View>
                 </View>
             
-                <Text style={styles.textobold}>34. O apoio de familiares e amigos pode contribuir para melhorar a depressão.</Text>
+                <Text style={styles.textobold}>12. A depressão não afeta os sentimentos.</Text>
 
                 <View style={styles.container}>
                     <View style={styles.checkboxContainer}>
@@ -192,7 +182,7 @@ function QiSaraF({route, navigation}){
                     </View>
                 </View>
 
-                <Text style={styles.textobold}>35. Ter sempre pensamentos negativos relativos à vida e ao futuro podem ser sinais de depressão.</Text>
+                <Text style={styles.textobold}>13. Quanto mais cedo forem identificados e tratados os sintomas de depressão, melhor.</Text>
 
                 <View style={styles.container}>
                     <View style={styles.checkboxContainer}>
@@ -211,7 +201,7 @@ function QiSaraF({route, navigation}){
                     </View>
                 </View>
 
-                <Text style={styles.textobold}>36. Sentir-se triste, frustrado ou com falta de confiança em si mesmo podem ser sinais de depressão.</Text>
+                <Text style={styles.textobold}>14. Só os adultos têm depressão.</Text>
 
                 <View style={styles.container}>
                     <View style={styles.checkboxContainer}>
@@ -230,7 +220,7 @@ function QiSaraF({route, navigation}){
                     </View>
                 </View>
 
-                <Text style={styles.textobold}>37. Uma pessoa com depressão isola-se sempre da família e amigos.</Text>
+                <Text style={styles.textobold}>15. Se uma pessoa próxima de mim estivesse com depressão, eu encorajava-a a procurar ajuda medica.</Text>
                 
                 <View style={styles.container}>
                     <View style={styles.checkboxContainer}>
@@ -249,7 +239,7 @@ function QiSaraF({route, navigation}){
                     </View>
                 </View>
 
-                <Text style={styles.textobold}>38. A falta de cuidado consigo próprio (higiene pessoal, vestuário) podem ser sintomas de depressão.</Text>
+                <Text style={styles.textobold}>16. Se eu estivesse com sintomas de depressão procuraria a ajuda de amigos.</Text>
                 
                 <View style={styles.container}>
                     <View style={styles.checkboxContainer}>
@@ -268,31 +258,12 @@ function QiSaraF({route, navigation}){
                     </View>
                 </View>
 
-                <Text style={styles.textobold}>39. Uma pessoa com depressão pode tomar atitudes perigosas em relação aos outros ou a si próprio.</Text>
-                
-                <View style={styles.container}>
-                    <View style={styles.checkboxContainer}>
-                        <CheckBox
-                        value={check9}
-                        onValueChange={() => validate9()}
-                        style={styles.checkbox}
-                        />
-                        <Text style={styles.label}>Verdadeira</Text>
-                        <CheckBox
-                        value={valid9}
-                        onValueChange={() => troca9()}
-                        style={styles.checkbox}
-                        />
-                        <Text style={styles.label2}>Falsa</Text>
-                    </View>
-                </View>
-
                 {/* Aparecer apenas quando as respostas estão todas dadas aka --> if check || valid == true && check2 || valid2 == true (...) */}
                 
                 <View style={styles.seguinteContainer}> 
                 <TouchableOpacity
-                    onPress={() => {navigation.navigate('PlaylistSara')}}> 
-                    <Text style={styles.next}>Terminar</Text>
+                    onPress={() => {navigation.navigate('QiMarcoD')}}> 
+                    <Text style={styles.next}>Seguinte</Text>
                 </TouchableOpacity>
                 </View> 
               
@@ -312,7 +283,7 @@ const styles = StyleSheet.create({
     },
 
     seguinteContainer: {
-        width: '25%',
+        width: '20%',
         alignSelf: 'flex-end', 
         marginRight: '10%', 
         marginTop: '10%', 
@@ -375,7 +346,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginTop: '10%',
         color: 'black',
-        paddingBottom: '10%'
+        paddingBottom: '10%',
     },
 
     textobold: {
@@ -460,4 +431,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default QiSaraF;
+export default QiMarcoC;
