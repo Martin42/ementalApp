@@ -38,7 +38,7 @@ if (currentStatus == 1) {
 
                 <Text style={styles.title1}>Intervenções</Text>
 
-                <Text style={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim.</Text>
+                <Text style={styles.text}>Estas intervenções foram estruturadas em narrativas audiovisuais que poderás acompanhar após responderes a um breve questionário.</Text>
             </View>
             <View style={styles.container2}>
 
@@ -66,7 +66,7 @@ if (currentStatus == 1) {
                      onPress={() => navigation.navigate('QiMarcoA')}
                 >
                     <Image
-                        source={require('../../images/marcoNaVida.png')}
+                        source={require('../../images/marco.png')}
                         style={styles.conteudo}
 
                     />
@@ -134,7 +134,7 @@ if (currentStatus == 1) {
 
                 <Text style={styles.title1}>Intervenções</Text>
 
-                <Text style={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim.</Text>
+                <Text style={styles.text}>Estas intervenções foram estruturadas em narrativas audiovisuais que poderás acompanhar após responderes a um breve questionário.</Text>
             </View>
             <View style={styles.container2}>
 
@@ -159,10 +159,10 @@ if (currentStatus == 1) {
 
                 <TouchableOpacity
                      style={{alignSelf: 'center', marginBottom: '10%'}}
-                     onPress={() => navigation.navigate('PlaylistMarco')}
+                     onPress={() => navigation.navigate('QiMarcoA')}
                 >
                     <Image
-                        source={require('../../images/marcoNaVida.png')}
+                        source={require('../../images/marco.png')}
                         style={styles.conteudo}
 
                     />

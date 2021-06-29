@@ -33,6 +33,7 @@ import QiMarcoA from '../Screens/App/Marco/QiMarcoA';
 import QiMarcoB from '../Screens/App/Marco/QiMarcoB';
 import QiMarcoC from '../Screens/App/Marco/QiMarcoC';
 import QiMarcoD from '../Screens/App/Marco/QiMarcoD';
+import AudioMarco from '../Screens/App/Marco/AudioMarco';
 
 
 const Stack = createStackNavigator();
@@ -75,7 +76,7 @@ const MainStackNavigator = () => {
                 <Stack.Screen name='Ep1_Sara' component={Ep1_Sara} />
                 <Stack.Screen name='PlaylistSara' component={PlaylistSara} /> 
                 <Stack.Screen name='PlaylistMarco' component={PlaylistMarco} />
-                
+                <Stack.Screen name='AudioMarco' component={AudioMarco} />
         
             </Stack.Navigator>
        
