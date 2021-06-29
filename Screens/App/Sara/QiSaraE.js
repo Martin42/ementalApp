@@ -1,18 +1,14 @@
-import React, { useState } from 'react';
-import { ScrollView, StyleSheet, TouchableOpacity, Text, Image, View } from "react-native";
-import Checkbox from 'react-native-check-box';
-
-function QiSaraE({route, navigation}){
-
-
-    const TrueChecked=(<Image source={require('../../../images/verdadeira_checked.png')} style={styles.aceito} />)
-    const TrueUnchecked=(<Image source={require('../../../images/verdadeira_unchecked.png')} style={styles.aceito} />)
-
-    const FalseUnchecked=(<Image source={require('../../../images/falsa_unchecked.png')} style={styles.aceito2} />)
-    const FalseChecked=(<Image source={require('../../../images/falsa_checked.png')} style={styles.aceito2} />)
+import React, { useState, useEffect } from 'react';
+import { ScrollView, StyleSheet, TouchableOpacity, Text, Image, View, CheckBox} from "react-native";
+import TextArea from 'react-native-textarea';
+import { auth, db } from '../../../Firebase';
 
 
-    const [mensagem, setMensagem] = useState('');
+function QiSaraD({route, navigation}){
+
+   
+    // UseStates
+
     const [check, setCheck] = useState(false);
     const [valid, setValid] = useState(false);
     const [check2, setCheck2] = useState(false);
@@ -30,290 +26,247 @@ function QiSaraE({route, navigation}){
     const [check8, setCheck8] = useState(false);
     const [valid8, setValid8] = useState(false);
 
-    function validate(){
-        setCheck(true);
+    // funções de validação
+
+    function validate(){ 
+        setCheck(true); 
         setValid(false);
     }
-
-    function validate2(){
-        setCheck2(true);
+    function validate2(){ 
+        setCheck2(true); 
         setValid2(false);
     }
-
-    function validate3(){
-        setCheck3(true);
+    function validate3(){ 
+        setCheck3(true); 
         setValid3(false);
     }
-
-    function validate4(){
-        setCheck4(true);
+    function validate4(){ 
+        setCheck4(true); 
         setValid4(false);
     }
-
-    function validate5(){
-        setCheck5(true);
+    function validate5(){ 
+        setCheck5(true); 
         setValid5(false);
     }
-
-    function validate6(){
-        setCheck6(true);
+    function validate6(){ 
+        setCheck6(true); 
         setValid6(false);
     }
-
-    function validate7(){
-        setCheck7(true);
+    function validate7(){ 
+        setCheck7(true); 
         setValid7(false);
     }
-
-    function validate8(){
-        setCheck8(true);
+    function validate8(){ 
+        setCheck8(true); 
         setValid8(false);
     }
     
-    function troca(){
-        setCheck(false);
+    function troca(){ 
+        setCheck(false); 
         setValid(true);
     }
 
-    function troca2(){
-        setCheck2(false);
+    function troca2(){ 
+        setCheck2(false); 
         setValid2(true);
     }
-
-    function troca3(){
-        setCheck3(false);
+    function troca3(){ 
+        setCheck3(false); 
         setValid3(true);
     }
-
-    function troca4(){
-        setCheck4(false);
+    function troca4(){ 
+        setCheck4(false); 
         setValid4(true);
     }
-
-    function troca5(){
-        setCheck5(false);
+    function troca5(){ 
+        setCheck5(false); 
         setValid5(true);
     }
-
-    function troca6(){
-        setCheck6(false);
+    function troca6(){ 
+        setCheck6(false); 
         setValid6(true);
     }
-
-    function troca7(){
-        setCheck7(false);
+    function troca7(){ 
+        setCheck7(false); 
         setValid7(true);
     }
-
-    function troca8(){
-        setCheck8(false);
+    function troca8(){ 
+        setCheck8(false); 
         setValid8(true);
     }
-    
+
     return(
         <View style={styles.container}>
+
             <ScrollView 
                 style={styles.balao}
                 showsVerticalScrollIndicator={false}
             >
 
-                <View>
-                    <Text style={styles.subtitle}>Conhecimentos sobre depressão</Text>
-                    <Text style={styles.texto}>Depois de ler as afirmações que se seguem, assinala a opção que consideras mais correta: verdadeira ou falsa.</Text>
+                <Text style={styles.subtitle}>Conhecimentos sobre depressão</Text>
+                <Text style={styles.texto}>Depois de ler as afirmações que se seguem, assinala a opção que consideras mais correta: verdadeira ou falsa.</Text>
 
+                <Text style={styles.textobold}>23. Os medicamento antidepressivos podem demorar a produzir efeito.</Text>
 
-                    <Text style={styles.textobold}>23. Os medicamento antidepressivos podem demorar a produzir efeito.</Text>
-
-                <View style={styles.checkUp}>
-                    <Checkbox
-                        style={styles.checkbox} 
-                        onClick={() => validate()}
-                        isChecked={check}
-                        unCheckedImage={TrueUnchecked} 
-                        checkedImage={TrueChecked}  
-                    />
-                </View>
-
-                <View style={styles.checkDown}>
-                    <Checkbox
-                        style={styles.checkbox}  
-                        onClick={() => troca()}
-                        isChecked={valid}
-                        unCheckedImage={FalseUnchecked} 
-                        checkedImage={FalseChecked}  
-                    />
-                </View>     
-
-                    <Text style={styles.textobold}>24. Estilos de vida saudáveis auxiliam o tratamento (medicamentoso) e a recuperação da depressão.</Text>
-
-
-                <View style={styles.checkUp}>
-                    <Checkbox
-                        style={styles.checkbox} 
-                        onClick={() => validate2()}
-                        isChecked={check2}
-                        unCheckedImage={TrueUnchecked} 
-                        checkedImage={TrueChecked} 
-                    />
-                </View>
-
-                <View style={styles.checkDown}>
-                    <Checkbox
-                        style={styles.checkbox}  
-                        onClick={() => troca2()}
-                        isChecked={valid2}
-                        unCheckedImage={FalseUnchecked} 
-                        checkedImage={FalseChecked} 
-                    />
-                </View>
-
-                    <Text style={styles.textobold}>25. A depressão é comum na adolescência.</Text>
-
-                <View style={styles.checkUp}> 
-                    <Checkbox
-                        style={styles.checkbox} 
-                        onClick={() => validate3()}
-                        isChecked={check3}
-                        unCheckedImage={TrueUnchecked} 
-                        checkedImage={TrueChecked}
-                    />
-                </View>
-
-                <View style={styles.checkDown}>
-                    <Checkbox
-                        style={styles.checkbox}  
-                        onClick={() => troca3()}
-                        isChecked={valid3}
-                        unCheckedImage={FalseUnchecked} 
-                        checkedImage={FalseChecked} 
-                    />
-                </View>
-
-                    <Text style={styles.textobold}>26. A depressão pode ser controlada com força de vontade.</Text>
-                    
-                    
-                <View style={styles.checkUp}>
-                    <Checkbox
-                        style={styles.checkbox} 
-                        onClick={() => validate4()}
-                        isChecked={check4}
-                        unCheckedImage={TrueUnchecked} 
-                        checkedImage={TrueChecked} 
-                    />
-                </View>
-
-
-                <View style={styles.checkDown}>
-                    <Checkbox
-                        style={styles.checkbox}  
-                        onClick={() => troca4()}
-                        isChecked={valid4}
-                        unCheckedImage={FalseUnchecked} 
-                        checkedImage={FalseChecked} 
-                    />
-                </View>
-
-                    <Text style={styles.textobold}>27. A depressão pode ter diversas causas.</Text>
-                
-                <View style={styles.checkUp}>
-                    <Checkbox
-                        style={styles.checkbox} 
-                        onClick={() => validate5()}
-                        isChecked={check5}
-                        unCheckedImage={TrueUnchecked} 
-                        checkedImage={TrueChecked}  
-                    />
-                </View>
-
-
-                <View style={styles.checkDown}>
-                    <Checkbox
-                        style={styles.checkbox}  
-                        onClick={() => troca5()}
-                        isChecked={valid5}
-                        unCheckedImage={FalseUnchecked} 
-                        checkedImage={FalseChecked} 
-                    />
-                </View>
-                    <Text style={styles.textobold}>28. Mudanças de comportamento podem ser o primeiro sinal de depressão.</Text>
-                    
-
-                <View style={styles.checkUp}>    
-                    <Checkbox
-                        style={styles.checkbox} 
-                        onClick={() => validate6()}
-                        isChecked={check6}
-                        unCheckedImage={TrueUnchecked} 
-                        checkedImage={TrueChecked} 
-                    />
-                </View>
-
-                
-                <View style={styles.checkDown}>
-                    <Checkbox
-                        style={styles.checkbox}  
-                        onClick={() => troca6()}
-                        isChecked={valid6}
-                        unCheckedImage={FalseUnchecked} 
-                        checkedImage={FalseChecked} 
-                    />
-                </View>
-
-                    <Text style={styles.textobold}>29. A depressão é uma doença tratável.</Text>
-                    
-
-                <View style={styles.checkUp}>
-                    <Checkbox
-                        style={styles.checkbox} 
-                        onClick={() => validate7()}
-                        isChecked={check7}
-                        unCheckedImage={TrueUnchecked} 
-                        checkedImage={TrueChecked} 
-                    />
-                </View>
-
-                <View style={styles.checkDown}>
-                    <Checkbox
-                        style={styles.checkbox}  
-                        onClick={() => troca7()}
-                        isChecked={valid7}
-                        unCheckedImage={FalseUnchecked} 
-                        checkedImage={FalseChecked} 
-                    />
-                </View>
-                    
-                    <Text style={styles.textobold}>30. Uma pessoa com depressão sente-se triste na maior parte do tempo.</Text>
-                
-                <View style={styles.checkUp}>
-                    <Checkbox
-                        style={styles.checkbox} 
-                        onClick={() => validate8()}
-                        isChecked={check8}
-                        unCheckedImage={TrueUnchecked} 
-                        checkedImage={TrueChecked} 
-                    />
-                </View>
-
-                <View style={styles.checkDown}>
-                    <Checkbox
-                        style={styles.checkbox}  
-                        onClick={() => troca8()}
-                        isChecked={valid8}
-                        unCheckedImage={FalseUnchecked} 
-                        checkedImage={FalseChecked} 
-                    />
-                </View>
-
-
-
-                    <View style={styles.seguinteContainer}>
-                        <TouchableOpacity
-                            onPress={() => navigation.navigate('QiSaraF')}
-                            >
-                            <Text style={styles.next}>Seguinte</Text>
-                        </TouchableOpacity>
+                <View style={styles.container}>
+                    <View style={styles.checkboxContainer}>
+                        <CheckBox
+                        value={check}
+                        onValueChange={() => validate()}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label}>Verdadeira</Text>
+                        <CheckBox
+                        value={valid}
+                        onValueChange={() => troca()}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label2}>Falsa</Text>
                     </View>
                 </View>
+
+                <Text style={styles.textobold}>24. Estilos de vida saudáveis auxiliam o tratamento (medicamentoso) e a recuperação da depressão.</Text>
+
+                <View style={styles.container}>
+                    <View style={styles.checkboxContainer}>
+                        <CheckBox
+                        value={check2}
+                        onValueChange={() => validate2()}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label}>Verdadeira</Text>
+                        <CheckBox
+                        value={valid2}
+                        onValueChange={() => troca2()}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label2}>Falsa</Text>
+                    </View>
+                </View>
+                
+                <Text style={styles.textobold}>25. A depressão é comum na adolescência.</Text>
+
+                <View style={styles.container}>
+                    <View style={styles.checkboxContainer}>
+                        <CheckBox
+                        value={check3}
+                        onValueChange={() => validate3()}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label}>Verdadeira</Text>
+                        <CheckBox
+                        value={valid3}
+                        onValueChange={() => troca3()}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label2}>Falsa</Text>
+                    </View>
+                </View>
+            
+                <Text style={styles.textobold}>26. A depressão pode ser controlada com força de vontade.</Text>
+
+                <View style={styles.container}>
+                    <View style={styles.checkboxContainer}>
+                        <CheckBox
+                        value={check4}
+                        onValueChange={() => validate4()}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label}>Verdadeira</Text>
+                        <CheckBox
+                        value={valid4}
+                        onValueChange={() => troca4()}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label2}>Falsa</Text>
+                    </View>
+                </View>
+
+                <Text style={styles.textobold}>27. A depressão pode ter diversas causas.</Text>
+
+                <View style={styles.container}>
+                    <View style={styles.checkboxContainer}>
+                        <CheckBox
+                        value={check5}
+                        onValueChange={() => validate5()}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label}>Verdadeira</Text>
+                        <CheckBox
+                        value={valid5}
+                        onValueChange={() => troca5()}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label2}>Falsa</Text>
+                    </View>
+                </View>
+
+                <Text style={styles.textobold}>28. Mudanças de comportamento podem ser o primeiro sinal de depressão.</Text>
+
+                <View style={styles.container}>
+                    <View style={styles.checkboxContainer}>
+                        <CheckBox
+                        value={check6}
+                        onValueChange={() => validate6()}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label}>Verdadeira</Text>
+                        <CheckBox
+                        value={valid6}
+                        onValueChange={() => troca6()}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label2}>Falsa</Text>
+                    </View>
+                </View>
+
+                <Text style={styles.textobold}>29. A depressão é uma doença tratável.</Text>
+                
+                <View style={styles.container}>
+                    <View style={styles.checkboxContainer}>
+                        <CheckBox
+                        value={check7}
+                        onValueChange={() => validate7()}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label}>Verdadeira</Text>
+                        <CheckBox
+                        value={valid7}
+                        onValueChange={() => troca7()}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label2}>Falsa</Text>
+                    </View>
+                </View>
+
+                <Text style={styles.textobold}>30. Uma pessoa com depressão sente-se triste na maior parte do tempo.</Text>
+                
+                <View style={styles.container}>
+                    <View style={styles.checkboxContainer}>
+                        <CheckBox
+                        value={check8}
+                        onValueChange={() => validate8()}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label}>Verdadeira</Text>
+                        <CheckBox
+                        value={valid8}
+                        onValueChange={() => troca8()}
+                        style={styles.checkbox}
+                        />
+                        <Text style={styles.label2}>Falsa</Text>
+                    </View>
+                </View>
+
+                {/* Aparecer apenas quando as respostas estão todas dadas aka --> if check || valid == true && check2 || valid2 == true (...) */}
+                
+                <View style={styles.seguinteContainer}> 
+                <TouchableOpacity
+                    onPress={() => {navigation.navigate('QiSaraF')}}> 
+                    <Text style={styles.next}>Seguinte</Text>
+                </TouchableOpacity>
+                </View> 
+              
             </ScrollView>
         </View>
     )
@@ -321,13 +274,41 @@ function QiSaraE({route, navigation}){
 }
 
 const styles = StyleSheet.create({
+
     container: {
         flex: 1,
-        backgroundColor: 'white',
         alignItems: 'center',
         justifyContent: 'center',
         width: '100%',
     },
+
+    seguinteContainer: {
+        width: '20%',
+        alignSelf: 'flex-end', 
+        marginRight: '10%', 
+        marginTop: '10%', 
+        paddingBottom: '10%',
+    },
+
+    inputField: {
+        marginTop: '5%',
+        borderRadius: 30,
+        overflow: 'hidden',
+        backgroundColor: 'white',
+        height: 45,
+        width: '80%',
+        marginBottom: '10%',
+        alignSelf: 'center',
+      },
+
+    inputMensagem: {
+        fontSize: 14,
+        color: 'black',
+        borderRadius: 30,
+        marginLeft: '9%',
+        marginTop: '3%',
+    },
+
 
     balao: {
         backgroundColor: '#CFE0FB',
@@ -337,6 +318,7 @@ const styles = StyleSheet.create({
         width: '80%',
         marginTop: '15%',
         marginBottom: '15%',
+        marginLeft: 0,
     },
 
     title: {
@@ -346,6 +328,7 @@ const styles = StyleSheet.create({
         marginRight: '10%',
         marginTop: '10%',
         marginBottom: '5%',
+        color: 'black',
     },
 
     subtitle: {
@@ -362,25 +345,8 @@ const styles = StyleSheet.create({
         fontSize: 17,
         fontWeight: 'bold',
         marginTop: '10%',
-        color: 'black'
-    },
-
-    seguinteContainer: {
-        width: '20%',
-        alignSelf: 'flex-end', 
-        marginRight: '10%', 
+        color: 'black',
         paddingBottom: '10%',
-    },
-
-    checkbox: {
-        alignSelf: 'center',
-    },
-
-    texto: {
-        marginLeft: '10%',
-        marginRight: '10%',
-        paddingBottom: '5%',
-        fontSize: 15,
     },
 
     textobold: {
@@ -388,16 +354,23 @@ const styles = StyleSheet.create({
         marginRight: '10%',
         fontWeight: 'bold',
         fontSize: 15,
+        color: 'black',
     },
 
     aceito: {
         resizeMode: 'contain',
         height: 45,
+
     },
 
     aceito2: {
         resizeMode: 'contain',
         height: 45,
+    },
+
+    checkbox: {
+        alignSelf: 'center',
+        borderStyle: 'dotted'
     },
 
     checkDown: {
@@ -411,7 +384,52 @@ const styles = StyleSheet.create({
         marginTop: '4%',
     },
 
+    checkMid: {
+        height: 45, 
+        marginTop: '2%',
+    },
+
+    container2: {
+        marginLeft: '15%',
+        marginRight: '15%',
+        marginTop: 8,
+    },
+
+    checkboxContainer: {
+        flexDirection: 'row',
+        marginBottom: '10%',
+        marginTop: '3%',
+    },
+
+    checkboxContainer2: {
+        flexDirection: 'row',
+    },
+
+    checkboxContainer3: {
+        flexDirection: 'row',
+        marginBottom: '15%',
+    },
+
+    checkbox: {
+        alignSelf: "center",
+    },
+
+    label: {
+        margin: 8,
+        marginRight:'15%',
+    },
+    label2: {
+        margin: 8,
+    },
+
+    texto: {
+        marginLeft: '10%',
+        marginRight: '10%',
+        paddingBottom: '5%',
+        fontSize: 15,
+        color: 'black',
+    },
 
 });
 
-export default QiSaraE;
+export default QiSaraD;
