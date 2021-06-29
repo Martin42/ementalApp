@@ -42,7 +42,8 @@ function Homepage({ route, navigation }) {
         getQuestionarioStatus();
     },[])
 
-       
+    console.log(questionarioStatus);   
+
 if (currentStatus == 1) {
     return (
         <View style={styles.container}>
@@ -163,7 +164,12 @@ if (currentStatus == 1) {
 
                 <TouchableOpacity
                     style={{alignSelf: 'center'}}
-                    onPress={() => navigation.navigate('QiSaraA')}
+                    onPress={() => {if (questionarioStatus == 'true') {
+                        navigation.navigate('PlaylistSara');
+                    } else {
+                        navigation.navigate('QiSaraA');
+                    }
+                }}
 
                 >
                     <Image
