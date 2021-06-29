@@ -178,7 +178,7 @@ function QiSaraF({route, navigation}){
         .collection(collection)
         .doc(currentUser)
         .set({
-            concluido: 'True'
+            concluido: 'true'
         }, {merge: true})
 
 
