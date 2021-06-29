@@ -40,7 +40,7 @@ function QiSaraB({route, navigation}){
                         .collection(collection)
                         .doc(currentUser)
                         .set({
-                            pergunta1: 'Sim' // [currentUser] --> Como meter variavel como doc field 
+                            pergunta1: 'Sim' 
                         }, { merge: true })
                     } else {
                         db
