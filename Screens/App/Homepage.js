@@ -251,6 +251,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderTopLeftRadius: 60,
         borderTopRightRadius: 60, 
+        height: '100%',
+        width: '100%',
         marginTop: '10%',
 
     },
