@@ -18,253 +18,661 @@ function PlaylistSara({ route, navigation }) {
 
                 <View style={styles.containerepisodios}>
 
-                {/* Episodio 1 */}
-                
-                <View style={styles.container3}>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('Ep1_Sara')}
-                    >
-                        <Image
-                            source={require('../../../images/thumbnail.png')}
-                            style={styles.episodio}
+                    {/* Teaser (dia 1)  */}
 
-                        />
-                    </TouchableOpacity>
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnail.png')}
+                                style={styles.episodio}
 
-                    <View>
-                        <Text style={styles.title2}>Episódio 1</Text>
-                        <Text style={styles.text}>Psicoeducativo</Text>
+                            />
+                        </TouchableOpacity>
+
+                        <View>
+                            <Text style={styles.title2}>Teaser</Text>
+                            <Text style={styles.text}>dkjfhe</Text>
+                        </View>
                     </View>
-                </View>
 
-                {/* Episodio 2 */}
+                    {/* Episodio 1 psicoeducativo (dia 1)  */}
 
-                <View style={styles.container3}>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('Ep1_Sara')}
-                    >
-                        <Image
-                            source={require('../../../images/thumbnail.png')}
-                            style={styles.episodio}
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnail.png')}
+                                style={styles.episodio}
 
-                        />
-                    </TouchableOpacity>
+                            />
+                        </TouchableOpacity>
 
-                    <View>
-                        <Text style={styles.title2}>Episódio 2</Text>
-                        <Text style={styles.text}>Psicoeducativo</Text>
+                        <View>
+                            <Text style={styles.title2}>Episódio 1</Text>
+                            <Text style={styles.text}>Psicoeducativo</Text>
+                        </View>
                     </View>
-                </View>
 
-                {/* Episodio 3 */}
+                    {/* Ferida Sara Episodio 1 (dia 2) */}
 
-                <View style={styles.container3}>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('Ep1_Sara')}
-                    >
-                        <Image
-                            source={require('../../../images/thumbnail.png')}
-                            style={styles.episodio}
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
 
-                        />
-                    </TouchableOpacity>
+                            />
+                        </TouchableOpacity>
 
-                    <View>
-                        <Text style={styles.title2}>Episódio 3</Text>
-                        <Text style={styles.text}>Psicoeducativo</Text>
+                        <View>
+                            <Text style={styles.title2}>Episódio 2</Text>
+                            <Text style={styles.text}>A Ferida Sara</Text>
+                        </View>
                     </View>
-                </View>
 
-                {/* Episodio 4 */}
+                    {/* Psicoeducativo Episodio 2 (dia 5) */}
 
-                <View style={styles.container3}>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('Ep1_Sara')}
-                    >
-                        <Image
-                            source={require('../../../images/thumbnail.png')}
-                            style={styles.episodio}
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
 
-                        />
-                    </TouchableOpacity>
+                            />
+                        </TouchableOpacity>
 
-                    <View>
-                        <Text style={styles.title2}>Episódio 4</Text>
-                        <Text style={styles.text}>Psicoeducativo</Text>
+                        <View>
+                            <Text style={styles.title2}>Episódio 2</Text>
+                            <Text style={styles.text}>Psicoeducativo</Text>
+                        </View>
                     </View>
-                </View>
 
-                {/* Episodio 5 */}
+                    {/* Ferida Sara Episodio 2 (dia 7)*/}
 
-                <View style={styles.container3}>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('Ep1_Sara')}
-                    >
-                        <Image
-                            source={require('../../../images/thumbnail.png')}
-                            style={styles.episodio}
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
 
-                        />
-                    </TouchableOpacity>
+                            />
+                        </TouchableOpacity>
 
-                    <View>
-                        <Text style={styles.title2}>Episódio 5</Text>
-                        <Text style={styles.text}>Psicoeducativo</Text>
+                        <View>
+                            <Text style={styles.title2}>Episódio 2</Text>
+                            <Text style={styles.text}>A Ferida Sara</Text>
+                        </View>
                     </View>
-                </View>
 
-                {/* Episodio 6 */}
+                    {/* Desafio 1 (dia 7) */}
 
-                <View style={styles.container3}>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('Ep1_Sara')}
-                    >
-                        <Image
-                            source={require('../../../images/thumbnail.png')}
-                            style={styles.episodio}
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
 
-                        />
-                    </TouchableOpacity>
+                            />
+                        </TouchableOpacity>
 
-                    <View>
-                        <Text style={styles.title2}>Episódio 6</Text>
-                        <Text style={styles.text}>Psicoeducativo</Text>
+                        <View>
+                            <Text style={styles.title2}>Desafio 1</Text>
+                            <Text style={styles.text}>dhjds</Text>
+                        </View>
                     </View>
-                </View>
 
-                {/* Episodio 7 */}
+                    {/* Episodio 3 Psicoeducativo (dia 9) */}
 
-                <View style={styles.container3}>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('Ep1_Sara')}
-                    >
-                        <Image
-                            source={require('../../../images/thumbnail.png')}
-                            style={styles.episodio}
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
 
-                        />
-                    </TouchableOpacity>
+                            />
+                        </TouchableOpacity>
 
-                    <View>
-                        <Text style={styles.title2}>Episódio 7</Text>
-                        <Text style={styles.text}>Psicoeducativo</Text>
+                        <View>
+                            <Text style={styles.title2}>Episódio 3</Text>
+                            <Text style={styles.text}>Psicoeducativo</Text>
+                        </View>
                     </View>
-                </View>
 
-                {/* Episodio 8 */}
+                    {/* Episodio 3 Ferida Sara (dia 10) */}
 
-                <View style={styles.container3}>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('Ep1_Sara')}
-                    >
-                        <Image
-                            source={require('../../../images/thumbnail.png')}
-                            style={styles.episodio}
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
 
-                        />
-                    </TouchableOpacity>
+                            />
+                        </TouchableOpacity>
 
-                    <View>
-                        <Text style={styles.title2}>Episódio 8</Text>
-                        <Text style={styles.text}>Psicoeducativo</Text>
+                        <View>
+                            <Text style={styles.title2}>Episódio 3</Text>
+                            <Text style={styles.text}>A Ferida Sara</Text>
+                        </View>
                     </View>
-                </View>
 
-                {/* Episodio 9 */}
+                    {/* Episodio 4 Psicoeducativo (dia 11) */}
 
-                <View style={styles.container3}>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('Ep1_Sara')}
-                    >
-                        <Image
-                            source={require('../../../images/thumbnail.png')}
-                            style={styles.episodio}
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
 
-                        />
-                    </TouchableOpacity>
+                            />
+                        </TouchableOpacity>
 
-                    <View>
-                        <Text style={styles.title2}>Episódio 9</Text>
-                        <Text style={styles.text}>Psicoeducativo</Text>
+                        <View>
+                            <Text style={styles.title2}>Episódio 4</Text>
+                            <Text style={styles.text}>Psicoeducativo</Text>
+                        </View>
                     </View>
-                </View>
 
-                {/* Episodio 10 */}
+                    {/* Episodio 4 parte 1 Ferida Sara (dia 13)*/}
 
-                <View style={styles.container3}>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('Ep1_Sara')}
-                    >
-                        <Image
-                            source={require('../../../images/thumbnail.png')}
-                            style={styles.episodio}
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
 
-                        />
-                    </TouchableOpacity>
+                            />
+                        </TouchableOpacity>
 
-                    <View>
-                        <Text style={styles.title2}>Episódio 10</Text>
-                        <Text style={styles.text}>Psicoeducativo</Text>
+                        <View>
+                            <Text style={styles.title2}>Episódio 4: Parte I</Text>
+                            <Text style={styles.text}>A Ferida Sara</Text>
+                        </View>
                     </View>
-                </View>
 
-                {/* Episodio 11 */}
+                    {/* Desafio 2 (dia 13)*/}
 
-                <View style={styles.container3}>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('Ep1_Sara')}
-                    >
-                        <Image
-                            source={require('../../../images/thumbnail.png')}
-                            style={styles.episodio}
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
 
-                        />
-                    </TouchableOpacity>
+                            />
+                        </TouchableOpacity>
 
-                    <View>
-                        <Text style={styles.title2}>Episódio 11</Text>
-                        <Text style={styles.text}>Psicoeducativo</Text>
+                        <View>
+                            <Text style={styles.title2}>Desafio 2</Text>
+                            <Text style={styles.text}>huei</Text>
+                        </View>
                     </View>
-                </View>
 
-                {/* Episodio 12 */}
+                    {/* Episodio 4 parte 2 ferida Sara (dia 14) */}
 
-                <View style={styles.container3}>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('Ep1_Sara')}
-                    >
-                        <Image
-                            source={require('../../../images/thumbnail.png')}
-                            style={styles.episodio}
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
 
-                        />
-                    </TouchableOpacity>
+                            />
+                        </TouchableOpacity>
 
-                    <View>
-                        <Text style={styles.title2}>Episódio 12</Text>
-                        <Text style={styles.text}>Psicoeducativo</Text>
+                        <View>
+                            <Text style={styles.title2}>Episódio 4: parte II</Text>
+                            <Text style={styles.text}>A Ferida Sara</Text>
+                        </View>
                     </View>
-                </View>
 
-                {/* Episodio 13 */}
+                    {/* Episodio 5 Psicoeducativo (dia 17) */}
 
-                <View style={styles.container3}>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('Ep1_Sara')}
-                    >
-                        <Image
-                            source={require('../../../images/thumbnail.png')}
-                            style={styles.episodio}
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
 
-                        />
-                    </TouchableOpacity>
+                            />
+                        </TouchableOpacity>
 
-                    <View>
-                        <Text style={styles.title2}>Episódio 13</Text>
-                        <Text style={styles.text}>Psicoeducativo</Text>
+                        <View>
+                            <Text style={styles.title2}>Episódio 5</Text>
+                            <Text style={styles.text}>Psicoeducativo</Text>
+                        </View>
                     </View>
-                </View>
 
+                    {/* Episodio 5 ferida Sara (dia 20) */}
+
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
+
+                            />
+                        </TouchableOpacity>
+
+                        <View>
+                            <Text style={styles.title2}>Episódio 5</Text>
+                            <Text style={styles.text}>A Ferida Sara</Text>
+                        </View>
+                    </View>
+
+
+                    {/* Desafio 3 (dia 20) */}
+
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
+
+                            />
+                        </TouchableOpacity>
+
+                        <View>
+                            <Text style={styles.title2}>Desafio 3</Text>
+                            <Text style={styles.text}>fjfjfj</Text>
+                        </View>
+                    </View>
+
+
+                    {/* Episodio 6 psicoeducativo (dia 21) */}
+
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
+
+                            />
+                        </TouchableOpacity>
+
+                        <View>
+                            <Text style={styles.title2}>Episódio 6</Text>
+                            <Text style={styles.text}>Psicoeducativo</Text>
+                        </View>
+                    </View>
+
+                    {/* Episodio 6 ferida Sara (dia 23) */}
+
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
+
+                            />
+                        </TouchableOpacity>
+
+                        <View>
+                            <Text style={styles.title2}>Episódio 6</Text>
+                            <Text style={styles.text}>A Ferida Sara</Text>
+                        </View>
+                    </View>
+
+                    {/* Desafio 4 (dia 23) */}
+
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
+
+                            />
+                        </TouchableOpacity>
+
+                        <View>
+                            <Text style={styles.title2}>Desafio 4</Text>
+                            <Text style={styles.text}>ffff</Text>
+                        </View>
+                    </View>
+
+                    {/* Episodio 7 ferida Sara (dia 24) */}
+
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
+
+                            />
+                        </TouchableOpacity>
+
+                        <View>
+                            <Text style={styles.title2}>Episódio 7</Text>
+                            <Text style={styles.text}>A Ferida Sara</Text>
+                        </View>
+                    </View>
+
+                    {/* Desafio 4 (dia 24) */}
+
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
+
+                            />
+                        </TouchableOpacity>
+
+                        <View>
+                            <Text style={styles.title2}>Desafio 5</Text>
+                            <Text style={styles.text}>ffff</Text>
+                        </View>
+                    </View>
+
+
+                    {/* Episodio 7 psicoeducativo (dia 27) */}
+
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
+
+                            />
+                        </TouchableOpacity>
+
+                        <View>
+                            <Text style={styles.title2}>Episódio 7</Text>
+                            <Text style={styles.text}>Psicoeducativo</Text>
+                        </View>
+                    </View>
+
+
+                    {/* Episodio 8 ferida Sara (dia 28) */}
+
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
+
+                            />
+                        </TouchableOpacity>
+
+                        <View>
+                            <Text style={styles.title2}>Episódio 8</Text>
+                            <Text style={styles.text}>A Ferida Sara</Text>
+                        </View>
+                    </View>
+
+
+                    {/* Desafio 6 (dia 28) */}
+
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
+
+                            />
+                        </TouchableOpacity>
+
+                        <View>
+                            <Text style={styles.title2}>Desafio 6</Text>
+                            <Text style={styles.text}>aaa</Text>
+                        </View>
+                    </View>
+
+
+                    {/* Episodio 8 ferida Sara (dia 30) */}
+
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
+
+                            />
+                        </TouchableOpacity>
+
+                        <View>
+                            <Text style={styles.title2}>Episódio 8</Text>
+                            <Text style={styles.text}>Psicoeducativo</Text>
+                        </View>
+                    </View>
+
+                    {/* Episodio 9 ferida Sara (dia 31) */}
+
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
+
+                            />
+                        </TouchableOpacity>
+
+                        <View>
+                            <Text style={styles.title2}>Episódio 9</Text>
+                            <Text style={styles.text}>A Ferida Sara</Text>
+                        </View>
+                    </View>
+
+
+                    {/* Episodio 9 ferida Sara (dia 34) */}
+
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
+
+                            />
+                        </TouchableOpacity>
+
+                        <View>
+                            <Text style={styles.title2}>Episódio 9</Text>
+                            <Text style={styles.text}>Psicoeducativo</Text>
+                        </View>
+                    </View>
+
+
+                    {/* Episodio 10 ferida Sara (dia 35) */}
+
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
+
+                            />
+                        </TouchableOpacity>
+
+                        <View>
+                            <Text style={styles.title2}>Episódio 10</Text>
+                            <Text style={styles.text}>A Ferida Sara</Text>
+                        </View>
+                    </View>
+
+                    {/* Desafio 7 (dia 35) */}
+
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
+
+                            />
+                        </TouchableOpacity>
+
+                        <View>
+                            <Text style={styles.title2}>Desafio 7</Text>
+                            <Text style={styles.text}>bbbb</Text>
+                        </View>
+                    </View>
+
+                    {/* Episodio 11 ferida Sara (dia 37) */}
+
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
+
+                            />
+                        </TouchableOpacity>
+
+                        <View>
+                            <Text style={styles.title2}>Episódio 11</Text>
+                            <Text style={styles.text}>A Ferida Sara</Text>
+                        </View>
+                    </View>
+
+                    {/* Episodio 12 ferida Sara (dia 38) */}
+
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
+
+                            />
+                        </TouchableOpacity>
+
+                        <View>
+                            <Text style={styles.title2}>Episódio 12</Text>
+                            <Text style={styles.text}>A Ferida Sara</Text>
+                        </View>
+                    </View>
+
+                    {/* Desafio 8 (dia 38) */}
+
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
+
+                            />
+                        </TouchableOpacity>
+
+                        <View>
+                            <Text style={styles.title2}>Desafio 8</Text>
+                            <Text style={styles.text}>ffff</Text>
+                        </View>
+                    </View>
+
+
+                    {/* Episodio 10 Psicoeducativo (dia 40) */}
+
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
+
+                            />
+                        </TouchableOpacity>
+
+                        <View>
+                            <Text style={styles.title2}>Episódio 10</Text>
+                            <Text style={styles.text}>Psicoeducativo</Text>
+                        </View>
+                    </View>
+
+
+                    {/* Episodio 13 ferida Sara (dia 42) */}
+
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
+
+                            />
+                        </TouchableOpacity>
+
+                        <View>
+                            <Text style={styles.title2}>Episódio 13</Text>
+                            <Text style={styles.text}>A Ferida Sara</Text>
+                        </View>
+                    </View>
+
+                    {/* Desafio 9 (dia 42) */}
+
+                    <View style={styles.container3}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Ep1_Sara')}
+                        >
+                            <Image
+                                source={require('../../../images/thumbnailBloqueada.png')}
+                                style={styles.episodio}
+
+                            />
+                        </TouchableOpacity>
+
+                        <View>
+                            <Text style={styles.title2}>Desafio 9</Text>
+                            <Text style={styles.text}>qqqqqq</Text>
+                        </View>
+                    </View>
                 </View>
             </View>
         </ScrollView >
@@ -301,9 +709,9 @@ const styles = StyleSheet.create({
     },
 
     containerepisodios: {
-        flex:1,
+        flex: 1,
         marginTop: '2%',
-       marginBottom: '8%',
+        marginBottom: '8%',
 
     },
 
