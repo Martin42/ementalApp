@@ -291,7 +291,7 @@ function QiSaraF({route, navigation}){
                 
                 <View style={styles.seguinteContainer}> 
                 <TouchableOpacity
-                    onPress={() => {navigation.navigate('QiSaraF')}}> 
+                    onPress={() => {navigation.navigate('PlaylistSara')}}> 
                     <Text style={styles.next}>Terminar</Text>
                 </TouchableOpacity>
                 </View> 
