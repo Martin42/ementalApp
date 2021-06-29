@@ -478,6 +478,7 @@ function QiSaraF({route, navigation}){
 
 const styles = StyleSheet.create({
 
+    
     container: {
         flex: 1,
         alignItems: 'center',
