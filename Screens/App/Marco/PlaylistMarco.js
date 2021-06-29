@@ -11,13 +11,13 @@ function PlaylistMarco({ route, navigation }) {
 
                 <Text style={styles.title1}>Um Marco na Vida</Text>
 
-                <Text style={styles.text}>lorem ipsum</Text>
+                <Text style={styles.text}>O podcast “Um Marco na Vida” conta a história do Marco, um estudante universitário amigo da Sara. </Text>
             </View>
             <View style={styles.container2}>
 
                 <View style={{flexDirection:'row'}}>
                     <TouchableOpacity
-                        onPress={() => navigation.navigate('')}
+                        onPress={() => navigation.navigate('AudioMarco', {episodio: 'Episódio 1', titulo: 'Um Marco na Vida - Ep. 1 Piloto', serie:'Um Marco na Vida'})}
                     >
                         <Image
                             source={require('../../../images/play.png')}
@@ -28,7 +28,7 @@ function PlaylistMarco({ route, navigation }) {
                     
                     <View>
                         <Text style={styles.title2}>Episódio 1</Text>
-                        <Text style={styles.texto}>idk</Text>
+                        <Text style={styles.texto}>Piloto</Text>
                     </View>
                 </View>
 
@@ -45,7 +45,7 @@ function PlaylistMarco({ route, navigation }) {
                     
                     <View>
                         <Text style={styles.title2}>Episódio 2</Text>
-                        <Text style={styles.texto}>idk</Text>
+                        <Text style={styles.texto}></Text>
                     </View>
                 </View>
 
@@ -62,7 +62,7 @@ function PlaylistMarco({ route, navigation }) {
                     
                     <View>
                         <Text style={styles.title2}>Episódio 3</Text>
-                        <Text style={styles.texto}>idk</Text>
+                        <Text style={styles.texto}></Text>
                     </View>
                 </View>
 
@@ -79,10 +79,63 @@ function PlaylistMarco({ route, navigation }) {
                     
                     <View>
                         <Text style={styles.title2}>Episódio 4</Text>
-                        <Text style={styles.texto}>idk</Text>
+                        <Text style={styles.texto}></Text>
+                    </View>
+                </View>
+
+                <View style={{flexDirection:'row'}}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('')}
+                    >
+                        <Image
+                            source={require('../../../images/play_blocked.png')}
+                            style={styles.icone}
+
+                        />
+                    </TouchableOpacity>
+                    
+                    <View>
+                        <Text style={styles.title2}>Episódio 5</Text>
+                        <Text style={styles.texto}></Text>
+                    </View>
+                </View>
+
+                <View style={{flexDirection:'row'}}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('')}
+                    >
+                        <Image
+                            source={require('../../../images/play_blocked.png')}
+                            style={styles.icone}
+
+                        />
+                    </TouchableOpacity>
+                    
+                    <View>
+                        <Text style={styles.title2}>Episódio 6</Text>
+                        <Text style={styles.texto}></Text>
+                    </View>
+                </View>
+
+                <View style={{flexDirection:'row'}}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('')}
+                    >
+                        <Image
+                            source={require('../../../images/play_blocked.png')}
+                            style={styles.icone}
+
+                        />
+                    </TouchableOpacity>
+                    
+                    <View>
+                        <Text style={styles.title2}>Episódio 7</Text>
+                        <Text style={styles.texto2}></Text>
                     </View>
                 </View>
             </View>
+
+            
 
         </ScrollView >
     )
@@ -104,6 +157,7 @@ const styles = StyleSheet.create({
         height: '100%',
         width: '100%',
         marginTop: '10%',
+        
 
     },
 
@@ -116,6 +170,12 @@ const styles = StyleSheet.create({
     texto: {
         fontSize: 15,
         marginRight:10,
+    },
+
+    texto2: {
+        fontSize: 15,
+        marginRight:10,
+        marginBottom:'40%',
     },
 
     title1: {
