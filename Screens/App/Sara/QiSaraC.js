@@ -464,7 +464,6 @@ const styles = StyleSheet.create({
 
     checkbox: {
         alignSelf: 'center',
-        borderStyle: 'dotted'
     },
 
     checkDown: {
