@@ -441,7 +441,6 @@ const styles = StyleSheet.create({
         width: '20%',
         alignSelf: 'flex-end', 
         marginRight: '10%', 
-        marginTop: '10%', 
         paddingBottom: '10%',
     },
 
