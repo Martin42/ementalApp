@@ -172,6 +172,15 @@ function QiSaraF({route, navigation}){
             }, {merge: true})
         }
 
+        // Garantir que o questionário já foi respondido
+
+        db
+        .collection(collection)
+        .doc(currentUser)
+        .set({
+            concluido: 'true'
+        }, {merge: true})
+
 
     }
    
@@ -478,7 +487,7 @@ function QiSaraF({route, navigation}){
 
 const styles = StyleSheet.create({
 
-    
+
     container: {
         flex: 1,
         alignItems: 'center',

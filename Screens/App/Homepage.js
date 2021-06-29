@@ -12,8 +12,20 @@ import { auth, db } from '../../Firebase';
 function Homepage({ route, navigation }) {
 
     const [currentStatus, setCurrentStatus] = useState('');
+    const [questionarioStatus, setQuestionarioStatus] = useState(false);
 
     const currentUser = auth.currentUser.uid;
+
+    function getQuestionarioStatus(){
+        db
+        .collection('Questionário Sara Inicial')
+        .doc(currentUser)
+        .get()
+        .then(doc => {
+            setQuestionarioStatus(doc.data().concluido)
+        })
+    }
+
 
    function getStatus (){ db
                         .collection('users')
@@ -27,7 +39,9 @@ function Homepage({ route, navigation }) {
 
     useEffect(() => {
         getStatus();
+        getQuestionarioStatus();
     },[])
+
        
 if (currentStatus == 1) {
     return (
@@ -48,7 +62,12 @@ if (currentStatus == 1) {
 
                 <TouchableOpacity
                     style={{alignSelf: 'center'}}
-                    onPress={() => navigation.navigate('QiSaraA')}
+                    onPress={() => {if (questionarioStatus == 'true') {
+                        navigation.navigate('PlaylistSara');
+                    } else {
+                        navigation.navigate('QiSaraA');
+                    }
+                }}
 
                 >
                     <Image
