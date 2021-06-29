@@ -6,46 +6,159 @@ import { auth, db } from '../../../Firebase';
 
 function QiSaraB({route, navigation}){
 
-    const [respostas, setRespostas] = useState(0);
+   
+    // EXEMPLO DE COMO RETIRAR O NUMERO DE RESPOSTAS 
 
+    // const [respostas, setRespostas] = useState(0);
 
-    async function getPergunta1(){
-        const questionario = db.collection('Questionário Sara'); // fetch all answers to then update
-        const snapshot = await questionario.get();
-        snapshot.forEach(doc => {
-            setRespostas(Object.keys(doc.data()).length);  // check object lenght to add on line 28 and 35 .
-        });
+    // async function getPergunta1(){  
+    //     const questionario = db.collection('Questionário Sara').doc(currentUser); 
+    //     const snapshot = await questionario.get();
+    //     snapshot.forEach(doc => {
+    //        setRespostas(Object.keys(doc.data()).length);  
+    //         
+    //     });
     
-        console.log('linha 19 ' + respostas); // first log returning undefined - why? --> useeffect seems to solve this.
-    }
+    //     console.log('linha 19 ' + respostas); 
+    // }
 
     
-    useEffect(() => {
-        getPergunta1();
-    })
+    // useEffect(() => {
+    //     getPergunta1();
+    // })
 
+
+    const currentUser = auth.currentUser.uid;
+    const collection = route.params.collection;
 
     function setQuestionario(){
 
-                    setRespostas(respostas + 1);
-                    console.log('linha 31 ' + respostas);
-                
+                //pergunta 1
  
                     if (check == true) {
                         db
-                        .collection('Questionário Sara')
-                        .doc('Pergunta 1')
+                        .collection(collection)
+                        .doc(currentUser)
                         .set({
-                            [respostas]: 'Sim' // [currentUser] --> Como meter variavel como doc field 
+                            pergunta1: 'Sim' // [currentUser] --> Como meter variavel como doc field 
                         }, { merge: true })
                     } else {
                         db
-                        .collection('Questionário Sara')
-                        .doc('Pergunta 1')
+                        .collection(collection)
+                        .doc(currentUser)
                         .set({
-                            [respostas]: 'Não'
+                            pergunta1: 'Não'
                         }, { merge: true })
                     }
+
+                //pergunta 2
+
+                    if (mensagem != '') {
+                        db
+                        .collection(collection)
+                        .doc(currentUser)
+                        .set({
+                            pergunta2: mensagem
+                        }, {merge: true})
+                    } 
+
+                //pergunta 3
+
+                    if (check2 == true) {
+                        db
+                        .collection(collection)
+                        .doc(currentUser)
+                        .set({
+                            pergunta3: 'Sim'
+                        }, {merge: true})
+                    } else {
+                        db
+                        .collection(collection)
+                        .doc(currentUser)
+                        .set({
+                            pergunta3: 'Não'
+                        }, {merge: true})
+                    }
+
+                //pergunta 4
+
+                    if (check3 == true) {
+                        db
+                        .collection(collection)
+                        .doc(currentUser)
+                        .set({
+                            pergunta4: 'Sim'
+                        }, {merge: true})
+                    } else {
+                        db
+                        .collection(collection)
+                        .doc(currentUser)
+                        .set({
+                            pergunta4: 'Não'
+                        }, {merge: true})
+                    }
+
+                //pergunta 5
+
+                    if (check4 == true) {
+                        db
+                        .collection(collection)
+                        .doc(currentUser)
+                        .set({
+                            pergunta5: 'Sim'
+                        }, {merge: true})
+                    } else {
+                        db
+                        .collection(collection)
+                        .doc(currentUser)
+                        .set({
+                            pergunta5: 'Não'
+                        }, {merge: true})
+                    }
+
+                //pergunta 6
+                    
+                    if (check5 == true) {
+                        db
+                        .collection(collection)
+                        .doc(currentUser)
+                        .set({
+                            pergunta6: 'Sim'
+                        }, {merge: true})
+                    } else {
+                        db
+                        .collection(collection)
+                        .doc(currentUser)
+                        .set({
+                            pergunta6: 'Não'
+                        }, {merge: true})
+                    }
+
+                //pergunta 7
+
+                    if (botao1 == true) {
+                        db
+                        .collection(collection)
+                        .doc(currentUser)
+                        .set({
+                            pergunta7: 'Há mais de 1 ano'
+                        }, {merge: true})
+                    } else if (botao2 == true) {
+                        db
+                        .collection(collection)
+                        .doc(currentUser)
+                        .set({
+                            pergunta7: 'Entre 1 ano e 3 meses'
+                        }, {merge: true})
+                    } else {
+                        db
+                        .collection(collection)
+                        .doc(currentUser)
+                        .set({
+                            pergunta7: 'Nos últimos 3 meses'
+                        }, {merge: true})
+                    }
+
     }
 
     // UseStates
@@ -282,15 +395,20 @@ function QiSaraB({route, navigation}){
                     </View>
                 </View>
 
-                {/* Aparecer apenas quando as respostas estão todas dadas aka --> if check || valid == true && check2 || valid2 == true (...) */}
-                
-                <View style={styles.seguinteContainer}> 
-                <TouchableOpacity
-                    onPress={() => {navigation.navigate('QiSaraC'), setQuestionario()}}> 
-                    <Text style={styles.next}>Seguinte</Text>
-                </TouchableOpacity>
-                </View> 
-              
+                { (check == true || valid == true) && (check2 == true || valid2 == true) && (check3 == true || valid3 == true) && (check4 == true || valid4 == true) && (check5 == true || valid5 == true) && (mensagem != '') && (botao1 == true || botao2 == true || botao3 == true)
+                ? ( 
+                    <View style={styles.seguinteContainer}> 
+                    <TouchableOpacity
+                        onPress={() => {navigation.navigate('QiSaraC', {collection: route.params.collection}), setQuestionario()}}> 
+                        <Text style={styles.next}>Seguinte</Text>
+                    </TouchableOpacity>
+                    </View> 
+                    ) : (
+                        <Text></Text>
+                    )
+                }
+        
+               
             </ScrollView>
         </View>
     )

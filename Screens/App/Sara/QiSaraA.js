@@ -42,7 +42,7 @@ function QiSaraA({route, navigation}){
 
                         <View style={styles.seguinteContainer}>
                             <TouchableOpacity
-                            onPress={() => navigation.navigate('QiSaraB')}
+                            onPress={() => navigation.navigate('QiSaraB', {collection: 'Questionário Sara Inicial'})}
                             >
                                 <Text style={styles.next}>Seguinte</Text>
                             </TouchableOpacity>
