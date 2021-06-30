@@ -36,7 +36,8 @@
     "react-native-webview": "^11.4.4",
     "react-native-youtube-iframe": "^2.0.1",
     "react-navigation": "^4.4.4",
-    "react-navigation-tabs": "^2.11.1"
+    "react-navigation-tabs": "^2.11.1",
+    "rn-swipeable-panel": "^1.2.5"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"

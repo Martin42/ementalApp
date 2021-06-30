@@ -4,8 +4,29 @@ import { Entypo } from '@expo/vector-icons'
 import YoutubePlayer from "react-native-youtube-iframe";
 import { db, auth } from '../../../Firebase';
 import { AntDesign } from '@expo/vector-icons';
+import { SwipeablePanel} from 'rn-swipeable-panel';
+
 
 function AudioMarco({ route, navigation }) {
+
+    const [panelProps, setPanelProps] = useState({
+        fullWidth: true,
+        openLarge: true,
+        showCloseButton: true,
+        onClose: () => closePanel(),
+        onPressCloseButton: () => closePanel(),
+        // ...or any prop you want
+      });
+      const [isPanelActive, setIsPanelActive] = useState(true);
+    
+      const openPanel = () => {
+        setIsPanelActive(true);
+      };
+    
+      const closePanel = () => {
+        setIsPanelActive(false);
+      };
+
     return(
         <View style={styles.container}>
             <View style={{flexDirection: 'row', height: 40, marginTop: '7.5%', alignItems: 'center', marginBottom: '2.5%'}}>
@@ -32,6 +53,20 @@ function AudioMarco({ route, navigation }) {
             <Text style={styles.subtitulo}>
                 {route.params.serie}
             </Text>
+
+
+            <View style={styles.container}>
+            <Text>Lorem Ipsum</Text>
+            <SwipeablePanel {...panelProps} isActive={isPanelActive}>
+                <View>
+                    <Text>
+                        Lorem Ipsum
+                    </Text>
+                </View>
+            </SwipeablePanel>
+            </View>
+
+
         </View>
     )
     
