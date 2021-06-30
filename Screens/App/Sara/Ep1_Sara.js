@@ -52,7 +52,9 @@ function Ep1_Sara({route, navigation}){
     }, []);
 
     return(
-        <ScrollView contentContainerStyle={styles.container}>
+        <View style={styles.container}>
+        
+        <ScrollView style={styles.container}>
             <View style={{flexDirection: 'row', height: 40, marginTop: '7.5%', alignItems: 'center', marginBottom: '2.5%'}}>
                 <TouchableOpacity
                     onPress={() => navigation.navigate('PlaylistSara')}
@@ -67,6 +69,7 @@ function Ep1_Sara({route, navigation}){
 
             </View>
 
+            
             <View>
 
             <YoutubePlayer
@@ -76,31 +79,27 @@ function Ep1_Sara({route, navigation}){
             />
 
             </View>
-
-          
       
             <Text style={styles.title1}>Comentários</Text>
 
-            {comments.map((e) => (
-                <View style={[{flexDirection:'row'}], styles.inputField2}>
-
-            <Text style={{marginLeft: '25%'}}>
-                astronada
-            </Text>
-
-
-            <View style={{flex: 1}}>
-                <AntDesign name="smile-circle" size={50} color="lightblue"/>
-
-            </View>
-
-            <View style={styles.inputComment}>
-                <Text style={[{flexDirection:'column'}], styles.inputMensagem2}>
-                {e}
-                </Text>
-            </View>
-
-            </View>
+            {comments.map((e, key) => (
+                <View style={{flexDirection:'row', marginLeft: '10%', marginRight: '10%', marginBottom: '5%'}}>
+                    <View style={{marginTop: '7.5%', flex: 1, marginRight: '-12.5%', marginLeft: '7.5%'}}>
+                        <AntDesign name="smile-circle" size={50} color="lightblue"/>
+                    </View>
+                    <View style={{width: '90%'}}>
+                        <View>
+                            <Text style={{marginLeft: '20%'}}>
+                            Anónimo
+                            </Text>
+                        </View>
+                        <View style={styles.inputComment}>
+                            <Text key={key} style={{flexDirection:'column'}, styles.inputMensagem2}>
+                            {e}
+                            </Text>
+                        </View>
+                    </View>
+                </View>
             ))}
 
 
@@ -115,8 +114,8 @@ function Ep1_Sara({route, navigation}){
                                 source={require('../../../images/comentario-pop.png')}
                                 style={styles.modalImage}
                             />
-                            <Text style={styles.modalTitle}>O teu comentário precisa de aprovação!</Text>
-                            <Text style={styles.modalSubtitle}>Terás de aguardar que o teu comentário seja aprovado.</Text>
+                            <Text>O teu comentário precisa de aprovação!</Text>
+                            <Text>Terás de aguardar que o teu comentário seja aprovado.</Text>
                             <TouchableOpacity
                                 style={styles.entendi}
                                 onPress={()=> { setModal(false)}}
@@ -129,13 +128,13 @@ function Ep1_Sara({route, navigation}){
                     
                     </Modal>
 
+        </ScrollView>
 
-
-           
-                
-            <View style={styles.inputField}>
-                        <TextInput
+            <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: '2.5%'}}>
+                    <TextInput
                         style={styles.inputMensagem}
+                        width='80%'
+                        marginLeft="10%"
                         placeholder= 'Comente aqui...'
                         backgroundColor= '#CFE0FB'
                         placeholderTextColor= 'black'
@@ -144,16 +143,14 @@ function Ep1_Sara({route, navigation}){
                         />
 
                     <TouchableOpacity
-                        onPress={()=> {setComment(); setModal(true)}}>
-                        <Text>Submeter</Text>     
+                        onPress={()=> {setComment(); setModal(true)}}
+                        style={styles.icon2}>
+                        <AntDesign name="right" size={24} color="black"/>     
                     </TouchableOpacity>
 
-            </View>        
+            </View> 
 
-           
-
-
-        </ScrollView>
+            </View>
     )
 
 }
@@ -176,14 +173,9 @@ const styles = StyleSheet.create({
     },
 
     inputField: {
-        flex: 1,
         justifyContent: 'center',
         alignContent: 'center',
-        marginLeft: '10%',
-        marginRight: '10%',
-    },
-
-    inputField2: {
+        marginTop: '5%',
         marginLeft: '10%',
         marginRight: '10%',
     },
@@ -206,6 +198,7 @@ const styles = StyleSheet.create({
     },
 
     inputComment: {
+        flex: 1,
         backgroundColor: '#CFE0FB',
         borderRadius: 20,
         padding: 0,
@@ -217,6 +210,11 @@ const styles = StyleSheet.create({
     icon: {
         marginLeft: '5%',
         marginRight: '5%',
+    },
+
+    icon2: {
+        marginLeft: '2%',
+        marginRight: '2%',
     },
   
     entendi: {
@@ -279,8 +277,11 @@ const styles = StyleSheet.create({
         textAlign: 'center', 
         color: 'white', 
         fontWeight: 'bold'
-    }
+    },
 
+    color: {
+        backgroundColor: 'red',
+    },
 });
 
 export default Ep1_Sara;
