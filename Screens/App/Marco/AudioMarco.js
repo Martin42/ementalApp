@@ -1,7 +1,6 @@
 import React, { useState, useCallback, useEffect} from 'react';
 import { ScrollView, Checkbox, StatusBar, StyleSheet, TouchableOpacity, Text, Image, View, Alert , TextInput, Modal} from "react-native";
 import { Entypo } from '@expo/vector-icons'
-import YoutubePlayer from "react-native-youtube-iframe";
 import { db, auth } from '../../../Firebase';
 import { AntDesign } from '@expo/vector-icons';
 
@@ -32,6 +31,9 @@ function AudioMarco({ route, navigation }) {
             <Text style={styles.subtitulo}>
                 {route.params.serie}
             </Text>
+
+          
+
         </View>
     )
     
