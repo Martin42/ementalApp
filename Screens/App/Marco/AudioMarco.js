@@ -1,7 +1,9 @@
+
 import React, { useState } from 'react';
 import { ScrollView, StatusBar, StyleSheet, TouchableOpacity, Text, Image, View, Alert, TextInput, Modal } from "react-native";
 import { Entypo } from '@expo/vector-icons';
 import Checkbox from 'react-native-check-box';
+
 
 function AudioMarco({ route, navigation }) {
 
@@ -126,6 +128,9 @@ function AudioMarco({ route, navigation }) {
             <Text style={styles.subtitulo}>
                 {route.params.serie}
             </Text>
+
+          
+
         </View>
     )
 

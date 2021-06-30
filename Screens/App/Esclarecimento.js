@@ -2,21 +2,56 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, TextInput, Modal, Image } from "react-native";
 import Icon from 'react-native-vector-icons/AntDesign';
 import TextArea from 'react-native-textarea';
+import { db, auth } from '../../Firebase';
 
-function Esclarecimento({ route, navigation }) {
 
-  const [modal, setModal] = useState(false);
+function Esclarecimento({route, navigation}){
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.header}>
+    const [modal, setModal] = useState(false);
+    const currentUser = auth.currentUser.uid;
 
-        <TouchableOpacity
-          style={styles.arrowLeft}
-          onPress={() => navigation.navigate('Apoio')}
-        >
-          <Icon name='left' size={28} color={'black'} />
-        </TouchableOpacity>
+
+    const [nome, setNome] = useState();
+    const [assunto, setAssunto] = useState();
+    const [mensagem, setMensagem] = useState();
+
+    function setPedido(){
+
+      if (nome == undefined) {
+        db
+        .collection('Pedido')
+        .add({
+          nome: 'Anónimo',
+          assunto: assunto,
+          mensagem: mensagem,
+          user: currentUser,
+          estado: 'Por resolver',
+          data: new Date().toUTCString()
+        })
+      } else {
+        db
+        .collection('Pedido')
+        .add({
+          nome: nome,
+          assunto: assunto,
+          mensagem: mensagem,
+          user: currentUser,
+          estado: 'Por resolver',
+          data: new Date().toUTCString()
+        })
+      }
+    }
+
+    return (
+        <View style={styles.container}>
+            <View style={styles.header}>
+               
+               <TouchableOpacity
+                    style={styles.arrowLeft}
+                    onPress={() => navigation.navigate('Apoio')}
+               >
+                    <Icon name='left' size={28} color={'black'} />
+                </TouchableOpacity>
 
         <Text style={styles.title}>Pedido de Esclarecimento</Text>
 
@@ -72,19 +107,51 @@ function Esclarecimento({ route, navigation }) {
                 </TouchableOpacity>
               </View>
             </View>
-
-
           </Modal>
 
-          <View style={{ marginTop: '40%' }} >
-            <TouchableOpacity
-              onPress={() => { setModal(true) }}
-              style={styles.enviar}
-            >
-              <Text style={{ color: 'white', textAlign: 'center', fontSize: 18, fontWeight: 'bold' }}> Enviar </Text>
-            </TouchableOpacity>
-          </View>
+            <ScrollView contentContainerStyle={styles.container}>
 
+                    <View style={styles.introText}>
+                        <Text style={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, ve.</Text>
+                    </View>
+
+                    <View  style={styles.inputField}>
+                        <TextInput
+                            style={styles.inputText}
+                            placeholder={'Nome (Opcional)'}
+                            backgroundColor= '#CFE0FB'
+                            placeholderTextColor= 'white'
+                            onChangeText={(nome) => setNome(nome)}
+                        />
+
+                        <TextInput 
+                            style={styles.inputText}  
+                            backgroundColor= '#CFE0FB'
+                            placeholderTextColor= 'white'
+                            placeholder={'Assunto'}
+                            onChangeText={assunto => setAssunto(assunto)}
+                        />
+
+                        <TextArea 
+                            style={styles.inputMensagem} 
+                            backgroundColor= '#CFE0FB'
+                            placeholderTextColor= 'white'
+                            placeholder={'Mensagem'}
+                            multiline={true}
+                            onChangeText={mensagem => setMensagem(mensagem)}
+                        />
+
+                        <View style={{marginTop: '40%'}} >
+                                    <TouchableOpacity
+                                            onPress={() => setPedido(), setModal(true)}
+                                            style={styles.enviar}
+                                            >
+                                                <Text style={{color: 'white', textAlign: 'center', fontSize: 18, fontWeight: 'bold'}}> Enviar </Text>
+                                    </TouchableOpacity>
+                        </View>
+                       
+                    </View>
+            </ScrollView>
         </View>
       </ScrollView>
 

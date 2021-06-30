@@ -665,7 +665,7 @@ function PlaylistSara({ route, navigation }) {
                 <View style={{flex: 1}}>
                 <Checkbox 
                     style={styles.icon}
-                    onClick={() => navigation.navigate('Homepage')} // Alterar para Notificações
+                    onClick={() => navigation.navigate('Notificacoes')} // Alterar para Notificações
                     isChecked={false}
                     unCheckedImage={<Icon name='notifications' size={28} color='#D2D2D2'/>}
                     checkedImage={<Icon name='notifications' size={28} color='#6578B3'/>}

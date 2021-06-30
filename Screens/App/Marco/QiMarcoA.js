@@ -40,7 +40,7 @@ function QiMarcoA({route, navigation}){
 
                     <View style={styles.seguinteContainer}>
                         <TouchableOpacity
-                        onPress={() => navigation.navigate('QiMarcoB', {collection: 'Questionário Sara Inicial'})}
+                        onPress={() => navigation.navigate('QiMarcoB', {collection: 'Questionário Marco Inicial'})}
                         >
                             <Text style={styles.next}>Seguinte</Text>
                         </TouchableOpacity>

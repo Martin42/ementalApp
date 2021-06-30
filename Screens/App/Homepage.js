@@ -13,6 +13,7 @@ function Homepage({ route, navigation }) {
 
     const [currentStatus, setCurrentStatus] = useState('');
     const [questionarioStatus, setQuestionarioStatus] = useState(false);
+    const [questionarioMarcoStatus, setQuestionarioMarcoStatus] = useState(false);
 
     const currentUser = auth.currentUser.uid;
 
@@ -23,6 +24,16 @@ function Homepage({ route, navigation }) {
         .get()
         .then(doc => {
             setQuestionarioStatus(doc.data().concluido)
+        })
+    }
+
+    function getQuestionarioMarcoStatus(){
+        db
+        .collection('Questionário Marco Inicial')
+        .doc(currentUser)
+        .get()
+        .then(doc => {
+            setQuestionarioMarcoStatus(doc.data().concluido)
         })
     }
 
@@ -40,9 +51,10 @@ function Homepage({ route, navigation }) {
     useEffect(() => {
         getStatus();
         getQuestionarioStatus();
+        getQuestionarioMarcoStatus();
     },[])
 
-    console.log(questionarioStatus);   
+
 
 if (currentStatus == 1) {
     return (
@@ -83,8 +95,13 @@ if (currentStatus == 1) {
 
                 <TouchableOpacity
                      style={{alignSelf: 'center'}}
-                     onPress={() => navigation.navigate('QiMarcoA')}
-                >
+                     onPress={() => { if (questionarioMarcoStatus == 'true') {
+                         navigation.navigate('PlaylistMarco');
+                     } else {
+                         navigation.navigate('QiMarcoA');
+                        }
+                    }}
+                    >
                     <Image
                         source={require('../../images/marco.png')}
                         style={styles.conteudo}
@@ -184,7 +201,12 @@ if (currentStatus == 1) {
 
                 <TouchableOpacity
                      style={{alignSelf: 'center', marginBottom: '10%'}}
-                     onPress={() => navigation.navigate('QiMarcoA')}
+                     onPress={() => { if (questionarioMarcoStatus == 'true') {
+                        navigation.navigate('PlaylistMarco');
+                    } else {
+                        navigation.navigate('QiMarcoA');
+                       }
+                   }}
                 >
                     <Image
                         source={require('../../images/marco.png')}
@@ -202,7 +224,7 @@ if (currentStatus == 1) {
                 <View style={{flex: 1}}>
                 <Checkbox 
                     style={styles.icon}
-                    onClick={() => navigation.navigate('Homepage')} // Alterar para Notificações
+                    onClick={() => navigation.navigate('Notificacoes')}
                     isChecked={false}
                     unCheckedImage={<Icon name='notifications' size={28} color='#D2D2D2'/>}
                     checkedImage={<Icon name='notifications' size={28} color='#6578B3'/>}

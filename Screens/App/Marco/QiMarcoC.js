@@ -6,6 +6,156 @@ import { auth, db } from '../../../Firebase';
 
 function QiMarcoC({route, navigation}){
 
+    const currentUser = auth.currentUser.uid;
+    const collection = route.params.collection;
+
+    function setQuestionario(){
+        //pergunta 9
+
+        if (check == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta9: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta9: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 10
+
+        if (check2 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta10: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta10: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 11
+
+        if (check3 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta11: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta11: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 12
+
+        if (check4 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta12: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta12: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 13
+
+        if (check5 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta13: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta13: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 14 
+
+        if (check6 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta14: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta14: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 15
+
+        if (check7 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta15: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta15: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 16
+
+        if (check8 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta16: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta16: 'Falsa'
+            }, {merge: true})
+        }
+
+
+    }
    
     // UseStates
 
@@ -260,12 +410,17 @@ function QiMarcoC({route, navigation}){
 
                 {/* Aparecer apenas quando as respostas estão todas dadas aka --> if check || valid == true && check2 || valid2 == true (...) */}
                 
-                <View style={styles.seguinteContainer}> 
-                <TouchableOpacity
-                    onPress={() => {navigation.navigate('QiMarcoD')}}> 
-                    <Text style={styles.next}>Seguinte</Text>
-                </TouchableOpacity>
-                </View> 
+                { (check == true || valid == true) && (check2 == true || valid2 == true) && (check3 == true || valid3 == true) && (check4 == true || valid4 == true) && (check5 == true || valid5 == true) && (check6 == true || valid6 == true) && (check7 == true || valid7 == true) && (check8 == true || valid8 == true) ? (
+                    <View style={styles.seguinteContainer}> 
+                    <TouchableOpacity
+                        onPress={() => {navigation.navigate('QiMarcoD', {collection: route.params.collection}), setQuestionario()}}> 
+                        <Text style={styles.next}>Seguinte</Text>
+                    </TouchableOpacity>
+                    </View> 
+                ): (
+                    <Text></Text>
+                )}
+
               
             </ScrollView>
         </View>
@@ -286,7 +441,6 @@ const styles = StyleSheet.create({
         width: '20%',
         alignSelf: 'flex-end', 
         marginRight: '10%', 
-        marginTop: '10%', 
         paddingBottom: '10%',
     },
 
