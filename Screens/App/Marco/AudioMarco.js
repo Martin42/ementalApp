@@ -1,25 +1,121 @@
-import React, { useState, useCallback, useEffect} from 'react';
-import { ScrollView, Checkbox, StatusBar, StyleSheet, TouchableOpacity, Text, Image, View, Alert , TextInput, Modal} from "react-native";
-import { Entypo } from '@expo/vector-icons'
-import YoutubePlayer from "react-native-youtube-iframe";
-import { db, auth } from '../../../Firebase';
-import { AntDesign } from '@expo/vector-icons';
+
+import React, { useState } from 'react';
+import { ScrollView, StatusBar, StyleSheet, TouchableOpacity, Text, Image, View, Alert, TextInput, Modal } from "react-native";
+import { Entypo } from '@expo/vector-icons';
+import Checkbox from 'react-native-check-box';
+
 
 function AudioMarco({ route, navigation }) {
-    return(
+
+    const [modal, setModal] = useState(false);
+    const [image, setImage] = useState(false);
+    const [check, setCheck] = useState(false);
+
+    function changeImage() {
+
+        if (image === false) {
+            setImage(true);
+        } else {
+            setImage(false);
+        }
+    }
+
+    return (
         <View style={styles.container}>
-            <View style={{flexDirection: 'row', height: 40, marginTop: '7.5%', alignItems: 'center', marginBottom: '2.5%'}}>
+            <View style={{ flexDirection: 'row', height: 40, marginTop: '7.5%', alignItems: 'center', marginBottom: '2.5%' }}>
                 <TouchableOpacity
-                    onPress={() => navigation.navigate('PlaylistMarco')}
+                    onPress={() => setModal(true)}
                     style={styles.icon}>
-                    <Entypo name="chevron-thin-left" size={24} color="black"/>
+                    <Entypo name="chevron-thin-left" size={24} color="black" />
                 </TouchableOpacity>
 
 
-                <Text style={{fontSize: 20}}>
+                <Text style={{ fontSize: 20 }}>
                     {route.params.titulo}
                 </Text>
             </View>
+
+            {/* modal */}
+
+            <Modal
+                animationType='fade'
+                transparent={true}
+                visible={modal}
+            >
+                <View style={styles.modalView}>
+                    <View style={styles.modalContainer}>
+                        <Image
+                            source={require('../../../images/feedback_pop.png')}
+                            style={styles.modalImage}
+                        />
+                        <Text style={styles.modalTitle}>Recomendarias esta aplicação?</Text>
+
+                        <View style={styles.ratingContainer}>
+
+                            <TouchableOpacity
+                                onPress={() => changeImage()}
+                               >
+                            </TouchableOpacity>
+
+
+
+                            {/*
+                        <Checkbox
+                                style={styles.ratingCheckbox}
+                                onClick={() => validate()}
+                                isChecked={check}
+                                unCheckedImage={<Image source={require('../../../images/rating/1.png')} style={styles.ratingImage} />}
+                                checkedImage={<Image source={require('../../../images/rating/1_selecionado.png')} style={styles.ratingImage} />}
+                            />
+
+ 
+                            <Checkbox
+                                style={styles.ratingCheckbox}
+                                onClick={() => validate()}
+                                isChecked={check}
+                                unCheckedImage={<Image source={require('../../../images/rating/2.png')} style={styles.ratingImage} />}
+                                checkedImage={<Image source={require('../../../images/rating/2_selecionado.png')} style={styles.ratingImage} />}
+                            />
+
+                            <Checkbox
+                                style={styles.ratingCheckbox}
+                                onClick={() => validate()}
+                                isChecked={check}
+                                unCheckedImage={<Image source={require('../../../images/rating/3.png')} style={styles.ratingImage} />}
+                                checkedImage={<Image source={require('../../../images/rating/3_selecionado.png')} style={styles.ratingImage} />}
+                            />
+
+                            <Checkbox
+                                style={styles.ratingCheckbox}
+                                onClick={() => validate()}
+                                isChecked={check}
+                                unCheckedImage={<Image source={require('../../../images/rating/4.png')} style={styles.ratingImage} />}
+                                checkedImage={<Image source={require('../../../images/rating/4_selecionado.png')} style={styles.ratingImage} />}
+                            />
+
+                            <Checkbox
+                                style={styles.ratingCheckbox}
+                                onClick={() => validate()}
+                                isChecked={check}
+                                unCheckedImage={<Image source={require('../../../images/rating/5.png')} style={styles.ratingImage} />}
+                                checkedImage={<Image source={require('../../../images/rating/5_selecionado.png')} style={styles.ratingImage} />}
+                            /> */}
+
+
+                        </View>
+
+                        <TouchableOpacity
+                            style={styles.entendi}
+                            onPress={() => { setModal(false), navigation.navigate('PlaylistMarco') }}
+                        >
+                            <Text style={styles.entendiText}>Submeter</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+
+
+            </Modal>
+
 
             <Image
                 source={require('../../../images/ep_marco.png')}
@@ -32,14 +128,17 @@ function AudioMarco({ route, navigation }) {
             <Text style={styles.subtitulo}>
                 {route.params.serie}
             </Text>
+
+          
+
         </View>
     )
-    
+
 }
 
 
 const styles = StyleSheet.create({
-    
+
     container: {
         flex: 1,
         backgroundColor: 'white',
@@ -119,7 +218,31 @@ const styles = StyleSheet.create({
         marginLeft: '5%',
         marginRight: '5%',
     },
-  
+
+    // modal styling
+
+    ratingContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        marginBottom: '10%',
+        alignItems: 'center',
+        marginTop: '10%',
+
+
+    },
+
+    ratingImage: {
+        width: 46,
+
+    },
+
+    ratingCheckbox: {
+        flex: 1,
+        alignItems: 'center',
+
+    },
+
+
     entendi: {
         marginTop: '15%',
         width: '80%',
@@ -133,52 +256,52 @@ const styles = StyleSheet.create({
 
     modalView: {
         alignContent: 'center',
-        justifyContent: 'center', 
+        justifyContent: 'center',
         flex: 1,
     },
 
     modalContainer: {
-        marginLeft: '12%', 
-        marginRight: '12%', 
-        backgroundColor:'white', 
-        alignItems: 'center', 
-        padding: 25, 
-        shadowColor: 'red', 
-        shadowOffset: {width: 0, height: 2}, 
-        shadowOpacity: 0.25, 
-        shadowRadius: 4, 
-        elevation: 4, 
-        borderWidth: 1, 
-        borderRadius: 30, 
+        marginLeft: '12%',
+        marginRight: '12%',
+        backgroundColor: 'white',
+        alignItems: 'center',
+        padding: 25,
+        shadowColor: 'red',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 4,
+        borderWidth: 1,
+        borderRadius: 30,
         borderColor: 'white',
     },
 
-    modalImage:{
-        marginBottom:'12%', 
-        marginTop: '5%', 
-        height: 130, 
-        width: '66%'
+    modalImage: {
+        marginBottom: '12%',
+        marginTop: '5%',
+        height: 100,
+        width: '50%'
     },
 
     modalTitle: {
-        fontWeight: 'bold', 
-        fontSize: 20, 
+        fontWeight: 'bold',
+        fontSize: 20,
         textAlign: 'center',
-        marginBottom: '10%',  
-        marginLeft: '5%', 
+        marginBottom: '10%',
+        marginLeft: '5%',
         marginRight: '5%',
     },
 
     modalSubtitle: {
-        fontSize: 15, 
-        textAlign: 'center', 
-        marginLeft: '10%', 
+        fontSize: 15,
+        textAlign: 'center',
+        marginLeft: '10%',
         marginRight: '10%'
     },
 
     entendiText: {
-        textAlign: 'center', 
-        color: 'white', 
+        textAlign: 'center',
+        color: 'white',
         fontWeight: 'bold'
     }
 

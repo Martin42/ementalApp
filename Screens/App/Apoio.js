@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity} from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
@@ -8,6 +8,27 @@ import { auth, db } from '../../Firebase';
 import { color } from 'react-native-reanimated';
 
 function Apoio({ route, navigation }) {
+
+    useEffect(() => {
+        getPedidos();
+    })
+
+    
+    const currentUser = auth.currentUser.uid;
+
+    async function getPedidos(){
+        const pedidoRef = db.collection('Pedido Esclarecimento').where('user', '==', currentUser);
+        const snapshot = await pedidoRef.get();
+        snapshot.forEach(doc => {
+            const array = [];
+            console.log(doc.data());
+            array.push(doc.data())
+            console.log(array);
+        })
+
+    }
+
+ 
 
     return (
         <View style={styles.container}>
