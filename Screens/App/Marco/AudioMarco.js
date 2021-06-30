@@ -32,6 +32,9 @@ function AudioMarco({ route, navigation }) {
             <Text style={styles.subtitulo}>
                 {route.params.serie}
             </Text>
+
+          
+
         </View>
     )
     
