@@ -1,9 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, TextInput} from "react-native";
 import Icon from 'react-native-vector-icons/AntDesign';
 import TextArea from 'react-native-textarea';
+import { db, auth } from '../../Firebase';
+
 
 function Esclarecimento({route, navigation}){
+
+    const currentUser = auth.currentUser.uid;
+
+
+    const [nome, setNome] = useState();
+    const [assunto, setAssunto] = useState();
+    const [mensagem, setMensagem] = useState();
+
+    function setPedido(){
+
+      if (nome == undefined) {
+        db
+        .collection('Pedido')
+        .add({
+          nome: 'Anónimo',
+          assunto: assunto,
+          mensagem: mensagem,
+          user: currentUser,
+          estado: 'Por resolver',
+          data: new Date().toUTCString()
+        })
+      } else {
+        db
+        .collection('Pedido')
+        .add({
+          nome: nome,
+          assunto: assunto,
+          mensagem: mensagem,
+          user: currentUser,
+          estado: 'Por resolver',
+          data: new Date().toUTCString()
+        })
+      }
+
+     
+     
+
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -31,6 +72,7 @@ function Esclarecimento({route, navigation}){
                             placeholder={'Nome (Opcional)'}
                             backgroundColor= '#CFE0FB'
                             placeholderTextColor= 'white'
+                            onChangeText={(nome) => setNome(nome)}
                         />
 
                         <TextInput 
@@ -38,6 +80,7 @@ function Esclarecimento({route, navigation}){
                             backgroundColor= '#CFE0FB'
                             placeholderTextColor= 'white'
                             placeholder={'Assunto'}
+                            onChangeText={assunto => setAssunto(assunto)}
                         />
 
                         <TextArea 
@@ -46,11 +89,12 @@ function Esclarecimento({route, navigation}){
                             placeholderTextColor= 'white'
                             placeholder={'Mensagem'}
                             multiline={true}
+                            onChangeText={mensagem => setMensagem(mensagem)}
                         />
 
                         <View style={{marginTop: '40%'}} >
                                     <TouchableOpacity
-                                            onPress={() => navigation.navigate('Apoio')}
+                                            onPress={() => setPedido()}
                                             style={styles.enviar}
                                             >
                                                 <Text style={{color: 'white', textAlign: 'center', fontSize: 18, fontWeight: 'bold'}}> Enviar </Text>

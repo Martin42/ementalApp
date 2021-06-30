@@ -6,7 +6,167 @@ import { auth, db } from '../../../Firebase';
 
 function QiMarcoD({route, navigation}){
 
-   
+    const currentUser = auth.currentUser.uid;
+    const collection = route.params.collection;
+
+    function setQuestionario(){
+        //pergunta 17
+
+        if (check == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta17: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta17: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 18
+
+        if (check2 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta18: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta18: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 19
+
+        if (check3 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta19: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta19: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 20
+
+        if (check4 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta20: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta20: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 21
+
+        if (check5 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta21: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta21: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 22
+
+        if (check6 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta22: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta22: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 23
+
+        if (check7 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta23: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta23: 'Falsa'
+            }, {merge: true})
+        }
+
+        //pergunta 24
+
+        if (check8 == true) {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta24: 'Verdadeira'
+            }, {merge: true})
+        } else {
+            db
+            .collection(collection)
+            .doc(currentUser)
+            .set({
+                pergunta24: 'Falsa'
+            }, {merge: true})
+        }
+
+
+        // Garantir que o questionário já foi respondido
+
+        db
+        .collection(collection)
+        .doc(currentUser)
+        .set({
+            concluido: 'true'
+        }, {merge: true})
+
+
+    }
+
     // UseStates
 
     const [check, setCheck] = useState(false);
@@ -260,12 +420,16 @@ function QiMarcoD({route, navigation}){
 
                 {/* Aparecer apenas quando as respostas estão todas dadas aka --> if check || valid == true && check2 || valid2 == true (...) */}
                 
-                <View style={styles.seguinteContainer}> 
-                <TouchableOpacity
-                    onPress={() => {navigation.navigate('PlaylistMarco')}}> 
-                    <Text style={styles.next}>Terminar</Text>
-                </TouchableOpacity>
-                </View> 
+                { (check == true || valid == true) && (check2 == true || valid2 == true) && (check3 == true || valid3 == true) && (check4 == true || valid4 == true) && (check5 == true || valid5 == true) && (check6 == true || valid6 == true) && (check7 == true || valid7 == true) && (check8 == true || valid8 == true) ? (
+                    <View style={styles.seguinteContainer}> 
+                    <TouchableOpacity
+                        onPress={() => {navigation.navigate('PlaylistMarco'), setQuestionario()}}> 
+                        <Text style={styles.next}>Terminar</Text>
+                    </TouchableOpacity>
+                    </View> 
+                ): (
+                    <Text></Text>
+                )}
               
             </ScrollView>
         </View>
@@ -286,7 +450,6 @@ const styles = StyleSheet.create({
         width: '25%',
         alignSelf: 'flex-end', 
         marginRight: '10%', 
-        marginTop: '10%', 
         paddingBottom: '10%',
     },
 

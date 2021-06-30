@@ -37,7 +37,7 @@ function Consentimento({ route, navigation }) {
                     
                     <Text style={{textAlign: 'center', padding: 20 }}><Image source={require('../../images/arrow.png')} style={styles.arrow}/></Text> 
 
-                    <View style={{width: '100%'}}>
+                    
                     <Checkbox 
                         style={styles.checkbox}
                         onClick={() => validate()}
@@ -46,7 +46,7 @@ function Consentimento({ route, navigation }) {
                         checkedImage={<Image source={require('../../images/Participar_checked.png')} style={styles.aceito} />} 
                     />
 
-                    </View>
+                   
 
                         { check ? (
                             <TouchableOpacity
@@ -115,6 +115,7 @@ const styles = StyleSheet.create({
     },
 
     checkbox: {
+        alignItems: 'center',
         width: '100%', 
         height: '23.5%', 
         marginTop: '5%',
@@ -136,8 +137,6 @@ const styles = StyleSheet.create({
     },
 
     aceito: {
-        marginLeft: '10%',
-        marginRight: '10%',  
         resizeMode: 'center',
         height: 50,
         width: 280,
