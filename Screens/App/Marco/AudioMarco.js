@@ -8,15 +8,53 @@ import { SwipeablePanel} from 'rn-swipeable-panel';
 
 function AudioMarco({ route, navigation }) {
 
+    useEffect(() => {
+        getComments();
+    },[mensagem])
+
+    const [mensagem, setMensagem] = useState();
+    const [playing, setPlaying] = useState(false);
+    const [modal, setModal] = useState(false);
+    const [comments, setComments] = useState([]);
+    
+    
+
+    function setComment (){
+        db
+            .collection(route.params.episodio)
+            .add({
+                comentario: mensagem,
+                aprovado: 'false'
+            }) 
+    }
+
+    async function getComments (){
+        const commentRef = db.collection(route.params.episodio);
+        const snapshot = await commentRef.get()
+        const comentarios = [];
+        snapshot.forEach(doc => {
+            if (doc.data().aprovado === 'false') {
+                console.log('Precisa de Aprovação');
+            } else {
+                console.log(doc.data().comentario);
+                comentarios.push(doc.data().comentario);
+                console.log(comentarios)
+            }
+            
+        })
+
+        setComments(...comments, comentarios)
+    }
+
     const [panelProps, setPanelProps] = useState({
         fullWidth: true,
-        openLarge: true,
+        openLarge: false,
         showCloseButton: true,
         onClose: () => closePanel(),
         onPressCloseButton: () => closePanel(),
         // ...or any prop you want
       });
-      const [isPanelActive, setIsPanelActive] = useState(true);
+      const [isPanelActive, setIsPanelActive] = useState(false);
     
       const openPanel = () => {
         setIsPanelActive(true);
@@ -55,13 +93,76 @@ function AudioMarco({ route, navigation }) {
 
 
             <View style={styles.container}>
-            <Text>Lorem Ipsum</Text>
+            <View>
+            <Text style={styles.subtitulo, {marginTop: '60%', justifyContent: 'center', alignContent: 'center', textAlign: 'center', marginLeft: '10%', marginRight: '10%'}} onPress={openPanel}>Comentários</Text>
+            <AntDesign name="down" size={24} color="black" style={{justifyContent: 'center', alignContent: 'center', textAlign: 'center', marginLeft: '10%', marginRight: '10%'}} onPress={openPanel}/>
+            </View>
             <SwipeablePanel {...panelProps} isActive={isPanelActive}>
                 <View>
-                    <Text>
-                        Lorem Ipsum
-                    </Text>
+                    {comments.map((e, key) => (
+                        <View style={{flexDirection:'row', marginLeft: '10%', marginRight: '10%', marginBottom: '5%'}}>
+                            <View style={{marginTop: '7.5%', flex: 1, marginRight: '-12.5%', marginLeft: '7.5%'}}>
+                                <AntDesign name="smile-circle" size={50} color="lightblue"/>
+                            </View>
+                            <View style={{width: '90%'}}>
+                                <View>
+                                    <Text style={{marginLeft: '20%'}}>
+                                    Anónimo
+                                    </Text>
+                                </View>
+                                <View style={styles.inputComment}>
+                                    <Text key={key} style={{flexDirection:'column'}, styles.inputMensagem2}>
+                                    {e}
+                                    </Text>
+                                </View>
+                            </View>
+                        </View>
+                    ))}
                 </View>
+
+                <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: '2.5%'}}>
+                    <TextInput
+                        style={styles.inputMensagem}
+                        width='80%'
+                        marginLeft="10%"
+                        placeholder= 'Comente aqui...'
+                        backgroundColor= '#CFE0FB'
+                        placeholderTextColor= 'black'
+                        multiline={true}
+                        onChangeText={mensagem => setMensagem(mensagem)}
+                        />
+                    <TouchableOpacity
+                        onPress={()=> {setComment(); setModal(true)}}
+                        style={styles.icon2}>
+                        <AntDesign name="right" size={24} color="black"/>     
+                    </TouchableOpacity>
+                </View> 
+
+                <Modal
+                        animationType='fade'
+                        transparent={true}
+                        visible={modal}
+                    >
+                        <View style={styles.modalView}>
+                            <View style={styles.modalContainer}>
+                            <Image 
+                                source={require('../../../images/comentario-pop.png')}
+                                style={styles.modalImage}
+                            />
+                            <Text>O teu comentário precisa de aprovação!</Text>
+                            <Text>Terás de aguardar que o teu comentário seja aprovado.</Text>
+                            <TouchableOpacity
+                                style={styles.entendi}
+                                onPress={()=> { setModal(false)}}
+                            >
+                                <Text style={styles.entendiText}>Entendi!</Text>
+                            </TouchableOpacity>
+                            </View>
+                        </View>
+                        
+                    
+                    </Modal>
+
             </SwipeablePanel>
             </View>
 
