@@ -18,25 +18,29 @@ function Esclarecimento({route, navigation}){
 
       if (nome == undefined) {
         db
-        .collection('Pedido')
+        .collection('Pedido Esclarecimento')
         .add({
           nome: 'Anónimo',
           assunto: assunto,
           mensagem: mensagem,
           user: currentUser,
           estado: 'Por resolver',
-          data: new Date().toUTCString()
+          mês: new Date().getMonth()+1,
+          dia: new Date().getDate(),
+          
         })
       } else {
         db
-        .collection('Pedido')
+        .collection('Pedido Esclarecimento')
         .add({
           nome: nome,
           assunto: assunto,
           mensagem: mensagem,
           user: currentUser,
           estado: 'Por resolver',
-          data: new Date().toUTCString()
+          mês: new Date().getMonth()+1,
+          dia: new Date().getDate(),
+          
         })
       }
 
