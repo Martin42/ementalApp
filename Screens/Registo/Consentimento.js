@@ -29,7 +29,7 @@ function Consentimento({ route, navigation }) {
             >
                 <View>
                     <Text style={styles.title}>Consentimento</Text>
-                    <Text style={styles.texto}>A tua colaboração é voluntária e muito importante! Agradecemos o preenchimento dos questionários, sublinhando a natureza anónima de todos os dados recolhidos. Os resultados serão utilizados apenas no contexto do estudo em curso garantindo confidencialidade.</Text>
+                    <Text style={styles.texto}>A tua colaboração é voluntária e muito importante! Agradecemos o preenchimento dos questionários, sublinhando a natureza anónima de todos os dados recolhidos. Os resultados serão utilizados apenas no contexto do estudo em curso garantindo total confidencialidade.</Text>
                     <Text style={styles.texto}>Podes desistir em qualquer momento e sem qualquer consequência negativa.</Text>
                     <Text style={styles.texto}>Esta aplicação dá cumprimento ao estipulado no Regulamento Geral de Proteção de Dados (RGPD) garantindo a segurança, anonimato e confidencialidade de todos os dados facultados pelos participantes. </Text>
                     <Text style={styles.texto}>Desde já muito obrigada pela tua colaboração!</Text>

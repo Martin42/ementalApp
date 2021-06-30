@@ -10,53 +10,55 @@ function Info2({route, navigation}){
     if (route.params.status == 0){
 
     return (
-        <View style={styles.container}>
-     
-                <View style={styles.container}>
-                    <Text style={styles.title}>A Ferida Sara</Text>
+        <View style={{flex:1}}>
+            <ScrollView style={styles.container}>
+                <Text style={styles.title}>A Ferida Sara</Text>
 
-                    <Text style={styles.text}>"DEEP" É uma intervenção psicoeducativa de formato audiovisual, estruturada numa websérie designada "A Ferida Sara", de base narrativa, sobre a vida da estudante universitária Sara, intercalados com episódios psicoeducativos.</Text>
+                <Text style={styles.text}>"DEEP" É uma intervenção psicoeducativa de formato audiovisual, estruturada numa websérie designada "A Ferida Sara", de base narrativa, sobre a vida da estudante universitária Sara, intercalados com episódios psicoeducativos.</Text>
+            
+                <Image 
+                    source={require('../../images/Sara.png')}
+                    style={styles.sara}
                 
-                    <Image 
-                        source={require('../../images/Sara.png')}
-                        style={styles.sara}
+                />
+
+                <Text style={styles.title2}>Um Marco na Vida</Text>
+
+                <Text style={styles.text}>O podcast “Um Marco na Vida” conta a história da vida do Marco, um estudante universitário amigo da Sara. </Text>
+            
+                <Image 
+                    source={require('../../images/marco.png')}
+                    style={styles.marco}
+                
+                />
+
+                <View style={styles.seguinteContainer}>
+                    <TouchableOpacity
+                    onPress={() => navigation.navigate('Info3', { status: route.params.status, nomePedido: 'estudante', emailPedido: 'null', mensagemPedido: 'null' }) }>
+                        <Text style={styles.next}>Seguinte</Text>
+                    </TouchableOpacity>
                     
-                    />
                 </View>
-
-                <View style={styles.container2}>
-                    <Text style={styles.title2}>Um Marco na Vida</Text>
-
-                    <Text style={styles.text}> Em breve!</Text>
-              
-                    <View style={styles.seguinteContainer}>
-                        <TouchableOpacity
-                        onPress={() => navigation.navigate('Info4', { status: route.params.status, nomePedido: 'estudante', emailPedido: 'null', mensagemPedido: 'null' }) }>
-                            <Text style={styles.next}>Seguinte</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-
-        
+            </ScrollView>
         </View>
     )}
 
     else {
         return (
             <View style={{flex: 1}}>
-            <ScrollView>
-               
+                <ScrollView style={styles.container}>
+                
                     <Text style={estilos.title40}>40 Segundos</Text>
 
-                    <Text style={estilos.text}>É uma intervenção audiovisual, de sensibilização para o diálogo sobre sinais de risco suicidário. A intervenção visa sensibilizar os intervenientes para a importância da saúde mental e para os procedimentos de atuação ao lidar com o invidíduo com ideias suicídas. </Text>
+                    <Text style={estilos.text}>É uma intervenção audiovisual, De sensibilização para a saúde mental, nomeadamente no que diz respeito ao reconhecimento de sinais de sofrimento psíquico e abordagem de alguém em crise suicidária. A intervenção, baseada em testemunhos reais (verídicos) e informação veiculada por profissionais de saúde, visa sensibilizar os intervenientes para a importância da saúde mental e aumentar o conhecimento sobre o risco de suicídio e para a atuação ao lidar com o invidíduo com ideias suicídas.</Text>
 
-                    <Text style={estilos.text}>Pode ser útil para trabalhar em contexto clínico ou em grupos de apoio</Text>
+                    <Text style={estilos.text}>Pode ser útil para trabalhar em contexto clínico ou em grupos de apoio.</Text>
 
                     <Image 
                         source={require('../../images/40.png')}
                         style={estilos.segundos}
                     />
-         
+            
 
                         <Text style={estilos.titleSara}>A Ferida Sara</Text>
 
@@ -68,10 +70,16 @@ function Info2({route, navigation}){
                             style={estilos.sara2}
                         
                         />
-               
+                
                         <Text style={estilos.titleMarco}>Um Marco na Vida</Text>
 
-                        <Text style={estilos.text}> Podcast a ser adicionado em breve!</Text>
+                        <Text style={estilos.text}>O podcast “Um Marco na Vida” conta a história da vida do Marco, um estudante universitário amigo da Sara.</Text>
+
+                        <Image 
+                            source={require('../../images/marco.png')}
+                            style={estilos.sara2}
+                        
+                        />
                     
                     <View  style={estilos.seguinteContainer}>
                         <TouchableOpacity
@@ -81,7 +89,7 @@ function Info2({route, navigation}){
                             <Text style={estilos.next2}>Seguinte</Text>
                         </TouchableOpacity>
                     </View>
-            </ScrollView>
+                </ScrollView>
             </View>
         )
     }
@@ -92,17 +100,10 @@ function Info2({route, navigation}){
 
 const styles = StyleSheet.create({
     container: {
-      flex: 2,
+      flex: 1,
       backgroundColor: 'white',
       width: '100%',
     },
-
-    container2: {
-        flex: 1,
-        backgroundColor: 'white',
-        width: '100%',
-    
-      },
 
     title: {
         fontSize: 22,
@@ -122,13 +123,22 @@ const styles = StyleSheet.create({
     },
 
     sara: {
-        width: '80%',
-        height: '38%',
-        marginTop: '5%',
+        width: 340,
+        height: 171,
         resizeMode: 'contain',
-        marginLeft: '10%',
-        marginRight: '10%',
-        
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        marginTop: '7%',
+        marginBottom: '15%',
+    },
+
+    marco:{
+        width: 340,
+        height: 171,
+        marginTop: '7%',
+        resizeMode: 'contain',
+        marginLeft: 'auto',
+        marginRight: 'auto',
     },
 
 
@@ -142,7 +152,8 @@ const styles = StyleSheet.create({
     next: {
         fontSize: 17,
         fontWeight: 'bold',
-        textAlign: 'center'
+        textAlign: 'center',
+        marginBottom: '50%',
     },
 
     seguinteContainer: {
@@ -162,6 +173,7 @@ const estilos = StyleSheet.create({
         fontWeight: 'bold',
         marginTop: '15%',
         marginLeft: '10%',
+        marginBottom: '5%',
         
     },
 
@@ -184,7 +196,8 @@ const estilos = StyleSheet.create({
         height: 175,
         resizeMode: 'contain',
         alignSelf: 'center',
-        marginTop: '4%',
+        marginTop: '5%',
+        marginBottom: '5%'
     },
 
     segundos: {
@@ -192,12 +205,13 @@ const estilos = StyleSheet.create({
         height: 175,
         resizeMode: 'contain',
         alignSelf: 'center',
+        marginTop: '5%',
+        marginBottom: '5%',
     },
 
     text: {
         marginLeft: '10%',
         marginRight: '10%',
-        marginTop: '2%',
         marginBottom: '2%',
         fontSize: 15,
         textAlign: 'justify',

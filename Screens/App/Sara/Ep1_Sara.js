@@ -114,7 +114,7 @@ function Ep1_Sara({route, navigation}){
                                 source={require('../../../images/comentario-pop.png')}
                                 style={styles.modalImage}
                             />
-                            <Text>O teu comentário precisa de aprovação!</Text>
+                            <Text>O teu comentário aguarda aprovação!</Text>
                             <Text>Terás de aguardar que o teu comentário seja aprovado.</Text>
                             <TouchableOpacity
                                 style={styles.entendi}

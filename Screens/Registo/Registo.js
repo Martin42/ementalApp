@@ -86,7 +86,7 @@ function Registo({navigation, route}){
                 style={styles.entrar}
                 onPress={() => RegistoFinal()}
                 >
-                    <Text style={styles.loginText}>Finalizar Registo</Text>
+                    <Text style={styles.loginText}>Finalizar registo</Text>
             </TouchableOpacity>
 
                 <Text style={styles.subtitle} > Já tens conta?  <Text 
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
     loginText: {
       color: 'white',
       textAlign: 'center',
-      margin: '3%', 
+      margin: '3%',
       fontWeight: 'bold',
       fontSize: 18, 
     },
@@ -198,7 +198,8 @@ const styles = StyleSheet.create({
       marginTop: '30%',
       borderColor: '#6578B3',
       borderStyle: 'solid',
-      borderRadius: 20,
+      borderRadius: 30,
+      height: 50,
       overflow: 'hidden',
       backgroundColor: '#6578B3',
       width: '80%',

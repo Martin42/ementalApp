@@ -22,7 +22,7 @@ function Pedido({ route, navigation }) {
                 <Text style={styles.text}>
                     Se é profissional de saúde e gostaria de ter acesso a todo o conteúdo audiovisual disponível na uMind, pedimos-lhe que faça aqui o seu pedido. 
                     Após a confirmação por parte da equipa de administradores, terá acesso à intervenção '40 Segundos'. 
-                    Enquanto o pedido não é processado, terá acesso à aplicação enquanto estudante mas rapidamente tentaremos resolver o pedido ! 
+                    Enquanto o pedido é processado, terá acesso à aplicação enquanto estudante mas rapidamente tentaremos resolver o pedido ! 
                 </Text>
             
                 <Text style={styles.text2}> Por favor, preencha os campos abaixo:</Text>

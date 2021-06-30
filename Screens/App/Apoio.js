@@ -82,13 +82,23 @@ function Apoio({ route, navigation }) {
                 <View style={styles.contacto}>
                     <Text style={styles.title2}>Saúde 24</Text>
                     <Text style={styles.text2}>Permanente</Text>
-                    <Text style={styles.text2}> 808 24 24 24</Text>
+                    <Text style={styles.text2}>808 24 24 24</Text>
                 </View>
 
-                <View style={styles.contacto2}>
+                <View style={styles.contacto}>
                     <Text style={styles.title2}>INEM</Text>
                     <Text style={styles.text2}>Permanente</Text>
                     <Text style={styles.text2}>112</Text>
+                </View>
+
+                <View style={styles.contacto}>
+                    <Text style={styles.title2}>Urgência de Psiquiatria (Hospital de Aveiro)</Text>
+                    <Text style={styles.text2}>8h - 20h</Text>
+                </View>
+
+                <View style={styles.contacto2}>
+                    <Text style={styles.title2}>Urgência Psiquiatria (Hospital de S. João, Porto)</Text>
+                    <Text style={styles.text2}>Permanente</Text>
                 </View>
 
             </View>

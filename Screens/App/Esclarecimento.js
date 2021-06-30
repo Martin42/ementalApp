@@ -22,7 +22,7 @@ function Esclarecimento({route, navigation}){
             <ScrollView contentContainerStyle={styles.container}>
 
                     <View style={styles.introText}>
-                        <Text style={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, ve.</Text>
+                        <Text style={styles.text}>Após o preenchimento dos campos de envio da mensagem, o teu pedido será enviado a um dos nossos profissionais de saúde. Relembramos que estes pedidos não precisam de estar identificados e a sua resposta não será imediata.</Text>
                     </View>
 
                     <View  style={styles.inputField}>

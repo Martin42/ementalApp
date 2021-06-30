@@ -27,7 +27,7 @@ function Botao({navigation}) {
             onPress={() => navigation.navigate('Login')} 
             >
                 
-            <Text style={styles.loginText}>Login</Text>
+            <Text style={styles.loginText}>Entrar</Text>
           </TouchableOpacity>
 
           <Text style={styles.subtitle}> Ainda não conheces o projeto? </Text>
@@ -56,7 +56,7 @@ function Botao({navigation}) {
       alignItems: 'center',
       justifyContent: 'center',
       width: '100%',
-      marginTop: '60%',
+      marginTop: '55%',
      
     },
     
@@ -71,21 +71,24 @@ function Botao({navigation}) {
   
     registo: {
         width: '80%',
+        height: 50,
         borderWidth: 1.5,
         borderColor: '#6578B3',
         borderStyle: 'solid',
-        borderRadius: 20,
+        borderRadius: 30,
         overflow: 'hidden',
         padding: '2%',
+        marginBottom:'2%',
         
     },
   
     login: {
         marginTop: '2%',
         width: '80%',
+        height: 50,
         borderColor: '#6578B3',
         borderStyle: 'solid',
-        borderRadius: 20,
+        borderRadius: 300,
         overflow: 'hidden',
         backgroundColor: '#6578B3',
         padding: '2%',
@@ -93,10 +96,11 @@ function Botao({navigation}) {
     },
   
     registoText: {
-        color: '#6578B3',
-        textAlign: 'center',
-        fontWeight: 'bold',
-        fontSize: 18,
+      color: '#6578B3',
+      textAlign: 'center',
+      fontWeight: 'bold',
+      fontSize: 18,
+      marginTop: '0.5%',
     },
   
     loginText: {
@@ -104,6 +108,7 @@ function Botao({navigation}) {
         textAlign: 'center',
         fontWeight: 'bold',
         fontSize: 18, 
+        marginTop: '1%',
   
     },
   
@@ -111,7 +116,7 @@ function Botao({navigation}) {
         fontWeight: 'bold',
         color: '#D7D7D7',
         textAlign: 'center',
-        marginTop: '5%',
+        marginTop: '7%',
         fontSize: 15,
     },
   
@@ -123,6 +128,7 @@ function Botao({navigation}) {
         textAlign: 'center',
         fontSize: 15,
         marginTop: '.2%',
+        marginBottom: '5%',
     },
   
   

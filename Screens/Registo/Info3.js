@@ -13,7 +13,7 @@ function Info3({route, navigation}){
 
                 <Text style={styles.title}>Instruções de uso</Text>
                 
-                <Text style={styles.text}>Durante a intervenção só poderás ver uma única vez cada episódio. Inicialmente não terás todos os episódios disponíveis e receberás uma notificação sempre que um novo se desbloqueia.</Text>
+                <Text style={styles.text}>A intervenção é composta por um conjunto de episódios. Durante a intervenção cada episódio só poderá ser visualizado uma única vez. Será disponibilizado apenas um episódio de cada vez e receberás uma notificação sempre que um novo se desbloqueia.</Text>
                 <Text style={styles.texto}>Terás de responder a um questionário anónimo antes e após cada intervenção.</Text>
 
                 <Image 
@@ -65,7 +65,6 @@ const styles = StyleSheet.create({
     texto: {
         marginLeft: '10%',
         marginRight: '10%',
-        marginBottom: '10%',
         fontSize: 15,
         textAlign: 'justify',
     },
@@ -86,8 +85,8 @@ const styles = StyleSheet.create({
     },
 
     example: {
-        marginTop: '5%',
-        marginBottom: '0%',
+        marginTop: '10%',
+        marginBottom: '10%',
         borderWidth: 1,
         borderColor: 'black',
         resizeMode: 'contain',

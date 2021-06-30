@@ -72,8 +72,8 @@ const styles = StyleSheet.create({
     },
 
     example: {
-        marginTop: '5%',
-        marginBottom: '10%',
+        marginTop: '10%',
+        marginBottom: '15%',
         borderWidth: 1,
         borderColor: 'black',
         resizeMode: 'contain',
