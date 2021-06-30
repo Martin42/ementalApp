@@ -7,89 +7,43 @@ import Checkbox from 'react-native-check-box';
 import { auth, db } from '../../Firebase';
 import { color } from 'react-native-reanimated';
 
-function Apoio({ route, navigation }) {
+function Notificacoes({ route, navigation }) {
 
     return (
         <View style={styles.container}>
         <ScrollView style={styles.container}>
             <View>
 
-                <Text style={styles.title1}>Linhas de Apoio</Text>
-
-                <Text style={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim.</Text>
+                <Text style={styles.title1}>Notificações</Text>
             </View>
             <View style={styles.container2}>
+                <View style={styles.container3}>
+                    <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flex:1}}>
 
-                <Text style={styles.title3}>Contacta com a nossa equipa de profissionais</Text>
+                        <Text 
+                        style={styles.title3}
+                        onPress={() => navigation.navigate('Conversa')}>
+                        Um profissional de saúde respondeu ao teu pedido de esclarecimento.
+                        </Text>
 
-                <View style={styles.ticketContainer}>
-                        <View style={styles.ticketLeft}>
-                            <Text  style={styles.setLeft}>2</Text>
-                            <Text  style={styles.setLeft}>ABR</Text>
-                        </View>
-
-                        <View style={styles.ticketRight}>
-                            <TouchableOpacity
-                            onPress={() => navigation.navigate('Conversa')}
-                            >
-                            <Text style={{fontSize: 13, fontWeight: 'bold'}}>Assunto:  <Text style={{fontWeight: 'normal'}}>Sintomas depressivos</Text> </Text>
-                            <Text style={{fontSize: 13, fontWeight: 'bold'}}>Estado: <Text style={{fontWeight: 'normal', color: 'green'}}> Resolvido </Text></Text>
-                            </TouchableOpacity>
-                        </View>
+                        <Image
+                            source={require('../../images/notificacao.png')}
+                            style={styles.imagem}
+                        />
+                    </View>
                 </View>
+                <Text style={styles.title4}>Novo episódio de Um Marco na Vida disponível!</Text>
 
+                <Text style={styles.title4}>Novo episódio de A Ferida Sara disponível!</Text>
 
-                <View style={styles.ticketContainer}>
-                        <View style={styles.ticketLeft}>
-                            <TouchableOpacity
-                                onPress={() => navigation.navigate('Esclarecimento')}
-                            >
-                                <Icon2 name='plus' size={25} color={'#6578B3'} style={{alignSelf: 'center'}} />
-                            </TouchableOpacity>
-                        </View>
+                <Text style={styles.title4}>Novo episódio de A Ferida Sara disponível!</Text>
 
-                        <View style={styles.ticketRight}>
-                           <Text style={{fontSize: 12, fontWeight: 'bold'}}> Realizar pedido de esclarecimento</Text>
-                        </View>
-                </View>
+                <Text style={styles.title4}>Novo episódio de A Ferida Sara disponível!</Text>
 
-                <View style={styles.contacto}>
-                    <Text style={styles.titulo2}>Telefone da Amizade</Text>
-                    <Text style={styles.text2}>16h – 23h</Text>
-                    <Text style={styles.text2}>228 323 535</Text>
-                </View>
+                <Text style={styles.title4}>Novo episódio de A Ferida Sara disponível!</Text>
 
-                <View style={styles.contacto}>
-                    <Text style={styles.title2}>SOS Voz Amiga</Text>
-                    <Text style={styles.text2}>16h - 24h</Text>
-                    <Text style={styles.text2}>213 544 545 | 912 802 669 | 963 524 660</Text>
-                </View>
+                <Text style={styles.title4}>Novo episódio de A Ferida Sara disponível!</Text>
 
-
-                <View style={styles.contacto}>
-                    <Text style={styles.title2}>SOS Estudante</Text>
-                    <Text style={styles.text2}>20h - 1h</Text>
-                    <Text style={styles.text2}>96 955 45 45 | 808 200 204</Text>
-                </View>
-        
-                
-                <View style={styles.contacto}>
-                    <Text style={styles.title2}>Linha LUA (UA)</Text>
-                    <Text style={styles.text2}>20h - 2h</Text>
-                    <Text style={styles.text2}>800 208 448</Text>
-                </View>
-
-                <View style={styles.contacto}>
-                    <Text style={styles.title2}>Saúde 24</Text>
-                    <Text style={styles.text2}>Permanente</Text>
-                    <Text style={styles.text2}> 808 24 24 24</Text>
-                </View>
-
-                <View style={styles.contacto2}>
-                    <Text style={styles.title2}>INEM</Text>
-                    <Text style={styles.text2}>Permanente</Text>
-                    <Text style={styles.text2}>112</Text>
-                </View>
 
             </View>
 
@@ -100,7 +54,7 @@ function Apoio({ route, navigation }) {
                 <Checkbox 
                     style={styles.icon}
                     onClick={() => navigation.navigate('Notificacoes')} // Alterar para Notificações
-                    isChecked={false}
+                    isChecked={true}
                     unCheckedImage={<Icon name='notifications' size={28} color='#D2D2D2'/>}
                     checkedImage={<Icon name='notifications' size={28} color='#6578B3'/>}
                 />           
@@ -120,7 +74,7 @@ function Apoio({ route, navigation }) {
                 <Checkbox 
                     style={styles.icon}
                     onClick={() => navigation.navigate('Apoio')} 
-                    isChecked={true}
+                    isChecked={false}
                     unCheckedImage={<Icon2 name='questioncircle' size={28} color='#D2D2D2' />}
                     checkedImage={<Icon2 name='questioncircle' size={28} color='#6578B3'/>}
                 />  
@@ -152,6 +106,8 @@ const styles = StyleSheet.create({
 
     },
 
+    
+
     text: {
         marginLeft: '10%',
         marginRight: '10%',
@@ -171,8 +127,8 @@ const styles = StyleSheet.create({
     title1: {
         fontSize: 30,
         fontWeight: 'bold',
-        marginLeft: '10%',
-        marginRight: '10%',
+        marginLeft: 'auto',
+        marginRight: 'auto',
         marginBottom: '5%',
         marginTop: '15%',
 
@@ -198,10 +154,19 @@ const styles = StyleSheet.create({
     title3: {
         fontSize: 20,
         fontWeight: 'bold',
+        marginBottom: '7%',
         marginLeft: '10%',
         marginRight: '10%',
-        marginBottom: '3%',
         marginTop: '13%',
+        paddingRight:'6%',
+
+    },
+
+    title4: {
+        fontSize: 20,
+        marginLeft: '10%',
+        marginRight: '10%',
+        marginBottom: '7%',
 
     },
 
@@ -261,11 +226,18 @@ const styles = StyleSheet.create({
        fontWeight: 'bold', 
        alignSelf: 'center',
        color: '#6578B3',
-    }
+    },
     
+    imagem: {
+        resizeMode: 'contain',
+        marginLeft: 'auto',
+        marginRight: '10%',
+        marginTop: '7%'
+        
+    },
 
 
 
 });
 
-export default Apoio;
+export default Notificacoes;
