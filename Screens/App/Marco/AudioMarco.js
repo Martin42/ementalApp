@@ -3,17 +3,16 @@ import { ScrollView, StatusBar, StyleSheet, TouchableOpacity, Text, Image, View,
 import { Entypo } from '@expo/vector-icons';
 import Checkbox from 'react-native-check-box';
 import { SwipeablePanel} from 'rn-swipeable-panel';
+import { db, auth } from '../../../Firebase';
 import { AntDesign } from '@expo/vector-icons';
-import { auth, db } from '../../../Firebase';
 import { Audio } from 'expo-av';
-
+ 
 
 function AudioMarco({ route, navigation }) {
 
+    // player 
 
-    //player
-
-    const [sound, setSound] = useState();
+     const [sound, setSound] = useState();
 
     async function playSound(){
         console.log('Loading Sound');
@@ -26,19 +25,15 @@ function AudioMarco({ route, navigation }) {
         await sound.playAsync();
     }
 
-    async function stopSound(){
-        await sound.stopSound();
-    }
-
-    useEffect(() => {
-        getComments();
-        return sound ? () => {
-            console.log('Unloading Sound');
-            sound.unloadAsync();
-        } : undefined;
-    }, [sound]);
+    // async function stopSound(){
+    //     await sound.stopSound();
+    // }
 
 
+
+    const [modal, setModal] = useState(false);
+    const [image, setImage] = useState(false);
+    const [check, setCheck] = useState(false);
 
     function changeImage() {
 
@@ -49,9 +44,21 @@ function AudioMarco({ route, navigation }) {
         }
     }
 
-    const [modal, setModal] = useState(false);
-    const [image, setImage] = useState(false);
-    const [check, setCheck] = useState(false);
+
+    useEffect(() => {
+       
+         return sound ? () => {
+            console.log('Unloading Sound');
+            sound.unloadAsync();
+        } : undefined;
+    },[sound])
+
+
+    useEffect(() => {
+        getComments();
+    }, [mensagem])
+
+
 
     const [mensagem, setMensagem] = useState();
     const [modal2, setModal2] = useState(false);
@@ -209,11 +216,13 @@ function AudioMarco({ route, navigation }) {
                 {route.params.serie}
             </Text>
 
-            {/* PLAYER  */}
+            
 
-            <TouchableOpacity onPress={() => stopSound()}>
+	     {/* PLAYER  */}
+
+            {/* <TouchableOpacity onPress={() => stopSound()}>
                 <Text>PAUSE</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
             <TouchableOpacity onPress={() => playSound()}>
                 <Text>PLAY</Text>
