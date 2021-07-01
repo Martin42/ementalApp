@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ScrollView, StatusBar, StyleSheet, TouchableOpacity, Text, Image, View, Alert, TextInput, Modal } from "react-native";
 import { Entypo } from '@expo/vector-icons';
 import Checkbox from 'react-native-check-box';
 import { SwipeablePanel} from 'rn-swipeable-panel';
+import { db, auth } from '../../../Firebase';
 import { AntDesign } from '@expo/vector-icons';
 
 
@@ -243,7 +244,7 @@ function AudioMarco({ route, navigation }) {
                             <Text>Terás de aguardar que o teu comentário seja aprovado.</Text>
                             <TouchableOpacity
                                 style={styles.entendi}
-                                onPress={()=> { setModal(false)}}
+                                onPress={()=> { setModal2(false)}}
                             >
                                 <Text style={styles.entendiText}>Entendi!</Text>
                             </TouchableOpacity>
