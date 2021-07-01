@@ -3,7 +3,6 @@ import { ScrollView, StatusBar, StyleSheet, TouchableOpacity, Text, Image, View,
 import { Entypo } from '@expo/vector-icons';
 import Checkbox from 'react-native-check-box';
 import { SwipeablePanel} from 'rn-swipeable-panel';
-import { db, auth } from '../../../Firebase';
 import { AntDesign } from '@expo/vector-icons';
 import { auth, db } from '../../../Firebase';
 import { Audio } from 'expo-av';
