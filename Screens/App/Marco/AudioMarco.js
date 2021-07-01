@@ -184,7 +184,7 @@ function AudioMarco({ route, navigation }) {
 
             <View style={styles.container}>
             <View>
-            <Text style={styles.subtitulo, {marginTop: '60%', justifyContent: 'center', alignContent: 'center', textAlign: 'center', marginLeft: '10%', marginRight: '10%'}} onPress={openPanel}>Comentários</Text>
+            <Text style={styles.subtitulo, {marginTop: '65%', justifyContent: 'center', alignContent: 'center', textAlign: 'center', marginLeft: '10%', marginRight: '10%'}} onPress={openPanel}>Comentários</Text>
             <AntDesign name="down" size={24} color="black" style={{justifyContent: 'center', alignContent: 'center', textAlign: 'center', marginLeft: '10%', marginRight: '10%'}} onPress={openPanel}/>
             </View>
             <SwipeablePanel {...panelProps} isActive={isPanelActive}>
