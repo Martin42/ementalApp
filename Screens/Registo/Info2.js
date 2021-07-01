@@ -1,11 +1,20 @@
-import { StyleSheet, Text, Image, View, ScrollView } from "react-native";
-import React from 'react';
+import { StyleSheet, Text, Image, View, ScrollView, Linking } from "react-native";
+import React, { useState, useCallback } from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import YoutubePlayer from "react-native-youtube-iframe";
 
 
 function Info2({route, navigation}){
 
     console.log(route.params.status);
+
+    const [playing, setPlaying] = useState(false);
+
+    // Player 
+  
+    const togglePlaying = useCallback(() => {
+        setPlaying((prev) => !prev);
+      }, []);
 
     if (route.params.status == 0){
 
@@ -15,12 +24,15 @@ function Info2({route, navigation}){
                 <Text style={styles.title}>A Ferida Sara</Text>
 
                 <Text style={styles.text}>"DEEP" É uma intervenção psicoeducativa de formato audiovisual, estruturada numa websérie designada "A Ferida Sara", de base narrativa, sobre a vida da estudante universitária Sara, intercalados com episódios psicoeducativos.</Text>
-            
-                <Image 
-                    source={require('../../images/Sara.png')}
-                    style={styles.sara}
-                
-                />
+
+                <View style={{marginTop: '10%', justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
+                    <YoutubePlayer
+                            width={'80%'}
+                            height={250}
+                            play={playing}
+                            videoId='ct0yVqr4emE'
+                    />
+                </View>
 
                 <Text style={styles.title2}>Um Marco na Vida</Text>
 
@@ -74,6 +86,7 @@ function Info2({route, navigation}){
                         <Text style={estilos.titleMarco}>Um Marco na Vida</Text>
 
                         <Text style={estilos.text}>O podcast “Um Marco na Vida” conta a história da vida do Marco, um estudante universitário amigo da Sara.</Text>
+
 
                         <Image 
                             source={require('../../images/marco.png')}
