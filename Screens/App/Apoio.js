@@ -11,7 +11,7 @@ function Apoio({ route, navigation }) {
 
     useEffect(() => {
         getPedidos();
-    })
+    }, [])
 
     
     const currentUser = auth.currentUser.uid;
@@ -64,6 +64,7 @@ function Apoio({ route, navigation }) {
                         <View style={styles.ticketLeft}>
                             <TouchableOpacity
                                 onPress={() => navigation.navigate('Esclarecimento')}
+                           
                             >
                                 <Icon2 name='plus' size={25} color={'#6578B3'} style={{alignSelf: 'center'}} />
                             </TouchableOpacity>

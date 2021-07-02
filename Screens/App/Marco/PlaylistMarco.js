@@ -3,10 +3,16 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from "react-native";
 import Svg, {Circle, Rect, Path} from 'react-native-svg';
+import Checkbox from 'react-native-check-box';
+import Icon from 'react-native-vector-icons/Ionicons';
+import Icon1 from 'react-native-vector-icons/MaterialIcons';
+import Icon2 from 'react-native-vector-icons/AntDesign';
 
 function PlaylistMarco({ route, navigation }) {
 
     return (
+
+    <View style={styles.container}>
         <ScrollView style={styles.container}>
             <View>
 
@@ -136,9 +142,42 @@ function PlaylistMarco({ route, navigation }) {
                 </View>
             </View>
 
-            
-
         </ScrollView >
+
+        <View style={styles.tabBar}>
+                <View style={{flex: 1}}>
+                <Checkbox 
+                    style={styles.icon}
+                    onClick={() => navigation.navigate('Notificacoes')}
+                    isChecked={false}
+                    unCheckedImage={<Icon name='notifications' size={28} color='#D2D2D2'/>}
+                    checkedImage={<Icon name='notifications' size={28} color='#6578B3'/>}
+                />           
+                </View>
+
+                <View style={{flex: 1}}>
+                <Checkbox 
+                    style={styles.icon}
+                    onClick={() => navigation.navigate('Homepage')}
+                    isChecked={true}
+                    unCheckedImage={<Icon1 name='home' size={30} color='#D2D2D2' />}
+                    checkedImage={<Icon1 name='home' size={30} color='#6578B3'/>}
+                />   
+                </View>
+
+                <View style={{flex: 1}}>
+                <Checkbox 
+                    style={styles.icon}
+                    onClick={() => navigation.navigate('Apoio')} 
+                    isChecked={false}
+                    unCheckedImage={<Icon2 name='questioncircle' size={28} color='#D2D2D2' />}
+                    checkedImage={<Icon2 name='questioncircle' size={28} color='#6578B3'/>}
+                />  
+                </View>
+
+            </View>
+
+    </View>
     )
 }
 
@@ -221,8 +260,18 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
 
+    icon: {
+        padding: '10%', 
+        alignSelf: 'center',
+    },
 
-
+    tabBar: {
+        flexDirection: 'row', 
+        backgroundColor: 'white',
+        borderTopWidth: 1,
+        borderColor: '#D7D7D7',
+        
+    },
 });
 
 export default PlaylistMarco;
