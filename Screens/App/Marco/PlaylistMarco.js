@@ -2,6 +2,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from "react-native";
+import Svg, {Circle, Rect, Path} from 'react-native-svg';
 
 function PlaylistMarco({ route, navigation }) {
 
@@ -19,11 +20,11 @@ function PlaylistMarco({ route, navigation }) {
                     <TouchableOpacity
                         onPress={() => navigation.navigate('AudioMarco', {episodio: 'Episódio 1', titulo: 'Um Marco na Vida - Ep. 1 Piloto', serie:'Um Marco na Vida'})}
                     >
-                        <Image
-                            source={require('../../../images/play.png')}
-                            style={styles.icone}
+                        <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <Circle cx="25" cy="25" r="25" fill="#8FBBFF"/>
+                            <Path d="M19.1665 16.5525V32.6141C19.1665 33.8389 20.5243 34.5831 21.57 33.9164L34.2741 25.8856C35.2417 25.281 35.2417 23.8857 34.2741 23.2655L21.57 15.2502C20.5243 14.5836 19.1665 15.3278 19.1665 16.5525Z" fill="white"/>
+                        </Svg>
 
-                        />
                     </TouchableOpacity>
                     
                     <View>
@@ -36,11 +37,11 @@ function PlaylistMarco({ route, navigation }) {
                     <TouchableOpacity
                         onPress={() => navigation.navigate('')}
                     >
-                        <Image
-                            source={require('../../../images/play_blocked.png')}
-                            style={styles.icone}
+                        <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <Circle cx="25" cy="25" r="25" fill="#3F3D56"/>
+                            <Path d="M33.5217 33.8909L18.1198 18.6364L17 19.7455L18.8725 21.6C18.3034 21.9091 17.9179 22.5 17.9179 23.1818V32.2727C17.9179 33.2727 18.744 34.0909 19.7536 34.0909H30.7681C30.9792 34.0909 31.1812 34.0455 31.3739 33.9818L32.4019 35L33.5217 33.8909ZM22.4155 19.5455C22.4155 17.9909 23.6913 16.7273 25.2609 16.7273C26.8304 16.7273 28.1063 17.9909 28.1063 19.5455V21.3636H23.113L32.6039 30.7636V23.1818C32.6039 22.1818 31.7778 21.3636 30.7681 21.3636H29.8502V19.5455C29.8502 17.0364 27.7942 15 25.2609 15C22.9111 15 21.0019 16.7545 20.7266 19L22.4155 20.6727V19.5455Z" fill="white"/>
+                        </Svg>
 
-                        />
                     </TouchableOpacity>
                     
                     <View>
@@ -53,11 +54,11 @@ function PlaylistMarco({ route, navigation }) {
                     <TouchableOpacity
                         onPress={() => navigation.navigate('')}
                     >
-                        <Image
-                            source={require('../../../images/play_blocked.png')}
-                            style={styles.icone}
+                        <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <Circle cx="25" cy="25" r="25" fill="#3F3D56"/>
+                            <Path d="M33.5217 33.8909L18.1198 18.6364L17 19.7455L18.8725 21.6C18.3034 21.9091 17.9179 22.5 17.9179 23.1818V32.2727C17.9179 33.2727 18.744 34.0909 19.7536 34.0909H30.7681C30.9792 34.0909 31.1812 34.0455 31.3739 33.9818L32.4019 35L33.5217 33.8909ZM22.4155 19.5455C22.4155 17.9909 23.6913 16.7273 25.2609 16.7273C26.8304 16.7273 28.1063 17.9909 28.1063 19.5455V21.3636H23.113L32.6039 30.7636V23.1818C32.6039 22.1818 31.7778 21.3636 30.7681 21.3636H29.8502V19.5455C29.8502 17.0364 27.7942 15 25.2609 15C22.9111 15 21.0019 16.7545 20.7266 19L22.4155 20.6727V19.5455Z" fill="white"/>
+                        </Svg>
 
-                        />
                     </TouchableOpacity>
                     
                     <View>
@@ -70,11 +71,11 @@ function PlaylistMarco({ route, navigation }) {
                     <TouchableOpacity
                         onPress={() => navigation.navigate('')}
                     >
-                        <Image
-                            source={require('../../../images/play_blocked.png')}
-                            style={styles.icone}
+                        <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <Circle cx="25" cy="25" r="25" fill="#3F3D56"/>
+                            <Path d="M33.5217 33.8909L18.1198 18.6364L17 19.7455L18.8725 21.6C18.3034 21.9091 17.9179 22.5 17.9179 23.1818V32.2727C17.9179 33.2727 18.744 34.0909 19.7536 34.0909H30.7681C30.9792 34.0909 31.1812 34.0455 31.3739 33.9818L32.4019 35L33.5217 33.8909ZM22.4155 19.5455C22.4155 17.9909 23.6913 16.7273 25.2609 16.7273C26.8304 16.7273 28.1063 17.9909 28.1063 19.5455V21.3636H23.113L32.6039 30.7636V23.1818C32.6039 22.1818 31.7778 21.3636 30.7681 21.3636H29.8502V19.5455C29.8502 17.0364 27.7942 15 25.2609 15C22.9111 15 21.0019 16.7545 20.7266 19L22.4155 20.6727V19.5455Z" fill="white"/>
+                        </Svg>
 
-                        />
                     </TouchableOpacity>
                     
                     <View>
@@ -87,11 +88,11 @@ function PlaylistMarco({ route, navigation }) {
                     <TouchableOpacity
                         onPress={() => navigation.navigate('')}
                     >
-                        <Image
-                            source={require('../../../images/play_blocked.png')}
-                            style={styles.icone}
+                        <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <Circle cx="25" cy="25" r="25" fill="#3F3D56"/>
+                            <Path d="M33.5217 33.8909L18.1198 18.6364L17 19.7455L18.8725 21.6C18.3034 21.9091 17.9179 22.5 17.9179 23.1818V32.2727C17.9179 33.2727 18.744 34.0909 19.7536 34.0909H30.7681C30.9792 34.0909 31.1812 34.0455 31.3739 33.9818L32.4019 35L33.5217 33.8909ZM22.4155 19.5455C22.4155 17.9909 23.6913 16.7273 25.2609 16.7273C26.8304 16.7273 28.1063 17.9909 28.1063 19.5455V21.3636H23.113L32.6039 30.7636V23.1818C32.6039 22.1818 31.7778 21.3636 30.7681 21.3636H29.8502V19.5455C29.8502 17.0364 27.7942 15 25.2609 15C22.9111 15 21.0019 16.7545 20.7266 19L22.4155 20.6727V19.5455Z" fill="white"/>
+                        </Svg>
 
-                        />
                     </TouchableOpacity>
                     
                     <View>
@@ -104,11 +105,11 @@ function PlaylistMarco({ route, navigation }) {
                     <TouchableOpacity
                         onPress={() => navigation.navigate('')}
                     >
-                        <Image
-                            source={require('../../../images/play_blocked.png')}
-                            style={styles.icone}
+                        <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <Circle cx="25" cy="25" r="25" fill="#3F3D56"/>
+                            <Path d="M33.5217 33.8909L18.1198 18.6364L17 19.7455L18.8725 21.6C18.3034 21.9091 17.9179 22.5 17.9179 23.1818V32.2727C17.9179 33.2727 18.744 34.0909 19.7536 34.0909H30.7681C30.9792 34.0909 31.1812 34.0455 31.3739 33.9818L32.4019 35L33.5217 33.8909ZM22.4155 19.5455C22.4155 17.9909 23.6913 16.7273 25.2609 16.7273C26.8304 16.7273 28.1063 17.9909 28.1063 19.5455V21.3636H23.113L32.6039 30.7636V23.1818C32.6039 22.1818 31.7778 21.3636 30.7681 21.3636H29.8502V19.5455C29.8502 17.0364 27.7942 15 25.2609 15C22.9111 15 21.0019 16.7545 20.7266 19L22.4155 20.6727V19.5455Z" fill="white"/>
+                        </Svg>
 
-                        />
                     </TouchableOpacity>
                     
                     <View>
@@ -121,11 +122,11 @@ function PlaylistMarco({ route, navigation }) {
                     <TouchableOpacity
                         onPress={() => navigation.navigate('')}
                     >
-                        <Image
-                            source={require('../../../images/play_blocked.png')}
-                            style={styles.icone}
-
-                        />
+                        <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <Circle cx="25" cy="25" r="25" fill="#3F3D56"/>
+                            <Path d="M33.5217 33.8909L18.1198 18.6364L17 19.7455L18.8725 21.6C18.3034 21.9091 17.9179 22.5 17.9179 23.1818V32.2727C17.9179 33.2727 18.744 34.0909 19.7536 34.0909H30.7681C30.9792 34.0909 31.1812 34.0455 31.3739 33.9818L32.4019 35L33.5217 33.8909ZM22.4155 19.5455C22.4155 17.9909 23.6913 16.7273 25.2609 16.7273C26.8304 16.7273 28.1063 17.9909 28.1063 19.5455V21.3636H23.113L32.6039 30.7636V23.1818C32.6039 22.1818 31.7778 21.3636 30.7681 21.3636H29.8502V19.5455C29.8502 17.0364 27.7942 15 25.2609 15C22.9111 15 21.0019 16.7545 20.7266 19L22.4155 20.6727V19.5455Z" fill="white"/>
+                        </Svg>
+                        
                     </TouchableOpacity>
                     
                     <View>
@@ -215,8 +216,6 @@ const styles = StyleSheet.create({
     },
 
     icone: { //Icone play
-        width: 60,
-        height: 60,
         marginLeft: '30%',
         marginTop: '20%',
         resizeMode: 'contain',

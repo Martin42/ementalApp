@@ -329,11 +329,10 @@ const styles = StyleSheet.create({
     },
 
     conteudo: {       //Imagem da Sara (conteudos)
-        width: 365,
-        height: 180,
+        width: 332,
+        height: 167,
         marginTop: '3%',
         resizeMode: 'contain',
-       
     },
 
     tabBar: {

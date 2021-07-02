@@ -37,7 +37,7 @@ function Apoio({ route, navigation }) {
 
                 <Text style={styles.title1}>Linhas de Apoio</Text>
 
-                <Text style={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim.</Text>
+                <Text style={styles.text}>Sempre que precisares de ajuda ou de qualquer tipo de esclarecimento, podes consultar aqui todos os contactos disponíveis.</Text>
             </View>
             <View style={styles.container2}>
 
