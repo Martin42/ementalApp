@@ -7,10 +7,9 @@ import { db, auth } from '../../Firebase';
 
 function Esclarecimento({route, navigation}){
 
-    const [modal, setModal] = useState(false);
     const currentUser = auth.currentUser.uid;
 
-
+    const [modal, setModal] = useState(false);
     const [nome, setNome] = useState();
     const [assunto, setAssunto] = useState();
     const [mensagem, setMensagem] = useState();
@@ -63,34 +62,60 @@ function Esclarecimento({route, navigation}){
 
       <ScrollView contentContainerStyle={styles.container}>
 
-        <View style={styles.introText}>
-          <Text style={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, ve.</Text>
-        </View>
-
         <View style={styles.inputField}>
-          <TextInput
-            style={styles.inputText}
-            placeholder={'Nome (Opcional)'}
-            backgroundColor='#CFE0FB'
-            placeholderTextColor='white'
-          />
+        
 
-          <TextInput
-            style={styles.inputText}
-            backgroundColor='#CFE0FB'
-            placeholderTextColor='white'
-            placeholder={'Assunto'}
-          />
+        <ScrollView contentContainerStyle={styles.container}>
 
-          <TextArea
-            style={styles.inputMensagem}
-            backgroundColor='#CFE0FB'
-            placeholderTextColor='white'
-            placeholder={'Mensagem'}
-            multiline={true}
-          />
+          <View style={styles.introText}>
+              <Text style={styles.text}>Após o preenchimento dos campos de envio da mensagem, o teu pedido será enviado a um dos nossos profissionais de saúde. Relembramos que estes pedidos não precisam de estar identificados e a sua resposta não será imediata.</Text>
+          </View>
 
-          <Modal
+          <View  style={styles.inputField}>
+              <TextInput
+                  style={styles.inputText}
+                  placeholder={'Nome (Opcional)'}
+                  backgroundColor= '#CFE0FB'
+                  placeholderTextColor= 'white'
+                  onChangeText={(nome) => setNome(nome)}
+              />
+
+              <TextInput 
+                  style={styles.inputText}  
+                  backgroundColor= '#CFE0FB'
+                  placeholderTextColor= 'white'
+                  placeholder={'Assunto'}
+                  onChangeText={assunto => setAssunto(assunto)}
+              />
+
+              <TextArea 
+                  style={styles.inputMensagem} 
+                  backgroundColor= '#CFE0FB'
+                  placeholderTextColor= 'white'
+                  placeholder={'Mensagem'}
+                  multiline={true}
+                  onChangeText={mensagem => setMensagem(mensagem)}
+              />
+
+              <View style={{marginTop: '40%'}} >
+                          <TouchableOpacity
+                                  onPress={() => {setPedido(); setModal(true)}}
+                                  style={styles.enviar}
+                                  >
+                                      <Text style={{color: 'white', textAlign: 'center', fontSize: 18, fontWeight: 'bold'}}> Enviar </Text>
+                          </TouchableOpacity>
+              </View>
+            
+          </View>
+          </ScrollView>
+
+          
+
+        
+        </View>
+      </ScrollView>
+
+      <Modal
             animationType='fade'
             transparent={true}
             visible={modal}
@@ -105,60 +130,13 @@ function Esclarecimento({route, navigation}){
                 <Text style={styles.modalSubtitle}>A resposta não é imediata, serás notificado quando esta for respondida.</Text>
                 <TouchableOpacity
                   style={styles.entendi}
-                  onPress={() => { setModal(false), navigation.navigate('Apoio') }}
+                  onPress={() => {navigation.navigate('Apoio'); setModal(false) }}
                 >
                   <Text style={styles.entendiText}>Entendi!</Text>
                 </TouchableOpacity>
               </View>
             </View>
           </Modal>
-
-            <ScrollView contentContainerStyle={styles.container}>
-
-                    <View style={styles.introText}>
-                        <Text style={styles.text}>Após o preenchimento dos campos de envio da mensagem, o teu pedido será enviado a um dos nossos profissionais de saúde. Relembramos que estes pedidos não precisam de estar identificados e a sua resposta não será imediata.</Text>
-                    </View>
-
-                    <View  style={styles.inputField}>
-                        <TextInput
-                            style={styles.inputText}
-                            placeholder={'Nome (Opcional)'}
-                            backgroundColor= '#CFE0FB'
-                            placeholderTextColor= 'white'
-                            onChangeText={(nome) => setNome(nome)}
-                        />
-
-                        <TextInput 
-                            style={styles.inputText}  
-                            backgroundColor= '#CFE0FB'
-                            placeholderTextColor= 'white'
-                            placeholder={'Assunto'}
-                            onChangeText={assunto => setAssunto(assunto)}
-                        />
-
-                        <TextArea 
-                            style={styles.inputMensagem} 
-                            backgroundColor= '#CFE0FB'
-                            placeholderTextColor= 'white'
-                            placeholder={'Mensagem'}
-                            multiline={true}
-                            onChangeText={mensagem => setMensagem(mensagem)}
-                        />
-
-                        <View style={{marginTop: '40%'}} >
-                                    <TouchableOpacity
-                                            onPress={() => setPedido(), setModal(true)}
-                                            style={styles.enviar}
-                                            >
-                                                <Text style={{color: 'white', textAlign: 'center', fontSize: 18, fontWeight: 'bold'}}> Enviar </Text>
-                                    </TouchableOpacity>
-                        </View>
-                       
-                    </View>
-            </ScrollView>
-        </View>
-      </ScrollView>
-
 
     </View>
   )
