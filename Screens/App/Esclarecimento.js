@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, TextInput, Modal, Image } from "react-native";
 import Icon from 'react-native-vector-icons/AntDesign';
 import TextArea from 'react-native-textarea';
 import { db, auth } from '../../Firebase';
+import { set } from 'react-native-reanimated';
 
 
 function Esclarecimento({route, navigation}){
@@ -13,9 +14,61 @@ function Esclarecimento({route, navigation}){
     const [nome, setNome] = useState();
     const [assunto, setAssunto] = useState();
     const [mensagem, setMensagem] = useState();
+    const [month, setMonth] = useState();
+
+
+    useEffect(() => {
+      getMonth();
+    },[])
+
+
+    function getMonth(){
+          const mes = new Date().getMonth()+1;
+          switch (mes) {
+            case 1:
+                setMonth('Jan')
+                break;
+            case 2: 
+                setMonth('Feb')
+                break;
+            case 3: 
+                setMonth('Mar')
+                break;
+            case 4: 
+                setMonth('Abr')
+                break;
+            case 5: 
+                setMonth('Mai')
+                break;
+            case 6: 
+                setMonth('Jun')
+                break;
+            case 7: 
+                setMonth('Jul')
+                break;
+            case 8: 
+                setMonth('Ago')
+                break;
+            case 9: 
+                setMonth('Set')
+                break;
+            case 10: 
+                setMonth('Out')
+                break;
+            case 11: 
+                setMonth('Nov')
+                break;
+            case 12: 
+                setMonth('Dez')
+                break;
+            default:
+                break;
+        }
+    }
+
 
     function setPedido(){
-
+     
       if (nome == undefined) {
         db
         .collection('Pedido Esclarecimento')
@@ -25,8 +78,9 @@ function Esclarecimento({route, navigation}){
           mensagem: mensagem,
           user: currentUser,
           estado: 'Por resolver',
-          mês: new Date().getMonth()+1,
+          mês: month,
           dia: new Date().getDate(),
+          fulldata: new Date().toUTCString(),
           
         })
       } else {
@@ -38,8 +92,9 @@ function Esclarecimento({route, navigation}){
           mensagem: mensagem,
           user: currentUser,
           estado: 'Por resolver',
-          mês: new Date().getMonth()+1,
+          mês: month,
           dia: new Date().getDate(),
+          fulldata: new Date().toUTCString(),
           
         })
       }

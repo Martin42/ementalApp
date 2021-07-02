@@ -11,21 +11,25 @@ function Apoio({ route, navigation }) {
 
     useEffect(() => {
         getPedidos();
-    }, [])
+    },[])
 
     
     const currentUser = auth.currentUser.uid;
+    const [informacao, setInformacao] = useState([])
+   
 
     async function getPedidos(){
-        const pedidoRef = db.collection('Pedido Esclarecimento').where('user', '==', currentUser);
+        const pedidoRef = db.collection('Pedido Esclarecimento').where('user', '==', currentUser).orderBy('fulldata', 'asc');
         const snapshot = await pedidoRef.get();
+        const info = [];
         snapshot.forEach(doc => {
-            const array = [];
-            console.log(doc.data());
-            array.push(doc.data())
-            console.log(array);
+            info.push(doc.data())
+   
         })
 
+        setInformacao(...informacao, info);
+      
+        
     }
 
  
@@ -43,22 +47,39 @@ function Apoio({ route, navigation }) {
 
                 <Text style={styles.title3}>Contacta com a nossa equipa de profissionais</Text>
 
-                <View style={styles.ticketContainer}>
-                        <View style={styles.ticketLeft}>
-                            <Text  style={styles.setLeft}>2</Text>
-                            <Text  style={styles.setLeft}>ABR</Text>
-                        </View>
+            {
+            
+            informacao.map((item, key) => (
+                <View style={styles.ticketContainer} key={key}>
+                    <View style={styles.ticketLeft}>
+                        <Text  style={styles.setLeft}>{item.dia}</Text>
+                        <Text  style={styles.setLeft}>{item.mês}</Text>
+                    </View>
 
-                        <View style={styles.ticketRight}>
-                            <TouchableOpacity
-                            onPress={() => navigation.navigate('Conversa')}
-                            >
-                            <Text style={{fontSize: 13, fontWeight: 'bold'}}>Assunto:  <Text style={{fontWeight: 'normal'}}>Sintomas depressivos</Text> </Text>
-                            <Text style={{fontSize: 13, fontWeight: 'bold'}}>Estado: <Text style={{fontWeight: 'normal', color: 'green'}}> Resolvido </Text></Text>
-                            </TouchableOpacity>
-                        </View>
+                    <View style={styles.ticketRight}>
+                        <TouchableOpacity
+                        onPress={() => navigation.navigate('Conversa')}
+                        >
+
+                        {/* render condicional com data da firebase  */}
+                        
+                        <Text style={{fontSize: 13, fontWeight: 'bold'}}>Assunto:  <Text style={{fontWeight: 'normal'}}>{item.assunto}</Text> </Text>
+                        <Text style={{fontSize: 13, fontWeight: 'bold'}}>Estado: { (item.estado == 'Resolvido') ? (
+                            <Text style={{fontWeight: 'normal', color: 'green', fontWeight: 'bold'}}> {item.estado}</Text>
+                        ):(
+                            <Text style={{fontWeight: 'normal', color: 'red', fontWeight: 'bold'}}> {item.estado}</Text>
+                        )}
+                            
+                        </Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
 
+            ))
+
+            }
+
+              
 
                 <View style={styles.ticketContainer}>
                         <View style={styles.ticketLeft}>

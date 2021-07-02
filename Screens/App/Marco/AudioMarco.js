@@ -110,6 +110,7 @@ function AudioMarco({ route, navigation }) {
       })
 
         setComments(...comments, comentarios);
+
      
   }
 
