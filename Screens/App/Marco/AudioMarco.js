@@ -50,6 +50,7 @@ function AudioMarco({ route, navigation }) {
     const [modal, setModal] = useState(false);
     const [image, setImage] = useState(false);
     const [check, setCheck] = useState(false);
+ 
 
   function changeImage() {
 
@@ -63,8 +64,8 @@ function AudioMarco({ route, navigation }) {
   }
 
     useEffect(() => {
-        getComments();
-    })
+            getComments()
+    }, [])
 
 
   useEffect(() => {
@@ -84,7 +85,7 @@ function AudioMarco({ route, navigation }) {
   const [modal2, setModal2] = useState(false);
   const [comments, setComments] = useState([]);
   const [checkPause, setCheckPause] = useState(false);
-  
+
   
 
   function setComment (){
@@ -101,17 +102,15 @@ function AudioMarco({ route, navigation }) {
       const snapshot = await commentRef.get()
       const comentarios = [];
       snapshot.forEach(doc => {
-          if (doc.data().aprovado === 'false') {
-              console.log('Precisa de Aprovação');
-          } else {
-              console.log(doc.data().comentario);
-              comentarios.push(doc.data().comentario);
-              console.log(comentarios)
-          }
-          
+          if (doc.data().aprovado === 'true') {
+                console.log(doc.data().comentario);
+                comentarios.push(doc.data().comentario);
+                console.log(comentarios);
+          } 
       })
 
-      setComments(...comments, comentarios)
+        setComments(...comments, comentarios);
+     
   }
 
   const [panelProps, setPanelProps] = useState({
@@ -131,223 +130,311 @@ function AudioMarco({ route, navigation }) {
     const closePanel = () => {
       setIsPanelActive(false);
     };
+    
 
-  return (
-      <View style={styles.container}>
-          <View style={{ flexDirection: 'row', height: 40, marginTop: '7.5%', alignItems: 'center', marginBottom: '2.5%' }}>
-              <TouchableOpacity
-                  onPress={() => setModal(true)}
-                  style={styles.icon}>
-                  <Entypo name="chevron-thin-left" size={24} color="black" />
-              </TouchableOpacity>
-
-
-              <Text style={{ fontSize: 20 }}>
-                  {route.params.titulo}
-              </Text>
-          </View>
-
-          {/* modal */}
-
-          <Modal
-              animationType='fade'
-              transparent={true}
-              visible={modal}
-          >
-              <View style={styles.modalView}>
-                  <View style={styles.modalContainer}>
-                      <Image
-                          source={require('../../../images/feedback_pop.png')}
-                          style={styles.modalImage}
-                      />
-                      <Text style={styles.modalTitle}>Recomendarias esta aplicação?</Text>
-
-                      <View style={styles.ratingContainer}>
-
-                          <TouchableOpacity
-                              onPress={() => changeImage()}
-                             >
-                          </TouchableOpacity>
-
-
-
-                          {/*
-                      <Checkbox
-                              style={styles.ratingCheckbox}
-                              onClick={() => validate()}
-                              isChecked={check}
-                              unCheckedImage={<Image source={require('../../../images/rating/1.png')} style={styles.ratingImage} />}
-                              checkedImage={<Image source={require('../../../images/rating/1_selecionado.png')} style={styles.ratingImage} />}
-                          />
-
-                          <Checkbox
-                              style={styles.ratingCheckbox}
-                              onClick={() => validate()}
-                              isChecked={check}
-                              unCheckedImage={<Image source={require('../../../images/rating/2.png')} style={styles.ratingImage} />}
-                              checkedImage={<Image source={require('../../../images/rating/2_selecionado.png')} style={styles.ratingImage} />}
-                          />
-                          <Checkbox
-                              style={styles.ratingCheckbox}
-                              onClick={() => validate()}
-                              isChecked={check}
-                              unCheckedImage={<Image source={require('../../../images/rating/3.png')} style={styles.ratingImage} />}
-                              checkedImage={<Image source={require('../../../images/rating/3_selecionado.png')} style={styles.ratingImage} />}
-                          />
-                          <Checkbox
-                              style={styles.ratingCheckbox}
-                              onClick={() => validate()}
-                              isChecked={check}
-                              unCheckedImage={<Image source={require('../../../images/rating/4.png')} style={styles.ratingImage} />}
-                              checkedImage={<Image source={require('../../../images/rating/4_selecionado.png')} style={styles.ratingImage} />}
-                          />
-                          <Checkbox
-                              style={styles.ratingCheckbox}
-                              onClick={() => validate()}
-                              isChecked={check}
-                              unCheckedImage={<Image source={require('../../../images/rating/5.png')} style={styles.ratingImage} />}
-                              checkedImage={<Image source={require('../../../images/rating/5_selecionado.png')} style={styles.ratingImage} />}
-                          /> */}
-
-
-                      </View>
-
-                      <TouchableOpacity
-                          style={styles.entendi}
-                          onPress={() => { setModal(false), navigation.navigate('PlaylistMarco') }}
-                      >
-                          <Text style={styles.entendiText}>Submeter</Text>
-                      </TouchableOpacity>
-                  </View>
-              </View>
-
-
-          </Modal>
-
-
-          <Image
-              source={require('../../../images/ep_marco.png')}
-              style={styles.imagem}
-          />
-
-          <Text style={styles.titulo}>
-              {route.params.episodio}
-          </Text>
-          <Text style={styles.subtitulo}>
-              {route.params.serie}
-          </Text>
-
-          
-
-       {/* PLAYER  */}
-
-           {
-               checkPause ? (
-                   <TouchableOpacity 
-                        style={{marginTop: '25%', alignItems: 'center', width: '12%',  alignSelf: 'center'}}
-                        onPress={() => {validate(), stopSound()}}
-                   >
-                    <Image 
-                            style={{width: 50, height: 50, alignSelf: 'center'}}
-                            source={require('../../../images/pause.png')}
-                    />
-                   </TouchableOpacity>
-               ) : (
-                    <TouchableOpacity 
-                        style={{marginTop: '25%',  width: '12%', alignSelf: 'center'}}
-                        onPress={() => {validate(), playSound()}}
-                    >
-                        <Image 
-                                style={{width: 50, height: 50, alignSelf: 'center'}}
-                                source={require('../../../images/play.png')}
-                        />
-                 </TouchableOpacity>
-               )
-           } 
-
-           {/* esconder botão quando slider está ativo */}
-
-        
-
-         
-          <View style={styles.container}>
-          <View>
-          <Text style={styles.subtitulo, {marginTop: '30%', justifyContent: 'center', alignContent: 'center', textAlign: 'center', marginLeft: '10%', marginRight: '10%'}} onPress={openPanel}>Comentários</Text>
-          <AntDesign name="down" size={24} color="black" style={{justifyContent: 'center', alignContent: 'center', textAlign: 'center', marginLeft: '10%', marginRight: '10%'}} onPress={openPanel}/>
-          </View>
-          <SwipeablePanel {...panelProps} isActive={isPanelActive}>
-              <View>
-                  {comments.map((e, key) => (
-                      <View style={{flexDirection:'row', marginLeft: '10%', marginRight: '10%', marginBottom: '5%'}}>
-                          <View style={{marginTop: '7.5%', flex: 1, marginRight: '-12.5%', marginLeft: '7.5%'}}>
-                              <AntDesign name="smile-circle" size={50} color="lightblue"/>
-                          </View>
-                          <View style={{width: '90%'}}>
-                              <View>
-                                  <Text style={{marginLeft: '20%'}}>
-                                  Anónimo
-                                  </Text>
-                              </View>
-                              <View style={styles.inputComment}>
-                                  <Text key={key} style={{flexDirection:'column'}, styles.inputMensagem2}>
-                                  {e}
-                                  </Text>
-                              </View>
-                          </View>
-                      </View>
-                  ))}
-              </View>
-
-
-
-              <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: '2.5%'}}>
-                  <TextInput
-                      style={styles.inputMensagem}
-                      width='80%'
-                      marginLeft="10%"
-                      placeholder= 'Comente aqui...'
-                      backgroundColor= '#CFE0FB'
-                      placeholderTextColor= 'black'
-                      multiline={true}
-                      onChangeText={mensagem => setMensagem(mensagem)}
-                      />
-                  <TouchableOpacity
-                      onPress={()=> {setComment(); setModal(true)}}
-                      style={styles.icon2}>
-                      <AntDesign name="right" size={24} color="black"/>     
-                  </TouchableOpacity>
-              </View> 
-
-              <Modal
-                      animationType='fade'
-                      transparent={true}
-                      visible={modal2}
-                  >
-                      <View style={styles.modalView}>
-                          <View style={styles.modalContainer}>
+    if (isPanelActive == false) {
+        return (
+            <View style={styles.container}>
+                <View style={{ flexDirection: 'row', height: 40, marginTop: '7.5%', alignItems: 'center', marginBottom: '2.5%' }}>
+                    <TouchableOpacity
+                        onPress={() => setModal(true)}
+                        style={styles.icon}>
+                        <Entypo name="chevron-thin-left" size={24} color="black" />
+                    </TouchableOpacity>
+      
+      
+                    <Text style={{ fontSize: 20 }}>
+                        {route.params.titulo}
+                    </Text>
+                </View>
+      
+                <Image
+                    source={require('../../../images/ep_marco.png')}
+                    style={styles.imagem}
+                />
+      
+                <Text style={styles.titulo}>
+                    {route.params.episodio}
+                </Text>
+                <Text style={styles.subtitulo}>
+                    {route.params.serie}
+                </Text>
+      
+                
+      
+             {/* PLAYER  */}
+      
+                 {
+                     checkPause ? (
+                         <TouchableOpacity 
+                              style={{marginTop: '25%', alignItems: 'center', width: '12%',  alignSelf: 'center'}}
+                              onPress={() => {validate(), stopSound()}}
+                         >
                           <Image 
-                              source={require('../../../images/comentario-pop.png')}
-                              style={styles.modalImage}
+                                  style={{width: 50, height: 50, alignSelf: 'center'}}
+                                  source={require('../../../images/pause.png')}
                           />
-                          <Text>O teu comentário precisa de aprovação!</Text>
-                          <Text>Terás de aguardar que o teu comentário seja aprovado.</Text>
-                          <TouchableOpacity
-                              style={styles.entendi}
-                              onPress={()=> { setModal2(false)}}
+                         </TouchableOpacity>
+                     ) : (
+                          <TouchableOpacity 
+                              style={{marginTop: '25%',  width: '12%', alignSelf: 'center'}}
+                              onPress={() => {validate(), playSound()}}
                           >
-                              <Text style={styles.entendiText}>Entendi!</Text>
-                          </TouchableOpacity>
-                          </View>
-                      </View>
-                      
-                  
-                  </Modal>
+                              <Image 
+                                      style={{width: 50, height: 50, alignSelf: 'center'}}
+                                      source={require('../../../images/play.png')}
+                              />
+                       </TouchableOpacity>
+                     )
+                 } 
+      
+                 {/* esconder botão quando slider está ativo */}
+      
+              
+      
+               
+                <View style={styles.container}>
+                <View style={{ flex: 1}}>
+                <AntDesign name="up" size={24} color="#6578B3" style={{alignSelf: 'center', position: 'absolute', top: 110}} onPress={openPanel}/>
+                <Text style={styles.subtitulo, {marginTop: '30%', alignSelf: 'center', color: '#6578B3', fontWeight: 'bold'}} onPress={openPanel}>
+                    Comentários      
+                </Text>
+            
+                </View>
+                <SwipeablePanel {...panelProps} isActive={isPanelActive}>
+                    <View>
+                        {comments.map((e, key) => (
+                            <View style={{flexDirection:'row', marginLeft: '10%', marginRight: '10%', marginBottom: '5%'}}>
+                                <View style={{marginTop: '7.5%', flex: 1, marginRight: '-12.5%', marginLeft: '7.5%'}}>
+                                    <AntDesign name="smile-circle" size={50} color="lightblue"/>
+                                </View>
+                                <View style={{width: '90%'}}>
+                                    <View>
+                                        <Text style={{marginLeft: '20%'}}>
+                                        Anónimo
+                                        </Text>
+                                    </View>
+                                    <View style={styles.inputComment}>
+                                        <Text key={key} style={{flexDirection:'column'}, styles.inputMensagem2}>
+                                        {e}
+                                        </Text>
+                                    </View>
+                                </View>
+                            </View>
+                        ))}
+                    </View>
+      
+      
+      
+                    <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: '2.5%'}}>
+                        <TextInput
+                            style={styles.inputMensagem}
+                            width='80%'
+                            marginLeft="10%"
+                            placeholder= 'Comente aqui...'
+                            backgroundColor= '#CFE0FB'
+                            placeholderTextColor= 'black'
+                            multiline={true}
+                            onChangeText={mensagem => setMensagem(mensagem)}
+                            />
+                        <TouchableOpacity
+                            onPress={()=> {setComment(); setModal(true)}}
+                            style={styles.icon2}>
+                            <AntDesign name="right" size={24} color="black"/>     
+                        </TouchableOpacity>
+                    </View> 
+      
+                    {/* modal 1 */}
 
-          </SwipeablePanel>
-          </View>
-
-      </View>
-  )
+                    <Modal
+                            animationType='fade'
+                            transparent={true}
+                            visible={modal2}
+                        >
+                            <View style={styles.modalView}>
+                                <View style={styles.modalContainer}>
+                                <Image 
+                                    source={require('../../../images/comentario-pop.png')}
+                                    style={styles.modalImage}
+                                />
+                                <Text>O teu comentário precisa de aprovação!</Text>
+                                <Text>Terás de aguardar que o teu comentário seja aprovado.</Text>
+                                <TouchableOpacity
+                                    style={styles.entendi}
+                                    onPress={()=> { setModal2(false)}}
+                                >
+                                    <Text style={styles.entendiText}>Entendi!</Text>
+                                </TouchableOpacity>
+                                </View>
+                            </View>
+                            
+                        
+                        </Modal>
+      
+                </SwipeablePanel>
+                </View>
+      
+      
+      
+                    {/* modal 2 */}
+      
+                    <Modal
+                    animationType='fade'
+                    transparent={true}
+                    visible={modal}
+                    >
+                    <View style={styles.modalView}>
+                        <View style={styles.modalContainer}>
+                            <Image
+                                source={require('../../../images/feedback_pop.png')}
+                                style={styles.modalImage}
+                            />
+                            <Text style={styles.modalTitle}>Recomendarias esta aplicação?</Text>
+      
+                            <View style={styles.ratingContainer}>
+      
+                                <TouchableOpacity
+                                    onPress={() => changeImage()}
+                                   >
+                                </TouchableOpacity>
+      
+      
+      
+                                {/*
+                            <Checkbox
+                                    style={styles.ratingCheckbox}
+                                    onClick={() => validate()}
+                                    isChecked={check}
+                                    unCheckedImage={<Image source={require('../../../images/rating/1.png')} style={styles.ratingImage} />}
+                                    checkedImage={<Image source={require('../../../images/rating/1_selecionado.png')} style={styles.ratingImage} />}
+                                />
+      
+                                <Checkbox
+                                    style={styles.ratingCheckbox}
+                                    onClick={() => validate()}
+                                    isChecked={check}
+                                    unCheckedImage={<Image source={require('../../../images/rating/2.png')} style={styles.ratingImage} />}
+                                    checkedImage={<Image source={require('../../../images/rating/2_selecionado.png')} style={styles.ratingImage} />}
+                                />
+                                <Checkbox
+                                    style={styles.ratingCheckbox}
+                                    onClick={() => validate()}
+                                    isChecked={check}
+                                    unCheckedImage={<Image source={require('../../../images/rating/3.png')} style={styles.ratingImage} />}
+                                    checkedImage={<Image source={require('../../../images/rating/3_selecionado.png')} style={styles.ratingImage} />}
+                                />
+                                <Checkbox
+                                    style={styles.ratingCheckbox}
+                                    onClick={() => validate()}
+                                    isChecked={check}
+                                    unCheckedImage={<Image source={require('../../../images/rating/4.png')} style={styles.ratingImage} />}
+                                    checkedImage={<Image source={require('../../../images/rating/4_selecionado.png')} style={styles.ratingImage} />}
+                                />
+                                <Checkbox
+                                    style={styles.ratingCheckbox}
+                                    onClick={() => validate()}
+                                    isChecked={check}
+                                    unCheckedImage={<Image source={require('../../../images/rating/5.png')} style={styles.ratingImage} />}
+                                    checkedImage={<Image source={require('../../../images/rating/5_selecionado.png')} style={styles.ratingImage} />}
+                                /> */}
+      
+      
+                            </View>
+      
+                            <TouchableOpacity
+                                style={styles.entendi}
+                                onPress={() => { setModal(false), navigation.navigate('PlaylistMarco') }}
+                            >
+                                <Text style={styles.entendiText}>Submeter</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+      
+      
+                </Modal>
+      
+            </View>
+        )
+    } else {
+        return (
+            <View style={styles.container}>
+            <View>
+            <Text style={styles.subtitulo, {marginTop: '30%', justifyContent: 'center', alignContent: 'center', textAlign: 'center', marginLeft: '10%', marginRight: '10%'}} onPress={openPanel}>Comentários</Text>
+            <AntDesign name="down" size={24} color="black" style={{justifyContent: 'center', alignContent: 'center', textAlign: 'center', marginLeft: '10%', marginRight: '10%'}} onPress={openPanel}/>
+            </View>
+            <SwipeablePanel {...panelProps} isActive={isPanelActive}>
+                <View>
+                    {comments.map((e, key) => (
+                        <View style={{flexDirection:'row', marginLeft: '10%', marginRight: '10%', marginBottom: '5%'}}>
+                            <View style={{marginTop: '7.5%', flex: 1, marginRight: '-12.5%', marginLeft: '7.5%'}}>
+                                <AntDesign name="smile-circle" size={50} color="lightblue"/>
+                            </View>
+                            <View style={{width: '90%'}}>
+                                <View>
+                                    <Text style={{marginLeft: '20%'}}>
+                                    Anónimo
+                                    </Text>
+                                </View>
+                                <View style={styles.inputComment}>
+                                    <Text key={key} style={{flexDirection:'column'}, styles.inputMensagem2}>
+                                    {e}
+                                    </Text>
+                                </View>
+                            </View>
+                        </View>
+                    ))}
+                </View>
+  
+  
+  
+                <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: '2.5%'}}>
+                    <TextInput
+                        style={styles.inputMensagem}
+                        width='80%'
+                        marginLeft="10%"
+                        placeholder= 'Comente aqui...'
+                        backgroundColor= '#CFE0FB'
+                        placeholderTextColor= 'black'
+                        multiline={true}
+                        onChangeText={mensagem => setMensagem(mensagem)}
+                        />
+                    <TouchableOpacity
+                        onPress={()=> {setComment(); setModal(true)}}
+                        style={styles.icon2}>
+                        <AntDesign name="right" size={24} color="black"/>     
+                    </TouchableOpacity>
+                </View> 
+  
+                <Modal
+                        animationType='fade'
+                        transparent={true}
+                        visible={modal2}
+                    >
+                        <View style={styles.modalView}>
+                            <View style={styles.modalContainer}>
+                            <Image 
+                                source={require('../../../images/comentario-pop.png')}
+                                style={styles.modalImage}
+                            />
+                            <Text>O teu comentário precisa de aprovação!</Text>
+                            <Text>Terás de aguardar que o teu comentário seja aprovado.</Text>
+                            <TouchableOpacity
+                                style={styles.entendi}
+                                onPress={()=> { setModal2(false)}}
+                            >
+                                <Text style={styles.entendiText}>Entendi!</Text>
+                            </TouchableOpacity>
+                            </View>
+                        </View>
+                        
+                    
+                    </Modal>
+  
+            </SwipeablePanel>
+            </View>
+        )
+    }
+ 
 
 }
 
@@ -386,8 +473,7 @@ const styles = StyleSheet.create({
 
   subtitulo: {
       marginTop: '2%',
-      marginLeft: 'auto',
-      marginRight: 'auto',
+      textAlign: 'center'
   },
 
   inputField: {
