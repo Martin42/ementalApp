@@ -24,6 +24,14 @@ function AudioMarco({ route, navigation }) {
         }
     }
 
+    function validate2(){
+
+        if (check === false) {
+            setCheck(true);
+        } else {
+            setCheck(false);
+        }
+    }
 
 
     // player 
@@ -48,20 +56,8 @@ function AudioMarco({ route, navigation }) {
 
 
     const [modal, setModal] = useState(false);
-    const [image, setImage] = useState(false);
     const [check, setCheck] = useState(false);
  
-
-  function changeImage() {
-
-      if (image === false) {
-          setImage(true);
-       
-      } else {
-          setImage(false);
-      
-      }
-  }
 
     useEffect(() => {
             getComments()
@@ -81,11 +77,10 @@ function AudioMarco({ route, navigation }) {
 
 
 
-  const [mensagem, setMensagem] = useState();
-  const [modal2, setModal2] = useState(false);
-  const [comments, setComments] = useState([]);
-  const [checkPause, setCheckPause] = useState(false);
-
+    const [mensagem, setMensagem] = useState();
+    const [modal2, setModal2] = useState(false);
+    const [comments, setComments] = useState([]);
+    const [checkPause, setCheckPause] = useState(false);
   
 
   function setComment (){
@@ -292,18 +287,10 @@ function AudioMarco({ route, navigation }) {
                             <Text style={styles.modalTitle}>Recomendarias esta aplicação?</Text>
       
                             <View style={styles.ratingContainer}>
-      
-                                <TouchableOpacity
-                                    onPress={() => changeImage()}
-                                   >
-                                </TouchableOpacity>
-      
-      
-      
-                                {/*
-                            <Checkbox
+                                
+                                <Checkbox
                                     style={styles.ratingCheckbox}
-                                    onClick={() => validate()}
+                                    onClick={() => validate2()}
                                     isChecked={check}
                                     unCheckedImage={<Image source={require('../../../images/rating/1.png')} style={styles.ratingImage} />}
                                     checkedImage={<Image source={require('../../../images/rating/1_selecionado.png')} style={styles.ratingImage} />}
@@ -311,32 +298,32 @@ function AudioMarco({ route, navigation }) {
       
                                 <Checkbox
                                     style={styles.ratingCheckbox}
-                                    onClick={() => validate()}
+                                    onClick={() => validate2()}
                                     isChecked={check}
                                     unCheckedImage={<Image source={require('../../../images/rating/2.png')} style={styles.ratingImage} />}
                                     checkedImage={<Image source={require('../../../images/rating/2_selecionado.png')} style={styles.ratingImage} />}
                                 />
                                 <Checkbox
                                     style={styles.ratingCheckbox}
-                                    onClick={() => validate()}
+                                    onClick={() => validate2()}
                                     isChecked={check}
                                     unCheckedImage={<Image source={require('../../../images/rating/3.png')} style={styles.ratingImage} />}
                                     checkedImage={<Image source={require('../../../images/rating/3_selecionado.png')} style={styles.ratingImage} />}
                                 />
                                 <Checkbox
                                     style={styles.ratingCheckbox}
-                                    onClick={() => validate()}
+                                    onClick={() => validate2()}
                                     isChecked={check}
                                     unCheckedImage={<Image source={require('../../../images/rating/4.png')} style={styles.ratingImage} />}
                                     checkedImage={<Image source={require('../../../images/rating/4_selecionado.png')} style={styles.ratingImage} />}
                                 />
                                 <Checkbox
                                     style={styles.ratingCheckbox}
-                                    onClick={() => validate()}
+                                    onClick={() => validate2()}
                                     isChecked={check}
                                     unCheckedImage={<Image source={require('../../../images/rating/5.png')} style={styles.ratingImage} />}
                                     checkedImage={<Image source={require('../../../images/rating/5_selecionado.png')} style={styles.ratingImage} />}
-                                /> */}
+                                />
       
       
                             </View>
@@ -358,10 +345,10 @@ function AudioMarco({ route, navigation }) {
     } else {
         return (
             <View style={styles.container}>
-            <View>
-            <Text style={styles.subtitulo, {marginTop: '30%', justifyContent: 'center', alignContent: 'center', textAlign: 'center', marginLeft: '10%', marginRight: '10%'}} onPress={openPanel}>Comentários</Text>
-            <AntDesign name="down" size={24} color="black" style={{justifyContent: 'center', alignContent: 'center', textAlign: 'center', marginLeft: '10%', marginRight: '10%'}} onPress={openPanel}/>
-            </View>
+                <View>
+                    <Text style={styles.subtitulo, {marginTop: '30%', justifyContent: 'center', alignContent: 'center', textAlign: 'center', marginLeft: '10%', marginRight: '10%'}} onPress={openPanel}>Comentários</Text>
+                    <AntDesign name="down" size={24} color="black" style={{justifyContent: 'center', alignContent: 'center', textAlign: 'center', marginLeft: '10%', marginRight: '10%'}} onPress={openPanel}/>
+                </View>
             <SwipeablePanel {...panelProps} isActive={isPanelActive}>
                 <View>
                     {comments.map((e, key) => (
@@ -540,7 +527,7 @@ const styles = StyleSheet.create({
   ratingCheckbox: {
       flex: 1,
       alignItems: 'center',
-
+      paddingBottom: '10%',
   },
 
 
