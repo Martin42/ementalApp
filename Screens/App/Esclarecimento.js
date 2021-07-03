@@ -108,7 +108,7 @@ function Esclarecimento({route, navigation}){
                     style={styles.arrowLeft}
                     onPress={() => navigation.navigate('Apoio')}
                >
-                    <Icon name='left' size={28} color={'black'} />
+                    <Icon name='left' size={24} color={'black'} />
                 </TouchableOpacity>
 
         <Text style={styles.title}>Pedido de Esclarecimento</Text>
@@ -157,7 +157,7 @@ function Esclarecimento({route, navigation}){
                                   onPress={() => {setPedido(); setModal(true)}}
                                   style={styles.enviar}
                                   >
-                                      <Text style={{color: 'white', textAlign: 'center', fontSize: 18, fontWeight: 'bold'}}> Enviar </Text>
+                                      <Text style={{color: 'white', textAlign: 'center', fontSize: 18, fontWeight: 'bold', marginTop:'2%'}}> Enviar </Text>
                           </TouchableOpacity>
               </View>
             
@@ -260,7 +260,8 @@ const styles = StyleSheet.create({
 
   enviar: {
     borderColor: '#6578B3',
-    borderRadius: 20,
+    height: 50,
+    borderRadius: 30,
     overflow: 'hidden',
     backgroundColor: '#6578B3',
     width: '100%',

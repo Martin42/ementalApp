@@ -274,7 +274,6 @@ function AudioMarco({ route, navigation }) {
                 </View>
       
       
-      
                 {/* modal 2 */}
     
                 animationType='fade'

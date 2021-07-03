@@ -69,6 +69,14 @@ if (currentStatus == 1) {
             <View>
                 <StatusBar style={'auto'} />
 
+                <Checkbox 
+                    style={styles.sair}
+                    onClick={() => {setModal2(true)}}
+                    isChecked={true}
+                    unCheckedImage={<Icon name='power' size={23} color='#D2D2D2' />}
+                    checkedImage={<Icon name='power' size={23} color='#6578B3'/>}
+                />   
+
                 <Text style={styles.title1}>Intervenções</Text>
 
                 <Text style={styles.text}>Estas intervenções foram estruturadas em narrativas audiovisuais que poderás acompanhar após responderes a um breve questionário.</Text>
@@ -134,14 +142,6 @@ if (currentStatus == 1) {
 
             <View>
 
-            <TouchableOpacity 
-                style={styles.login}
-                onPress={() => {SignOut(), setModal2(true)}}
-                
-                >
-                <Text style={styles.loginText}>Sair</Text>
-                </TouchableOpacity>
-
             </View>
 
             <Modal
@@ -151,7 +151,7 @@ if (currentStatus == 1) {
                     >
                     <View style={styles.modalView}>
                         <View style={styles.modalContainer}>
-                            <Text style={styles.modalTitle}>Tens a certeza que queres sair?</Text>      
+                            <Text style={styles.modalTitle}>Tens a certeza que queres terminar sessão?</Text>      
                                 <View style={styles.modalContainer2}>
                                     <TouchableOpacity
                                         style={styles.entendi}
@@ -216,6 +216,14 @@ if (currentStatus == 1) {
             <View>
                 <StatusBar style={'auto'} />
 
+                <Checkbox 
+                    style={styles.sair}
+                    onClick={() => {setModal2(true)}}
+                    isChecked={true}
+                    unCheckedImage={<Icon name='power' size={23} color='#D2D2D2' />}
+                    checkedImage={<Icon name='power' size={23} color='#6578B3'/>}
+                />   
+
                 <Text style={styles.title1}>Intervenções</Text>
 
                 <Text style={styles.text}>Estas intervenções foram estruturadas em narrativas audiovisuais que poderás acompanhar após responderes a um breve questionário.</Text>
@@ -264,14 +272,6 @@ if (currentStatus == 1) {
                 </TouchableOpacity>
 
 
-                <TouchableOpacity 
-                style={styles.login}
-                onPress={() => {setModal2(true)}}
-                
-                >
-                <Text style={styles.loginText}>Sair</Text>
-                </TouchableOpacity>
-
             </View>
 
             <Modal
@@ -281,7 +281,7 @@ if (currentStatus == 1) {
                     >
                     <View style={styles.modalView}>
                         <View style={styles.modalContainer}>
-                            <Text style={styles.modalTitle}>Tens a certeza que queres sair?</Text>      
+                            <Text style={styles.modalTitle}>Tens a certeza que queres terminar sessão?</Text>      
                                 <View style={styles.modalContainer2}>
                                     <TouchableOpacity
                                         style={styles.entendi}
@@ -367,6 +367,13 @@ const styles = StyleSheet.create({
         marginLeft: '10%',
         marginRight: '10%',
         fontSize: 15,
+    },
+
+    sair: {
+        position: 'absolute',
+        marginTop: '10%',
+        marginLeft: '87%',
+        fontSize: 18,
     },
 
     icon: {
@@ -514,7 +521,8 @@ const styles = StyleSheet.create({
     entendiText: {
         textAlign: 'center',
         color: 'white',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontSize: 15,
     },
 
     modalContainer2: {
