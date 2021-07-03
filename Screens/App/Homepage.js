@@ -29,7 +29,12 @@ function Homepage({ route, navigation }) {
         .doc(currentUser)
         .get()
         .then(doc => {
-            setQuestionarioStatus(doc.data().concluido)
+            if ((doc.data().concluido) == undefined) {
+                setQuestionarioStatus(false)
+            } else {
+                setQuestionarioStatus(doc.data().concluido)
+            }
+       
         })
     }
 
@@ -39,7 +44,12 @@ function Homepage({ route, navigation }) {
         .doc(currentUser)
         .get()
         .then(doc => {
-            setQuestionarioMarcoStatus(doc.data().concluido)
+            if ((doc.data().concluido) == undefined) {
+                setQuestionarioMarcoStatus(false)
+            } else {
+                setQuestionarioMarcoStatus(doc.data().concluido)
+            }
+            
         })
     }
 
@@ -62,7 +72,7 @@ function Homepage({ route, navigation }) {
 
 
 
-if (currentStatus == 1) {
+if (currentStatus == 2) {
     return (
         <View style={styles.container}>
         <ScrollView style={styles.container}>

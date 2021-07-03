@@ -25,7 +25,8 @@ function Registo({navigation, route}){
         .then(() => {
           alert('Registado com sucesso');
           navigation.replace('Login');
-          db.collection('users')
+          db
+          .collection('users')
           .doc(auth.currentUser.uid)
           .set({
             name: route.params.nomePedido,
@@ -33,6 +34,20 @@ function Registo({navigation, route}){
             area: route.params.mensagemPedido,
             status: route.params.status,
           });
+
+          db
+          .collection('Questionário Marco Inicial')
+          .doc(auth.currentUser.uid)
+          .set({
+            concluido: 'false'
+          })
+
+          db
+          .collection('Questionário Sara Inicial')
+          .doc(auth.currentUser.uid)
+          .set({
+            concluido: 'false'
+          })
         })
         .catch(error => alert(error.message));  
 
