@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, StatusBar, StyleSheet, TouchableOpacity, Text, Image, View, Alert, TextInput, Modal } from "react-native";
+import { ScrollView, StatusBar, StyleSheet, TouchableOpacity, Text, Image, View, Alert, TextInput, Modal, ImageBackground } from "react-native";
 import { Entypo } from '@expo/vector-icons';
 import Checkbox from 'react-native-check-box';
 import { SwipeablePanel} from 'rn-swipeable-panel';
 import { db, auth } from '../../../Firebase';
 import { AntDesign, Ionicons } from '@expo/vector-icons';
 import { Audio } from 'expo-av';
- 
-
+import bg from '../../../images/bg.png'
 
 function AudioMarco({ route, navigation }) {
+
+    
 
     // validar 
 
@@ -76,11 +77,6 @@ function AudioMarco({ route, navigation }) {
       } : undefined;
   },[sound])
 
-
-
-
-
-
   const [mensagem, setMensagem] = useState();
   const [modal2, setModal2] = useState(false);
   const [comments, setComments] = useState([]);
@@ -118,6 +114,8 @@ function AudioMarco({ route, navigation }) {
       fullWidth: true,
       openLarge: false,
       showCloseButton: true,
+      noBackgroundOpacity: false,
+      closeOnTouchOutside: true,
       onClose: () => closePanel(),
       onPressCloseButton: () => closePanel(),
       // ...or any prop you want
@@ -138,7 +136,7 @@ function AudioMarco({ route, navigation }) {
             <View style={styles.container}>
                 <View style={{ flexDirection: 'row', height: 40, marginTop: '7.5%', alignItems: 'center', marginBottom: '2.5%' }}>
                     <TouchableOpacity
-                        onPress={() => setModal(true)}
+                        onPress={() => navigation.navigate('PlaylistMarco')}
                         style={styles.icon}>
                         <Entypo name="chevron-thin-left" size={24} color="black" />
                     </TouchableOpacity>
@@ -239,7 +237,7 @@ function AudioMarco({ route, navigation }) {
                             onChangeText={mensagem => setMensagem(mensagem)}
                             />
                         <TouchableOpacity
-                            onPress={()=> {setComment(); setModal(true)}}
+                            onPress={()=> {setComment(); setModal2(true)}}
                             style={styles.icon2}>
                             <AntDesign name="right" size={24} color="black"/>     
                         </TouchableOpacity>
@@ -279,7 +277,7 @@ function AudioMarco({ route, navigation }) {
       
                     {/* modal 2 */}
       
-                    <Modal
+                    {/* <Modal
                     animationType='fade'
                     transparent={true}
                     visible={modal}
@@ -297,7 +295,7 @@ function AudioMarco({ route, navigation }) {
                                 <TouchableOpacity
                                     onPress={() => changeImage()}
                                    >
-                                </TouchableOpacity>
+                                </TouchableOpacity> */}
       
       
       
@@ -339,7 +337,7 @@ function AudioMarco({ route, navigation }) {
                                     checkedImage={<Image source={require('../../../images/rating/5_selecionado.png')} style={styles.ratingImage} />}
                                 /> */}
       
-      
+{/*       
                             </View>
       
                             <TouchableOpacity
@@ -352,19 +350,35 @@ function AudioMarco({ route, navigation }) {
                     </View>
       
       
-                </Modal>
+                </Modal> */}
       
             </View>
         )
     } else {
         return (
-            <View style={styles.container}>
-            <View>
-            <Text style={styles.subtitulo, {marginTop: '30%', justifyContent: 'center', alignContent: 'center', textAlign: 'center', marginLeft: '10%', marginRight: '10%'}} onPress={openPanel}>Comentários</Text>
-            <AntDesign name="down" size={24} color="black" style={{justifyContent: 'center', alignContent: 'center', textAlign: 'center', marginLeft: '10%', marginRight: '10%'}} onPress={openPanel}/>
-            </View>
-            <SwipeablePanel {...panelProps} isActive={isPanelActive}>
-                <View>
+            <View style={styles.container2}>
+            <Image source={bg} style={styles.container2}></Image>
+            <SwipeablePanel {...panelProps} isActive={isPanelActive} style={{height: '95%'}}>
+
+                <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: '2.5%', marginTop: '5%'}}>
+                    <TextInput
+                        style={styles.inputMensagem}
+                        width='80%'
+                        marginLeft="10%"
+                        placeholder= 'Comente aqui...'
+                        backgroundColor= '#CFE0FB'
+                        placeholderTextColor= 'black'
+                        multiline={true}
+                        onChangeText={mensagem => setMensagem(mensagem)}
+                        />
+                    <TouchableOpacity
+                        onPress={()=> {setComment(); setModal2(true)}}
+                        style={styles.icon2}>
+                        <AntDesign name="right" size={24} color="black"/>     
+                    </TouchableOpacity>
+                </View> 
+
+                <View style={{marginTop: '10%'}}>
                     {comments.map((e, key) => (
                         <View style={{flexDirection:'row', marginLeft: '10%', marginRight: '10%', marginBottom: '5%'}}>
                             <View style={{marginTop: '7.5%', flex: 1, marginRight: '-12.5%', marginLeft: '7.5%'}}>
@@ -388,23 +402,7 @@ function AudioMarco({ route, navigation }) {
   
   
   
-                <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: '2.5%'}}>
-                    <TextInput
-                        style={styles.inputMensagem}
-                        width='80%'
-                        marginLeft="10%"
-                        placeholder= 'Comente aqui...'
-                        backgroundColor= '#CFE0FB'
-                        placeholderTextColor= 'black'
-                        multiline={true}
-                        onChangeText={mensagem => setMensagem(mensagem)}
-                        />
-                    <TouchableOpacity
-                        onPress={()=> {setComment(); setModal(true)}}
-                        style={styles.icon2}>
-                        <AntDesign name="right" size={24} color="black"/>     
-                    </TouchableOpacity>
-                </View> 
+                
   
                 <Modal
                         animationType='fade'
@@ -417,11 +415,11 @@ function AudioMarco({ route, navigation }) {
                                 source={require('../../../images/comentario-pop.png')}
                                 style={styles.modalImage}
                             />
-                            <Text>O teu comentário precisa de aprovação!</Text>
-                            <Text>Terás de aguardar que o teu comentário seja aprovado.</Text>
+                            <Text style={styles.modalTitle}>O teu comentário precisa de aprovação!</Text>
+                            <Text style={styles.subtitulo}>Terás de aguardar que o teu comentário seja aprovado.</Text>
                             <TouchableOpacity
                                 style={styles.entendi}
-                                onPress={()=> { setModal2(false)}}
+                                onPress={()=> { setModal2(false), closePanel()}}
                             >
                                 <Text style={styles.entendiText}>Entendi!</Text>
                             </TouchableOpacity>
@@ -447,6 +445,12 @@ const styles = StyleSheet.create({
       backgroundColor: 'white',
       width: '100%',
   },
+
+  container2: {
+    flex: 1,
+    backgroundColor: 'white',
+    width: '100%',
+},
 
   imagem: {
       marginTop: '25%',
@@ -553,6 +557,7 @@ const styles = StyleSheet.create({
       overflow: 'hidden',
       backgroundColor: '#6578B3',
       padding: '4%',
+      marginTop: '10%',
   },
 
   modalView: {
