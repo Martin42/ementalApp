@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity} from "react-native";
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, Modal} from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
 import Icon2 from 'react-native-vector-icons/AntDesign';
@@ -8,14 +8,20 @@ import Checkbox from 'react-native-check-box';
 import { auth, db } from '../../Firebase';
 
 
-
 function Homepage({ route, navigation }) {
 
     const [currentStatus, setCurrentStatus] = useState('');
     const [questionarioStatus, setQuestionarioStatus] = useState(false);
     const [questionarioMarcoStatus, setQuestionarioMarcoStatus] = useState(false);
+    
+    const [modal, setModal] = useState(false);
+    const [modal2, setModal2] = useState(false);
 
     const currentUser = auth.currentUser.uid;
+
+    // function SignOut() {
+    //     auth.signOut()
+    // }
 
     function getQuestionarioStatus(){
         db
@@ -126,6 +132,47 @@ if (currentStatus == 1) {
 
             </View>
 
+            <View>
+
+            <TouchableOpacity 
+                style={styles.login}
+                onPress={() => {SignOut(), setModal2(true)}}
+                
+                >
+                <Text style={styles.loginText}>Sair</Text>
+                </TouchableOpacity>
+
+            </View>
+
+            <Modal
+                    animationType='fade'
+                    transparent={true}
+                    visible={modal2}
+                    >
+                    <View style={styles.modalView}>
+                        <View style={styles.modalContainer}>
+                            <Text style={styles.modalTitle}>Tens a certeza que queres sair?</Text>      
+                                <View style={styles.modalContainer2}>
+                                    <TouchableOpacity
+                                        style={styles.entendi}
+                                        onPress={() => { setModal2(false), navigation.navigate('Landing') }}
+                                    >
+                                        <Text style={styles.entendiText}>Sim</Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity
+                                        style={styles.entendi}
+                                        onPress={() => { setModal2(false), navigation.navigate('Homepage') }}
+                                    >
+                                        <Text style={styles.entendiText}>Não</Text>
+                                    </TouchableOpacity>
+                                </View>
+                        </View>
+                    </View>
+      
+      
+                </Modal>
+      
+
         </ScrollView>
 
             <View style={styles.tabBar}>
@@ -173,6 +220,7 @@ if (currentStatus == 1) {
 
                 <Text style={styles.text}>Estas intervenções foram estruturadas em narrativas audiovisuais que poderás acompanhar após responderes a um breve questionário.</Text>
             </View>
+
             <View style={styles.container2}>
 
                 <Text style={styles.title2}>Websérie</Text>
@@ -216,7 +264,43 @@ if (currentStatus == 1) {
                 </TouchableOpacity>
 
 
+                <TouchableOpacity 
+                style={styles.login}
+                onPress={() => {setModal2(true)}}
+                
+                >
+                <Text style={styles.loginText}>Sair</Text>
+                </TouchableOpacity>
+
             </View>
+
+            <Modal
+                    animationType='fade'
+                    transparent={true}
+                    visible={modal2}
+                    >
+                    <View style={styles.modalView}>
+                        <View style={styles.modalContainer}>
+                            <Text style={styles.modalTitle}>Tens a certeza que queres sair?</Text>      
+                                <View style={styles.modalContainer2}>
+                                    <TouchableOpacity
+                                        style={styles.entendi}
+                                        onPress={() => { setModal2(false), navigation.navigate('Landing') }}
+                                    >
+                                        <Text style={styles.entendiText}>Sim</Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity
+                                        style={styles.entendi}
+                                        onPress={() => { setModal2(false), navigation.navigate('Homepage') }}
+                                    >
+                                        <Text style={styles.entendiText}>Não</Text>
+                                    </TouchableOpacity>
+                                </View>
+                        </View>
+                    </View>
+      
+      
+                </Modal>
 
         </ScrollView>
 
@@ -344,9 +428,101 @@ const styles = StyleSheet.create({
         
     },
 
-    
+    login: {
+        marginTop: '2%',
+        width: '35%',
+        height: 40,
+        borderColor: '#6578B3',
+        borderStyle: 'solid',
+        borderRadius: 300,
+        overflow: 'hidden',
+        backgroundColor: '#6578B3',
+        padding: '2%',
+        alignSelf: 'center',
+        justifyContent: 'center',
+        marginBottom: '10%',
+        
+    },
 
+    loginText: {
+        color: 'white',
+        textAlign: 'center',
+        fontWeight: 'bold',
+        fontSize: 18, 
+        marginTop: '1%',
+  
+    },
 
+    entendi: {
+        width: '40%',
+        borderColor: '#6578B3',
+        borderStyle: 'solid',
+        borderRadius: 20,
+        overflow: 'hidden',
+        backgroundColor: '#6578B3',
+        padding: '7.5%',
+        alignContent: 'center',
+        justifyContent: 'center',
+        marginLeft: '5%',
+        marginRight: '5%',
+    },
+  
+    modalView: {
+        alignContent: 'center',
+        justifyContent: 'center',
+        flex: 1,
+    },
+  
+    modalContainer: {
+        marginLeft: '12%',
+        marginRight: '12%',
+        backgroundColor: 'white',
+        alignItems: 'center',
+        padding: 25,
+        shadowColor: 'red',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 4,
+        borderWidth: 1,
+        borderRadius: 30,
+        borderColor: 'white',
+    },
+  
+    modalImage: {
+        marginBottom: '12%',
+        marginTop: '5%',
+        height: 100,
+        width: '50%'
+    },
+  
+    modalTitle: {
+        fontWeight: 'bold',
+        fontSize: 20,
+        textAlign: 'center',
+        marginBottom: '10%',
+        marginLeft: '5%',
+        marginRight: '5%',
+    },
+  
+    modalSubtitle: {
+        fontSize: 15,
+        textAlign: 'center',
+        marginLeft: '10%',
+        marginRight: '10%'
+    },
+  
+    entendiText: {
+        textAlign: 'center',
+        color: 'white',
+        fontWeight: 'bold'
+    },
+
+    modalContainer2: {
+        flex: 1,
+        flexDirection: 'row',
+        marginBottom: '10%',
+    }
 
 });
 
