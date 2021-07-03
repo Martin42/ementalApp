@@ -5,32 +5,95 @@ import Icon1 from 'react-native-vector-icons/MaterialIcons';
 import Icon2 from 'react-native-vector-icons/AntDesign';
 import Checkbox from 'react-native-check-box';
 import { auth, db } from '../../Firebase';
-import { color } from 'react-native-reanimated';
+
 
 function Apoio({ route, navigation }) {
 
-    useEffect(() => {
-        getPedidos();
-    },[])
 
-    
     const currentUser = auth.currentUser.uid;
-    const [informacao, setInformacao] = useState([])
-   
+    const [informacao, setInformacao] = useState([]);
+    const [assegurado, setAssegurado] = useState(false);
 
-    async function getPedidos(){
-        const pedidoRef = db.collection('Pedido Esclarecimento').where('user', '==', currentUser).orderBy('fulldata', 'asc');
-        const snapshot = await pedidoRef.get();
-        const info = [];
-        snapshot.forEach(doc => {
-            info.push(doc.data())
-   
-        })
+    if ((currentUser == '0tPylHnZykWeGHN0Xft4b4De9Nk1' || currentUser == 'FydfT0GfIdeAHeU5Et9UbgzNk852')) {
 
-        setInformacao(...informacao, info);
-      
+
+            useEffect(() => {
+                getPedidosAdmin();
+                getPedidosFinal()
+            }, [assegurado])
+
+            async function getPedidosAdmin(){
+                const pedidoAdminRef = db.collection('Pedido Esclarecimento').where('encarregue', '==', currentUser);
+                const snapshot = await pedidoAdminRef.get();
+                snapshot.forEach(doc => {
+                    if (doc.exists) {
+                        setAssegurado(true);
+                    } else {
+                        setAssegurado(false);
+                    }
+                })
+    
+                console.log(assegurado);
+               
+            }
+
+
+        async function getPedidosFinal(){
+
+           
+
+            if (assegurado == true) {
+              
+                        const pedidoFinalRef = db.collection('Pedido Esclarecimento')
+                        const snapshot = await pedidoFinalRef.get();
+                        const infoAdmin = [];
+                        snapshot.forEach(doc => {
+                            infoAdmin.push(doc.data())
+                            
+                        })
+
+                        setInformacao(...informacao, infoAdmin);
+                
+            } else {
+
+                        const pedidoFinalRef = db.collection('Pedido Esclarecimento').where('encarregue', '==', 'negativo')
+                        const snapshot = await pedidoFinalRef.get();
+                        const infoAdmin = [];
+                        snapshot.forEach(doc => {
+                            infoAdmin.push(doc.data())
+                        })
+
+                        setInformacao(...informacao, infoAdmin);
+                   
+            }
+        }
         
+
+    } else {
+
+        useEffect(() => {
+            getPedidos();
+           
+        },[])
+   
+       
+    
+        async function getPedidos(){
+            const pedidoRef = db.collection('Pedido Esclarecimento').where('user', '==', currentUser).orderBy('fulldata', 'asc');
+            const snapshot = await pedidoRef.get();
+            const info = [];
+            snapshot.forEach(doc => {
+                info.push(doc.data())
+       
+            })
+    
+            setInformacao(...informacao, info);
+          
+            
+        }
     }
+
+   
 
  
 
@@ -58,10 +121,10 @@ function Apoio({ route, navigation }) {
 
                     <View style={styles.ticketRight}>
                         <TouchableOpacity
-                        onPress={() => navigation.navigate('Conversa')}
+                        onPress={() => navigation.navigate('Conversa', {fulldata: item.fulldata})}
                         >
 
-                        {/* render condicional com data da firebase  */}
+                        {/* render condicional com data da firebase Estado a verde ou a vermelho  */}
                         
                         <Text style={{fontSize: 13, fontWeight: 'bold'}}>Assunto:  <Text style={{fontWeight: 'normal'}}>{item.assunto}</Text> </Text>
                         <Text style={{fontSize: 13, fontWeight: 'bold'}}>Estado: { (item.estado == 'Resolvido') ? (
@@ -80,21 +143,29 @@ function Apoio({ route, navigation }) {
             }
 
               
+              {
+                  (currentUser == '0tPylHnZykWeGHN0Xft4b4De9Nk1') || (currentUser == 'FydfT0GfIdeAHeU5Et9UbgzNk852') ? (
+                      <Text></Text>
+                  ) : (
+                        <View style={styles.ticketContainer}>
+                            <View style={styles.ticketLeft}>
+                                <TouchableOpacity
+                                    onPress={() => navigation.navigate('Esclarecimento')}
+                            
+                                >
+                                    <Icon2 name='plus' size={25} color={'#6578B3'} style={{alignSelf: 'center'}} />
+                                </TouchableOpacity>
+                            </View>
 
-                <View style={styles.ticketContainer}>
-                        <View style={styles.ticketLeft}>
-                            <TouchableOpacity
-                                onPress={() => navigation.navigate('Esclarecimento')}
-                           
-                            >
-                                <Icon2 name='plus' size={25} color={'#6578B3'} style={{alignSelf: 'center'}} />
-                            </TouchableOpacity>
+                            <View style={styles.ticketRight}>
+                            <Text style={{fontSize: 12, fontWeight: 'bold'}}> Realizar pedido de esclarecimento</Text>
+                            </View>
                         </View>
+                  )
+              }
 
-                        <View style={styles.ticketRight}>
-                           <Text style={{fontSize: 12, fontWeight: 'bold'}}> Realizar pedido de esclarecimento</Text>
-                        </View>
-                </View>
+
+                
 
                 <View style={styles.contacto}>
                     <Text style={styles.titulo2}>Telefone da Amizade</Text>

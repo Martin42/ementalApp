@@ -15,6 +15,7 @@ function Esclarecimento({route, navigation}){
     const [assunto, setAssunto] = useState();
     const [mensagem, setMensagem] = useState();
     const [month, setMonth] = useState();
+    
 
 
     useEffect(() => {
@@ -81,6 +82,9 @@ function Esclarecimento({route, navigation}){
           mês: month,
           dia: new Date().getDate(),
           fulldata: new Date().toUTCString(),
+          destinatario1: 'Dra Margarida Braga',
+          destinatario2: 'Dra Ana Cristina',
+          encarregue: 'negativo'
           
         })
       } else {
@@ -95,10 +99,59 @@ function Esclarecimento({route, navigation}){
           mês: month,
           dia: new Date().getDate(),
           fulldata: new Date().toUTCString(),
+          destinatario1: 'Dra Margarida Braga',
+          destinatario2: 'Dra Ana Cristina',
+          encarregue: 'negativo'
           
-        })
+        });
+
+       
       }
     }
+
+    function setConversa(){
+
+      if (nome == undefined) {
+        db
+        .collection('Tickets')
+        .add({
+          assunto: assunto,
+          mensagem: mensagem,
+          remetente: currentUser,
+          destinatario1: 'Dra Margarida Braga',
+          destinatario2: 'Dra Ana Cristina',
+          fulldata: new Date().toUTCString(),
+          nome: 'Anónimo',
+          respostaPDS: '',
+          horaPDS: '',
+          respostaUser: '',
+          horaUser: '',
+          respostaFinal: '',
+          horaFinal: '',
+          encarregue: 'negativo'
+        })
+      } else {
+        db
+        .collection('Tickets')
+        .add({
+          assunto: assunto,
+          mensagem: mensagem,
+          remetente: currentUser,
+          destinatario1: 'Dra Margarida Braga',
+          destinatario2: 'Dra Ana Cristina',
+          fulldata: new Date().toUTCString(),
+          nome: nome,
+          respostaPDS: '',
+          horaPDS: '',
+          respostaUser: '',
+          horaUser: '',
+          respostaFinal: '',
+          horaFinal: '',
+          encarregue: 'negativo'
+      })
+      
+    }
+  }
 
     return (
         <View style={styles.container}>
@@ -154,7 +207,7 @@ function Esclarecimento({route, navigation}){
 
               <View style={{marginTop: '40%'}} >
                           <TouchableOpacity
-                                  onPress={() => {setPedido(); setModal(true)}}
+                                  onPress={() => {setPedido(); setConversa(); setModal(true)}}
                                   style={styles.enviar}
                                   >
                                       <Text style={{color: 'white', textAlign: 'center', fontSize: 18, fontWeight: 'bold'}}> Enviar </Text>
