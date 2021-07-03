@@ -276,7 +276,7 @@ function AudioMarco({ route, navigation }) {
       
                 {/* modal 2 */}
     
-                animationType='fade'
+                {/* animationType='fade'
                 transparent={true}
                 visible={modal}
                 
@@ -337,7 +337,7 @@ function AudioMarco({ route, navigation }) {
                             <Text style={styles.entendiText}>Submeter</Text>
                         </TouchableOpacity>
                     </View>
-                </View>
+                </View> */}
             </View>
         )
     } else {
