@@ -19,6 +19,12 @@ function Homepage({ route, navigation }) {
 
     const currentUser = auth.currentUser.uid;
 
+
+    function sair(){
+        auth.signOut();
+    }
+
+
     function getQuestionarioStatus(){
         db
         .collection('Questionário Sara Inicial')
@@ -162,7 +168,7 @@ if (currentStatus == 2) {
                                 <View style={styles.modalContainer2}>
                                     <TouchableOpacity
                                         style={styles.entendi}
-                                        onPress={() => { setModal2(false), navigation.navigate('Landing') }}
+                                        onPress={() => { setModal2(false), sair(), navigation.navigate('Landing') }}
                                     >
                                         <Text style={styles.entendiText}>Sim</Text>
                                     </TouchableOpacity>
@@ -292,7 +298,7 @@ if (currentStatus == 2) {
                                 <View style={styles.modalContainer2}>
                                     <TouchableOpacity
                                         style={styles.entendi}
-                                        onPress={() => { setModal2(false), navigation.navigate('Landing') }}
+                                        onPress={() => { setModal2(false), sair(), navigation.navigate('Landing')}}
                                     >
                                         <Text style={styles.entendiText}>Sim</Text>
                                     </TouchableOpacity>
