@@ -19,10 +19,6 @@ function Homepage({ route, navigation }) {
 
     const currentUser = auth.currentUser.uid;
 
-    // function SignOut() {
-    //     auth.signOut()
-    // }
-
     function getQuestionarioStatus(){
         db
         .collection('Questionário Sara Inicial')
@@ -68,6 +64,7 @@ function Homepage({ route, navigation }) {
         getStatus();
         getQuestionarioStatus();
         getQuestionarioMarcoStatus();
+   
     },[])
 
 
@@ -189,7 +186,7 @@ if (currentStatus == 2) {
                 <View style={{flex: 1}}>
                 <Checkbox 
                     style={styles.icon}
-                    onClick={() => navigation.navigate('Notificacoes')} 
+                    onClick={() => {navigation.navigate('Notificacoes')}} 
                     isChecked={false}
                     unCheckedImage={<Icon name='notifications' size={28} color='#D2D2D2'/>}
                     checkedImage={<Icon name='notifications' size={28} color='#6578B3'/>}
@@ -318,7 +315,7 @@ if (currentStatus == 2) {
                 <View style={{flex: 1}}>
                 <Checkbox 
                     style={styles.icon}
-                    onClick={() => navigation.navigate('Notificacoes')}
+                    onClick={() => {navigation.navigate('Notificacoes')}}
                     isChecked={false}
                     unCheckedImage={<Icon name='notifications' size={28} color='#D2D2D2'/>}
                     checkedImage={<Icon name='notifications' size={28} color='#6578B3'/>}
