@@ -1,12 +1,44 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
 import Icon2 from 'react-native-vector-icons/AntDesign';
 import Checkbox from 'react-native-check-box';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from "react-native";
+import { db, auth } from '../../../Firebase';
 
 function PlaylistSara({ route, navigation }) {
+
+    useEffect(() => {
+        getEP2();
+    }, []);
+
+
+    const currentUser = auth.currentUser.uid;
+    const [EP2, setEP2] = useState(false);
+
+    function getEP2(){
+
+        const currentTime = new Date() / 1000;
+        db
+        .collection('users')
+        .doc(currentUser)
+        .get()
+        .then(doc => {
+            if ((doc.data().EPI2) == undefined) {
+                console.log('BOAS');
+            } else {
+                if ((doc.data().EPI2.seconds + 15000) <= currentTime) {
+                    console.log('Video Disponivel');
+                    setEP2(true);
+                } else {
+                    console.log('Video Indisponivel');
+                }
+            }
+        })
+
+
+    }
+
 
     return (
         <View style={styles.container}>

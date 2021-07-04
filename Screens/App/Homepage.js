@@ -19,9 +19,11 @@ function Homepage({ route, navigation }) {
 
     const currentUser = auth.currentUser.uid;
 
-    // function SignOut() {
-    //     auth.signOut()
-    // }
+
+    function sair(){
+        auth.signOut();
+    }
+
 
     function getQuestionarioStatus(){
         db
@@ -68,6 +70,7 @@ function Homepage({ route, navigation }) {
         getStatus();
         getQuestionarioStatus();
         getQuestionarioMarcoStatus();
+   
     },[])
 
 
@@ -165,7 +168,7 @@ if (currentStatus == 2) {
                                 <View style={styles.modalContainer2}>
                                     <TouchableOpacity
                                         style={styles.entendi}
-                                        onPress={() => { setModal2(false), navigation.navigate('Landing') }}
+                                        onPress={() => { setModal2(false), sair(), navigation.navigate('Landing') }}
                                     >
                                         <Text style={styles.entendiText}>Sim</Text>
                                     </TouchableOpacity>
@@ -189,7 +192,7 @@ if (currentStatus == 2) {
                 <View style={{flex: 1}}>
                 <Checkbox 
                     style={styles.icon}
-                    onClick={() => navigation.navigate('Notificacoes')} // Alterar para Notificações
+                    onClick={() => {navigation.navigate('Notificacoes')}} 
                     isChecked={false}
                     unCheckedImage={<Icon name='notifications' size={28} color='#D2D2D2'/>}
                     checkedImage={<Icon name='notifications' size={28} color='#6578B3'/>}
@@ -295,7 +298,7 @@ if (currentStatus == 2) {
                                 <View style={styles.modalContainer2}>
                                     <TouchableOpacity
                                         style={styles.entendi}
-                                        onPress={() => { setModal2(false), navigation.navigate('Landing') }}
+                                        onPress={() => { setModal2(false), sair(), navigation.navigate('Landing')}}
                                     >
                                         <Text style={styles.entendiText}>Sim</Text>
                                     </TouchableOpacity>
@@ -318,7 +321,7 @@ if (currentStatus == 2) {
                 <View style={{flex: 1}}>
                 <Checkbox 
                     style={styles.icon}
-                    onClick={() => navigation.navigate('Notificacoes')}
+                    onClick={() => {navigation.navigate('Notificacoes')}}
                     isChecked={false}
                     unCheckedImage={<Icon name='notifications' size={28} color='#D2D2D2'/>}
                     checkedImage={<Icon name='notifications' size={28} color='#6578B3'/>}
@@ -381,9 +384,8 @@ const styles = StyleSheet.create({
 
     sair: {
         position: 'absolute',
-        marginTop: '10%',
-        marginLeft: '87%',
-        fontSize: 18,
+        right: 25,
+        top: 50,
     },
 
     icon: {
