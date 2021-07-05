@@ -7,29 +7,25 @@ import { AntDesign } from '@expo/vector-icons';
 
 function EP40({route, navigation}){
 
-    const currentUser = auth.currentUser.uid;
-    const [currentStatus, setCurrentStatus] = useState('');
 
 
     useEffect(() => {
         getComments();
+        getStatus();
     }, [])
 
 
     const [mensagem, setMensagem] = useState();
     const [playing, setPlaying] = useState(false);
-    const [modal, setModal] = useState(false);
     const [comments, setComments] = useState([]);
-    const [commentsAdmin, setCommentsAdmin] = useState([]);
     
-    
+   
 
     function setComment (){
         db
             .collection(route.params.episodio)
             .add({
                 comentario: mensagem,
-                aprovado: 'false',
             }) 
     }
 
@@ -64,28 +60,27 @@ function EP40({route, navigation}){
                         style={styles.icon}>
                         <Entypo name="chevron-thin-left" size={24} color="black"/>
                     </TouchableOpacity>
-    
+
                     <Text
                         style={{fontSize: 20}}>
                             {route.params.titulo}
                     </Text>
-    
+
                 </View>
-    
-                
+
                 <View>
-    
+
                 <YoutubePlayer
                         height={300}
                         play={playing}
                         videoId={route.params.video}
                 />
-    
+
                 </View>
-          
+        
                 <Text style={styles.title1}>Comentários</Text>
-    
-                {/* {Object.keys(commentsAdmin).map((e, key) => {             
+
+                {comments.map((e, key) => (
                     <View key={key} style={{flexDirection:'row', marginLeft: '10%', marginRight: '10%', marginBottom: '5%'}}>
                         <View style={{marginTop: '7.5%', flex: 1, marginRight: '-12.5%', marginLeft: '7.5%'}}>
                             <AntDesign name="smile-circle" size={50} color="lightblue"/>
@@ -98,50 +93,16 @@ function EP40({route, navigation}){
                             </View>
                             <View style={styles.inputComment}>
                                 <Text style={{flexDirection:'column'}, styles.inputMensagem2}>
-                                    {commentsAdmin[e]}
+                                {e}
                                 </Text>
                             </View>
-                            <TouchableOpacity>
-                                    <Text>Aceitar</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity>
-                                    <Text>Recusar</Text>
-                            </TouchableOpacity>
                         </View>
                     </View>
-                })} */}
+                ))}
 
-               
 
-    
-    
-                <Modal
-                            animationType='fade'
-                            transparent={true}
-                            visible={modal}
-                        >
-                            <View style={styles.modalView}>
-                                <View style={styles.modalContainer}>
-                                <Image 
-                                    source={require('../../../images/comentario-pop.png')}
-                                    style={styles.modalImage}
-                                />
-                                <Text>O teu comentário aguarda aprovação!</Text>
-                                <Text>Terás de aguardar que o teu comentário seja aprovado.</Text>
-                                <TouchableOpacity
-                                    style={styles.entendi}
-                                    onPress={()=> { setModal(false)}}
-                                >
-                                    <Text style={styles.entendiText}>Entendi!</Text>
-                                </TouchableOpacity>
-                                </View>
-                            </View>
-                            
-                        
-                        </Modal>
-    
             </ScrollView>
-    
+
                 <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: '2.5%'}}>
                         <TextInput
                             style={styles.inputMensagem}
@@ -153,17 +114,18 @@ function EP40({route, navigation}){
                             multiline={true}
                             onChangeText={mensagem => setMensagem(mensagem)}
                             />
-    
+
                         <TouchableOpacity
-                            onPress={()=> {setComment(); setModal(true)}}
+                            onPress={()=> {setComment()}}
                             style={styles.icon2}>
                             <AntDesign name="right" size={24} color="black"/>     
                         </TouchableOpacity>
-    
-                </View> 
-    
+
+                </View>
+
                 </View>
         )
+        
     }
 
 

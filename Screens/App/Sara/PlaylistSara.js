@@ -10,10 +10,12 @@ function PlaylistSara({ route, navigation }) {
 
     useEffect(() => {
         getEP2();
+        getStatus();
     }, []);
 
 
     const currentUser = auth.currentUser.uid;
+    const [currentStatus, setCurrentStatus] = useState('');
     const [EP2, setEP2] = useState(false);
 
     function getEP2(){
@@ -37,6 +39,16 @@ function PlaylistSara({ route, navigation }) {
         })
 
 
+    }
+
+
+    function getStatus (){ db
+        .collection('users')
+        .doc(currentUser)
+        .get()
+        .then(doc => {
+            setCurrentStatus(doc.data().status) 
+        });
     }
 
 
@@ -723,6 +735,23 @@ function PlaylistSara({ route, navigation }) {
                     checkedImage={<Icon2 name='questioncircle' size={28} color='#6578B3'/>}
                 />  
                 </View>
+
+                { (currentStatus == 2) ? (
+                      <View style={{flex: 1}}>
+                      <Checkbox 
+                          style={styles.icon}
+                          onClick={() => navigation.navigate('PainelControlo')} 
+                          isChecked={false}
+                          unCheckedImage={<Icon1 name='equalizer' size={30} color='#D2D2D2' />}
+                          checkedImage={<Icon1 name='equalizer' size={30} color='#6578B3'/>}
+                      />  
+                      </View>
+                ) : (
+                    <Text></Text>
+                ) }
+
+
+
             </View>
 
         </View>
