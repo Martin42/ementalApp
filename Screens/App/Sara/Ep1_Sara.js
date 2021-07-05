@@ -99,6 +99,45 @@ function Ep1_Sara({route, navigation}){
         }
     };
 
+    function setRating() {
+        if (check1 == true) {
+            db
+                .collection('Ratings')
+                .doc(currentUser)
+                .set({
+                    Rating: 1 
+                })
+        } else if (check2 == true) {
+            db
+            .collection('Ratings')
+            .doc(currentUser)
+            .set({
+                Rating: 2 
+            })
+        } else if (check3 == true) {
+            db
+            .collection('Ratings')
+            .doc(currentUser)
+            .set({
+                Rating: 3 
+            })
+        } else if (check4 == true) {
+            db
+            .collection('Ratings')
+            .doc(currentUser)
+            .set({
+                Rating: 4 
+            })
+        } else if (check5 == true) {
+            db
+            .collection('Ratings')
+            .doc(currentUser)
+            .set({
+                Rating: 5 
+            })
+        }
+    }
+
 
     function setComment (){
         db
@@ -314,7 +353,7 @@ function Ep1_Sara({route, navigation}){
                             { confirmar == true ? (
                                 <TouchableOpacity
                                 style={styles.entendi}
-                                onPress={() => { setModal2(false), navigation.navigate('PlaylistSara') }}
+                                onPress={() => { setModal2(false), navigation.navigate('PlaylistSara'), setRating()}}
                             >
                            
                                 <Text style={styles.entendiText}>Submeter</Text>
@@ -484,7 +523,7 @@ function Ep1_Sara({route, navigation}){
                             { confirmar == true ? (
                                 <TouchableOpacity
                                 style={styles.entendi}
-                                onPress={() => { setModal2(false), navigation.navigate('PlaylistSara') }}
+                                onPress={() => { setModal2(false), navigation.navigate('PlaylistSara'), setRating()}}
                             >
                            
                                 <Text style={styles.entendiText}>Submeter</Text>
