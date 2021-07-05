@@ -213,7 +213,9 @@ function AudioMarco({ route, navigation }) {
                                         </Text>
                                     </View>
                                     <View style={styles.inputComment}>
+
                                         <Text  style={{flexDirection:'column'}, styles.inputMensagem2}>
+
                                         {e}
                                         </Text>
                                     </View>
@@ -301,9 +303,10 @@ function AudioMarco({ route, navigation }) {
 
                 <View style={{marginTop: '10%'}}>
                     {comments.map((e, key) => (
+
                         <View key={key} style={{flexDirection:'row', marginLeft: '10%', marginRight: '10%', marginBottom: '5%'}}>
                             <View style={{marginTop: '7.5%', flex: 1, marginRight: '-12.5%', marginLeft: '7.5%'}}>
-                                <AntDesign name="smile-circle" size={50} color="lightblue"/>
+                 <AntDesign name="smile-circle" size={50} color="lightblue"/>
                             </View>
                             <View style={{width: '90%'}}>
                                 <View>
@@ -312,7 +315,9 @@ function AudioMarco({ route, navigation }) {
                                     </Text>
                                 </View>
                                 <View style={styles.inputComment}>
+
                                     <Text  style={{flexDirection:'column'}, styles.inputMensagem2}>
+
                                     {e}
                                     </Text>
                                 </View>
