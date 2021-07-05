@@ -446,7 +446,7 @@ function Ep1_Sara({route, navigation}){
                                     
                                     
                                     <TouchableOpacity 
-                                    style={{width: '20%', marginTop: '2%'}}
+                                    style={{width: '20%', marginTop: '2%', marginLeft: '4%'}}
                                     onPress={() => {setAprovado(id)}}>
                                         <Svg marginRight="10%" width="72,81" height="37" viewBox="0 0 73 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <Rect width="72.8064" height="37" rx="17.3065" fill="#6578B3"/>
