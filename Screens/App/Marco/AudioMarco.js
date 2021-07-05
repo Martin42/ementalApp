@@ -24,16 +24,6 @@ function AudioMarco({ route, navigation }) {
         }
     }
 
-    function validate2(){
-
-        if (check === false) {
-            setCheck(true);
-        } else {
-            setCheck(false);
-        }
-    }
-
-
     // player 
 
     const [sound, setSound] = useState();
@@ -52,13 +42,7 @@ function AudioMarco({ route, navigation }) {
     async function stopSound(){
         await sound.pauseAsync();
     }
-
-
-
-    const [modal, setModal] = useState(false);
-    const [check, setCheck] = useState(false);
  
-
     useEffect(() => {
             getComments()
     }, [])
