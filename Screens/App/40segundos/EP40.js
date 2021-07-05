@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect} from 'react';
-import { ScrollView, Checkbox, StatusBar, StyleSheet, TouchableOpacity, Text, Image, View, Alert , TextInput, Modal} from "react-native";
+import { ScrollView, StyleSheet, TouchableOpacity, Text, Image, View, TextInput, Modal} from "react-native";
 import { Entypo } from '@expo/vector-icons'
 import YoutubePlayer from "react-native-youtube-iframe";
 import { db, auth } from '../../../Firebase';
@@ -13,7 +13,6 @@ function EP40({route, navigation}){
 
     useEffect(() => {
         getComments();
-        getCommentsAdmin();
     }, [])
 
 
@@ -39,12 +38,7 @@ function EP40({route, navigation}){
         const snapshot = await commentRef.get()
         const comentarios = [];
         snapshot.forEach(doc => {
-            if (doc.data().aprovado === 'false') {
-                console.log('Precisa de Aprovação');
-            } else {
                 comentarios.push(doc.data().comentario);
-            }
-            
         })
 
         setComments(...comments, comentarios)
@@ -66,7 +60,7 @@ function EP40({route, navigation}){
             <ScrollView style={styles.container}>
                 <View style={{flexDirection: 'row', height: 40, marginTop: '7.5%', alignItems: 'center', marginBottom: '2.5%'}}>
                     <TouchableOpacity
-                        onPress={() => navigation.navigate('PlaylistSara')}
+                        onPress={() => navigation.navigate('Playlist40')}
                         style={styles.icon}>
                         <Entypo name="chevron-thin-left" size={24} color="black"/>
                     </TouchableOpacity>
