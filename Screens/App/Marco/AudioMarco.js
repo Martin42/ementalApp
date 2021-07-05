@@ -5,7 +5,9 @@ import { SwipeablePanel} from 'rn-swipeable-panel';
 import { db, auth } from '../../../Firebase';
 import { AntDesign, Ionicons } from '@expo/vector-icons';
 import { Audio } from 'expo-av';
+import Slider from '@react-native-community/slider';
 import bg from '../../../images/bg.png'
+import thumbImage from '../../../images/thumbImage.png'
 
 function AudioMarco({ route, navigation }) {
 
@@ -25,6 +27,12 @@ function AudioMarco({ route, navigation }) {
     }
 
     // player 
+
+    const [playbackPosition, setPlaybackPosition] = useState(null);
+    const [playbackDuration, setPlaybackDuration] = useState(null);
+
+    
+
 
     const [sound, setSound] = useState();
 
@@ -141,9 +149,20 @@ function AudioMarco({ route, navigation }) {
                 <Text style={styles.subtitulo}>
                     {route.params.serie}
                 </Text>
-      
-                
-      
+
+                <View style={{justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
+                <Slider
+                    style={styles.slider}
+                    minimumValue={0}
+                    maximumValue={1}
+                    // disabled={true}
+                    thumbImage={thumbImage}
+                    minimumTrackTintColor="#8FBBFF"
+                    maximumTrackTintColor="#D2D2D2"
+                    thumbTintColor="#8FBBFF"
+                />
+                </View>
+
              {/* PLAYER  */}
       
                  {
@@ -177,8 +196,8 @@ function AudioMarco({ route, navigation }) {
                
                 <View style={styles.container}>
                 <View style={{ flex: 1}}>
-                <AntDesign name="up" size={24} color="#6578B3" style={{alignSelf: 'center', position: 'absolute', top: 110}} onPress={openPanel}/>
-                <Text style={styles.subtitulo, {marginTop: '30%', alignSelf: 'center', color: '#6578B3', fontWeight: 'bold'}} onPress={openPanel}>
+                <AntDesign name="up" size={24} color="#6578B3" style={{alignSelf: 'center', position: 'absolute', top: 90}} onPress={openPanel}/>
+                <Text style={styles.subtitulo, {marginTop: '25%', alignSelf: 'center', color: '#6578B3', fontWeight: 'bold'}} onPress={openPanel}>
                     Comentários      
                 </Text>
             
@@ -519,6 +538,11 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       color: 'white',
       fontWeight: 'bold'
+  },
+
+  slider: {
+    width: 350,
+    height: 40,
   }
 
 });
