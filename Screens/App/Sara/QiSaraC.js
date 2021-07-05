@@ -584,6 +584,15 @@ function QiSaraC({route, navigation}){
                
               
             </ScrollView>
+
+            <View style={styles.container3}>
+                    <Text style={styles.progressoDot}>•</Text>
+                    <Text style={styles.progressoDotSelected}>•</Text>
+                    <Text style={styles.progressoDot}>•</Text>
+                    <Text style={styles.progressoDot}>•</Text>
+                    <Text style={styles.progressoDot}>•</Text>
+            </View>
+
         </View>
     )
 
@@ -596,6 +605,30 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         width: '100%',
+    },
+
+    container3: {
+        flexDirection: 'row',
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '50%',
+        marginBottom: '10%',
+    },
+
+    progressoDot: {
+        textAlign: 'center',
+        flex: 1,
+        color: '#D2D2D2',
+        fontSize: 50,
+        opacity: 50,
+    },
+
+    progressoDotSelected: {
+        textAlign: 'center',
+        flex: 1,
+        color: '#8FBBDD',
+        fontSize: 50,
     },
 
     seguinteContainer: {
