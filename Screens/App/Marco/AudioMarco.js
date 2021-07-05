@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ScrollView, StatusBar, StyleSheet, TouchableOpacity, Text, Image, View, Alert, TextInput, Modal, ImageBackground } from "react-native";
 import { Entypo } from '@expo/vector-icons';
-import Checkbox from 'react-native-check-box';
 import { SwipeablePanel} from 'rn-swipeable-panel';
 import { db, auth } from '../../../Firebase';
 import { AntDesign, Ionicons } from '@expo/vector-icons';
@@ -246,98 +245,34 @@ function AudioMarco({ route, navigation }) {
                     {/* modal 1 */}
 
                     <Modal
-                            animationType='fade'
-                            transparent={true}
-                            visible={modal2}
-                        >
-                            <View style={styles.modalView}>
-                                <View style={styles.modalContainer}>
-                                <Image 
-                                    source={require('../../../images/comentario-pop.png')}
-                                    style={styles.modalImage}
-                                />
-                                <Text>O teu comentário precisa de aprovação!</Text>
-                                <Text>Terás de aguardar que o teu comentário seja aprovado.</Text>
-                                <TouchableOpacity
-                                    style={styles.entendi}
-                                    onPress={()=> { setModal2(false)}}
-                                >
-                                    <Text style={styles.entendiText}>Entendi!</Text>
-                                </TouchableOpacity>
-                                </View>
+                        animationType='fade'
+                        transparent={true}
+                        visible={modal2}
+                    >
+                        <View style={styles.modalView}>
+                            <View style={styles.modalContainer}>
+                            <Image 
+                                source={require('../../../images/comentario-pop.png')}
+                                style={styles.modalImage}
+                            />
+                            <Text style={styles.modalTitle}>O teu comentário precisa de aprovação!</Text>
+                            <Text style={styles.modalSubtitle}>Terás de aguardar que o teu comentário seja aprovado.</Text>
+                            <TouchableOpacity
+                                style={styles.entendi}
+                                onPress={()=> { setModal2(false), closePanel()}}
+                            >
+                                <Text style={styles.entendiText}>Entendi!</Text>
+                            </TouchableOpacity>
                             </View>
-                            
+                        </View>
                         
-                        </Modal>
+                    
+                    </Modal>
       
                 </SwipeablePanel>
                 </View>
-      
-      
-                {/* modal 2 */}
     
-                {/* animationType='fade'
-                transparent={true}
-                visible={modal}
-                
-                <View style={styles.modalView}>
-                    <View style={styles.modalContainer}>
-                        <Image
-                            source={require('../../../images/feedback_pop.png')}
-                            style={styles.modalImage}
-                        />
-                        <Text style={styles.modalTitle}>Recomendarias esta aplicação?</Text>
-    
-                        <View style={styles.ratingContainer}>
-                            
-                            <Checkbox
-                                style={styles.ratingCheckbox}
-                                onClick={() => validate2()}
-                                isChecked={check}
-                                unCheckedImage={<Image source={require('../../../images/rating/1.png')} style={styles.ratingImage} />}
-                                checkedImage={<Image source={require('../../../images/rating/1_selecionado.png')} style={styles.ratingImage} />}
-                            />
-    
-                            <Checkbox
-                                style={styles.ratingCheckbox}
-                                onClick={() => validate2()}
-                                isChecked={check}
-                                unCheckedImage={<Image source={require('../../../images/rating/2.png')} style={styles.ratingImage} />}
-                                checkedImage={<Image source={require('../../../images/rating/2_selecionado.png')} style={styles.ratingImage} />}
-                            />
-                            <Checkbox
-                                style={styles.ratingCheckbox}
-                                onClick={() => validate2()}
-                                isChecked={check}
-                                unCheckedImage={<Image source={require('../../../images/rating/3.png')} style={styles.ratingImage} />}
-                                checkedImage={<Image source={require('../../../images/rating/3_selecionado.png')} style={styles.ratingImage} />}
-                            />
-                            <Checkbox
-                                style={styles.ratingCheckbox}
-                                onClick={() => validate2()}
-                                isChecked={check}
-                                unCheckedImage={<Image source={require('../../../images/rating/4.png')} style={styles.ratingImage} />}
-                                checkedImage={<Image source={require('../../../images/rating/4_selecionado.png')} style={styles.ratingImage} />}
-                            />
-                            <Checkbox
-                                style={styles.ratingCheckbox}
-                                onClick={() => validate2()}
-                                isChecked={check}
-                                unCheckedImage={<Image source={require('../../../images/rating/5.png')} style={styles.ratingImage} />}
-                                checkedImage={<Image source={require('../../../images/rating/5_selecionado.png')} style={styles.ratingImage} />}
-                            />
-    
-    
-                        </View>
-    
-                        <TouchableOpacity
-                            style={styles.entendi}
-                            onPress={() => { setModal(false), navigation.navigate('PlaylistMarco') }}
-                        >
-                            <Text style={styles.entendiText}>Submeter</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View> */}
+               
             </View>
         )
     } else {
@@ -402,7 +337,7 @@ function AudioMarco({ route, navigation }) {
                                 style={styles.modalImage}
                             />
                             <Text style={styles.modalTitle}>O teu comentário precisa de aprovação!</Text>
-                            <Text style={styles.subtitulo}>Terás de aguardar que o teu comentário seja aprovado.</Text>
+                            <Text style={styles.modalSubtitle}>Terás de aguardar que o teu comentário seja aprovado.</Text>
                             <TouchableOpacity
                                 style={styles.entendi}
                                 onPress={()=> { setModal2(false), closePanel()}}
