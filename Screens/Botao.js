@@ -30,6 +30,7 @@ function Botao({navigation}) {
             <Text style={styles.loginText}>Entrar</Text>
           </TouchableOpacity>
 
+
           <Text style={styles.subtitle}> Ainda não conheces o projeto? </Text>
 
           <Text style={styles.link} onPress={() => Linking.openURL('http://emental.web.ua.pt')}>

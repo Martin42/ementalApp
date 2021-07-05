@@ -41,7 +41,7 @@ function Conversa({route, navigation}){
     }
 
 
-    if (userStatus == 0) {
+    if ((userStatus == 0 )|| (userStatus == 1)) {
         return (
             <View style={styles.container}>
                 <View style={styles.header}>

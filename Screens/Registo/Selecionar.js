@@ -35,7 +35,7 @@ function Selecionar ({navigation}) {
                     onPress={() => {
                       
                       navigation.navigate('Info', {
-                        status: 2,
+                        status: 1,
                       });
                       
                     

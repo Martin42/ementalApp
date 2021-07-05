@@ -101,45 +101,44 @@ function PainelControlo({ route, navigation }) {
         </ScrollView>
 
             <View style={styles.tabBar}>
-                
-            <View style={{flex: 1}}>
-                <Checkbox 
-                    style={styles.icon}
-                    onClick={() => navigation.navigate('Homepage')}
-                    isChecked={false}
-                    unCheckedImage={<Icon1 name='home' size={30} color='#D2D2D2' />}
-                    checkedImage={<Icon1 name='home' size={30} color='#6578B3'/>}
-                />   
+                <View style={{flex: 1}}>
+                    <Checkbox 
+                        style={styles.icon}
+                        onClick={() => navigation.navigate('Notificacoes')} // Alterar para Notificações
+                        isChecked={false}
+                        unCheckedImage={<Icon name='notifications' size={28} color='#D2D2D2'/>}
+                        checkedImage={<Icon name='notifications' size={28} color='#6578B3'/>}
+                    />           
                 </View>
                 
                 <View style={{flex: 1}}>
-                <Checkbox 
-                    style={styles.icon}
-                    onClick={() => navigation.navigate('Notificacoes')} // Alterar para Notificações
-                    isChecked={false}
-                    unCheckedImage={<Icon name='notifications' size={28} color='#D2D2D2'/>}
-                    checkedImage={<Icon name='notifications' size={28} color='#6578B3'/>}
-                />           
+                    <Checkbox 
+                        style={styles.icon}
+                        onClick={() => navigation.navigate('Homepage')}
+                        isChecked={false}
+                        unCheckedImage={<Icon1 name='home' size={30} color='#D2D2D2' />}
+                        checkedImage={<Icon1 name='home' size={30} color='#6578B3'/>}
+                    />   
+                </View>
+                
+                <View style={{flex: 1}}>
+                    <Checkbox 
+                        style={styles.icon}
+                        onClick={() => navigation.navigate('Apoio')} 
+                        isChecked={false}
+                        unCheckedImage={<Icon2 name='questioncircle' size={28} color='#D2D2D2' />}
+                        checkedImage={<Icon2 name='questioncircle' size={28} color='#6578B3'/>}
+                    />  
                 </View>
 
                 <View style={{flex: 1}}>
-                <Checkbox 
-                    style={styles.icon}
-                    onClick={() => navigation.navigate('Apoio')} 
-                    isChecked={false}
-                    unCheckedImage={<Icon2 name='questioncircle' size={28} color='#D2D2D2' />}
-                    checkedImage={<Icon2 name='questioncircle' size={28} color='#6578B3'/>}
-                />  
-                </View>
-
-                <View style={{flex: 1}}>
-                <Checkbox 
-                    style={styles.icon}
-                    onClick={() => navigation.navigate('PainelControlo')} 
-                    isChecked={true}
-                    unCheckedImage={<Icon1 name='equalizer' size={30} color='#D2D2D2' />}
-                    checkedImage={<Icon1 name='equalizer' size={30} color='#6578B3'/>}
-                />  
+                    <Checkbox 
+                        style={styles.icon}
+                        onClick={() => navigation.navigate('PainelControlo')} 
+                        isChecked={true}
+                        unCheckedImage={<Icon1 name='equalizer' size={30} color='#D2D2D2' />}
+                        checkedImage={<Icon1 name='equalizer' size={30} color='#6578B3'/>}
+                    />  
                 </View>
 
             </View>

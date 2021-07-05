@@ -13,6 +13,7 @@ function Homepage({ route, navigation }) {
     const [currentStatus, setCurrentStatus] = useState('');
     const [questionarioStatus, setQuestionarioStatus] = useState(false);
     const [questionarioMarcoStatus, setQuestionarioMarcoStatus] = useState(false);
+    const [aprovado, setAprovado] = useState();
     
     const [modal, setModal] = useState(false);
     const [modal2, setModal2] = useState(false);
@@ -61,15 +62,27 @@ function Homepage({ route, navigation }) {
                         .doc(currentUser)
                         .get()
                         .then(doc => {
-                            setCurrentStatus(doc.data().status)
-                            
+                            setCurrentStatus(doc.data().status) 
                         });
                     }
+
+
+    function getAprovado (){
+                    db
+                        .collection('users')
+                        .doc(currentUser)
+                        .get()
+                        .then(doc => {
+                            setAprovado(doc.data().pedido)
+                            
+                        });
+    }
 
     useEffect(() => {
         getStatus();
         getQuestionarioStatus();
         getQuestionarioMarcoStatus();
+        getAprovado();
    
     },[])
 
@@ -141,15 +154,17 @@ if (currentStatus == 2) {
                 <Text style={styles.title3}>40 segundos</Text>
 
                 <TouchableOpacity
-                     style={{alignSelf: 'center'}}
+                    style={{alignSelf: 'center', marginBottom: '10%'}}
+                    onPress={() => navigation.navigate('Playlist40')}
+                    // Adicionar onPress
                 >
                     <Image
-                        source={require('../../images/conteudoBloqueado.png')}
+                        source={require('../../images/40.png')}
                         style={styles.conteudo}
 
                     />
                 </TouchableOpacity>
-                <Text style={styles.title4}>Exclusivo a profissionais de saúde</Text>
+        
 
             </View>
 
@@ -219,6 +234,181 @@ if (currentStatus == 2) {
                 />  
                 </View>
 
+                <View style={{flex: 1}}>
+                <Checkbox 
+                    style={styles.icon}
+                    onClick={() => navigation.navigate('PainelControlo')} 
+                    isChecked={false}
+                    unCheckedImage={<Icon1 name='equalizer' size={30} color='#D2D2D2' />}
+                    checkedImage={<Icon1 name='equalizer' size={30} color='#6578B3'/>}
+                />  
+                </View>
+
+            </View>
+        </View>
+    )
+} else if (currentStatus == 1) {
+    return (
+        <View style={styles.container}>
+        <ScrollView style={styles.container}>
+            <View>
+                <StatusBar style={'auto'} />
+
+                <Checkbox 
+                    style={styles.sair}
+                    onClick={() => {setModal2(true)}}
+                    isChecked={true}
+                    unCheckedImage={<Icon name='power' size={23} color='#D2D2D2' />}
+                    checkedImage={<Icon name='power' size={23} color='#6578B3'/>}
+                />   
+
+                <Text style={styles.title1}>Intervenções</Text>
+
+                <Text style={styles.text}>Estas intervenções foram estruturadas em narrativas audiovisuais que poderás acompanhar após responderes a um breve questionário.</Text>
+            </View>
+            <View style={styles.container2}>
+
+                <Text style={styles.title2}>Websérie</Text>
+
+                <Text style={styles.title3}>A Ferida Sara</Text>
+
+                <TouchableOpacity
+                    style={{alignSelf: 'center'}}
+                    onPress={() => {if (questionarioStatus == 'true') {
+                        navigation.navigate('PlaylistSara');
+                    } else {
+                        navigation.navigate('QiSaraA');
+                    }
+                }}
+
+                >
+                    <Image
+                    
+                        source={require('../../images/Sara.png')}
+                        style={styles.conteudo}
+
+                    />
+                </TouchableOpacity>
+                <Text style={styles.title2}>Podcast</Text>
+                <Text style={styles.title3}>Um Marco na Vida</Text>
+
+                <TouchableOpacity
+                     style={{alignSelf: 'center'}}
+                     onPress={() => { if (questionarioMarcoStatus == 'true') {
+                         navigation.navigate('PlaylistMarco');
+                     } else {
+                         navigation.navigate('QiMarcoA');
+                        }
+                    }}
+                    >
+                    <Image
+                        source={require('../../images/marco.png')}
+                        style={styles.conteudo}
+
+                    />
+                </TouchableOpacity>
+
+                <Text style={styles.title2}>Vídeos</Text>
+
+                <Text style={styles.title3}>40 segundos</Text>
+
+
+                {
+                    (aprovado == 'aprovado') ? (
+                        <TouchableOpacity
+                            style={{alignSelf: 'center', marginBottom: '10%'}}
+                            onPress={() => navigation.navigate('Playlist40')}
+                            // Adicionar onPress
+                        >
+                            <Image
+                                source={require('../../images/40.png')}
+                                style={styles.conteudo}
+        
+                            />
+                        </TouchableOpacity>
+                    ) : (
+                        <View>
+                            <TouchableOpacity
+                            style={{alignSelf: 'center'}}
+                            >
+                                <Image
+                                    source={require('../../images/conteudoBloqueado.png')}
+                                    style={styles.conteudo}
+
+                                    />
+                            </TouchableOpacity>
+                                <Text style={styles.title4}>Ainda não recebeu aprovação para este conteúdo</Text>
+                        </View>
+                    )
+                }   
+
+            </View>
+
+            <View>
+
+            </View>
+
+            <Modal
+                    animationType='fade'
+                    transparent={true}
+                    visible={modal2}
+                    >
+                    <View style={styles.modalView}>
+                        <View style={styles.modalContainer}>
+                            <Text style={styles.modalTitle}>Tens a certeza que queres terminar sessão?</Text>      
+                                <View style={styles.modalContainer2}>
+                                    <TouchableOpacity
+                                        style={styles.entendi}
+                                        onPress={() => { setModal2(false), sair(), navigation.navigate('Landing') }}
+                                    >
+                                        <Text style={styles.entendiText}>Sim</Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity
+                                        style={styles.entendi}
+                                        onPress={() => { setModal2(false), navigation.navigate('Homepage') }}
+                                    >
+                                        <Text style={styles.entendiText}>Não</Text>
+                                    </TouchableOpacity>
+                                </View>
+                        </View>
+                    </View>
+      
+      
+                </Modal>
+      
+
+        </ScrollView>
+
+            <View style={styles.tabBar}>
+                <View style={{flex: 1}}>
+                <Checkbox 
+                    style={styles.icon}
+                    onClick={() => {navigation.navigate('Notificacoes')}} 
+                    isChecked={false}
+                    unCheckedImage={<Icon name='notifications' size={28} color='#D2D2D2'/>}
+                    checkedImage={<Icon name='notifications' size={28} color='#6578B3'/>}
+                />           
+                </View>
+
+                <View style={{flex: 1}}>
+                <Checkbox 
+                    style={styles.icon}
+                    onClick={() => navigation.navigate('Homepage')}
+                    isChecked={true}
+                    unCheckedImage={<Icon1 name='home' size={30} color='#D2D2D2' />}
+                    checkedImage={<Icon1 name='home' size={30} color='#6578B3'/>}
+                />   
+                </View>
+
+                <View style={{flex: 1}}>
+                <Checkbox 
+                    style={styles.icon}
+                    onClick={() => navigation.navigate('Apoio')} 
+                    isChecked={false}
+                    unCheckedImage={<Icon2 name='questioncircle' size={28} color='#D2D2D2' />}
+                    checkedImage={<Icon2 name='questioncircle' size={28} color='#6578B3'/>}
+                />  
+                </View>
             </View>
         </View>
     )
