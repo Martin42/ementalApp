@@ -37,6 +37,7 @@ import AudioMarco from '../Screens/App/Marco/AudioMarco';
 import Notificacoes from '../Screens/App/Notificacoes';
 import PainelControlo from '../Screens/App/PainelControlo';
 import Playlist40 from '../Screens/App/40segundos/Playlist40';
+import EP40 from '../Screens/App/40segundos/EP40';
 
 
 const Stack = createStackNavigator();
@@ -83,6 +84,7 @@ const MainStackNavigator = () => {
                 <Stack.Screen name='Notificacoes' component={Notificacoes} />
                 <Stack.Screen name='PainelControlo' component={PainelControlo} />
                 <Stack.Screen name='Playlist40' component={Playlist40} />
+                <Stack.Screen name='EP40' component={EP40} />
             </Stack.Navigator>
        
     )

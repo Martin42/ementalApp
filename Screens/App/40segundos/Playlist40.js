@@ -25,7 +25,7 @@ function Playlist40({ route, navigation }) {
 
                         <View style={styles.container3}>
                             <TouchableOpacity
-                                onPress={() => navigation.navigate('Video40s')}
+                                onPress={() => navigation.navigate('EP40', {episodio: 'EP40_1', video: '', titulo: '' })}
                             >
                                 <Image
                                     source={require('../../../images/40.png')}
