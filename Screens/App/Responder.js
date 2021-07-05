@@ -48,7 +48,7 @@ function Responder({route, navigation}){
           } else if (((doc.data().respostaFinal) == '' && (doc.data().respostaPDS) != '' && (doc.data().respostaUser) != '' )) {
                   setReplyFinal(true);
                   setDocId(doc.id);
-          } else if (((doc.data().respostaPDS) != '' && (doc.data().respostaFinal) == '' && (route.params.userstatus) == 0)) {
+          } else if (((doc.data().respostaPDS) != '' && (doc.data().respostaFinal) == '' && ((route.params.userstatus) == 0 || (route.params.userstatus) == 1))) {
                   setReplyUser(true);
                   setDocId(doc.id);
           }

@@ -48,6 +48,17 @@ function Registo({navigation, route}){
           .set({
             concluido: 'false'
           })
+
+          if ((route.params.status) == 1) {
+            db
+            .collection('users')
+            .doc(auth.currentUser.uid)
+            .set({
+              pedido: 'Por aprovar'
+            })
+          }
+
+
         })
         .catch(error => alert(error.message));  
 
