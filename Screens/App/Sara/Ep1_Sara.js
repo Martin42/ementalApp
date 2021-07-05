@@ -26,6 +26,7 @@ function Ep1_Sara({route, navigation}){
     const [comments, setComments] = useState([]);
     const [commentsAdmin, setCommentsAdmin] = useState([]);
     const [ep4, setEp4] = useState(false);
+    const [confirmar, setConfirmar] = useState(false);
 
     const [modal2, setModal2] = useState(false);
     const [check1, setCheck1] = useState(false);
@@ -42,8 +43,6 @@ function Ep1_Sara({route, navigation}){
             setCheck3(false);
             setCheck4(false);
             setCheck5(false);
-        } else {
-            setCheck1(false);
         }
     }
 
@@ -55,8 +54,6 @@ function Ep1_Sara({route, navigation}){
             setCheck3(false);
             setCheck4(false);
             setCheck5(false);
-        } else {
-            setCheck2(false);
         }
     }
 
@@ -68,8 +65,6 @@ function Ep1_Sara({route, navigation}){
             setCheck2(false);
             setCheck4(false);
             setCheck5(false);
-        } else {
-            setCheck3(false);
         }
     }
 
@@ -81,8 +76,6 @@ function Ep1_Sara({route, navigation}){
             setCheck2(false);
             setCheck3(false);
             setCheck5(false);
-        } else {
-            setCheck4(false);
         }
     }
 
@@ -94,18 +87,18 @@ function Ep1_Sara({route, navigation}){
             setCheck2(false);
             setCheck3(false);
             setCheck4(false);
-        } else {
-            setCheck5(false);
         }
     }
 
     function test() {
         if (ep4 == true){
             setModal2(true);
+           
         } else {
             navigation.navigate('PlaylistSara');
         }
     };
+
 
     function setComment (){
         db
@@ -281,7 +274,7 @@ function Ep1_Sara({route, navigation}){
                                 
                                 <CheckBox
                                     style={styles.ratingCheckbox}
-                                    onClick={() => validate1()}
+                                    onClick={() => {validate1(), setConfirmar(true)}}
                                     isChecked={check1}
                                     unCheckedImage={<Image source={require('../../../images/rating/1.png')} style={styles.ratingImage} />}
                                     checkedImage={<Image source={require('../../../images/rating/1_selecionado.png')} style={styles.ratingImage} />}
@@ -289,42 +282,47 @@ function Ep1_Sara({route, navigation}){
         
                                 <CheckBox
                                     style={styles.ratingCheckbox}
-                                    onClick={() => validate2()}
+                                    onClick={() => {validate2(), setConfirmar(true)}}
                                     isChecked={check2}
                                     unCheckedImage={<Image source={require('../../../images/rating/2.png')} style={styles.ratingImage} />}
                                     checkedImage={<Image source={require('../../../images/rating/2_selecionado.png')} style={styles.ratingImage} />}
                                 />
                                 <CheckBox
                                     style={styles.ratingCheckbox}
-                                    onClick={() => validate3()}
+                                    onClick={() => {validate3(), setConfirmar(true)}}
                                     isChecked={check3}
                                     unCheckedImage={<Image source={require('../../../images/rating/3.png')} style={styles.ratingImage} />}
                                     checkedImage={<Image source={require('../../../images/rating/3_selecionado.png')} style={styles.ratingImage} />}
                                 />
                                 <CheckBox
                                     style={styles.ratingCheckbox}
-                                    onClick={() => validate4()}
+                                    onClick={() => {validate4(), setConfirmar(true)}}
                                     isChecked={check4}
                                     unCheckedImage={<Image source={require('../../../images/rating/4.png')} style={styles.ratingImage} />}
                                     checkedImage={<Image source={require('../../../images/rating/4_selecionado.png')} style={styles.ratingImage} />}
                                 />
                                 <CheckBox
                                     style={styles.ratingCheckbox}
-                                    onClick={() => validate5()}
+                                    onClick={() => {validate5(), setConfirmar(true)}}
                                     isChecked={check5}
                                     unCheckedImage={<Image source={require('../../../images/rating/5.png')} style={styles.ratingImage} />}
                                     checkedImage={<Image source={require('../../../images/rating/5_selecionado.png')} style={styles.ratingImage} />}
                                 />
-        
+
         
                             </View>
-        
-                            <TouchableOpacity
+                            { confirmar == true ? (
+                                <TouchableOpacity
                                 style={styles.entendi}
                                 onPress={() => { setModal2(false), navigation.navigate('PlaylistSara') }}
                             >
+                           
                                 <Text style={styles.entendiText}>Submeter</Text>
                             </TouchableOpacity>
+                            ) : (
+                            <Text></Text>
+                            )}
+        
                         </View>
                     </View>
                 </Modal>
@@ -446,7 +444,7 @@ function Ep1_Sara({route, navigation}){
                                 
                                 <CheckBox
                                     style={styles.ratingCheckbox}
-                                    onClick={() => validate1()}
+                                    onClick={() => {validate1(), setConfirmar(true)}}
                                     isChecked={check1}
                                     unCheckedImage={<Image source={require('../../../images/rating/1.png')} style={styles.ratingImage} />}
                                     checkedImage={<Image source={require('../../../images/rating/1_selecionado.png')} style={styles.ratingImage} />}
@@ -454,28 +452,28 @@ function Ep1_Sara({route, navigation}){
         
                                 <CheckBox
                                     style={styles.ratingCheckbox}
-                                    onClick={() => validate2()}
+                                    onClick={() => {validate2(), setConfirmar(true)}}
                                     isChecked={check2}
                                     unCheckedImage={<Image source={require('../../../images/rating/2.png')} style={styles.ratingImage} />}
                                     checkedImage={<Image source={require('../../../images/rating/2_selecionado.png')} style={styles.ratingImage} />}
                                 />
                                 <CheckBox
                                     style={styles.ratingCheckbox}
-                                    onClick={() => validate3()}
+                                    onClick={() => {validate3(), setConfirmar(true)}}
                                     isChecked={check3}
                                     unCheckedImage={<Image source={require('../../../images/rating/3.png')} style={styles.ratingImage} />}
                                     checkedImage={<Image source={require('../../../images/rating/3_selecionado.png')} style={styles.ratingImage} />}
                                 />
                                 <CheckBox
                                     style={styles.ratingCheckbox}
-                                    onClick={() => validate4()}
+                                    onClick={() => {validate4(), setConfirmar(true)}}
                                     isChecked={check4}
                                     unCheckedImage={<Image source={require('../../../images/rating/4.png')} style={styles.ratingImage} />}
                                     checkedImage={<Image source={require('../../../images/rating/4_selecionado.png')} style={styles.ratingImage} />}
                                 />
                                 <CheckBox
                                     style={styles.ratingCheckbox}
-                                    onClick={() => validate5()}
+                                    onClick={() => {validate5(), setConfirmar(true)}}
                                     isChecked={check5}
                                     unCheckedImage={<Image source={require('../../../images/rating/5.png')} style={styles.ratingImage} />}
                                     checkedImage={<Image source={require('../../../images/rating/5_selecionado.png')} style={styles.ratingImage} />}
@@ -483,13 +481,18 @@ function Ep1_Sara({route, navigation}){
         
         
                             </View>
-        
-                            <TouchableOpacity
+                            { confirmar == true ? (
+                                <TouchableOpacity
                                 style={styles.entendi}
                                 onPress={() => { setModal2(false), navigation.navigate('PlaylistSara') }}
                             >
+                           
                                 <Text style={styles.entendiText}>Submeter</Text>
                             </TouchableOpacity>
+                            ) : (
+                            <Text></Text>
+                            )}
+        
                         </View>
                     </View>
                 </Modal>
