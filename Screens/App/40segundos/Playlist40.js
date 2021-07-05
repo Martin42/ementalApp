@@ -1,12 +1,31 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
 import Icon2 from 'react-native-vector-icons/AntDesign';
 import Checkbox from 'react-native-check-box';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from "react-native";
+import { db, auth } from '../../../Firebase';
 
 function Playlist40({ route, navigation }) {
+
+    useEffect(() => {
+        getStatus();
+    }, [])
+
+    const currentUser = auth.currentUser.uid;
+    const [currentStatus, setCurrentStatus] = useState('');
+
+
+    function getStatus (){ db
+        .collection('users')
+        .doc(currentUser)
+        .get()
+        .then(doc => {
+            setCurrentStatus(doc.data().status) 
+        });
+    }
+
 
     return (
         <View style={styles.container}>
@@ -21,11 +40,87 @@ function Playlist40({ route, navigation }) {
 
                     <View style={styles.containerepisodios}>
 
+
+                    <View style={styles.container3}>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate('EP40', {episodio: 'EP40_NATALIA', video: 'Lwwq5rk_SSE', titulo: 'D. Natália Testemunho' })}
+                            >
+                                <Image
+                                    source={require('../../../images/40.png')}
+                                    style={styles.episodio}
+
+                                />
+                            </TouchableOpacity>
+
+                            <View style={styles.container4}>
+                                <Text style={styles.title2}>Testemunho 1</Text>
+                                <Text style={styles.text}>D. Natália Testemunho</Text>
+                            </View>
+                        </View>
+
+
+                        <View style={styles.container3}>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate('EP40', {episodio: 'EP40_FAMILIA', video: 'qcqzoRvT3fg', titulo: 'Família Testemunho' })}
+                            >
+                                <Image
+                                    source={require('../../../images/40.png')}
+                                    style={styles.episodio}
+
+                                />
+                            </TouchableOpacity>
+
+                            <View style={styles.container4}>
+                                <Text style={styles.title2}>Testemunho 2</Text>
+                                <Text style={styles.text}>Família Testemunho</Text>
+                            </View>
+                        </View>
+
+
+                        <View style={styles.container3}>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate('EP40', {episodio: 'EP40_JORGE', video: 'AoQg11ngA54', titulo: 'Jorge Testemunho' })}
+                            >
+                                <Image
+                                    source={require('../../../images/40.png')}
+                                    style={styles.episodio}
+
+                                />
+                            </TouchableOpacity>
+
+                            <View style={styles.container4}>
+                                <Text style={styles.title2}>Testemunho 3</Text>
+                                <Text style={styles.text}>Jorge Testemunho</Text>
+                            </View>
+                        </View>
+
+
+                        <View style={styles.container3}>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate('EP40', {episodio: 'EP40_OPINIAO', video: 'xeWwg0-xSLE', titulo: 'Opinião Clínica' })}
+                            >
+                                <Image
+                                    source={require('../../../images/40.png')}
+                                    style={styles.episodio}
+
+                                />
+                            </TouchableOpacity>
+
+                            <View style={styles.container4}>
+                                <Text style={styles.title2}>Testemunho 4</Text>
+                                <Text style={styles.text}>Opinião Clínica</Text>
+                            </View>
+                        </View>
+
+
+
+
+
                         {/* Mito 1  */}
 
                         <View style={styles.container3}>
                             <TouchableOpacity
-                                onPress={() => navigation.navigate('EP40', {episodio: 'EP40_1', video: '', titulo: '' })}
+                                onPress={() => navigation.navigate('EP40', {episodio: 'EP40_1', video: 'pqU40OGrizw', titulo: 'Mito 1 - A pessoa que fala sobre suicídio...' })}
                             >
                                 <Image
                                     source={require('../../../images/40.png')}
@@ -44,7 +139,7 @@ function Playlist40({ route, navigation }) {
 
                         <View style={styles.container3}>
                             <TouchableOpacity
-                                onPress={() => navigation.navigate('Video40s')}
+                                onPress={() => navigation.navigate('EP40', {episodio: 'EP40_2', video: 'uYu9RE4OY7Q', titulo: 'Mito 2 - O suicídio é...' })}
                             >
                                 <Image
                                     source={require('../../../images/40.png')}
@@ -63,7 +158,7 @@ function Playlist40({ route, navigation }) {
 
                         <View style={styles.container3}>
                             <TouchableOpacity
-                                onPress={() => navigation.navigate('Videos40s')}
+                                onPress={() => navigation.navigate('EP40', {episodio: 'EP40_3', video: 'S-2xk-nByT0', titulo: 'Mito 3 - As pessoas que se suicidam...' })}
                             >
                                 <Image
                                     source={require('../../../images/40.png')}
@@ -82,7 +177,7 @@ function Playlist40({ route, navigation }) {
 
                         <View style={styles.container3}>
                             <TouchableOpacity
-                                onPress={() => navigation.navigate('Video40s')}
+                                onPress={() => navigation.navigate('EP40', {episodio: 'EP40_4', video: 'FXU3EYUEjMc', titulo: 'Mito 4 - Se perguntarmos à pessoa se tem pensamentos suicidas, isso...' })}
                             >
                                 <Image
                                     source={require('../../../images/40.png')}
@@ -101,7 +196,7 @@ function Playlist40({ route, navigation }) {
 
                         <View style={styles.container3}>
                             <TouchableOpacity
-                                onPress={() => navigation.navigate('Video40s')}
+                                onPress={() => navigation.navigate('EP40', {episodio: 'EP40_5', video: 'VfjxTTXEn8E', titulo: 'Mito 5 - Quando alguém mostra sinais de melhoria ou sobrevive a uma tentativa de suicídio...' })}
                             >
                                 <Image
                                     source={require('../../../images/40.png')}
@@ -120,7 +215,7 @@ function Playlist40({ route, navigation }) {
 
                         <View style={styles.container3}>
                             <TouchableOpacity
-                                onPress={() => navigation.navigate('Video40s')}
+                                onPress={() => navigation.navigate('EP40', {episodio: 'EP40_6', video: 'AgEozo7_a3o', titulo: 'Mito 6 - A tendência para o suicídio...' })}
                             >
                                 <Image
                                     source={require('../../../images/40.png')}
@@ -168,6 +263,23 @@ function Playlist40({ route, navigation }) {
                     checkedImage={<Icon2 name='questioncircle' size={28} color='#6578B3'/>}
                 />  
                 </View>
+
+                { (currentStatus == 2) ? (
+                      <View style={{flex: 1}}>
+                      <Checkbox 
+                          style={styles.icon}
+                          onClick={() => navigation.navigate('PainelControlo')} 
+                          isChecked={false}
+                          unCheckedImage={<Icon1 name='equalizer' size={30} color='#D2D2D2' />}
+                          checkedImage={<Icon1 name='equalizer' size={30} color='#6578B3'/>}
+                      />  
+                      </View>
+                ) : (
+                    <Text></Text>
+                ) }
+
+
+
             </View>
 
         </View>
