@@ -9,6 +9,7 @@ import Slider from '@react-native-community/slider';
 import bg from '../../../images/bg.png'
 import thumbImage from '../../../images/thumbImage.png'
 
+
 function AudioMarco({ route, navigation }) {
 
     
@@ -27,12 +28,6 @@ function AudioMarco({ route, navigation }) {
     }
 
     // player 
-
-    const [playbackPosition, setPlaybackPosition] = useState(null);
-    const [playbackDuration, setPlaybackDuration] = useState(null);
-
-    
-
 
     const [sound, setSound] = useState();
 
@@ -150,6 +145,11 @@ function AudioMarco({ route, navigation }) {
                     {route.params.serie}
                 </Text>
 
+                <View style={{flexDirection: 'row', alignContent: 'center', justifyContent: 'center'}}>
+                    <Text style={styles.sliderTimers}>0:00</Text>
+                    <Text style={styles.sliderTimers}>0:00</Text>
+                </View>
+                
                 <View style={{justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
                 <Slider
                     style={styles.slider}
@@ -158,7 +158,7 @@ function AudioMarco({ route, navigation }) {
                     // disabled={true}
                     thumbImage={thumbImage}
                     minimumTrackTintColor="#8FBBFF"
-                    maximumTrackTintColor="#D2D2D2"
+                    maximumTrackTintColor="#242424"
                     thumbTintColor="#8FBBFF"
                 />
                 </View>
@@ -196,8 +196,8 @@ function AudioMarco({ route, navigation }) {
                
                 <View style={styles.container}>
                 <View style={{ flex: 1}}>
-                <AntDesign name="up" size={24} color="#6578B3" style={{alignSelf: 'center', position: 'absolute', top: 90}} onPress={openPanel}/>
-                <Text style={styles.subtitulo, {marginTop: '25%', alignSelf: 'center', color: '#6578B3', fontWeight: 'bold'}} onPress={openPanel}>
+                <AntDesign name="up" size={24} color="#6578B3" style={{alignSelf: 'center', position: 'absolute', top: 80}} onPress={openPanel}/>
+                <Text style={styles.subtitulo, {marginTop: '22.5%', alignSelf: 'center', color: '#6578B3', fontWeight: 'bold'}} onPress={openPanel}>
                     Comentários      
                 </Text>
             
@@ -543,6 +543,11 @@ const styles = StyleSheet.create({
   slider: {
     width: 350,
     height: 40,
+  },
+
+  sliderTimers: {
+    textAlign: 'center',
+    width: 300,
   }
 
 });
