@@ -35,7 +35,7 @@ function Pedido({ route, navigation }) {
                             placeholder= 'Nome'
                             backgroundColor= '#CFE0FB'
                             placeholderTextColor= 'white'
-                            onEndEditing={nome => setNome(nome)}
+                            onChangeText={nome => setNome(nome)}
                         />
 
                         <TextInput 
@@ -43,7 +43,7 @@ function Pedido({ route, navigation }) {
                             placeholder= 'Email'
                             backgroundColor= '#CFE0FB'
                             placeholderTextColor= 'white'
-                            onEndEditing={email => setEmail(email)}
+                            onChangeText={email => setEmail(email)}
                             keyboardType='email-address'
                         />
 
@@ -52,7 +52,7 @@ function Pedido({ route, navigation }) {
                             placeholder= 'Área de Especialidade'
                             backgroundColor= '#CFE0FB'
                             placeholderTextColor= 'white'
-                            onEndEditing={mensagem => setMensagem(mensagem)}
+                            onChangeText={mensagem => setMensagem(mensagem)}
                         />
                         </View>
 
