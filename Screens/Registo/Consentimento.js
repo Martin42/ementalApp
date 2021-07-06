@@ -55,7 +55,7 @@ function Consentimento({ route, navigation }) {
                                     navigation.navigate('Registo', { status: route.params.status, nomePedido: 'estudante', emailPedido: 'null', mensagemPedido: 'null' })
                                 }else{
                                     navigation.navigate('Pedido', {
-                                        status: route.params.status,})
+                                        status: route.params.status})
                                 }}
                             }
                             >

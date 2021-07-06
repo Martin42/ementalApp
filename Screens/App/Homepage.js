@@ -1,11 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, Modal} from "react-native";
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, Modal, TextInput} from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
 import Icon2 from 'react-native-vector-icons/AntDesign';
 import Checkbox from 'react-native-check-box';
 import { auth, db } from '../../Firebase';
+import { AntDesign } from '@expo/vector-icons';
 
 
 function Homepage({ route, navigation }) {
@@ -14,12 +15,24 @@ function Homepage({ route, navigation }) {
     const [questionarioStatus, setQuestionarioStatus] = useState(false);
     const [questionarioMarcoStatus, setQuestionarioMarcoStatus] = useState(false);
     const [aprovado, setAprovado] = useState();
-    
+    const [code, setCode] = useState();    
     const [modal, setModal] = useState(false);
     const [modal2, setModal2] = useState(false);
 
     const currentUser = auth.currentUser.uid;
+    let codigo = 'A6B2C4P';
 
+    function comparar(){
+        if (code === codigo) {
+            db.collection('users').doc(currentUser).set({
+                pedido: 'aprovado'
+            }, {merge: true})
+            setModal(false)
+            navigation.navigate('Homepage')
+        } else {
+            alert('Código Errado!')
+        }
+    };
 
     function sair(){
         auth.signOut();
@@ -330,6 +343,7 @@ if (currentStatus == 2) {
                         <View>
                             <TouchableOpacity
                             style={{alignSelf: 'center'}}
+                            onPress={() => {setModal(true)}}
                             >
                                 <Image
                                     source={require('../../images/conteudoBloqueado.png')}
@@ -337,7 +351,11 @@ if (currentStatus == 2) {
 
                                     />
                             </TouchableOpacity>
-                                <Text style={styles.title4}>Ainda não recebeu aprovação para este conteúdo</Text>
+                            <TouchableOpacity
+                                 style={{alignSelf: 'center', marginBottom: '10%'}}
+                                 onPress={() => navigation.navigate('Pedido', {status: currentStatus})}>
+                                <Text style={styles.title4}>Pedir Acesso</Text>
+                                </TouchableOpacity>
                         </View>
                     )
                 }   
@@ -369,6 +387,44 @@ if (currentStatus == 2) {
                                     >
                                         <Text style={styles.entendiText}>Não</Text>
                                     </TouchableOpacity>
+                                </View>
+                        </View>
+                    </View>
+      
+      
+                </Modal>
+
+                <Modal
+                    animationType='fade'
+                    transparent={true}
+                    visible={modal}
+                    >
+                    <View style={styles.modalView}>
+                        <View style={styles.modalContainer}>
+                            <Text style={styles.modalTitle}>Insira o código de acesso que recebeu por favor</Text>    
+                                <View style={{flexDirection: 'row', marginTop: '10%', marginBottom: '10%'}}>  
+                                    <TextInput
+                                        style={styles.inputMensagem}
+                                        width='60%'
+                                        height= "100%"
+                                        marginLeft="5%"
+                                        placeholder= 'Código aqui...'
+                                        backgroundColor= '#CFE0FB'
+                                        placeholderTextColor= 'black'
+                                        onChangeText={code => setCode(code)}
+                                        />
+                                </View>
+                                <View style={{flexDirection: 'row'}}>
+                                <TouchableOpacity
+                                    style={styles.voltar}
+                                onPress={() => { comparar()}}>
+                                <Text style={styles.entendiText2}>Submeter</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity
+                                style={styles.voltar}
+                                onPress={() => {setModal(false)}}>
+                                <Text style={styles.entendiText2}>Voltar</Text>
+                                </TouchableOpacity>
                                 </View>
                         </View>
                     </View>
@@ -731,7 +787,46 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         marginBottom: '10%',
-    }
+    },
+
+    inputMensagem: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: 'black',
+        borderRadius: 20,
+        padding: 15,
+        textAlign: 'left',
+    },
+
+    inputMensagem2: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: 'black',
+        borderRadius: 20,
+        padding: 15,
+        textAlign: 'left',
+    },
+
+    voltar: {
+        width: '40%',
+        borderColor: '#6578B3',
+        borderStyle: 'solid',
+        borderRadius: 20,
+        overflow: 'hidden',
+        backgroundColor: '#6578B3',
+        alignContent: 'center',
+        justifyContent: 'center',
+        marginLeft: '5%',
+        marginRight: '5%',
+    },
+
+    entendiText2: {
+        textAlign: 'center',
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 15,
+        padding: 15
+    },
 
 });
 
