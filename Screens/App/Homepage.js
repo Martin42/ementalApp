@@ -353,7 +353,7 @@ if (currentStatus == 2) {
                             </TouchableOpacity>
                             <TouchableOpacity
                                  style={{alignSelf: 'center', marginBottom: '10%'}}
-                                 onPress={() => navigation.navigate('Pedido', {status: currentStatus})}>
+                                 onPress={() => navigation.navigate('Pedido', {status: currentStatus, pedido: 2, userid: currentUser})}>
                                 <Text style={styles.title4}>Pedir Acesso</Text>
                                 </TouchableOpacity>
                         </View>

@@ -1,16 +1,28 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView} from "react-native";
+import { db } from '../../Firebase'
 
 
 
 
 function Pedido({ route, navigation }) {
 
-    console.log(route.params.status)
+    console.log(route.params.status);
+    console.log(route.params.pedido);
+    console.log(route.params.userid);
 
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [mensagem, setMensagem] = useState('');
+
+    function setData() {
+    db.collection('users').doc(route.params.userid).set({
+        name: route.params.nomePedido,
+        email: route.params.emailPedido,
+        area: route.params.mensagemPedido,
+        status: route.params.status,
+    }, {merge: true});
+    }
 
     return (
 
@@ -63,8 +75,11 @@ function Pedido({ route, navigation }) {
                                                         alert('Por favor preencha todos os campos')
 
                                                     } else {   
-
-                                                        navigation.navigate('Registo', { status: route.params.status, nomePedido: nome, emailPedido: email, mensagemPedido: mensagem }) 
+                                                        if ( route.params.pedido != 2) {
+                                                            navigation.navigate('Registo', { status: route.params.status, nomePedido: nome, emailPedido: email, mensagemPedido: mensagem }) 
+                                                        } else {
+                                                            navigation.navigate('Homepage', { status: route.params.status, nomePedido: nome, emailPedido: email, mensagemPedido: mensagem }); setData()
+                                                        }
                                                     }
                                         }
                                     }
