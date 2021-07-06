@@ -9,16 +9,16 @@ import { db, auth } from '../../../Firebase';
 function PlaylistSara({ route, navigation }) {
 
     useEffect(() => {
-        getEP2();
+        getEP1();
         getStatus();
     }, []);
 
 
     const currentUser = auth.currentUser.uid;
     const [currentStatus, setCurrentStatus] = useState('');
-    const [EP2, setEP2] = useState(false);
+    const [EP1, setEP1] = useState(false);
 
-    function getEP2(){
+    function getEP1(){
 
         const currentTime = new Date() / 1000;
         db
@@ -26,12 +26,12 @@ function PlaylistSara({ route, navigation }) {
         .doc(currentUser)
         .get()
         .then(doc => {
-            if ((doc.data().EPI2) == undefined) {
+            if ((doc.data().EPI1) == undefined) {
                 console.log('Ainda não visualizou o primeiro episódio');
             } else {
-                if ((doc.data().EPI2.seconds + 15000) <= currentTime) {
+                if ((doc.data().EPI1.seconds + 15000) <= currentTime) {
                     console.log('Video Disponivel');
-                    setEP2(true);
+                    setEP1(true);
                 } else {
                     console.log('Video Indisponivel');
                 }

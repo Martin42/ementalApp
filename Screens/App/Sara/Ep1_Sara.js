@@ -1,11 +1,12 @@
-import React, { useState, useCallback, useEffect} from 'react';
+import React, { useState, useCallback, useEffect, useRef} from 'react';
 import { ScrollView, StatusBar, StyleSheet, TouchableOpacity, Text, Image, View, Alert , TextInput, Modal} from "react-native";
 import { Entypo } from '@expo/vector-icons'
-import YoutubePlayer from "react-native-youtube-iframe";
+import YoutubePlayer, {YoutubeIframeRef} from "react-native-youtube-iframe";
 import { db, auth } from '../../../Firebase';
 import { AntDesign } from '@expo/vector-icons';
 import CheckBox from 'react-native-check-box';
 import Svg, {Rect, Path} from 'react-native-svg';
+
 
 function Ep1_Sara({route, navigation}){
 
@@ -16,10 +17,32 @@ function Ep1_Sara({route, navigation}){
         if (route.params.episodio === 'EP4_1SARA'){
             setEp4(true);
         };
+
     },[])
+
+    const playerRef = useRef();
+
+    function getTime(){
+        playerRef.current?.getCurrentTime().then(
+            currentTime => {setCurrentTime(currentTime); setFinished(currentTime)}
+          );
+    }
+
+    function setFinished(currentTime){
+        if (currentTime >= 30) {
+            db
+                .collection('users')
+                .doc(currentUser)
+                .set({
+                    [route.params.episodio]: new Date()
+                }, {merge: true})
+        }
+    }
+
 
     const currentUser = auth.currentUser.uid;
     const [currentStatus, setCurrentStatus] = useState('');
+    const [currentTime, setCurrentTime] = useState();
 
     const [mensagem, setMensagem] = useState();
     const [playing, setPlaying] = useState(false);
@@ -240,9 +263,11 @@ function Ep1_Sara({route, navigation}){
                 <View>
 
                 <YoutubePlayer
+                        ref={playerRef}
                         height={300}
                         play={playing}
                         videoId={route.params.video}
+                        onChangeState={getTime}
                 />
 
                 </View>
