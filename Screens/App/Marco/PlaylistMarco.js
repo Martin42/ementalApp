@@ -24,6 +24,7 @@ function PlaylistMarco({ route, navigation }) {
 
                 <View style={{flexDirection:'row'}}>
                     <TouchableOpacity
+                       style={{marginLeft: '5%'}}
                         onPress={() => navigation.navigate('AudioMarco', {episodio: 'Episódio 1', titulo: 'Um Marco na Vida - Ep. 1 Piloto', serie:'Um Marco na Vida'})}
                     >
                         <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -33,14 +34,15 @@ function PlaylistMarco({ route, navigation }) {
 
                     </TouchableOpacity>
                     
-                    <View>
+                    <View  style={{marginTop: '12%'}}>
                         <Text style={styles.title2}>Episódio 1</Text>
-                        <Text style={styles.texto}>Piloto</Text>
+                     
                     </View>
                 </View>
 
                 <View style={{flexDirection:'row'}}>
                     <TouchableOpacity
+                        style={{marginLeft: '5%'}}
                         onPress={() => navigation.navigate('')}
                     >
                         <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -50,14 +52,15 @@ function PlaylistMarco({ route, navigation }) {
 
                     </TouchableOpacity>
                     
-                    <View>
+                    <View  style={{marginTop: '12%'}}>
                         <Text style={styles.title2}>Episódio 2</Text>
-                        <Text style={styles.texto}></Text>
+                      
                     </View>
                 </View>
 
                 <View style={{flexDirection:'row'}}>
                     <TouchableOpacity
+                       style={{marginLeft: '5%'}}
                         onPress={() => navigation.navigate('')}
                     >
                         <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -67,14 +70,15 @@ function PlaylistMarco({ route, navigation }) {
 
                     </TouchableOpacity>
                     
-                    <View>
+                    <View  style={{marginTop: '12%'}}>
                         <Text style={styles.title2}>Episódio 3</Text>
-                        <Text style={styles.texto}></Text>
+                      
                     </View>
                 </View>
 
                 <View style={{flexDirection:'row'}}>
                     <TouchableOpacity
+                      style={{marginLeft: '5%'}}
                         onPress={() => navigation.navigate('')}
                     >
                         <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -84,14 +88,15 @@ function PlaylistMarco({ route, navigation }) {
 
                     </TouchableOpacity>
                     
-                    <View>
+                    <View  style={{marginTop: '12%'}}>
                         <Text style={styles.title2}>Episódio 4</Text>
-                        <Text style={styles.texto}></Text>
+                      
                     </View>
                 </View>
 
                 <View style={{flexDirection:'row'}}>
                     <TouchableOpacity
+                        style={{marginLeft: '5%'}}
                         onPress={() => navigation.navigate('')}
                     >
                         <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -101,14 +106,15 @@ function PlaylistMarco({ route, navigation }) {
 
                     </TouchableOpacity>
                     
-                    <View>
+                    <View  style={{marginTop: '12%'}}>
                         <Text style={styles.title2}>Episódio 5</Text>
-                        <Text style={styles.texto}></Text>
+                      
                     </View>
                 </View>
 
                 <View style={{flexDirection:'row'}}>
                     <TouchableOpacity
+                        style={{marginLeft: '5%'}}
                         onPress={() => navigation.navigate('')}
                     >
                         <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -118,14 +124,15 @@ function PlaylistMarco({ route, navigation }) {
 
                     </TouchableOpacity>
                     
-                    <View>
+                    <View  style={{marginTop: '12%'}}>
                         <Text style={styles.title2}>Episódio 6</Text>
-                        <Text style={styles.texto}></Text>
+                     
                     </View>
                 </View>
 
                 <View style={{flexDirection:'row'}}>
                     <TouchableOpacity
+                        style={{marginLeft: '5%'}}
                         onPress={() => navigation.navigate('')}
                     >
                         <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -135,9 +142,9 @@ function PlaylistMarco({ route, navigation }) {
                         
                     </TouchableOpacity>
                     
-                    <View>
+                    <View style={{marginTop: '12%'}}>
                         <Text style={styles.title2}>Episódio 7</Text>
-                        <Text style={styles.texto2}></Text>
+                     
                     </View>
                 </View>
             </View>
@@ -231,8 +238,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         marginBottom: '5%',
-        marginTop: '45%',
-
     },
 
     title3: {

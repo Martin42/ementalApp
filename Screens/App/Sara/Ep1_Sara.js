@@ -28,6 +28,8 @@ function Ep1_Sara({route, navigation}){
     const [commentsAdmin, setCommentsAdmin] = useState([]);
     const [ep4, setEp4] = useState(false);
     const [confirmar, setConfirmar] = useState(false);
+    const [porAprovar, setPorAprovar] = useState();
+
 
     const [modal2, setModal2] = useState(false);
     const [check1, setCheck1] = useState(false);
@@ -185,16 +187,18 @@ function Ep1_Sara({route, navigation}){
     async function getCommentsAdmin (){
         const commentAdminRef = db.collection(route.params.episodio).where('aprovado', '==', '');
         const snapshotAdmin = await commentAdminRef.get()
+        let numeroPorAprovar = 0;
         snapshotAdmin.forEach(doc => {
                 setCommentsAdmin(state => ({
                     ...state,
                     [ doc.id ] : doc.data().comentario
                 }))
+                numeroPorAprovar++;
                 
         })
 
-      
-  
+        setPorAprovar(numeroPorAprovar);
+
     }
 
 
@@ -247,7 +251,7 @@ function Ep1_Sara({route, navigation}){
 
                 {comments.map((e, key) => (
                     <View key={key} style={{flexDirection:'row', marginLeft: '10%', marginRight: '10%', marginBottom: '5%'}}>
-                        <View style={{marginTop: '7.5%', flex: 1, marginRight: '-12.5%', marginLeft: '7.5%'}}>
+                        <View style={{marginTop: '7.5%', flex: 1, marginRight: '-12.5%', marginLeft: '5%'}}>
                             <AntDesign name="smile-circle" size={50} color="lightblue"/>
                         </View>
                         <View style={{width: '90%'}}>
@@ -415,31 +419,23 @@ function Ep1_Sara({route, navigation}){
 
                 </View>
         
-                <Text style={styles.title1}>Comentários</Text>
+                <Text style={styles.title1}>Comentários por aprovar ({porAprovar}) </Text>
 
                 {
                     Object.entries(commentsAdmin).map(([id, value]) => (
-                            <View style={{flexDirection:'row', marginLeft: '10%', marginRight: '10%', marginBottom: '5%'}}>
-                                <View style={{marginTop: '7.5%', flex: 1, marginRight: '-12.5%', marginLeft: '7.5%'}}>
-                                    <AntDesign name="smile-circle" size={50} color="lightblue"/>
-                                </View>
-                                <View style={{width: '90%'}}>
-                                    <View>
-                                        <Text style={{marginLeft: '20%'}}>
-                                        Anónimo
-                                        </Text>
-                                    </View>
-                                    <View style={styles.inputComment}>
+                            <View style={{marginBottom: '5%'}}>
+                                <View style={{alignContent: 'center'}}>
+                                    <View style={styles.inputCommentGrey}>
                                         <Text style={{flexDirection:'column'}, styles.inputMensagem2}>
                                         {[value]}
                                         </Text>
                                         
                                     </View>
 
-                                <View style={{flexDirection: 'row', alignSelf: 'flex-end', marginRight: '5%'}}>
+                                <View style={{flexDirection: 'row', alignSelf: 'flex-end', marginRight: '9%'}}>
                                     
                                     <TouchableOpacity 
-                                     style={{width: '20%', marginTop: '4%'}}
+                                     style={{width: '16%', marginTop: '4%'}}
                                     onPress={() => {setReprovado(id)}}>
                                         <Text style={{textDecorationLine: 'underline', fontWeight: 'bold', fontSize: 15}}>Recusar</Text>
                                     </TouchableOpacity>
@@ -461,7 +457,31 @@ function Ep1_Sara({route, navigation}){
                             </View>
                     ))
                 }
+
+                    
+                <Text style={styles.title2}>Comentários Aprovados</Text>
+                {comments.map((e, key) => (
+                    <View key={key} style={{flexDirection:'row', marginLeft: '10%', marginRight: '10%', marginBottom: '5%'}}>
+                        <View style={{marginTop: '7.5%', flex: 1, marginRight: '-12.5%', marginLeft: '5%'}}>
+                            <AntDesign name="smile-circle" size={50} color="lightblue"/>
+                        </View>
+                        <View style={{width: '90%'}}>
+                            <View>
+                                <Text style={{marginLeft: '20%'}}>
+                                Anónimo
+                                </Text>
+                            </View>
+                            <View style={styles.inputComment}>
+                                <Text style={{flexDirection:'column'}, styles.inputMensagem2}>
+                                {e}
+                                </Text>
+                            </View>
+                        </View>
+                    </View>
+                ))}
          
+
+
             </ScrollView>
 
 
@@ -486,6 +506,16 @@ const styles = StyleSheet.create({
         marginBottom: '5%',
         marginTop: '-5%',
     },
+
+    title2: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginLeft: '10%',
+        marginRight: '10%',
+        marginBottom: '5%',
+        marginTop: '5%',
+    },
+
 
     inputField: {
         justifyContent: 'center',
@@ -520,6 +550,15 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         width: '80%',
         marginLeft: '20%',
+    },
+
+    inputCommentGrey: {
+        flex: 1,
+        backgroundColor: '#ECEDEF',
+        borderRadius: 20,
+        padding: 0,
+        width: '80%',
+        alignSelf: 'center',
     },
 
     icon: {
