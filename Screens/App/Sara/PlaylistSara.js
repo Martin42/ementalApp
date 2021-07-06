@@ -9,16 +9,16 @@ import { db, auth } from '../../../Firebase';
 function PlaylistSara({ route, navigation }) {
 
     useEffect(() => {
-        getEP2();
+        getEP1();
         getStatus();
     }, []);
 
 
     const currentUser = auth.currentUser.uid;
     const [currentStatus, setCurrentStatus] = useState('');
-    const [EP2, setEP2] = useState(false);
+    const [EP1, setEP1] = useState(false);
 
-    function getEP2(){
+    function getEP1(){
 
         const currentTime = new Date() / 1000;
         db
@@ -26,12 +26,12 @@ function PlaylistSara({ route, navigation }) {
         .doc(currentUser)
         .get()
         .then(doc => {
-            if ((doc.data().EPI2) == undefined) {
-                console.log('BOAS');
+            if ((doc.data().EPI1) == undefined) {
+                console.log('Ainda não visualizou o primeiro episódio');
             } else {
-                if ((doc.data().EPI2.seconds + 15000) <= currentTime) {
+                if ((doc.data().EPI1.seconds + 15000) <= currentTime) {
                     console.log('Video Disponivel');
-                    setEP2(true);
+                    setEP1(true);
                 } else {
                     console.log('Video Indisponivel');
                 }
@@ -156,7 +156,7 @@ function PlaylistSara({ route, navigation }) {
 
                             <View style={styles.container4}>
                                 <Text style={styles.title2}>Desafio 1</Text>
-                                <Text style={styles.text}>dhjds</Text>
+                                <Text style={styles.text}>Lançamos-te um novo desafio!</Text>
                             </View>
                         </View>
 
@@ -251,7 +251,7 @@ function PlaylistSara({ route, navigation }) {
 
                             <View style={styles.container4}>
                                 <Text style={styles.title2}>Desafio 2</Text>
-                                <Text style={styles.text}>huei</Text>
+                                <Text style={styles.text}>Lançamos-te um novo desafio!</Text>
                             </View>
                         </View>
 
@@ -328,7 +328,7 @@ function PlaylistSara({ route, navigation }) {
 
                             <View style={styles.container4}>
                                 <Text style={styles.title2}>Desafio 3</Text>
-                                <Text style={styles.text}>fjfjfj</Text>
+                                <Text style={styles.text}>Lançamos-te um novo desafio!</Text>
                             </View>
                         </View>
 
@@ -386,7 +386,7 @@ function PlaylistSara({ route, navigation }) {
 
                             <View style={styles.container4}>
                                 <Text style={styles.title2}>Desafio 4</Text>
-                                <Text style={styles.text}>ffff</Text>
+                                <Text style={styles.text}>Lançamos-te um novo desafio!</Text>
                             </View>
                         </View>
 
@@ -424,7 +424,7 @@ function PlaylistSara({ route, navigation }) {
 
                             <View style={styles.container4}>
                                 <Text style={styles.title2}>Desafio 5</Text>
-                                <Text style={styles.text}>ffff</Text>
+                                <Text style={styles.text}>Lançamos-te um novo desafio!</Text>
                             </View>
                         </View>
 
@@ -484,7 +484,7 @@ function PlaylistSara({ route, navigation }) {
 
                             <View style={styles.container4}>
                                 <Text style={styles.title2}>Desafio 6</Text>
-                                <Text style={styles.text}>aaa</Text>
+                                <Text style={styles.text}>Lançamos-te um novo desafio!</Text>
                             </View>
                         </View>
 
@@ -582,7 +582,7 @@ function PlaylistSara({ route, navigation }) {
 
                             <View style={styles.container4}>
                                 <Text style={styles.title2}>Desafio 7</Text>
-                                <Text style={styles.text}>bbbb</Text>
+                                <Text style={styles.text}>Lançamos-te um novo desafio!</Text>
                             </View>
                         </View>
 
@@ -639,7 +639,7 @@ function PlaylistSara({ route, navigation }) {
 
                             <View style={styles.container4}>
                                 <Text style={styles.title2}>Desafio 8</Text>
-                                <Text style={styles.text}>ffff</Text>
+                                <Text style={styles.text}>Lançamos-te um novo desafio!</Text>
                             </View>
                         </View>
 
@@ -698,7 +698,7 @@ function PlaylistSara({ route, navigation }) {
 
                             <View style={styles.container4}>
                                 <Text style={styles.title2}>Desafio 9</Text>
-                                <Text style={styles.text}>qqqqqq</Text>
+                                <Text style={styles.text}>Lançamos-te um novo desafio!</Text>
                             </View>
                         </View>
                     </View>
@@ -781,6 +781,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
         marginTop: '5%',
+        marginLeft: '5%',
 
     },
 
@@ -789,7 +790,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'flex-start',
         justifyContent: 'center',
-        marginTop: '5%',
+        marginTop: '2.5%',
 
     },
 

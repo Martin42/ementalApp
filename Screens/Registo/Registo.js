@@ -55,7 +55,7 @@ function Registo({navigation, route}){
             .doc(auth.currentUser.uid)
             .set({
               pedido: 'Por aprovar'
-            })
+            }, {merge: true})
           }
 
 
