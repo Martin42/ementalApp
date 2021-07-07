@@ -11,15 +11,17 @@ function Pedido({ route, navigation }) {
     console.log(route.params.pedido);
     console.log(route.params.userid);
 
+    const currentUser = route.params.userid;
+
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [mensagem, setMensagem] = useState('');
 
     function setData() {
-    db.collection('users').doc(route.params.userid).set({
-        name: route.params.nomePedido,
-        email: route.params.emailPedido,
-        area: route.params.mensagemPedido,
+    db.collection('users').doc(currentUser).set({
+        name: nome,
+        email: email,
+        area: mensagem,
         status: route.params.status,
     }, {merge: true});
     }
