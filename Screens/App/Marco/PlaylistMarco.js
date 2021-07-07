@@ -25,7 +25,7 @@ function PlaylistMarco({ route, navigation }) {
                 <View style={{flexDirection:'row'}}>
                     <TouchableOpacity
                        style={{marginLeft: '5%'}}
-                        onPress={() => navigation.navigate('AudioMarco', {episodio: 'Episódio 1', titulo: 'Um Marco na Vida - Ep. 1 Piloto', serie:'Um Marco na Vida'})}
+                        onPress={() => navigation.navigate('AudioMarco', {episodio: 'Episódio 1', titulo: 'Um Marco na Vida - Ep. 1', serie:'Um Marco na Vida', url: "'./Audios/Marco1.mp3'"})}
                     >
                         <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <Circle cx="25" cy="25" r="25" fill="#8FBBFF"/>
@@ -43,7 +43,7 @@ function PlaylistMarco({ route, navigation }) {
                 <View style={{flexDirection:'row'}}>
                     <TouchableOpacity
                         style={{marginLeft: '5%'}}
-                        onPress={() => navigation.navigate('')}
+                        onPress={() => navigation.navigate('AudioMarco2', {episodio: 'Episódio 2', titulo: 'Um Marco na Vida - Ep. 2', serie:'Um Marco na Vida', url: "'./Audios/Marco2.mp3'"})}
                     >
                         <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <Circle cx="25" cy="25" r="25" fill="#3F3D56"/>
@@ -61,7 +61,7 @@ function PlaylistMarco({ route, navigation }) {
                 <View style={{flexDirection:'row'}}>
                     <TouchableOpacity
                        style={{marginLeft: '5%'}}
-                        onPress={() => navigation.navigate('')}
+                        onPress={() => navigation.navigate('AudioMarco3', {episodio: 'Episódio 3', titulo: 'Um Marco na Vida - Ep. 3', serie:'Um Marco na Vida', url: "'./Audios/Marco3.mp3'"})}
                     >
                         <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <Circle cx="25" cy="25" r="25" fill="#3F3D56"/>
@@ -79,7 +79,7 @@ function PlaylistMarco({ route, navigation }) {
                 <View style={{flexDirection:'row'}}>
                     <TouchableOpacity
                       style={{marginLeft: '5%'}}
-                        onPress={() => navigation.navigate('')}
+                        onPress={() => navigation.navigate('AudioMarco4', {episodio: 'Episódio 4', titulo: 'Um Marco na Vida - Ep. 4', serie:'Um Marco na Vida', url: "'./Audios/Marco4.mp3'"})}
                     >
                         <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <Circle cx="25" cy="25" r="25" fill="#3F3D56"/>
@@ -97,7 +97,7 @@ function PlaylistMarco({ route, navigation }) {
                 <View style={{flexDirection:'row'}}>
                     <TouchableOpacity
                         style={{marginLeft: '5%'}}
-                        onPress={() => navigation.navigate('')}
+                        onPress={() => navigation.navigate('AudioMarco5', {episodio: 'Episódio 5', titulo: 'Um Marco na Vida - Ep. 5', serie:'Um Marco na Vida', url: "'./Audios/Marco5.mp3'"})}
                     >
                         <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <Circle cx="25" cy="25" r="25" fill="#3F3D56"/>
@@ -115,7 +115,7 @@ function PlaylistMarco({ route, navigation }) {
                 <View style={{flexDirection:'row'}}>
                     <TouchableOpacity
                         style={{marginLeft: '5%'}}
-                        onPress={() => navigation.navigate('')}
+                        onPress={() => navigation.navigate('AudioMarco6', {episodio: 'Episódio 6', titulo: 'Um Marco na Vida - Ep. 6', serie:'Um Marco na Vida', url: "'./Audios/Marco6.mp3'"})}
                     >
                         <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <Circle cx="25" cy="25" r="25" fill="#3F3D56"/>
@@ -133,7 +133,7 @@ function PlaylistMarco({ route, navigation }) {
                 <View style={{flexDirection:'row'}}>
                     <TouchableOpacity
                         style={{marginLeft: '5%'}}
-                        onPress={() => navigation.navigate('')}
+                        onPress={() => navigation.navigate('AudioMarco7', {episodio: 'Episódio 7', titulo: 'Um Marco na Vida - Ep. 7', serie:'Um Marco na Vida', url: "'./Audios/Marco7.mp3'"})}
                     >
                         <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <Circle cx="25" cy="25" r="25" fill="#3F3D56"/>

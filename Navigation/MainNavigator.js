@@ -34,6 +34,12 @@ import QiMarcoB from '../Screens/App/Marco/QiMarcoB';
 import QiMarcoC from '../Screens/App/Marco/QiMarcoC';
 import QiMarcoD from '../Screens/App/Marco/QiMarcoD';
 import AudioMarco from '../Screens/App/Marco/AudioMarco';
+import AudioMarco2 from '../Screens/App/Marco/AudioMarco2';
+import AudioMarco3 from '../Screens/App/Marco/AudioMarco3';
+import AudioMarco4 from '../Screens/App/Marco/AudioMarco4';
+import AudioMarco5 from '../Screens/App/Marco/AudioMarco5';
+import AudioMarco6 from '../Screens/App/Marco/AudioMarco6';
+import AudioMarco7 from '../Screens/App/Marco/AudioMarco7';
 import Notificacoes from '../Screens/App/Notificacoes';
 import PainelControlo from '../Screens/App/PainelControlo';
 import Playlist40 from '../Screens/App/40segundos/Playlist40';
@@ -81,6 +87,12 @@ const MainStackNavigator = () => {
                 <Stack.Screen name='PlaylistSara' component={PlaylistSara} /> 
                 <Stack.Screen name='PlaylistMarco' component={PlaylistMarco} />
                 <Stack.Screen name='AudioMarco' component={AudioMarco} />
+                <Stack.Screen name='AudioMarco2' component={AudioMarco2} />
+                <Stack.Screen name='AudioMarco3' component={AudioMarco3} />
+                <Stack.Screen name='AudioMarco4' component={AudioMarco4} />
+                <Stack.Screen name='AudioMarco5' component={AudioMarco5} />
+                <Stack.Screen name='AudioMarco6' component={AudioMarco6} />
+                <Stack.Screen name='AudioMarco7' component={AudioMarco7} />
                 <Stack.Screen name='Notificacoes' component={Notificacoes} />
                 <Stack.Screen name='PainelControlo' component={PainelControlo} />
                 <Stack.Screen name='Playlist40' component={Playlist40} />
