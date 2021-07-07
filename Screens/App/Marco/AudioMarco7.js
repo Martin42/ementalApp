@@ -239,7 +239,7 @@ function AudioMarco7({ route, navigation }) {
                     />
           
                     <Text style={styles.titulo}>
-                        {route.params.episodio}
+                        Episódio 7
                     </Text>
                     <Text style={styles.subtitulo}>
                         {route.params.serie}
@@ -418,7 +418,7 @@ function AudioMarco7({ route, navigation }) {
                     />
           
                     <Text style={styles.titulo}>
-                        {route.params.episodio}
+                        Episódio 7
                     </Text>
                     <Text style={styles.subtitulo}>
                         {route.params.serie}
