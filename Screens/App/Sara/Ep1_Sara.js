@@ -189,11 +189,12 @@ function Ep1_Sara({route, navigation}){
             .add({
                 comentario: mensagem,
                 aprovado: '',
+                fulldata: new Date(),
             }) 
     }
 
     async function getComments (){
-        const commentRef = db.collection(route.params.episodio);
+        const commentRef = db.collection(route.params.episodio).orderBy('fulldata', 'asc');
         const snapshot = await commentRef.get()
         const comentarios = [];
         snapshot.forEach(doc => {
