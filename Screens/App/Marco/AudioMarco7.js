@@ -30,8 +30,7 @@ function AudioMarco7({ route, navigation }) {
     },[sound])
         
     const currentUser = auth.currentUser.uid;
-    const url = route.params.url;
-    console.log(url);
+   
     const [currentStatus, setCurrentStatus] = useState('');
     const [mensagem, setMensagem] = useState();
     const [modal2, setModal2] = useState(false);
@@ -74,7 +73,16 @@ function AudioMarco7({ route, navigation }) {
 
     function getFormattedTime(time) {
         let currentTime = time;
-        console.log(currentTime)
+    
+        if (currentTime == '00:00:30') {
+            db
+            .collection('users')
+            .doc(currentUser)
+            .set({
+                [route.params.episodio]: new Date()
+            }, {merge: true})
+        } 
+
     };
 
     
