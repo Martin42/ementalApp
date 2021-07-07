@@ -11,7 +11,7 @@ import Svg, {Rect, Path} from 'react-native-svg';
 import { Stopwatch} from 'react-native-stopwatch-timer';
 
 
-function AudioMarco({ route, navigation }) {
+function AudioMarco6({ route, navigation }) {
     
 
     useEffect(() => {
@@ -39,7 +39,7 @@ function AudioMarco({ route, navigation }) {
     const [commentsAdmin, setCommentsAdmin] = useState([]);
     const [checkPause, setCheckPause] = useState(false);
     const [porAprovar, setPorAprovar] = useState();
-    const [duration, setDuration] = useState(218);
+    const [duration, setDuration] = useState(220);
     const [currentDuration, setCurrentDuration] =useState(0);
 
     const [stopwatchStart, setStopwatchStart] = useState(false);
@@ -77,6 +77,7 @@ function AudioMarco({ route, navigation }) {
         console.log(currentTime)
     };
 
+
     // validar 
 
     function validate(){
@@ -97,7 +98,7 @@ function AudioMarco({ route, navigation }) {
     async function playSound(){
         console.log('Loading Sound');
         const { sound } = await Audio.Sound.createAsync(
-            require('./Audios/Marco1.mp3')
+            require('./Audios/Marco6.mp3')
         );
         setSound(sound);
 
@@ -240,7 +241,7 @@ function AudioMarco({ route, navigation }) {
                         reset={stopwatchReset}
                         options={options}
                         getTime={getFormattedTime}/>
-                        <Text style={styles.sliderTimers}>00:03:38</Text>
+                        <Text style={styles.sliderTimers}>00:03:40</Text>
                     </View>
                     
                     <View style={{justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
@@ -420,7 +421,7 @@ function AudioMarco({ route, navigation }) {
                         reset={stopwatchReset}
                         options={options}
                         getTime={getFormattedTime}/>
-                        <Text style={styles.sliderTimers}>00:03:38</Text>
+                        <Text style={styles.sliderTimers}>00:03:40</Text>
                     </View>
                     
                     <View style={{justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
@@ -786,4 +787,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default AudioMarco;
+export default AudioMarco6;

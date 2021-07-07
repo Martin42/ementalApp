@@ -49,6 +49,21 @@ function Registo({navigation, route}){
             concluido: 'false'
           })
 
+          db
+          .collection('Questionário Marco Final')
+          .doc(auth.currentUser.uid)
+          .set({
+            concluido: 'false'
+          })
+
+          db
+          .collection('Questionário Sara Final')
+          .doc(auth.currentUser.uid)
+          .set({
+            concluido: 'false'
+          })
+
+
           if ((route.params.status) == 1) {
             db
             .collection('users')
