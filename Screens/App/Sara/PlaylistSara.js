@@ -578,6 +578,7 @@ function PlaylistSara({ route, navigation }) {
                 setDES9(false);
                 if (EP13SARA == false) {
                     setAll(true);
+                    // navigation.navigate('QiSaraAFINAL')
                 }
             }
         })
