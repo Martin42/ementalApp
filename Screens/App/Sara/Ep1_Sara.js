@@ -24,12 +24,12 @@ function Ep1_Sara({route, navigation}){
 
     function getTime(){
         playerRef.current?.getCurrentTime().then(
-            currentTime => {setCurrentTime(currentTime); setFinished(currentTime)}
+            currentTime => {setFinished(currentTime)}
           );
     }
 
     function setFinished(currentTime){
-        if (currentTime >= 30) {
+        if (currentTime >= 10) {
             db
                 .collection('users')
                 .doc(currentUser)
@@ -42,7 +42,6 @@ function Ep1_Sara({route, navigation}){
 
     const currentUser = auth.currentUser.uid;
     const [currentStatus, setCurrentStatus] = useState('');
-    const [currentTime, setCurrentTime] = useState();
 
     const [mensagem, setMensagem] = useState();
     const [playing, setPlaying] = useState(false);
