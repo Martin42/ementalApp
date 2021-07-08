@@ -45,6 +45,15 @@ function PlaylistMarco({ route, navigation }) {
                 setEP1MARCO(false);
                 if ((doc.data().EP1MARCO.seconds + 10) <= currentTime) {
                     setEP2MARCO(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 2 do Marco na Vida encontra-se disponível!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistMarco'
+                    })
                   
                 }
             }
@@ -61,6 +70,15 @@ function PlaylistMarco({ route, navigation }) {
                 setEP2MARCO(false);
                 if ((doc.data().EP2MARCO.seconds + 10) <= currentTime) {
                     setEP3MARCO(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 3 do Marco na Vida encontra-se disponível!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistMarco'
+                    })
                    
                 }
             }
@@ -78,6 +96,15 @@ function PlaylistMarco({ route, navigation }) {
                 setEP3MARCO(false);
                 if ((doc.data().EP3MARCO.seconds + 10) <= currentTime) {
                     setEP4MARCO(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 4 do Marco na Vida encontra-se disponível!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistMarco'
+                    })
                     
                 }
             }
@@ -95,6 +122,15 @@ function PlaylistMarco({ route, navigation }) {
                 setEP4MARCO(false);
                 if ((doc.data().EP4MARCO.seconds + 10) <= currentTime) {
                     setEP5MARCO(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 5 do Marco na Vida encontra-se disponível!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistMarco'
+                    })
                    
                 }
             }
@@ -111,6 +147,15 @@ function PlaylistMarco({ route, navigation }) {
                 setEP5MARCO(false);
                 if ((doc.data().EP5MARCO.seconds + 10) <= currentTime) {
                     setEP6MARCO(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 6 do Marco na Vida encontra-se disponível!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistMarco'
+                    })
                   
                 }
             }
@@ -127,6 +172,15 @@ function PlaylistMarco({ route, navigation }) {
                 setEP6MARCO(false);
                 if ((doc.data().EP6MARCO.seconds + 10) <= currentTime) {
                     setEP7MARCO(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 7 do Marco na Vida encontra-se disponível!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistMarco'
+                    })
                    
                 }
             }

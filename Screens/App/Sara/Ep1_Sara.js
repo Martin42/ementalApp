@@ -170,7 +170,18 @@ function Ep1_Sara({route, navigation}){
         .doc(id)
         .set({
             aprovado: 'true'
-        }, {merge: true})
+        }, {merge: true});
+
+        db
+        .collection('Notificacoes')
+        .add({
+            Conteudo: 'O teu comentário foi aprovado!',
+            User: currentUser,
+            Visto: false,
+            fulldata: new Date(),
+            Destino: 'Notificacoes'
+        })
+
     }
 
     function setReprovado(id){

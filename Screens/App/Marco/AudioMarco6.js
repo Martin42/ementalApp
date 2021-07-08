@@ -137,7 +137,17 @@ function AudioMarco6({ route, navigation }) {
         .doc(id)
         .set({
             aprovado: 'true'
-        }, {merge: true})
+        }, {merge: true});
+
+        db
+        .collection('Notificacoes')
+        .add({
+            Conteudo: 'O teu comentário foi aprovado!',
+            User: currentUser,
+            Visto: false,
+            fulldata: new Date(),
+            Destino: 'Natoficacoes'
+        })
     }
 
     function setReprovado(id){
