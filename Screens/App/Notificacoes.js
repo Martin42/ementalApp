@@ -1,13 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity} from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
 import Icon2 from 'react-native-vector-icons/AntDesign';
 import Checkbox from 'react-native-check-box';
-import { auth, db } from '../../Firebase';
 import { color } from 'react-native-reanimated';
+import { auth, db } from '../../Firebase'
+import { createIconSetFromFontello } from 'react-native-vector-icons';
 
 function Notificacoes({ route, navigation }) {
+    
+    const currentUser = auth.currentUser.uid;
+    const [conteudo, setConteudo] = useState([]);
+    const [notificacao, setNotificacao] = useState([])
+
+    useEffect(() => {
+        getNotificacoes();
+    }, [])
+
+    async function getNotificacoes(){
+      const NotificacoesRef = db.collection('Notificacoes').where('User', '==', currentUser);
+      const snapshot = await NotificacoesRef.get();
+      const Notificacao = [];
+      snapshot.forEach(doc => { 
+        setNotificacao(state => ({
+            ...state,
+            [ doc.id ] : doc.data()
+        }))
+      });
+    }
+
+    function setVisto(id){
+        db
+        .collection('Notificacoes')
+        .doc(id)
+        .set({
+            Visto: true
+        }, {merge: true})
+    }
 
     return (
         <View style={styles.container}>
@@ -17,34 +47,36 @@ function Notificacoes({ route, navigation }) {
                 <Text style={styles.title1}>Notificações</Text>
             </View>
             <View style={styles.container2}>
-                <View style={styles.container3}>
-                    <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flex:1}}>
+                {Object.entries(notificacao).map(([id, value]) => (
+                        <View key={[id]} style={styles.container3}>
 
-                        <Text 
-                        style={styles.title3}
-                        onPress={() => navigation.navigate('Conversa')}>
-                        Um profissional de saúde respondeu ao teu pedido de esclarecimento.
-                        </Text>
+                            <TouchableOpacity
+                            onPress={() => {setVisto(id), navigation.navigate('PlaylistSara')}}>
+                                { value.Visto == true ? (
+                                    <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flex:1}}>
+                                    <Text 
+                                    style={styles.title4}>
+                                    {[value.Conteudo]}
+                                    </Text>
+                                    </View>
+                                ) : (
+                                    <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flex:1}}>
+                                    <Text 
+                                    style={styles.title3}>
+                                    {[value.Conteudo]}
+                                    </Text>
+                                    
+                                    <Image
+                                    source={require('../../images/notificacao.png')}
+                                    style={styles.imagem}
+                                    />
+                                    </View>
 
-                        <Image
-                            source={require('../../images/notificacao.png')}
-                            style={styles.imagem}
-                        />
-                    </View>
+                                )}
+                            </TouchableOpacity>
+
                 </View>
-                <Text style={styles.title4}>Novo episódio de Um Marco na Vida disponível!</Text>
-
-                <Text style={styles.title4}>Novo episódio de A Ferida Sara disponível!</Text>
-
-                <Text style={styles.title4}>Novo episódio de A Ferida Sara disponível!</Text>
-
-                <Text style={styles.title4}>Novo episódio de A Ferida Sara disponível!</Text>
-
-                <Text style={styles.title4}>Novo episódio de A Ferida Sara disponível!</Text>
-
-                <Text style={styles.title4}>Novo episódio de A Ferida Sara disponível!</Text>
-
-
+                ))}
             </View>
 
         </ScrollView>
@@ -164,9 +196,11 @@ const styles = StyleSheet.create({
 
     title4: {
         fontSize: 20,
+        marginBottom: '7%',
         marginLeft: '10%',
         marginRight: '10%',
-        marginBottom: '7%',
+        marginTop: '13%',
+        paddingRight:'6%',
 
     },
 

@@ -6,6 +6,10 @@ import Icon2 from 'react-native-vector-icons/AntDesign';
 import Checkbox from 'react-native-check-box';
 import { Entypo } from '@expo/vector-icons';
 import { auth, db } from '../../Firebase';
+import XLSX from 'xlsx';
+import * as FileSystem from 'expo-file-system';
+import * as Sharing from 'expo-sharing';
+
 
 
 function PainelControlo({ route, navigation }) {
@@ -70,6 +74,36 @@ function PainelControlo({ route, navigation }) {
     }
 
 
+    var data = [{
+        "Estudantes Universitários": estudantes,
+        "Profissionais de Saúde": PDS,
+        "Questionários Respondidos Ferida Sara": numeroSara,
+        "Questionários Respondidos Marco": numeroMarco
+      },
+    ];
+
+    function exportData() {
+        var ws = XLSX.utils.json_to_sheet(data);
+        var wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Dados Brutos");
+        const wbout = XLSX.write(wb, {
+        type: 'base64',
+        bookType: "xlsx"
+        });
+        const uri = FileSystem.cacheDirectory + 'Dados Brutos.xlsx';
+        console.log(`Writing to ${JSON.stringify(uri)} with text: ${wbout}`);
+        FileSystem.writeAsStringAsync(uri, wbout, {
+        encoding: FileSystem.EncodingType.Base64
+        });
+        Sharing.shareAsync(uri, {
+            mimeType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            dialogTitle: 'MyWater data',
+            UTI: 'com.microsoft.excel.xlsx'
+          });
+    }
+   
+
+
     return (
         <View style={styles.container}>
         <ScrollView style={styles.container}>
@@ -84,7 +118,8 @@ function PainelControlo({ route, navigation }) {
                         <Text style={styles.title2}>Dados</Text>
 
                         <TouchableOpacity
-                            style={styles.icone}>
+                            style={styles.icone}
+                            onPress={exportData}>
                             <Entypo name="download" size={20} color="#6578B3" />
                         </TouchableOpacity>
 
