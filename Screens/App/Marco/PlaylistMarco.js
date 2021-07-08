@@ -13,11 +13,137 @@ function PlaylistMarco({ route, navigation }) {
 
     useEffect(() => {
         getStatus();
+        getEP1();
     }, []);
 
     const currentUser = auth.currentUser.uid;
     const [currentStatus, setCurrentStatus] = useState('');
+    const currentTime = new Date() / 1000;
+    const [EP1MARCO, setEP1MARCO] = useState(true);
+    const [EP2MARCO, setEP2MARCO] = useState(false);
+    const [EP3MARCO, setEP3MARCO] = useState(false);
+    const [EP4MARCO, setEP4MARCO] = useState(false);
+    const [EP5MARCO, setEP5MARCO] = useState(false);
+    const [EP6MARCO, setEP6MARCO] = useState(false);
+    const [EP7MARCO, setEP7MARCO] = useState(false);
     const [all, setAll] = useState(false)
+
+
+    function getEP1(){
+        db
+        .collection('users')
+        .doc(currentUser)
+        .get()
+        .then(doc => {
+            if ((doc.data().EP1MARCO) != undefined) {
+                setEP1MARCO(false);
+                if ((doc.data().EP1MARCO.seconds + 10) <= currentTime) {
+                    setEP2MARCO(true);
+                    getEP2();
+                }
+            }
+        })
+    }
+
+    function getEP2(){
+        db
+        .collection('users')
+        .doc(currentUser)
+        .get()
+        .then(doc => {
+            if ((doc.data().EP2MARCO) != undefined) {
+                setEP2MARCO(false);
+                if ((doc.data().EP2MARCO.seconds + 10) <= currentTime) {
+                    setEP3MARCO(true);
+                    getEP3();
+                }
+            }
+        })
+    }
+
+
+    function getEP3(){
+        db
+        .collection('users')
+        .doc(currentUser)
+        .get()
+        .then(doc => {
+            if ((doc.data().EP3MARCO) != undefined) {
+                setEP3MARCO(false);
+                if ((doc.data().EP3MARCO.seconds + 10) <= currentTime) {
+                    setEP4MARCO(true);
+                    getEP4();
+                }
+            }
+        })
+    }
+
+
+    function getEP4(){
+        db
+        .collection('users')
+        .doc(currentUser)
+        .get()
+        .then(doc => {
+            if ((doc.data().EP4MARCO) != undefined) {
+                setEP4MARCO(false);
+                if ((doc.data().EP4MARCO.seconds + 10) <= currentTime) {
+                    setEP5MARCO(true);
+                    getEP5();
+                }
+            }
+        })
+    }
+
+    function getEP5(){
+        db
+        .collection('users')
+        .doc(currentUser)
+        .get()
+        .then(doc => {
+            if ((doc.data().EP5MARCO) != undefined) {
+                setEP5MARCO(false);
+                if ((doc.data().EP5MARCO.seconds + 10) <= currentTime) {
+                    setEP6MARCO(true);
+                    getEP6();
+                }
+            }
+        })
+    }
+
+    function getEP6(){
+        db
+        .collection('users')
+        .doc(currentUser)
+        .get()
+        .then(doc => {
+            if ((doc.data().EP6MARCO) != undefined) {
+                setEP6MARCO(false);
+                if ((doc.data().EP6MARCO.seconds + 10) <= currentTime) {
+                    setEP7MARCO(true);
+                    getEP7();
+                }
+            }
+        })
+    }
+
+    function getEP7(){
+        db
+        .collection('users')
+        .doc(currentUser)
+        .get()
+        .then(doc => {
+            if ((doc.data().EP7MARCO) != undefined) {
+                setAll(true);
+            }
+        })
+    }
+
+
+
+
+
+
 
     function getStatus (){ db
         .collection('users')
@@ -235,16 +361,33 @@ function PlaylistMarco({ route, navigation }) {
             <View style={styles.container2}>
 
                 <View style={{flexDirection:'row'}}>
-                    <TouchableOpacity
-                       style={{marginLeft: '5%'}}
-                        onPress={() => navigation.navigate('AudioMarco', {episodio: 'EP1MARCO', titulo: 'Um Marco na Vida - Ep. 1', serie:'Um Marco na Vida', url: "'./Audios/Marco1.mp3'"})}
-                    >
-                        <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <Circle cx="25" cy="25" r="25" fill="#8FBBFF"/>
-                            <Path d="M19.1665 16.5525V32.6141C19.1665 33.8389 20.5243 34.5831 21.57 33.9164L34.2741 25.8856C35.2417 25.281 35.2417 23.8857 34.2741 23.2655L21.57 15.2502C20.5243 14.5836 19.1665 15.3278 19.1665 16.5525Z" fill="white"/>
-                        </Svg>
 
-                    </TouchableOpacity>
+                    {
+                        (EP1MARCO == true) ? (
+                            <TouchableOpacity
+                            style={{marginLeft: '5%'}}
+                             onPress={() => navigation.navigate('AudioMarco', {episodio: 'EP1MARCO', titulo: 'Um Marco na Vida - Ep. 1', serie:'Um Marco na Vida', url: "'./Audios/Marco1.mp3'"})}
+                         >
+                             <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <Circle cx="25" cy="25" r="25" fill="#8FBBFF"/>
+                                 <Path d="M19.1665 16.5525V32.6141C19.1665 33.8389 20.5243 34.5831 21.57 33.9164L34.2741 25.8856C35.2417 25.281 35.2417 23.8857 34.2741 23.2655L21.57 15.2502C20.5243 14.5836 19.1665 15.3278 19.1665 16.5525Z" fill="white"/>
+                             </Svg>
+     
+                         </TouchableOpacity>
+                        ) : (
+                        <TouchableOpacity
+                        style={{marginLeft: '5%'}}
+                            onPress={() => alert('Conteúdo Bloqueado')}
+                        >
+                            <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <Circle cx="25" cy="25" r="25" fill="#3F3D56"/>
+                            <Path d="M33.5217 33.8909L18.1198 18.6364L17 19.7455L18.8725 21.6C18.3034 21.9091 17.9179 22.5 17.9179 23.1818V32.2727C17.9179 33.2727 18.744 34.0909 19.7536 34.0909H30.7681C30.9792 34.0909 31.1812 34.0455 31.3739 33.9818L32.4019 35L33.5217 33.8909ZM22.4155 19.5455C22.4155 17.9909 23.6913 16.7273 25.2609 16.7273C26.8304 16.7273 28.1063 17.9909 28.1063 19.5455V21.3636H23.113L32.6039 30.7636V23.1818C32.6039 22.1818 31.7778 21.3636 30.7681 21.3636H29.8502V19.5455C29.8502 17.0364 27.7942 15 25.2609 15C22.9111 15 21.0019 16.7545 20.7266 19L22.4155 20.6727V19.5455Z" fill="white"/>
+                            </Svg>
+                        </TouchableOpacity>
+                        )
+                    }
+
+                    
                     
                     <View  style={{marginTop: '12%'}}>
                         <Text style={styles.title2}>Episódio 1</Text>
@@ -253,9 +396,23 @@ function PlaylistMarco({ route, navigation }) {
                 </View>
 
                 <View style={{flexDirection:'row'}}>
+
+                    {
+                        (EP2MARCO == true) ? (
+                            <TouchableOpacity
+                            style={{marginLeft: '5%'}}
+                            onPress={() => navigation.navigate('AudioMarco2', {episodio: 'EP2MARCO', titulo: 'Um Marco na Vida - Ep. 2', serie:'Um Marco na Vida', url: "'./Audios/Marco2.mp3'"})}
+                        >
+                            <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <Circle cx="25" cy="25" r="25" fill="#8FBBFF"/>
+                                 <Path d="M19.1665 16.5525V32.6141C19.1665 33.8389 20.5243 34.5831 21.57 33.9164L34.2741 25.8856C35.2417 25.281 35.2417 23.8857 34.2741 23.2655L21.57 15.2502C20.5243 14.5836 19.1665 15.3278 19.1665 16.5525Z" fill="white"/>
+                             </Svg>
+    
+                        </TouchableOpacity>
+                        ) : (
                     <TouchableOpacity
                         style={{marginLeft: '5%'}}
-                        onPress={() => navigation.navigate('AudioMarco2', {episodio: 'EP2MARCO', titulo: 'Um Marco na Vida - Ep. 2', serie:'Um Marco na Vida', url: "'./Audios/Marco2.mp3'"})}
+                        onPress={() => alert('Conteúdo Bloqueado')}
                     >
                         <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <Circle cx="25" cy="25" r="25" fill="#3F3D56"/>
@@ -263,6 +420,10 @@ function PlaylistMarco({ route, navigation }) {
                         </Svg>
 
                     </TouchableOpacity>
+                        )
+                    }
+
+                    
                     
                     <View  style={{marginTop: '12%'}}>
                         <Text style={styles.title2}>Episódio 2</Text>
@@ -271,16 +432,34 @@ function PlaylistMarco({ route, navigation }) {
                 </View>
 
                 <View style={{flexDirection:'row'}}>
-                    <TouchableOpacity
-                       style={{marginLeft: '5%'}}
-                        onPress={() => navigation.navigate('AudioMarco3', {episodio: 'EP3MARCO', titulo: 'Um Marco na Vida - Ep. 3', serie:'Um Marco na Vida', url: "'./Audios/Marco3.mp3'"})}
-                    >
+
+                    {
+                        (EP3MARCO == true) ? (
+                            <TouchableOpacity
+                                style={{marginLeft: '5%'}}
+                                onPress={() => navigation.navigate('AudioMarco3', {episodio: 'EP3MARCO', titulo: 'Um Marco na Vida - Ep. 3', serie:'Um Marco na Vida', url: "'./Audios/Marco3.mp3'"})}
+                        >
+                            <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <Circle cx="25" cy="25" r="25" fill="#8FBBFF"/>
+                                 <Path d="M19.1665 16.5525V32.6141C19.1665 33.8389 20.5243 34.5831 21.57 33.9164L34.2741 25.8856C35.2417 25.281 35.2417 23.8857 34.2741 23.2655L21.57 15.2502C20.5243 14.5836 19.1665 15.3278 19.1665 16.5525Z" fill="white"/>
+                             </Svg>
+
+                        </TouchableOpacity>
+                        ) : (
+                            <TouchableOpacity
+                                style={{marginLeft: '5%'}}
+                                onPress={() => alert('Conteúdo Bloqueado')}
+                            >
                         <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <Circle cx="25" cy="25" r="25" fill="#3F3D56"/>
                             <Path d="M33.5217 33.8909L18.1198 18.6364L17 19.7455L18.8725 21.6C18.3034 21.9091 17.9179 22.5 17.9179 23.1818V32.2727C17.9179 33.2727 18.744 34.0909 19.7536 34.0909H30.7681C30.9792 34.0909 31.1812 34.0455 31.3739 33.9818L32.4019 35L33.5217 33.8909ZM22.4155 19.5455C22.4155 17.9909 23.6913 16.7273 25.2609 16.7273C26.8304 16.7273 28.1063 17.9909 28.1063 19.5455V21.3636H23.113L32.6039 30.7636V23.1818C32.6039 22.1818 31.7778 21.3636 30.7681 21.3636H29.8502V19.5455C29.8502 17.0364 27.7942 15 25.2609 15C22.9111 15 21.0019 16.7545 20.7266 19L22.4155 20.6727V19.5455Z" fill="white"/>
                         </Svg>
 
                     </TouchableOpacity>
+                        )
+                    }
+
+                    
                     
                     <View  style={{marginTop: '12%'}}>
                         <Text style={styles.title2}>Episódio 3</Text>
@@ -289,16 +468,34 @@ function PlaylistMarco({ route, navigation }) {
                 </View>
 
                 <View style={{flexDirection:'row'}}>
-                    <TouchableOpacity
-                      style={{marginLeft: '5%'}}
-                        onPress={() => navigation.navigate('AudioMarco4', {episodio: 'EP4MARCO', titulo: 'Um Marco na Vida - Ep. 4', serie:'Um Marco na Vida', url: "'./Audios/Marco4.mp3'"})}
-                    >
-                        <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <Circle cx="25" cy="25" r="25" fill="#3F3D56"/>
-                            <Path d="M33.5217 33.8909L18.1198 18.6364L17 19.7455L18.8725 21.6C18.3034 21.9091 17.9179 22.5 17.9179 23.1818V32.2727C17.9179 33.2727 18.744 34.0909 19.7536 34.0909H30.7681C30.9792 34.0909 31.1812 34.0455 31.3739 33.9818L32.4019 35L33.5217 33.8909ZM22.4155 19.5455C22.4155 17.9909 23.6913 16.7273 25.2609 16.7273C26.8304 16.7273 28.1063 17.9909 28.1063 19.5455V21.3636H23.113L32.6039 30.7636V23.1818C32.6039 22.1818 31.7778 21.3636 30.7681 21.3636H29.8502V19.5455C29.8502 17.0364 27.7942 15 25.2609 15C22.9111 15 21.0019 16.7545 20.7266 19L22.4155 20.6727V19.5455Z" fill="white"/>
-                        </Svg>
 
-                    </TouchableOpacity>
+                    {
+                        (EP4MARCO == true) ? (
+                            <TouchableOpacity
+                            style={{marginLeft: '5%'}}
+                              onPress={() => navigation.navigate('AudioMarco4', {episodio: 'EP4MARCO', titulo: 'Um Marco na Vida - Ep. 4', serie:'Um Marco na Vida', url: "'./Audios/Marco4.mp3'"})}
+                          >
+                              <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <Circle cx="25" cy="25" r="25" fill="#8FBBFF"/>
+                                 <Path d="M19.1665 16.5525V32.6141C19.1665 33.8389 20.5243 34.5831 21.57 33.9164L34.2741 25.8856C35.2417 25.281 35.2417 23.8857 34.2741 23.2655L21.57 15.2502C20.5243 14.5836 19.1665 15.3278 19.1665 16.5525Z" fill="white"/>
+                             </Svg>
+      
+                          </TouchableOpacity>
+                        ) : (
+                            <TouchableOpacity
+                            style={{marginLeft: '5%'}}
+                            onPress={() => alert('Conteúdo Bloqueado')}
+                          >
+                              <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <Circle cx="25" cy="25" r="25" fill="#3F3D56"/>
+                                  <Path d="M33.5217 33.8909L18.1198 18.6364L17 19.7455L18.8725 21.6C18.3034 21.9091 17.9179 22.5 17.9179 23.1818V32.2727C17.9179 33.2727 18.744 34.0909 19.7536 34.0909H30.7681C30.9792 34.0909 31.1812 34.0455 31.3739 33.9818L32.4019 35L33.5217 33.8909ZM22.4155 19.5455C22.4155 17.9909 23.6913 16.7273 25.2609 16.7273C26.8304 16.7273 28.1063 17.9909 28.1063 19.5455V21.3636H23.113L32.6039 30.7636V23.1818C32.6039 22.1818 31.7778 21.3636 30.7681 21.3636H29.8502V19.5455C29.8502 17.0364 27.7942 15 25.2609 15C22.9111 15 21.0019 16.7545 20.7266 19L22.4155 20.6727V19.5455Z" fill="white"/>
+                              </Svg>
+      
+                          </TouchableOpacity>
+                        )
+                    }
+
+                  
                     
                     <View  style={{marginTop: '12%'}}>
                         <Text style={styles.title2}>Episódio 4</Text>
@@ -307,9 +504,23 @@ function PlaylistMarco({ route, navigation }) {
                 </View>
 
                 <View style={{flexDirection:'row'}}>
-                    <TouchableOpacity
+
+                    {
+                        (EP5MARCO == true) ? (
+                            <TouchableOpacity
                         style={{marginLeft: '5%'}}
                         onPress={() => navigation.navigate('AudioMarco5', {episodio: 'EP5MARCO', titulo: 'Um Marco na Vida - Ep. 5', serie:'Um Marco na Vida', url: "'./Audios/Marco5.mp3'"})}
+                    >
+                         <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <Circle cx="25" cy="25" r="25" fill="#8FBBFF"/>
+                                 <Path d="M19.1665 16.5525V32.6141C19.1665 33.8389 20.5243 34.5831 21.57 33.9164L34.2741 25.8856C35.2417 25.281 35.2417 23.8857 34.2741 23.2655L21.57 15.2502C20.5243 14.5836 19.1665 15.3278 19.1665 16.5525Z" fill="white"/>
+                             </Svg>
+
+                    </TouchableOpacity>
+                        ) : (
+                            <TouchableOpacity
+                        style={{marginLeft: '5%'}}
+                        onPress={() => alert('Conteúdo Bloqueado')}
                     >
                         <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <Circle cx="25" cy="25" r="25" fill="#3F3D56"/>
@@ -317,6 +528,10 @@ function PlaylistMarco({ route, navigation }) {
                         </Svg>
 
                     </TouchableOpacity>
+                        )
+                    }
+
+                    
                     
                     <View  style={{marginTop: '12%'}}>
                         <Text style={styles.title2}>Episódio 5</Text>
@@ -325,16 +540,34 @@ function PlaylistMarco({ route, navigation }) {
                 </View>
 
                 <View style={{flexDirection:'row'}}>
-                    <TouchableOpacity
-                        style={{marginLeft: '5%'}}
-                        onPress={() => navigation.navigate('AudioMarco6', {episodio: 'EP6MARCO', titulo: 'Um Marco na Vida - Ep. 6', serie:'Um Marco na Vida', url: "'./Audios/Marco6.mp3'"})}
-                    >
-                        <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <Circle cx="25" cy="25" r="25" fill="#3F3D56"/>
-                            <Path d="M33.5217 33.8909L18.1198 18.6364L17 19.7455L18.8725 21.6C18.3034 21.9091 17.9179 22.5 17.9179 23.1818V32.2727C17.9179 33.2727 18.744 34.0909 19.7536 34.0909H30.7681C30.9792 34.0909 31.1812 34.0455 31.3739 33.9818L32.4019 35L33.5217 33.8909ZM22.4155 19.5455C22.4155 17.9909 23.6913 16.7273 25.2609 16.7273C26.8304 16.7273 28.1063 17.9909 28.1063 19.5455V21.3636H23.113L32.6039 30.7636V23.1818C32.6039 22.1818 31.7778 21.3636 30.7681 21.3636H29.8502V19.5455C29.8502 17.0364 27.7942 15 25.2609 15C22.9111 15 21.0019 16.7545 20.7266 19L22.4155 20.6727V19.5455Z" fill="white"/>
-                        </Svg>
 
-                    </TouchableOpacity>
+                    {
+                        (EP6MARCO == true) ? (
+                            <TouchableOpacity
+                            style={{marginLeft: '5%'}}
+                            onPress={() => navigation.navigate('AudioMarco6', {episodio: 'EP6MARCO', titulo: 'Um Marco na Vida - Ep. 6', serie:'Um Marco na Vida', url: "'./Audios/Marco6.mp3'"})}
+                        >
+                              <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <Circle cx="25" cy="25" r="25" fill="#8FBBFF"/>
+                                 <Path d="M19.1665 16.5525V32.6141C19.1665 33.8389 20.5243 34.5831 21.57 33.9164L34.2741 25.8856C35.2417 25.281 35.2417 23.8857 34.2741 23.2655L21.57 15.2502C20.5243 14.5836 19.1665 15.3278 19.1665 16.5525Z" fill="white"/>
+                             </Svg>
+    
+                        </TouchableOpacity>
+                        ) : (
+                            <TouchableOpacity
+                            style={{marginLeft: '5%'}}
+                            onPress={() => alert('Conteúdo Bloqueado')}
+                        >
+                            <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <Circle cx="25" cy="25" r="25" fill="#3F3D56"/>
+                                <Path d="M33.5217 33.8909L18.1198 18.6364L17 19.7455L18.8725 21.6C18.3034 21.9091 17.9179 22.5 17.9179 23.1818V32.2727C17.9179 33.2727 18.744 34.0909 19.7536 34.0909H30.7681C30.9792 34.0909 31.1812 34.0455 31.3739 33.9818L32.4019 35L33.5217 33.8909ZM22.4155 19.5455C22.4155 17.9909 23.6913 16.7273 25.2609 16.7273C26.8304 16.7273 28.1063 17.9909 28.1063 19.5455V21.3636H23.113L32.6039 30.7636V23.1818C32.6039 22.1818 31.7778 21.3636 30.7681 21.3636H29.8502V19.5455C29.8502 17.0364 27.7942 15 25.2609 15C22.9111 15 21.0019 16.7545 20.7266 19L22.4155 20.6727V19.5455Z" fill="white"/>
+                            </Svg>
+    
+                        </TouchableOpacity>
+                        )
+                    }
+
+                  
                     
                     <View  style={{marginTop: '12%'}}>
                         <Text style={styles.title2}>Episódio 6</Text>
@@ -343,16 +576,34 @@ function PlaylistMarco({ route, navigation }) {
                 </View>
 
                 <View style={{flexDirection:'row', marginBottom: '10%'}}>
-                    <TouchableOpacity
-                        style={{marginLeft: '5%'}}
-                        onPress={() => navigation.navigate('AudioMarco7', {episodio: 'EP7MARCO', titulo: 'Um Marco na Vida - Ep. 7', serie:'Um Marco na Vida', url: "'./Audios/Marco7.mp3'"})}
-                    >
-                        <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <Circle cx="25" cy="25" r="25" fill="#3F3D56"/>
-                            <Path d="M33.5217 33.8909L18.1198 18.6364L17 19.7455L18.8725 21.6C18.3034 21.9091 17.9179 22.5 17.9179 23.1818V32.2727C17.9179 33.2727 18.744 34.0909 19.7536 34.0909H30.7681C30.9792 34.0909 31.1812 34.0455 31.3739 33.9818L32.4019 35L33.5217 33.8909ZM22.4155 19.5455C22.4155 17.9909 23.6913 16.7273 25.2609 16.7273C26.8304 16.7273 28.1063 17.9909 28.1063 19.5455V21.3636H23.113L32.6039 30.7636V23.1818C32.6039 22.1818 31.7778 21.3636 30.7681 21.3636H29.8502V19.5455C29.8502 17.0364 27.7942 15 25.2609 15C22.9111 15 21.0019 16.7545 20.7266 19L22.4155 20.6727V19.5455Z" fill="white"/>
-                        </Svg>
-                        
-                    </TouchableOpacity>
+
+                    {
+                        (EP7MARCO == true) ? (
+                            <TouchableOpacity
+                            style={{marginLeft: '5%'}}
+                            onPress={() => navigation.navigate('AudioMarco7', {episodio: 'EP7MARCO', titulo: 'Um Marco na Vida - Ep. 7', serie:'Um Marco na Vida', url: "'./Audios/Marco7.mp3'"})}
+                        >
+                             <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <Circle cx="25" cy="25" r="25" fill="#8FBBFF"/>
+                                 <Path d="M19.1665 16.5525V32.6141C19.1665 33.8389 20.5243 34.5831 21.57 33.9164L34.2741 25.8856C35.2417 25.281 35.2417 23.8857 34.2741 23.2655L21.57 15.2502C20.5243 14.5836 19.1665 15.3278 19.1665 16.5525Z" fill="white"/>
+                             </Svg>
+                            
+                        </TouchableOpacity>
+                        ) : (
+                            <TouchableOpacity
+                            style={{marginLeft: '5%'}}
+                            onPress={() => alert('Conteúdo Bloqueado')}
+                        >
+                            <Svg style={styles.icone} width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <Circle cx="25" cy="25" r="25" fill="#3F3D56"/>
+                                <Path d="M33.5217 33.8909L18.1198 18.6364L17 19.7455L18.8725 21.6C18.3034 21.9091 17.9179 22.5 17.9179 23.1818V32.2727C17.9179 33.2727 18.744 34.0909 19.7536 34.0909H30.7681C30.9792 34.0909 31.1812 34.0455 31.3739 33.9818L32.4019 35L33.5217 33.8909ZM22.4155 19.5455C22.4155 17.9909 23.6913 16.7273 25.2609 16.7273C26.8304 16.7273 28.1063 17.9909 28.1063 19.5455V21.3636H23.113L32.6039 30.7636V23.1818C32.6039 22.1818 31.7778 21.3636 30.7681 21.3636H29.8502V19.5455C29.8502 17.0364 27.7942 15 25.2609 15C22.9111 15 21.0019 16.7545 20.7266 19L22.4155 20.6727V19.5455Z" fill="white"/>
+                            </Svg>
+                            
+                        </TouchableOpacity>
+                        )
+                    }
+
+                  
                     
                     <View style={{marginTop: '12%'}}>
                         <Text style={styles.title2}>Episódio 7</Text>
