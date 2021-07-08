@@ -168,11 +168,6 @@ function Esclarecimento({route, navigation}){
 
       </View>
 
-      <ScrollView contentContainerStyle={styles.container}>
-
-        <View style={styles.inputField}>
-        
-
         <ScrollView contentContainerStyle={styles.container}>
 
           <View style={styles.introText}>
@@ -210,18 +205,12 @@ function Esclarecimento({route, navigation}){
                                   onPress={() => {setPedido(); setConversa(); setModal(true)}}
                                   style={styles.enviar}
                                   >
-                                      <Text style={{color: 'white', textAlign: 'center', fontSize: 18, fontWeight: 'bold', marginTop:'2%'}}> Enviar </Text>
+                                      <Text style={{color: 'white', textAlign: 'center', fontSize: 18, fontWeight: 'bold'}}> Enviar </Text>
                           </TouchableOpacity>
               </View>
             
           </View>
           </ScrollView>
-
-          
-
-        
-        </View>
-      </ScrollView>
 
       <Modal
             animationType='fade'
@@ -327,7 +316,9 @@ const styles = StyleSheet.create({
     width: '80%',
     alignSelf: 'center',
     flex: 1,
-    alignContent: 'center'
+    alignContent: 'center',
+    justifyContent: 'center',
+    marginBottom: '5%'
   },
 
   text: {
