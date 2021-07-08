@@ -54,7 +54,7 @@ function Homepage({ route, navigation }) {
       }
 
 
-    function getQuestionarioStatus(){
+  async function getQuestionarioStatus(){
         db
         .collection('Questionário Sara Inicial')
         .doc(currentUser)
@@ -70,13 +70,13 @@ function Homepage({ route, navigation }) {
     }
 
 
-    function getQuestionarioFinalSara(){
+   async function getQuestionarioFinalSara(){
         db
             .collection('Questionário Sara Final')
             .doc(currentUser)
             .get()
             .then(doc => {
-                if ((doc.data().concluido) == 'false') {
+                if (((doc.data().concluido) == 'false')) {
                     setQuestionarioSaraFinal(false);
                 } else {
                     setQuestionarioSaraFinal(true);
@@ -86,7 +86,7 @@ function Homepage({ route, navigation }) {
 
 
 
-    function getQuestionarioMarcoStatus(){
+   async function getQuestionarioMarcoStatus(){
         db
         .collection('Questionário Marco Inicial')
         .doc(currentUser)
@@ -102,7 +102,7 @@ function Homepage({ route, navigation }) {
     }
 
 
-    function getQuestionarioFinalMarco(){
+    async function getQuestionarioFinalMarco(){
         db
             .collection('Questionário Marco Final')
             .doc(currentUser)
@@ -118,7 +118,7 @@ function Homepage({ route, navigation }) {
 
     
 
-   function getStatus (){ db
+   async function getStatus (){ db
                         .collection('users')
                         .doc(currentUser)
                         .get()
@@ -128,7 +128,7 @@ function Homepage({ route, navigation }) {
                     }
 
 
-    function getAprovado (){
+   async function getAprovado (){
                     db
                         .collection('users')
                         .doc(currentUser)
