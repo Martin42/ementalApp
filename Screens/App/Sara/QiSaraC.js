@@ -515,37 +515,42 @@ function QiSaraC({route, navigation}){
                              <Text style={styles.label}>Não sei</Text>
                          </View>
                      </View>
+                            
+                                <Text style={styles.textobold}>14. Que tipo de tratamento?</Text>
+                        
+                        <View style={styles.container2}>
+                            <View style={styles.checkboxContainer2}>
+                            <CheckBox
+                                value={botao13}
+                                onValueChange={() => clicar13()}
+                                style={styles.checkbox}
+                                />
+                                <Text style={styles.label}>Tratamento medicamentoso</Text>
+                            </View>
+        
+                            <View style={styles.checkboxContainer2}>
+                            <CheckBox
+                                value={botao14}
+                                onValueChange={() => clicar14()}
+                                style={styles.checkbox}
+                                />
+                                <Text style={styles.label}>Tratamento medicamentoso e psicológico</Text>
+                            </View>
+        
+                            <View style={styles.checkboxContainer2}>
+                            <CheckBox
+                                value={botao15}
+                                onValueChange={() => clicar15()}
+                                style={styles.checkbox}
+                                />
+                                <Text style={styles.label}>Terapias alternativas</Text>
+                            </View>
+                        </View>
+                       
+
+                      
      
-                     <Text style={styles.textobold}>14. Que tipo de tratamento?</Text>
                      
-                     <View style={styles.container2}>
-                         <View style={styles.checkboxContainer2}>
-                         <CheckBox
-                             value={botao13}
-                             onValueChange={() => clicar13()}
-                             style={styles.checkbox}
-                             />
-                             <Text style={styles.label}>Tratamento medicamentoso</Text>
-                         </View>
-     
-                         <View style={styles.checkboxContainer2}>
-                         <CheckBox
-                             value={botao14}
-                             onValueChange={() => clicar14()}
-                             style={styles.checkbox}
-                             />
-                             <Text style={styles.label}>Tratamento medicamentoso e psicológico</Text>
-                         </View>
-     
-                         <View style={styles.checkboxContainer2}>
-                         <CheckBox
-                             value={botao15}
-                             onValueChange={() => clicar15()}
-                             style={styles.checkbox}
-                             />
-                             <Text style={styles.label}>Terapias alternativas</Text>
-                         </View>
-                     </View>
                 </>
                 ) : (
                     <Text></Text>
@@ -554,7 +559,7 @@ function QiSaraC({route, navigation}){
                
                 {/* Aparecer apenas quando as respostas estão todas dadas aka --> if check || valid == true && check2 || valid2 == true (...) */}
 
-                { (check == true || valid == true) && (botao1 == true || botao2 == true || botao3 == true) && (valid2 == true) ? (
+                { (check == true || valid == true)  && (valid2 == true) ? (
 
                     <View style={styles.seguinteContainer}> 
                     <TouchableOpacity
@@ -568,7 +573,7 @@ function QiSaraC({route, navigation}){
                 ) }
 
 
-                { (check == true || valid == true) && (botao1 == true || botao2 == true || botao3 == true) && (check2 == true) && (botao4 == true || botao5 == true || botao6 == true) && (botao7 == true || botao8 == true || botao9 == true) && (botao10 == true || botao11 == true || botao12 == true) && (botao13 == true || botao14 == true || botao15 == true) ? (
+                { (check == true || valid == true)  && (check2 == true) && (botao4 == true || botao5 == true || botao6 == true) && (botao7 == true || botao8 == true || botao9 == true) && (botao10 == true || botao11 == true || botao12 == true) ? (
 
                 <View style={styles.seguinteContainer}> 
                 <TouchableOpacity
@@ -580,6 +585,9 @@ function QiSaraC({route, navigation}){
                 ) : (
                 <Text></Text>
                 ) }
+
+
+
                 
                
               
