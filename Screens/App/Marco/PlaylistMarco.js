@@ -14,6 +14,12 @@ function PlaylistMarco({ route, navigation }) {
     useEffect(() => {
         getStatus();
         getEP1();
+        getEP2();
+        getEP3();
+        getEP4();
+        getEP5();
+        getEP6();
+        getEP7();
     }, []);
 
     const currentUser = auth.currentUser.uid;
@@ -29,7 +35,7 @@ function PlaylistMarco({ route, navigation }) {
     const [all, setAll] = useState(false)
 
 
-    function getEP1(){
+   async function getEP1(){
         db
         .collection('users')
         .doc(currentUser)
@@ -39,13 +45,13 @@ function PlaylistMarco({ route, navigation }) {
                 setEP1MARCO(false);
                 if ((doc.data().EP1MARCO.seconds + 10) <= currentTime) {
                     setEP2MARCO(true);
-                    getEP2();
+                  
                 }
             }
         })
     }
 
-    function getEP2(){
+   async function getEP2(){
         db
         .collection('users')
         .doc(currentUser)
@@ -55,14 +61,14 @@ function PlaylistMarco({ route, navigation }) {
                 setEP2MARCO(false);
                 if ((doc.data().EP2MARCO.seconds + 10) <= currentTime) {
                     setEP3MARCO(true);
-                    getEP3();
+                   
                 }
             }
         })
     }
 
 
-    function getEP3(){
+  async function getEP3(){
         db
         .collection('users')
         .doc(currentUser)
@@ -72,14 +78,14 @@ function PlaylistMarco({ route, navigation }) {
                 setEP3MARCO(false);
                 if ((doc.data().EP3MARCO.seconds + 10) <= currentTime) {
                     setEP4MARCO(true);
-                    getEP4();
+                    
                 }
             }
         })
     }
 
 
-    function getEP4(){
+  async function getEP4(){
         db
         .collection('users')
         .doc(currentUser)
@@ -89,13 +95,13 @@ function PlaylistMarco({ route, navigation }) {
                 setEP4MARCO(false);
                 if ((doc.data().EP4MARCO.seconds + 10) <= currentTime) {
                     setEP5MARCO(true);
-                    getEP5();
+                   
                 }
             }
         })
     }
 
-    function getEP5(){
+    async function getEP5(){
         db
         .collection('users')
         .doc(currentUser)
@@ -105,13 +111,13 @@ function PlaylistMarco({ route, navigation }) {
                 setEP5MARCO(false);
                 if ((doc.data().EP5MARCO.seconds + 10) <= currentTime) {
                     setEP6MARCO(true);
-                    getEP6();
+                  
                 }
             }
         })
     }
 
-    function getEP6(){
+    async function getEP6(){
         db
         .collection('users')
         .doc(currentUser)
@@ -121,13 +127,13 @@ function PlaylistMarco({ route, navigation }) {
                 setEP6MARCO(false);
                 if ((doc.data().EP6MARCO.seconds + 10) <= currentTime) {
                     setEP7MARCO(true);
-                    getEP7();
+                   
                 }
             }
         })
     }
 
-    function getEP7(){
+    async function getEP7(){
         db
         .collection('users')
         .doc(currentUser)
@@ -135,6 +141,16 @@ function PlaylistMarco({ route, navigation }) {
         .then(doc => {
             if ((doc.data().EP7MARCO) != undefined) {
                 setAll(true);
+                db
+                    .collection('Questionário Marco Final')
+                    .doc(currentUser)
+                    .get()
+                    .then(doc => {
+                        if ((doc.data().concluido) == 'false') {
+                            navigation.navigate('QiMarcoAFinal');
+                        }
+ 
+                    })
             }
         })
     }
@@ -145,7 +161,7 @@ function PlaylistMarco({ route, navigation }) {
 
 
 
-    function getStatus (){ db
+  async function getStatus (){ db
         .collection('users')
         .doc(currentUser)
         .get()

@@ -4,7 +4,7 @@ import Checkbox from 'react-native-check-box';
 
 
 
-function QiMarcoA({route, navigation}){
+function QiMarcoAFinal({route, navigation}){
 
     const [check, setCheck] = useState(false);
 
@@ -129,4 +129,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default QiMarcoA;
+export default QiMarcoAFinal;
