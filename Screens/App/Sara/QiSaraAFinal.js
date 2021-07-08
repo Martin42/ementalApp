@@ -4,7 +4,7 @@ import Checkbox from 'react-native-check-box';
 
 
 
-function QiSaraA({route, navigation}){
+function QiSaraAFinal({route, navigation}){
 
     const [check, setCheck] = useState(false);
 
@@ -135,4 +135,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default QiSaraA;
+export default QiSaraAFinal;

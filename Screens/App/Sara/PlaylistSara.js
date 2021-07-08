@@ -9,8 +9,31 @@ import { db, auth } from '../../../Firebase';
 function PlaylistSara({ route, navigation }) {
 
     useEffect(() => {
-        getEP1PSI();
         getStatus();
+        getEP1PSI();
+        getEP1SARA();
+        getEP2PSI();
+        getDES1();
+        getEP3PSI();
+        getEP3SARA();
+        getEP4PSI();
+        getDES2();
+        getEP4_2SARA()
+        getEP5PSI();
+        getDES3();
+        getEP6PSI();
+        getDES4();
+        getDES5();
+        getEP7PSI();
+        getDES6();
+        getEP8PSI();
+        getEP9SARA();
+        getEP9PSI();
+        getDES7();
+        getEP11SARA();
+        getDES8();
+        getEP10PSI();
+        getDES9();
     }, []);
 
 
@@ -52,11 +75,9 @@ function PlaylistSara({ route, navigation }) {
     const [DES9, setDES9] = useState(false);
     const [all, setAll] = useState(false);
     
-  
-    
- 
 
-    function getEP1PSI(){
+
+    async function getEP1PSI(){
 
         db
         .collection('users')
@@ -68,13 +89,13 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().EP1PSI.seconds + 10) <= currentTime) {
               
                     setEP1SARA(true);
-                    getEP1SARA();
+                    
                 } 
             }
         })
     }
 
-    function getEP1SARA(){
+    async function getEP1SARA(){
         db
         .collection('users')
         .doc(currentUser)
@@ -86,14 +107,14 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().EP1SARA.seconds + 10) <= currentTime) {
                 
                     setEP2PSI(true);
-                    getEP2PSI();
+                    
                 } 
             }
         })
     }
 
 
-    function getEP2PSI(){
+    async function getEP2PSI(){
         db
         .collection('users')
         .doc(currentUser)
@@ -106,14 +127,14 @@ function PlaylistSara({ route, navigation }) {
                    
                     setEP2SARA(true);
                     setDES1(true);
-                    getDES1();
+                   
                 } 
             }
         })
     }
 
 
-    function getDES1(){
+    async function getDES1(){
         db
         .collection('users')
         .doc(currentUser)
@@ -130,13 +151,13 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().DES1.seconds + 10) <= currentTime) {
            
                     setEP3PSI(true);
-                    getEP3PSI();
+                   
                 } 
             }
         })
     }
 
-    function getEP3PSI(){
+    async function getEP3PSI(){
         db
         .collection('users')
         .doc(currentUser)
@@ -149,14 +170,14 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().EP3PSI.seconds + 10) <= currentTime) {
                 
                     setEP3SARA(true);
-                    getEP3SARA();
+                   
                 } 
             }
         })
     }
 
 
-    function getEP3SARA(){
+    async function getEP3SARA(){
         db
         .collection('users')
         .doc(currentUser)
@@ -169,14 +190,14 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().EP3SARA.seconds + 10) <= currentTime) {
 
                     setEP4PSI(true);
-                    getEP4PSI();
+                  
                 } 
             }
         })
     }
 
     
-    function getEP4PSI(){
+    async function getEP4PSI(){
         db
         .collection('users')
         .doc(currentUser)
@@ -190,14 +211,14 @@ function PlaylistSara({ route, navigation }) {
 
                     setEP4_1SARA(true);
                     setDES2(true);
-                    getDES2();
+                   
                 } 
             }
         })
     }
 
 
-    function getDES2(){
+    async function getDES2(){
         db
         .collection('users')
         .doc(currentUser)
@@ -215,13 +236,13 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().DES2.seconds + 10) <= currentTime) {
 
                     setEP4_2SARA(true);
-                    getEP4_2SARA()
+                   
                 } 
             }
         })
     }
 
-    function getEP4_2SARA(){
+    async function getEP4_2SARA(){
         db
         .collection('users')
         .doc(currentUser)
@@ -234,13 +255,13 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().EP4_2SARA.seconds + 10) <= currentTime) {
 
                     setEP5PSI(true);
-                    getEP5PSI();
+                   
                 } 
             }
         })
     }
 
-    function getEP5PSI(){
+    async function getEP5PSI(){
         db
         .collection('users')
         .doc(currentUser)
@@ -254,14 +275,14 @@ function PlaylistSara({ route, navigation }) {
 
                     setEP5SARA(true);
                     setDES3(true);
-                    getDES3();
+                  
                 } 
             }
         })
     }
 
 
-    function getDES3(){
+    async function getDES3(){
         db
         .collection('users')
         .doc(currentUser)
@@ -279,13 +300,13 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().DES3.seconds + 10) <= currentTime) {
 
                     setEP6PSI(true);
-                    getEP6PSI();
+                    
                 } 
             }
         })
     }
 
-    function getEP6PSI(){
+    async function getEP6PSI(){
         db
         .collection('users')
         .doc(currentUser)
@@ -301,14 +322,14 @@ function PlaylistSara({ route, navigation }) {
 
                     setEP6SARA(true);
                     setDES4(true);
-                    getDES4();
+                   
                 } 
             }
         })
     }
 
 
-    function getDES4(){
+    async function getDES4(){
         db
         .collection('users')
         .doc(currentUser)
@@ -328,14 +349,14 @@ function PlaylistSara({ route, navigation }) {
 
                     setEP7SARA(true);
                     setDES5(true);
-                    getDES5();
+                   
                 }
             }
         })
     }
 
 
-    function getDES5(){
+    async function getDES5(){
         db
         .collection('users')
         .doc(currentUser)
@@ -355,13 +376,13 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().DES5.seconds + 10) <= currentTime) {
 
                     setEP7PSI(true);
-                    getEP7PSI();
+                  
                 } 
             }
         })
     }
 
-    function getEP7PSI(){
+    async function getEP7PSI(){
         db
         .collection('users')
         .doc(currentUser)
@@ -375,7 +396,7 @@ function PlaylistSara({ route, navigation }) {
 
                     setEP8SARA(true);
                     setDES6(true);
-                    getDES6();
+                 
                 }  
             }
         })
@@ -383,7 +404,7 @@ function PlaylistSara({ route, navigation }) {
     
 
 
-    function getDES6(){
+    async function getDES6(){
         db
         .collection('users')
         .doc(currentUser)
@@ -403,14 +424,14 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().DES6.seconds + 10) <= currentTime) {
 
                     setEP8PSI(true);
-                    getEP8PSI();
+                 
                 }  
             }
         })
     }
 
 
-    function getEP8PSI(){
+    async function getEP8PSI(){
         db
         .collection('users')
         .doc(currentUser)
@@ -423,7 +444,7 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().EP8PSI.seconds + 10) <= currentTime) {
 
                     setEP9SARA(true);
-                    getEP9SARA();
+                
                 }
             }
         })
@@ -432,7 +453,7 @@ function PlaylistSara({ route, navigation }) {
 
 
 
-    function getEP9SARA(){
+    async function getEP9SARA(){
         db
         .collection('users')
         .doc(currentUser)
@@ -445,13 +466,13 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().EP9SARA.seconds + 10) <= currentTime) {
 
                     setEP9PSI(true);
-                    getEP9PSI();
+                    
                 } 
             }
         })
     }
 
-    function getEP9PSI(){
+    async function getEP9PSI(){
         db
         .collection('users')
         .doc(currentUser)
@@ -464,7 +485,7 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().EP9PSI.seconds + 10) <= currentTime) {
                     setEP10SARA(true);
                     setDES7(true);
-                    getDES7();
+                  
                 } 
             }
         })
@@ -472,7 +493,7 @@ function PlaylistSara({ route, navigation }) {
 
 
     
-    function getDES7(){
+    async function getDES7(){
         db
         .collection('users')
         .doc(currentUser)
@@ -491,14 +512,14 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().DES7.seconds + 10) <= currentTime) {
     
                     setEP11SARA(true);
-                    getEP11SARA();
+              
                 } 
             }
         })
     }
 
 
-    function getEP11SARA(){
+    async function getEP11SARA(){
         db
         .collection('users')
         .doc(currentUser)
@@ -510,7 +531,7 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().EP11SARA.seconds + 10) <= currentTime) {
                     setEP12SARA(true);
                     setDES8(true);
-                    getDES8();
+                    
                 }
             }
         })
@@ -518,7 +539,7 @@ function PlaylistSara({ route, navigation }) {
 
 
 
-    function getDES8(){
+    async function getDES8(){
         db
         .collection('users')
         .doc(currentUser)
@@ -535,14 +556,14 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().DES8.seconds + 10) <= currentTime) {
 
                     setEP10PSI(true);
-                    getEP10PSI();
+                   
                 }
             }
         })
     }
 
 
-    function getEP10PSI(){
+    async function getEP10PSI(){
         db
         .collection('users')
         .doc(currentUser)
@@ -555,7 +576,7 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().EP10PSI.seconds + 10) <= currentTime) {
                     setEP13SARA(true);
                     setDES9(true);
-                    getDES9();
+                   
                 } 
             }
         })
@@ -563,7 +584,7 @@ function PlaylistSara({ route, navigation }) {
 
   
     
-    function getDES9(){
+   async function getDES9(){
         db
         .collection('users')
         .doc(currentUser)
@@ -578,15 +599,26 @@ function PlaylistSara({ route, navigation }) {
                 setDES9(false);
                 if (EP13SARA == false) {
                     setAll(true);
-                    // navigation.navigate('QiSaraAFINAL')
+
+                    db
+                    .collection('Questionário Sara Final')
+                    .doc(currentUser)
+                    .get()
+                    .then(doc => {
+                        if ((doc.data().concluido) == 'false') {
+                            navigation.navigate('QiSaraAFinal');
+                        }
+ 
+                    })
                 }
             }
         })
     }
 
+    
 
 
-    function getStatus (){ db
+  async function getStatus (){ db
         .collection('users')
         .doc(currentUser)
         .get()

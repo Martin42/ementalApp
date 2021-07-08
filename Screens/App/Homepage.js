@@ -14,6 +14,8 @@ function Homepage({ route, navigation }) {
     const [currentStatus, setCurrentStatus] = useState('');
     const [questionarioStatus, setQuestionarioStatus] = useState(false);
     const [questionarioMarcoStatus, setQuestionarioMarcoStatus] = useState(false);
+    const [questionarioSaraFinal, setQuestionarioSaraFinal] = useState(false);
+    const [questionarioMarcoFinal, setQuestionarioMarcoFinal] = useState(false);
     const [aprovado, setAprovado] = useState();
     const [code, setCode] = useState();    
     const [modal, setModal] = useState(false);
@@ -58,14 +60,31 @@ function Homepage({ route, navigation }) {
         .doc(currentUser)
         .get()
         .then(doc => {
-            if ((doc.data().concluido) == undefined) {
+            if ((doc.data().concluido) == 'false') {
                 setQuestionarioStatus(false)
             } else {
-                setQuestionarioStatus(doc.data().concluido)
+                setQuestionarioStatus(true)
             }
        
         })
     }
+
+
+    function getQuestionarioFinalSara(){
+        db
+            .collection('Questionário Sara Final')
+            .doc(currentUser)
+            .get()
+            .then(doc => {
+                if ((doc.data().concluido) == 'false') {
+                    setQuestionarioSaraFinal(false);
+                } else {
+                    setQuestionarioSaraFinal(true);
+                }
+            })
+    }
+
+
 
     function getQuestionarioMarcoStatus(){
         db
@@ -73,15 +92,31 @@ function Homepage({ route, navigation }) {
         .doc(currentUser)
         .get()
         .then(doc => {
-            if ((doc.data().concluido) == undefined) {
+            if ((doc.data().concluido) == 'false') {
                 setQuestionarioMarcoStatus(false)
             } else {
-                setQuestionarioMarcoStatus(doc.data().concluido)
+                setQuestionarioMarcoStatus(true)
             }
             
         })
     }
 
+
+    function getQuestionarioFinalMarco(){
+        db
+            .collection('Questionário Marco Final')
+            .doc(currentUser)
+            .get()
+            .then(doc => {
+                if ((doc.data().concluido) == 'false') {
+                    setQuestionarioMarcoFinal(false);
+                } else {
+                    setQuestionarioMarcoFinal(true);
+                }
+            })
+    }
+
+    
 
    function getStatus (){ db
                         .collection('users')
@@ -110,6 +145,8 @@ function Homepage({ route, navigation }) {
         getQuestionarioMarcoStatus();
         getAprovado();
         getNotificacoes();
+        getQuestionarioFinalMarco();
+        getQuestionarioFinalSara();
     },[])
 
 
@@ -141,7 +178,7 @@ if (currentStatus == 2) {
 
                 <TouchableOpacity
                     style={{alignSelf: 'center'}}
-                    onPress={() => {if (questionarioStatus == 'true') {
+                    onPress={() => {if ((questionarioStatus == true) || (questionarioSaraFinal == true)) {
                         navigation.navigate('PlaylistSara');
                     } else {
                         navigation.navigate('QiSaraA');
@@ -161,7 +198,7 @@ if (currentStatus == 2) {
 
                 <TouchableOpacity
                      style={{alignSelf: 'center'}}
-                     onPress={() => { if (questionarioMarcoStatus == 'true') {
+                     onPress={() => { if ((questionarioMarcoStatus == true) || (questionarioMarcoFinal == true)) {
                          navigation.navigate('PlaylistMarco');
                      } else {
                          navigation.navigate('QiMarcoA');
@@ -300,7 +337,7 @@ if (currentStatus == 2) {
 
                 <TouchableOpacity
                     style={{alignSelf: 'center'}}
-                    onPress={() => {if (questionarioStatus == 'true') {
+                    onPress={() => {if ((questionarioStatus == true) || (questionarioSaraFinal == true)) {
                         navigation.navigate('PlaylistSara');
                     } else {
                         navigation.navigate('QiSaraA');
@@ -320,7 +357,7 @@ if (currentStatus == 2) {
 
                 <TouchableOpacity
                      style={{alignSelf: 'center'}}
-                     onPress={() => { if (questionarioMarcoStatus == 'true') {
+                     onPress={() => { if ((questionarioMarcoStatus == true) || (questionarioMarcoFinal == true)) {
                          navigation.navigate('PlaylistMarco');
                      } else {
                          navigation.navigate('QiMarcoA');
@@ -522,7 +559,7 @@ if (currentStatus == 2) {
 
                 <TouchableOpacity
                     style={{alignSelf: 'center'}}
-                    onPress={() => {if (questionarioStatus == 'true') {
+                    onPress={() => {if ((questionarioStatus == true) || (questionarioSaraFinal == true)) {
                         navigation.navigate('PlaylistSara');
                     } else {
                         navigation.navigate('QiSaraA');
@@ -542,7 +579,7 @@ if (currentStatus == 2) {
 
                 <TouchableOpacity
                      style={{alignSelf: 'center', marginBottom: '10%'}}
-                     onPress={() => { if (questionarioMarcoStatus == 'true') {
+                     onPress={() => { if ((questionarioMarcoStatus == true) || (questionarioMarcoFinal == true)) {
                         navigation.navigate('PlaylistMarco');
                     } else {
                         navigation.navigate('QiMarcoA');
