@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, Modal, TextInput} from "react-native";
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
 import Icon2 from 'react-native-vector-icons/AntDesign';
+import Icon4 from 'react-native-vector-icons/Ionicons';
 import Checkbox from 'react-native-check-box';
 import { auth, db } from '../../Firebase';
 import { AntDesign } from '@expo/vector-icons';
@@ -162,8 +163,8 @@ if (currentStatus == 2) {
                     style={styles.sair}
                     onClick={() => {setModal2(true)}}
                     isChecked={true}
-                    unCheckedImage={<Icon name='power' size={23} color='#D2D2D2' />}
-                    checkedImage={<Icon name='power' size={23} color='#6578B3'/>}
+                    unCheckedImage={<Icon4 name='power' size={23} color='#D2D2D2' />}
+                    checkedImage={<Icon4 name='power' size={23} color='#6578B3'/>}
                 />   
 
                 <Text style={styles.title1}>Intervenções</Text>
@@ -266,17 +267,29 @@ if (currentStatus == 2) {
 
         </ScrollView>
 
-            <View style={styles.tabBar}>
-                <View style={{flex: 1}}>
-                <Checkbox 
+        <View style={styles.tabBar}>
+            {Object.entries(notificacao).map(([id, value]) =>(
+                <View key={[id]} style={{flex: 1}}>
+                {console.log(value.Visto)}
+                { value.Visto == true ? (
+                    <Checkbox 
                     style={styles.icon}
                     onClick={() => {navigation.navigate('Notificacoes')}} 
                     isChecked={false}
                     unCheckedImage={<Icon name='notifications' size={28} color='#D2D2D2'/>}
                     checkedImage={<Icon name='notifications' size={28} color='#6578B3'/>}
                 />           
+                ) : (
+                    <Checkbox 
+                    style={styles.icon}
+                    onClick={() => {navigation.navigate('Notificacoes')}} 
+                    isChecked={false}
+                    unCheckedImage={<Icon name='notifications-on' size={28} color='#8FBBFF'/>}
+                    checkedImage={<Icon name='notifications-on' size={28} color='#6578B3'/>}
+                />           
+                )}
                 </View>
-
+            ))}
                 <View style={{flex: 1}}>
                 <Checkbox 
                     style={styles.icon}
@@ -296,7 +309,6 @@ if (currentStatus == 2) {
                     checkedImage={<Icon2 name='questioncircle' size={28} color='#6578B3'/>}
                 />  
                 </View>
-
                 <View style={{flex: 1}}>
                 <Checkbox 
                     style={styles.icon}
@@ -321,8 +333,8 @@ if (currentStatus == 2) {
                     style={styles.sair}
                     onClick={() => {setModal2(true)}}
                     isChecked={true}
-                    unCheckedImage={<Icon name='power' size={23} color='#D2D2D2' />}
-                    checkedImage={<Icon name='power' size={23} color='#6578B3'/>}
+                    unCheckedImage={<Icon4 name='power' size={23} color='#D2D2D2' />}
+                    checkedImage={<Icon4 name='power' size={23} color='#6578B3'/>}
                 />   
 
                 <Text style={styles.title1}>Intervenções</Text>
@@ -502,13 +514,12 @@ if (currentStatus == 2) {
                     style={styles.icon}
                     onClick={() => {navigation.navigate('Notificacoes')}} 
                     isChecked={false}
-                    unCheckedImage={<Icon name='notifications' size={28} color='#8FBBFF'/>}
-                    checkedImage={<Icon name='notifications' size={28} color='#6578B3'/>}
+                    unCheckedImage={<Icon name='notifications-on' size={28} color='#8FBBFF'/>}
+                    checkedImage={<Icon name='notifications-on' size={28} color='#6578B3'/>}
                 />           
                 )}
                 </View>
             ))}
-
                 <View style={{flex: 1}}>
                 <Checkbox 
                     style={styles.icon}
@@ -542,8 +553,8 @@ if (currentStatus == 2) {
                     style={styles.sair}
                     onClick={() => {setModal2(true)}}
                     isChecked={true}
-                    unCheckedImage={<Icon name='power' size={23} color='#D2D2D2' />}
-                    checkedImage={<Icon name='power' size={23} color='#6578B3'/>}
+                    unCheckedImage={<Icon4 name='power' size={23} color='#D2D2D2' />}
+                    checkedImage={<Icon4 name='power' size={23} color='#6578B3'/>}
                 />   
 
                 <Text style={styles.title1}>Intervenções</Text>
@@ -626,17 +637,29 @@ if (currentStatus == 2) {
 
         </ScrollView>
 
-            <View style={styles.tabBar}>
-                <View style={{flex: 1}}>
-                <Checkbox 
+        <View style={styles.tabBar}>
+            {Object.entries(notificacao).map(([id, value]) =>(
+                <View key={[id]} style={{flex: 1}}>
+                {console.log(value.Visto)}
+                { value.Visto == true ? (
+                    <Checkbox 
                     style={styles.icon}
-                    onClick={() => {navigation.navigate('Notificacoes')}}
+                    onClick={() => {navigation.navigate('Notificacoes')}} 
                     isChecked={false}
                     unCheckedImage={<Icon name='notifications' size={28} color='#D2D2D2'/>}
                     checkedImage={<Icon name='notifications' size={28} color='#6578B3'/>}
                 />           
+                ) : (
+                    <Checkbox 
+                    style={styles.icon}
+                    onClick={() => {navigation.navigate('Notificacoes')}} 
+                    isChecked={false}
+                    unCheckedImage={<Icon name='notifications-on' size={28} color='#8FBBFF'/>}
+                    checkedImage={<Icon name='notifications-on' size={28} color='#6578B3'/>}
+                />           
+                )}
                 </View>
-
+            ))}
                 <View style={{flex: 1}}>
                 <Checkbox 
                     style={styles.icon}
@@ -656,7 +679,6 @@ if (currentStatus == 2) {
                     checkedImage={<Icon2 name='questioncircle' size={28} color='#6578B3'/>}
                 />  
                 </View>
-
             </View>
         </View>
     )
