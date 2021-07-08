@@ -249,7 +249,6 @@ function AudioMarco4({ route, navigation }) {
                     <Slider
                         style={styles.slider}
                         minimumValue={0}
-                        maximumValue={1}
                         maximumValue={duration}
                         value={currentDuration}
                         // disabled={true}
@@ -429,7 +428,6 @@ function AudioMarco4({ route, navigation }) {
                     <Slider
                         style={styles.slider}
                         minimumValue={0}
-                        maximumValue={1}
                         maximumValue={duration}
                         value={currentDuration}
                         // disabled={true}
