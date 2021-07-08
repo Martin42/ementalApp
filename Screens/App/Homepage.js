@@ -7,7 +7,6 @@ import Icon2 from 'react-native-vector-icons/AntDesign';
 import Icon4 from 'react-native-vector-icons/Ionicons';
 import Checkbox from 'react-native-check-box';
 import { auth, db } from '../../Firebase';
-import { AntDesign } from '@expo/vector-icons';
 
 
 function Homepage({ route, navigation }) {
@@ -22,6 +21,7 @@ function Homepage({ route, navigation }) {
     const [modal, setModal] = useState(false);
     const [modal2, setModal2] = useState(false);
     const [notificacao, setNotificacao] = useState([])
+    const [visto, setVisto ] = useState(false)
 
     const currentUser = auth.currentUser.uid;
     let codigo = 'A6B2C4P';
@@ -46,12 +46,11 @@ function Homepage({ route, navigation }) {
         const NotificacoesRef = db.collection('Notificacoes').where('User', '==', currentUser);
         const snapshot = await NotificacoesRef.get();
         const Notificacao = [];
-        snapshot.forEach(doc => { 
-          setNotificacao(state => ({
-              ...state,
-              [ doc.id ] : doc.data()
-          }))
-        });
+        snapshot.forEach(doc => {
+            if ((doc.data().Visto) == false) {
+                setVisto(true);
+            }
+        })
       }
 
 
@@ -498,10 +497,8 @@ if (currentStatus == 2) {
         </ScrollView>
 
             <View style={styles.tabBar}>
-            {Object.entries(notificacao).map(([id, value]) =>(
-                <View key={[id]} style={{flex: 1}}>
-                {console.log(value.Visto)}
-                { value.Visto == true ? (
+                <View style={{flex: 1}}>
+                { visto == false ? (
                     <Checkbox 
                     style={styles.icon}
                     onClick={() => {navigation.navigate('Notificacoes')}} 
@@ -519,7 +516,6 @@ if (currentStatus == 2) {
                 />           
                 )}
                 </View>
-            ))}
                 <View style={{flex: 1}}>
                 <Checkbox 
                     style={styles.icon}

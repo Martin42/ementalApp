@@ -87,6 +87,16 @@ function Responder({route, navigation}){
           horaPDS: new Date().toUTCString(),
           encarregue: currentUser,
       }, {merge: true})
+
+        db
+        .collection('Notificacoes')
+        .add({
+            Conteudo: 'Recebeste uma resposta no teu Ticket!',
+            User: docId,
+            Visto: false,
+            fulldata: new Date(),
+            Destino: 'Apoio'
+        })
         
             
       } else if (replyFinal == true) {
@@ -108,6 +118,16 @@ function Responder({route, navigation}){
           horaFinal: new Date().toUTCString(),
           estado: 'Resolvido',
       }, {merge: true})
+
+        db
+        .collection('Notificacoes')
+        .add({
+            Conteudo: 'Recebeste uma resposta no teu Ticket!',
+            User: docId,
+            Visto: false,
+            fulldata: new Date(),
+            Destino: 'Apoio'
+        })
 
     } else if (replyUser == true) {
           db

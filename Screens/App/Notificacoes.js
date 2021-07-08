@@ -51,7 +51,7 @@ function Notificacoes({ route, navigation }) {
                         <View key={[id]} style={styles.container3}>
 
                             <TouchableOpacity
-                            onPress={() => {setVisto(id), navigation.navigate('PlaylistSara')}}>
+                            onPress={() => {setVisto(id), navigation.navigate(value.Destino)}}>
                                 { value.Visto == true ? (
                                     <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flex:1}}>
                                     <Text 

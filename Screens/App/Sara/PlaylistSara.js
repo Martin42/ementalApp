@@ -3,7 +3,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
 import Icon2 from 'react-native-vector-icons/AntDesign';
 import Checkbox from 'react-native-check-box';
-import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, Alert } from "react-native";
 import { db, auth } from '../../../Firebase';
 
 function PlaylistSara({ route, navigation }) {
@@ -89,6 +89,15 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().EP1PSI.seconds + 10) <= currentTime) {
               
                     setEP1SARA(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 1 da Ferida Sara encontra-se disponível!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistSara'
+                    })
                     
                 } 
             }
@@ -107,6 +116,15 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().EP1SARA.seconds + 10) <= currentTime) {
                 
                     setEP2PSI(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 2 Psicoeducativo encontra-se disponível!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistSara'
+                    })
                     
                 } 
             }
@@ -127,6 +145,15 @@ function PlaylistSara({ route, navigation }) {
                    
                     setEP2SARA(true);
                     setDES1(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 2 da Ferida Sara e o Desafio 1 encontram-se disponíveis!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistSara'
+                    })
                    
                 } 
             }
@@ -151,6 +178,15 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().DES1.seconds + 10) <= currentTime) {
            
                     setEP3PSI(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 3 Psicoeducativo encontra-se disponível!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistSara'
+                    })
                    
                 } 
             }
@@ -170,6 +206,16 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().EP3PSI.seconds + 10) <= currentTime) {
                 
                     setEP3SARA(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 3 da Ferida Sara encontra-se disponível!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistSara'
+                    })
+                    
                    
                 } 
             }
@@ -190,6 +236,15 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().EP3SARA.seconds + 10) <= currentTime) {
 
                     setEP4PSI(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 4 Psicoeducativo encontra-se disponível!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistSara'
+                    })
                   
                 } 
             }
@@ -211,6 +266,15 @@ function PlaylistSara({ route, navigation }) {
 
                     setEP4_1SARA(true);
                     setDES2(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'A primeira parte do Episódio 4 da Ferida Sara e o Desafio 2 encontram-se disponíveis!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistSara'
+                    })
                    
                 } 
             }
@@ -236,6 +300,15 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().DES2.seconds + 10) <= currentTime) {
 
                     setEP4_2SARA(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'A segunda parte do Episódio 4 da Ferida Sara encontra-se disponível!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistSara'
+                    })
                    
                 } 
             }
@@ -255,6 +328,15 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().EP4_2SARA.seconds + 10) <= currentTime) {
 
                     setEP5PSI(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 5 Psicoeducativo encontra-se disponível!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistSara'
+                    })
                    
                 } 
             }
@@ -275,6 +357,15 @@ function PlaylistSara({ route, navigation }) {
 
                     setEP5SARA(true);
                     setDES3(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 5 da Ferida Sara e o Desafio 3 encontram-se disponíveis!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistSara'
+                    })
                   
                 } 
             }
@@ -300,6 +391,15 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().DES3.seconds + 10) <= currentTime) {
 
                     setEP6PSI(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 6 Psicoeducativo encontra-se disponível!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistSara'
+                    })
                     
                 } 
             }
@@ -322,6 +422,15 @@ function PlaylistSara({ route, navigation }) {
 
                     setEP6SARA(true);
                     setDES4(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 6 da Ferida Sara e o Desafio 4 encontram-se disponíveis!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistSara'
+                    })
                    
                 } 
             }
@@ -349,6 +458,15 @@ function PlaylistSara({ route, navigation }) {
 
                     setEP7SARA(true);
                     setDES5(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 7 da Ferida Sara e o Desafio 5 encontram-se disponíveis!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistSara'
+                    })
                    
                 }
             }
@@ -376,6 +494,15 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().DES5.seconds + 10) <= currentTime) {
 
                     setEP7PSI(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 7 Psicoeducativo encontra-se disponível!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistSara'
+                    })
                   
                 } 
             }
@@ -396,6 +523,15 @@ function PlaylistSara({ route, navigation }) {
 
                     setEP8SARA(true);
                     setDES6(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 8 da Ferida Sara e o Desafio 6 encontram-se disponíveis!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistSara'
+                    })
                  
                 }  
             }
@@ -424,6 +560,15 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().DES6.seconds + 10) <= currentTime) {
 
                     setEP8PSI(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 8 Psicoeducativo encontra-se disponível!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistSara'
+                    })
                  
                 }  
             }
@@ -444,6 +589,15 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().EP8PSI.seconds + 10) <= currentTime) {
 
                     setEP9SARA(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 9 da Ferida Sara encontra-se disponível!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistSara'
+                    })
                 
                 }
             }
@@ -466,6 +620,15 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().EP9SARA.seconds + 10) <= currentTime) {
 
                     setEP9PSI(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 9 Psicoeducativo encontra-se disponível!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistSara'
+                    })
                     
                 } 
             }
@@ -485,6 +648,15 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().EP9PSI.seconds + 10) <= currentTime) {
                     setEP10SARA(true);
                     setDES7(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 10 da Ferida Sara e o Desafio 7 encontram-se disponíveis!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistSara'
+                    })
                   
                 } 
             }
@@ -512,6 +684,15 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().DES7.seconds + 10) <= currentTime) {
     
                     setEP11SARA(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 11 da Ferida Sara encontra-se disponível!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistSara'
+                    })
               
                 } 
             }
@@ -531,6 +712,15 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().EP11SARA.seconds + 10) <= currentTime) {
                     setEP12SARA(true);
                     setDES8(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 12 da Ferida Sara e o Desafio 8 encontram-se disponíveis!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistSara'
+                    })
                     
                 }
             }
@@ -556,6 +746,15 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().DES8.seconds + 10) <= currentTime) {
 
                     setEP10PSI(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 10 Psicoeducativo encontra-se disponível!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistSara'
+                    })
                    
                 }
             }
@@ -576,6 +775,15 @@ function PlaylistSara({ route, navigation }) {
                 if ((doc.data().EP10PSI.seconds + 10) <= currentTime) {
                     setEP13SARA(true);
                     setDES9(true);
+                    db
+                    .collection('Notificacoes')
+                    .add({
+                        Conteudo: 'O Episódio 13 da Ferida Sara e o Desafio 9 encontram-se disponíveis!',
+                        User: currentUser,
+                        Visto: false,
+                        fulldata: new Date(),
+                        Destino: 'PlaylistSara'
+                    })
                    
                 } 
             }
