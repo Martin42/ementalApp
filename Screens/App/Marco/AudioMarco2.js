@@ -147,7 +147,7 @@ function AudioMarco2({ route, navigation }) {
             User: currentUser,
             Visto: false,
             fulldata: new Date(),
-            Destino: 'Natoficacoes'
+            Destino: 'Notificacoes'
         })
     }
 
