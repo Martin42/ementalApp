@@ -20,6 +20,7 @@ function Homepage({ route, navigation }) {
     const [code, setCode] = useState();    
     const [modal, setModal] = useState(false);
     const [modal2, setModal2] = useState(false);
+    const [notificacao, setNotificacao] = useState([])
 
     const currentUser = auth.currentUser.uid;
     let codigo = 'A6B2C4P';
@@ -39,6 +40,18 @@ function Homepage({ route, navigation }) {
     function sair(){
         auth.signOut();
     }
+
+    async function getNotificacoes(){
+        const NotificacoesRef = db.collection('Notificacoes').where('User', '==', currentUser);
+        const snapshot = await NotificacoesRef.get();
+        const Notificacao = [];
+        snapshot.forEach(doc => { 
+          setNotificacao(state => ({
+              ...state,
+              [ doc.id ] : doc.data()
+          }))
+        });
+      }
 
 
     function getQuestionarioStatus(){
@@ -131,9 +144,9 @@ function Homepage({ route, navigation }) {
         getQuestionarioStatus();
         getQuestionarioMarcoStatus();
         getAprovado();
+        getNotificacoes();
         getQuestionarioFinalMarco();
         getQuestionarioFinalSara();
-   
     },[])
 
 
@@ -473,15 +486,28 @@ if (currentStatus == 2) {
         </ScrollView>
 
             <View style={styles.tabBar}>
-                <View style={{flex: 1}}>
-                <Checkbox 
+            {Object.entries(notificacao).map(([id, value]) =>(
+                <View key={[id]} style={{flex: 1}}>
+                {console.log(value.Visto)}
+                { value.Visto == true ? (
+                    <Checkbox 
                     style={styles.icon}
                     onClick={() => {navigation.navigate('Notificacoes')}} 
                     isChecked={false}
                     unCheckedImage={<Icon name='notifications' size={28} color='#D2D2D2'/>}
                     checkedImage={<Icon name='notifications' size={28} color='#6578B3'/>}
                 />           
+                ) : (
+                    <Checkbox 
+                    style={styles.icon}
+                    onClick={() => {navigation.navigate('Notificacoes')}} 
+                    isChecked={false}
+                    unCheckedImage={<Icon name='notifications' size={28} color='#8FBBFF'/>}
+                    checkedImage={<Icon name='notifications' size={28} color='#6578B3'/>}
+                />           
+                )}
                 </View>
+            ))}
 
                 <View style={{flex: 1}}>
                 <Checkbox 
