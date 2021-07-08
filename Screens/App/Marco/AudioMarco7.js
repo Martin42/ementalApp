@@ -39,10 +39,11 @@ function AudioMarco7({ route, navigation }) {
     const [checkPause, setCheckPause] = useState(false);
     const [porAprovar, setPorAprovar] = useState();
     const [duration, setDuration] = useState(85);
-    const [currentDuration, setCurrentDuration] =useState(0);
 
     const [stopwatchStart, setStopwatchStart] = useState(false);
     const [stopwatchReset, setStopwatchReset] = useState(false);
+
+    const [currentDuration, setCurrentDuration] = useState(0);
 
     const handleTimerComplete = () => alert("custom completion function");
  
@@ -58,7 +59,6 @@ function AudioMarco7({ route, navigation }) {
     function startStopwatch() {
         setStopwatchStart(true);
         setStopwatchReset(false);
-        setTimeout(function(){setCurrentDuration(currentDuration + 1)}, 1000)
     };
 
     function resetStopwatch() {
@@ -254,7 +254,8 @@ function AudioMarco7({ route, navigation }) {
                         <Text style={styles.sliderTimers}>00:01:25</Text>
                     </View>
                     
-                    <View style={{justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
+                    
+                    <View style={{justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>                    
                     <Slider
                         style={styles.slider}
                         minimumValue={0}
@@ -437,7 +438,6 @@ function AudioMarco7({ route, navigation }) {
                     <Slider
                         style={styles.slider}
                         minimumValue={0}
-                        maximumValue={1}
                         maximumValue={duration}
                         value={currentDuration}
                         // disabled={true}
