@@ -40,7 +40,7 @@ function AudioMarco3({ route, navigation }) {
     const [porAprovar, setPorAprovar] = useState();
     const [duration, setDuration] = useState(248);
     const [currentDuration, setCurrentDuration] =useState(0);
-
+    const [remetente, setRemetente] = useState();
     const [stopwatchStart, setStopwatchStart] = useState(false);
     const [stopwatchReset, setStopwatchReset] = useState(false);
 
@@ -145,7 +145,7 @@ function AudioMarco3({ route, navigation }) {
         .collection('Notificacoes')
         .add({
             Conteudo: 'O teu comentário foi aprovado!',
-            User: currentUser,
+            User: remetente,
             Visto: false,
             fulldata: new Date(),
             Destino: 'Notificacoes'
@@ -169,6 +169,7 @@ function AudioMarco3({ route, navigation }) {
                 comentario: mensagem,
                 aprovado: '',
                 fulldata: new Date(),
+                autor: currentUser,
             }) 
     }
 
@@ -181,6 +182,8 @@ function AudioMarco3({ route, navigation }) {
                 comentarios.push(doc.data().comentario);
             } 
             
+            setRemetente(doc.data().autor)
+
         })
 
         setComments(...comments, comentarios)

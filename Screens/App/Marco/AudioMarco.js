@@ -40,7 +40,8 @@ function AudioMarco({ route, navigation }) {
     const [checkPause, setCheckPause] = useState(false);
     const [porAprovar, setPorAprovar] = useState();
     const [duration, setDuration] = useState(218);
-    const [currentDuration, setCurrentDuration] =useState(0);
+    const [currentDuration, setCurrentDuration] = useState(0);
+    const [remetente, setRemetente] = useState();
 
     const [stopwatchStart, setStopwatchStart] = useState(false);
     const [stopwatchReset, setStopwatchReset] = useState(false);
@@ -144,7 +145,7 @@ function AudioMarco({ route, navigation }) {
         .collection('Notificacoes')
         .add({
             Conteudo: 'O teu comentário foi aprovado!',
-            User: currentUser,
+            User: remetente,
             Visto: false,
             fulldata: new Date(),
             Destino: 'Notificacoes'
@@ -168,6 +169,7 @@ function AudioMarco({ route, navigation }) {
                 comentario: mensagem,
                 aprovado: '',
                 fulldata: new Date(),
+                autor: currentUser,
             }) 
     }
 
@@ -178,7 +180,9 @@ function AudioMarco({ route, navigation }) {
         snapshot.forEach(doc => {
             if (doc.data().aprovado === 'true') {
                 comentarios.push(doc.data().comentario);
-            } 
+            }
+            
+            setRemetente(doc.data().autor)
             
         })
 

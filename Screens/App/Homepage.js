@@ -267,28 +267,15 @@ if (currentStatus == 2) {
         </ScrollView>
 
         <View style={styles.tabBar}>
-            {Object.entries(notificacao).map(([id, value]) =>(
-                <View key={[id]} style={{flex: 1}}>
-                {console.log(value.Visto)}
-                { value.Visto == true ? (
-                    <Checkbox 
+            <View style={{flex: 1}}>
+                <Checkbox 
                     style={styles.icon}
-                    onClick={() => {navigation.navigate('Notificacoes')}} 
+                    onClick={() => navigation.navigate('PainelControlo')} 
                     isChecked={false}
-                    unCheckedImage={<Icon name='notifications' size={28} color='#D2D2D2'/>}
-                    checkedImage={<Icon name='notifications' size={28} color='#6578B3'/>}
-                />           
-                ) : (
-                    <Checkbox 
-                    style={styles.icon}
-                    onClick={() => {navigation.navigate('Notificacoes')}} 
-                    isChecked={false}
-                    unCheckedImage={<Icon name='notifications-on' size={28} color='#8FBBFF'/>}
-                    checkedImage={<Icon name='notifications-on' size={28} color='#6578B3'/>}
-                />           
-                )}
+                    unCheckedImage={<Icon1 name='equalizer' size={30} color='#D2D2D2' />}
+                    checkedImage={<Icon1 name='equalizer' size={30} color='#6578B3'/>}
+                />  
                 </View>
-            ))}
                 <View style={{flex: 1}}>
                 <Checkbox 
                     style={styles.icon}
@@ -308,16 +295,6 @@ if (currentStatus == 2) {
                     checkedImage={<Icon2 name='questioncircle' size={28} color='#6578B3'/>}
                 />  
                 </View>
-                <View style={{flex: 1}}>
-                <Checkbox 
-                    style={styles.icon}
-                    onClick={() => navigation.navigate('PainelControlo')} 
-                    isChecked={false}
-                    unCheckedImage={<Icon1 name='equalizer' size={30} color='#D2D2D2' />}
-                    checkedImage={<Icon1 name='equalizer' size={30} color='#6578B3'/>}
-                />  
-                </View>
-
             </View>
         </View>
     )
@@ -634,10 +611,8 @@ if (currentStatus == 2) {
         </ScrollView>
 
         <View style={styles.tabBar}>
-            {Object.entries(notificacao).map(([id, value]) =>(
-                <View key={[id]} style={{flex: 1}}>
-                {console.log(value.Visto)}
-                { value.Visto == true ? (
+                <View style={{flex: 1}}>
+                { visto == false ? (
                     <Checkbox 
                     style={styles.icon}
                     onClick={() => {navigation.navigate('Notificacoes')}} 
@@ -655,7 +630,6 @@ if (currentStatus == 2) {
                 />           
                 )}
                 </View>
-            ))}
                 <View style={{flex: 1}}>
                 <Checkbox 
                     style={styles.icon}

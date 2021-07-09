@@ -51,6 +51,7 @@ function Ep1_Sara({route, navigation}){
     const [ep4, setEp4] = useState(false);
     const [confirmar, setConfirmar] = useState(false);
     const [porAprovar, setPorAprovar] = useState();
+    const [remetente, setRemetente] = useState();
 
 
     const [modal2, setModal2] = useState(false);
@@ -176,7 +177,7 @@ function Ep1_Sara({route, navigation}){
         .collection('Notificacoes')
         .add({
             Conteudo: 'O teu comentário foi aprovado!',
-            User: currentUser,
+            User: remetente,
             Visto: false,
             fulldata: new Date(),
             Destino: 'Notificacoes'
@@ -201,6 +202,7 @@ function Ep1_Sara({route, navigation}){
                 comentario: mensagem,
                 aprovado: '',
                 fulldata: new Date(),
+                autor: currentUser
             }) 
     }
 
@@ -212,7 +214,9 @@ function Ep1_Sara({route, navigation}){
             if (doc.data().aprovado === 'true') {
                 comentarios.push(doc.data().comentario);
             } 
-            
+
+            setRemetente(doc.data().autor)
+
         })
 
         setComments(...comments, comentarios)

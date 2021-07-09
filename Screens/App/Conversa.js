@@ -383,7 +383,7 @@ function Conversa({route, navigation}){
 
                                     {
 
-                                        ((item.respostaUser == '')) ? (
+                                        ((item.respostaUser != '') || (item.mensagem != '')) ? (
                                             <View style={{marginTop: '5%', width: '20%', alignSelf: 'flex-end', marginBottom: '10%', marginRight: '6%'}}>
                                             <TouchableOpacity
                                                 onPress={() => navigation.navigate('Responder', {fulldata: route.params.fulldata})}

@@ -18,6 +18,7 @@ function Responder({route, navigation}){
     const [replyUser, setReplyUser] = useState(false);
     const [docId, setDocId] = useState();
     const [esclarecimento, setEsclarecimento] = useState();
+    const [remetente, setRemetente ] = useState()
  
 
     useEffect(() => {
@@ -60,6 +61,7 @@ function Responder({route, navigation}){
       const snapshot = await esclarecimentoRef.get();
       snapshot.forEach(doc => {
         setEsclarecimento(doc.id);
+        setRemetente(doc.data().user)
       })
     }
 
@@ -92,7 +94,7 @@ function Responder({route, navigation}){
         .collection('Notificacoes')
         .add({
             Conteudo: 'Recebeste uma resposta no teu Ticket!',
-            User: docId,
+            User: remetente,
             Visto: false,
             fulldata: new Date(),
             Destino: 'Apoio'
@@ -123,7 +125,7 @@ function Responder({route, navigation}){
         .collection('Notificacoes')
         .add({
             Conteudo: 'Recebeste uma resposta no teu Ticket!',
-            User: docId,
+            User: remetente,
             Visto: false,
             fulldata: new Date(),
             Destino: 'Apoio'
