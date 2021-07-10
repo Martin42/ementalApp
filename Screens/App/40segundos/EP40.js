@@ -11,13 +11,15 @@ function EP40({route, navigation}){
 
     useEffect(() => {
         getComments();
-        getStatus();
+        getStatus ();
     }, [])
 
+    const currentUser = auth.currentUser.uid;
 
     const [mensagem, setMensagem] = useState();
     const [playing, setPlaying] = useState(false);
     const [comments, setComments] = useState([]);
+    const [currentStatus, setCurrentStatus] = useState('');
     
    
 
@@ -34,11 +36,30 @@ function EP40({route, navigation}){
         const snapshot = await commentRef.get()
         const comentarios = [];
         snapshot.forEach(doc => {
+            if (doc.exists) {
                 comentarios.push(doc.data().comentario);
+            } else {
+                comentarios.push('Ainda não existem comentários');
+            }
+               
         })
 
         setComments(...comments, comentarios)
     }
+
+
+    
+    function getStatus (){ db
+        .collection('users')
+        .doc(currentUser)
+        .get()
+        .then(doc => {
+            setCurrentStatus(doc.data().status)
+        
+        });
+    }
+  
+
 
  
     // Player 
@@ -103,25 +124,33 @@ function EP40({route, navigation}){
 
             </ScrollView>
 
-                <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: '2.5%'}}>
-                        <TextInput
-                            style={styles.inputMensagem}
-                            width='80%'
-                            marginLeft="10%"
-                            placeholder= 'Comente aqui...'
-                            backgroundColor= '#CFE0FB'
-                            placeholderTextColor= 'black'
-                            multiline={true}
-                            onChangeText={mensagem => setMensagem(mensagem)}
-                            />
+            {
+                currentStatus == 1 ? (
+                    <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: '2.5%'}}>
+                    <TextInput
+                        style={styles.inputMensagem}
+                        width='80%'
+                        marginLeft="10%"
+                        placeholder= 'Comente aqui...'
+                        backgroundColor= '#CFE0FB'
+                        placeholderTextColor= 'black'
+                        multiline={true}
+                        onChangeText={mensagem => setMensagem(mensagem)}
+                        />
 
-                        <TouchableOpacity
-                            onPress={()=> {setComment()}}
-                            style={styles.icon2}>
-                            <AntDesign name="right" size={24} color="black"/>     
-                        </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={()=> {setComment()}}
+                        style={styles.icon2}>
+                        <AntDesign name="right" size={24} color="black"/>     
+                    </TouchableOpacity>
 
-                </View>
+            </View>
+                ) : (
+                    <Text></Text>
+                )
+            }
+
+            
 
                 </View>
         )

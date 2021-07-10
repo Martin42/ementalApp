@@ -451,10 +451,10 @@ function AudioMarco({ route, navigation }) {
     
                  {/* PLAYER  */}
           
-                    <Ionicons
+                 <Ionicons
                         style={{
                             alignSelf: 'center',
-                            backgroundColor: 'gray',
+                            backgroundColor: '#8FBBFF',
                             padding: 10,
                             borderRadius: 50,
                             marginTop: '15%'
