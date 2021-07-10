@@ -486,11 +486,11 @@ function PlaylistMarco({ route, navigation }) {
                         <View style={{flex: 1}}>
                         <Checkbox 
                             style={styles.icon}
-                            onClick={() => navigation.navigate('Notificacoes')}
+                            onClick={() => navigation.navigate('PainelControlo')} 
                             isChecked={false}
-                            unCheckedImage={<Icon name='notifications' size={28} color='#D2D2D2'/>}
-                            checkedImage={<Icon name='notifications' size={28} color='#6578B3'/>}
-                        />           
+                            unCheckedImage={<Icon1 name='equalizer' size={30} color='#D2D2D2' />}
+                            checkedImage={<Icon1 name='equalizer' size={30} color='#6578B3'/>}
+                        />  
                         </View>
         
                         <View style={{flex: 1}}>
@@ -512,21 +512,6 @@ function PlaylistMarco({ route, navigation }) {
                             checkedImage={<Icon2 name='questioncircle' size={28} color='#6578B3'/>}
                         />  
                         </View>
-
-                        { (currentStatus == 2) ? (
-                        <View style={{flex: 1}}>
-                        <Checkbox 
-                            style={styles.icon}
-                            onClick={() => navigation.navigate('PainelControlo')} 
-                            isChecked={false}
-                            unCheckedImage={<Icon1 name='equalizer' size={30} color='#D2D2D2' />}
-                            checkedImage={<Icon1 name='equalizer' size={30} color='#6578B3'/>}
-                        />  
-                        </View>
-                    ) : (
-                        <Text></Text>
-                    ) }
-
         
                     </View>
         

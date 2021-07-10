@@ -13,6 +13,7 @@ function Apoio({ route, navigation }) {
     const currentUser = auth.currentUser.uid;
     const [informacao, setInformacao] = useState([]);
     const [assegurado, setAssegurado] = useState(false);
+    const [currentStatus, setCurrentStatus] = useState('');
 
     if ((currentUser == '0tPylHnZykWeGHN0Xft4b4De9Nk1' || currentUser == 'FydfT0GfIdeAHeU5Et9UbgzNk852')) {
 
@@ -20,6 +21,7 @@ function Apoio({ route, navigation }) {
             useEffect(() => {
                 getPedidosAdmin();
                 getPedidosFinal()
+                getStatus();
             }, [assegurado])
 
             async function getPedidosAdmin(){
@@ -35,6 +37,17 @@ function Apoio({ route, navigation }) {
     
                 console.log(assegurado);
                
+
+                
+            }
+
+            function getStatus (){ db
+                .collection('users')
+                .doc(currentUser)
+                .get()
+                .then(doc => {
+                    setCurrentStatus(doc.data().status) 
+                });
             }
 
 
@@ -218,8 +231,19 @@ function Apoio({ route, navigation }) {
             </View>
 
         </ScrollView>
-
-            <View style={styles.tabBar}>
+        <View style={styles.tabBar}>
+                { currentStatus == 2 ? (
+                    <View style={{flex: 1}}>
+                    <Checkbox 
+                            style={styles.icon}
+                            onClick={() => navigation.navigate('PainelControlo')} 
+                            isChecked={false}
+                            unCheckedImage={<Icon1 name='equalizer' size={30} color='#D2D2D2' />}
+                            checkedImage={<Icon1 name='equalizer' size={30} color='#6578B3'/>}
+                        />  
+                    </View>
+                ) : (
+                   
                 <View style={{flex: 1}}>
                 <Checkbox 
                     style={styles.icon}
@@ -229,6 +253,7 @@ function Apoio({ route, navigation }) {
                     checkedImage={<Icon name='notifications' size={28} color='#6578B3'/>}
                 />           
                 </View>
+                )}
 
                 <View style={{flex: 1}}>
                 <Checkbox 
