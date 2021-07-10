@@ -144,7 +144,7 @@ function AudioMarco({ route, navigation }) {
         db
         .collection('Notificacoes')
         .add({
-            Conteudo: 'O teu comentário foi aprovado!',
+            Conteudo: 'O teu comentário já se encontra aprovado!',
             User: remetente,
             Visto: false,
             fulldata: new Date(),
