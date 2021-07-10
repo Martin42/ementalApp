@@ -13,13 +13,7 @@ function PlaylistMarco({ route, navigation }) {
 
     useEffect(() => {
         getStatus();
-        getEP1();
-        getEP2();
-        getEP3();
-        getEP4();
-        getEP5();
-        getEP6();
-        getEP7();
+        getAll();
     }, []);
 
     const currentUser = auth.currentUser.uid;
@@ -35,7 +29,8 @@ function PlaylistMarco({ route, navigation }) {
     const [all, setAll] = useState(false)
 
 
-   async function getEP1(){
+    async function getAll(){
+
         db
         .collection('users')
         .doc(currentUser)
@@ -79,9 +74,9 @@ function PlaylistMarco({ route, navigation }) {
                 }
             }
         })
-    }
+  
 
-   async function getEP2(){
+  
         db
         .collection('users')
         .doc(currentUser)
@@ -124,10 +119,10 @@ function PlaylistMarco({ route, navigation }) {
                 }
             }
         })
-    }
+ 
 
 
-  async function getEP3(){
+ 
         db
         .collection('users')
         .doc(currentUser)
@@ -170,10 +165,10 @@ function PlaylistMarco({ route, navigation }) {
                 }
             }
         })
-    }
+   
 
 
-  async function getEP4(){
+
         db
         .collection('users')
         .doc(currentUser)
@@ -216,9 +211,9 @@ function PlaylistMarco({ route, navigation }) {
                 }
             }
         })
-    }
+  
 
-    async function getEP5(){
+   
         db
         .collection('users')
         .doc(currentUser)
@@ -261,9 +256,8 @@ function PlaylistMarco({ route, navigation }) {
                 }
             }
         })
-    }
+   
 
-    async function getEP6(){
         db
         .collection('users')
         .doc(currentUser)
@@ -306,9 +300,8 @@ function PlaylistMarco({ route, navigation }) {
                 }
             }
         })
-    }
+ 
 
-    async function getEP7(){
         db
         .collection('users')
         .doc(currentUser)
@@ -328,8 +321,8 @@ function PlaylistMarco({ route, navigation }) {
                     })
             }
         })
+  
     }
-
 
   async function getStatus (){ db
         .collection('users')
