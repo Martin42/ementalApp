@@ -233,7 +233,7 @@ function AudioMarco4({ route, navigation }) {
                 <View style={styles.container}>
                     <View style={{ flexDirection: 'row', height: 40, marginTop: '7.5%', alignItems: 'center', marginBottom: '2.5%' }}>
                         <TouchableOpacity
-                            onPress={() => {navigation.navigate('PlaylistMarco'), stopSound()}}
+                            onPress={() => {navigation.navigate('PlaylistMarco'); handleAudioPlayPause()}}
                             style={styles.icon}>
                             <Entypo name="chevron-thin-left" size={24} color="black" />
                         </TouchableOpacity>
