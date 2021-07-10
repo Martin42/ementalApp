@@ -6,7 +6,6 @@ import Icon2 from 'react-native-vector-icons/AntDesign';
 import Checkbox from 'react-native-check-box';
 import { color } from 'react-native-reanimated';
 import { auth, db } from '../../Firebase'
-import { createIconSetFromFontello } from 'react-native-vector-icons';
 
 function Notificacoes({ route, navigation }) {
     
@@ -42,11 +41,8 @@ function Notificacoes({ route, navigation }) {
     return (
         <View style={styles.container}>
         <ScrollView style={styles.container}>
-            <View>
-
-                <Text style={styles.title1}>Notificações</Text>
-            </View>
-            <View style={styles.container2}>
+            <View style={{backgroundColor: '#CFE0FB', paddingTop: '10%'}} />
+            <Image source={require('../../images/Notificacoes.png')} style={{width: '100%'}} />
                 {Object.entries(notificacao).map(([id, value]) => (
                         <View key={[id]} style={styles.container3}>
 
@@ -74,10 +70,8 @@ function Notificacoes({ route, navigation }) {
 
                                 )}
                             </TouchableOpacity>
-
                 </View>
                 ))}
-            </View>
 
         </ScrollView>
 
@@ -122,7 +116,7 @@ function Notificacoes({ route, navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#CFE0FB',
+        backgroundColor: 'white',
         width: '100%',
 
     },
