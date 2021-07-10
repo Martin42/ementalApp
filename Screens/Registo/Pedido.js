@@ -8,8 +8,6 @@ import { db } from '../../Firebase'
 function Pedido({ route, navigation }) {
 
     console.log(route.params.status);
-    console.log(route.params.pedido);
-    console.log(route.params.userid);
 
     const currentUser = route.params.userid;
 
@@ -71,23 +69,32 @@ function Pedido({ route, navigation }) {
                         </View>
 
                         <View style={styles.container2}>
-                            <TouchableOpacity
-                                style={styles.touchable}
-                                onPress={() => { if (nome == '' || email == '' || mensagem == '') {
-                                                        alert('Por favor preencha todos os campos')
+                            <View style={{flexDirection: 'row'}}>
+                                <TouchableOpacity
+                                style={{marginLeft: '13%'}}
+                                onPress={() => navigation.navigate('Registo', { status: route.params.status, nomePedido: '', emailPedido: '', mensagemPedido: '' })}  
+                                >
+                                    <Text style={styles.next}>Saltar</Text>
+                                </TouchableOpacity>
 
-                                                    } else {   
-                                                        if ( route.params.pedido != 2) {
-                                                            navigation.navigate('Registo', { status: route.params.status, nomePedido: nome, emailPedido: email, mensagemPedido: mensagem }) 
-                                                        } else {
-                                                            navigation.navigate('Homepage', { status: route.params.status, nomePedido: nome, emailPedido: email, mensagemPedido: mensagem }); setData()
+                                <TouchableOpacity
+                                    style={{position: 'absolute', right: 0, marginRight: '8%'}}
+                                    onPress={() => { if (nome == '' || email == '' || mensagem == '') {
+                                                            alert('Por favor preencha todos os campos')
+
+                                                        } else {   
+                                                            if ( route.params.pedido != 2) {
+                                                                navigation.navigate('Registo', { status: route.params.status, nomePedido: nome, emailPedido: email, mensagemPedido: mensagem }) 
+                                                            } else {
+                                                                navigation.navigate('Homepage', { status: route.params.status, nomePedido: nome, emailPedido: email, mensagemPedido: mensagem }); setData()
+                                                            }
                                                         }
-                                                    }
+                                            }
                                         }
-                                    }
-                            >
-                                <Text style={styles.next}>Seguinte</Text>
-                            </TouchableOpacity>
+                                >
+                                    <Text style={styles.next}>Seguinte</Text>
+                                </TouchableOpacity>
+                            </View>
                         </View> 
               
         </ScrollView>
@@ -192,7 +199,6 @@ const styles = StyleSheet.create({
     },
 
     touchable: {
-        width: '20%', 
         alignSelf: 'flex-end',
         marginRight: '8%',
   
