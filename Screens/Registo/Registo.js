@@ -39,32 +39,32 @@ function Registo({navigation, route}){
           .collection('Questionário Marco Inicial')
           .doc(auth.currentUser.uid)
           .set({
-            concluido: 'false'
-            
+            concluido: 'false',
+            User: currentUser
           })
 
           db
           .collection('Questionário Sara Inicial')
           .doc(auth.currentUser.uid)
           .set({
-            concluido: 'false'
-           
+            concluido: 'false',
+           User: currentUser
           })
 
           db
           .collection('Questionário Marco Final')
           .doc(auth.currentUser.uid)
           .set({
-            concluido: 'false'
-            
+            concluido: 'false',
+            User: currentUser
           })
 
           db
           .collection('Questionário Sara Final')
           .doc(auth.currentUser.uid)
           .set({
-            concluido: 'false'
-            
+            concluido: 'false',
+            User: currentUser
           })
 
 
