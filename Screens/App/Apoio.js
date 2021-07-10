@@ -57,7 +57,7 @@ function Apoio({ route, navigation }) {
 
             if (assegurado == true) {
               
-                        const pedidoFinalRef = db.collection('Pedido Esclarecimento')
+                        const pedidoFinalRef = db.collection('Pedido Esclarecimento').orderBy('fulldata', 'asc');
                         const snapshot = await pedidoFinalRef.get();
                         const infoAdmin = [];
                         snapshot.forEach(doc => {
@@ -69,7 +69,7 @@ function Apoio({ route, navigation }) {
                 
             } else {
 
-                        const pedidoFinalRef = db.collection('Pedido Esclarecimento').where('encarregue', '==', 'negativo')
+                        const pedidoFinalRef = db.collection('Pedido Esclarecimento').where('encarregue', '==', 'negativo').orderBy('fulldata', 'asc');
                         const snapshot = await pedidoFinalRef.get();
                         const infoAdmin = [];
                         snapshot.forEach(doc => {
