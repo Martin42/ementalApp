@@ -40,6 +40,7 @@ function Registo({navigation, route}){
           .doc(auth.currentUser.uid)
           .set({
             concluido: 'false'
+            
           })
 
           db
@@ -47,6 +48,7 @@ function Registo({navigation, route}){
           .doc(auth.currentUser.uid)
           .set({
             concluido: 'false'
+           
           })
 
           db
@@ -54,6 +56,7 @@ function Registo({navigation, route}){
           .doc(auth.currentUser.uid)
           .set({
             concluido: 'false'
+            
           })
 
           db
@@ -61,6 +64,7 @@ function Registo({navigation, route}){
           .doc(auth.currentUser.uid)
           .set({
             concluido: 'false'
+            
           })
 
 

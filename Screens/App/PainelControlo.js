@@ -19,12 +19,20 @@ function PainelControlo({ route, navigation }) {
         getPDS();
         getSara();
         getMarco();
+        getMarcoFinal();
+        getSaraFinal();
     }, [])
 
     const [estudantes, setEstudantes] = useState();
     const [PDS, setPDS] = useState();
     const [numeroSara, setNumeroSara] = useState();
     const [numeroMarco, setNumeroMarco] = useState();
+    const currentUser = auth.currentUser.uid;
+
+    const [MarcoInicial, setMarcoInicial] = useState([]);
+    const [SaraInicial, setSaraInicial] = useState([]);
+    const [MarcoFinal, setMarcoFinal] = useState([]);
+    const [SaraFinal, setSaraFinal] = useState([]);
 
   async function getEstudantes(){
       const estudantesRef = db.collection('users').where('name', '==', 'estudante')
@@ -54,44 +62,89 @@ function PainelControlo({ route, navigation }) {
     async function getSara(){
         const saraRef = db.collection('Questionário Sara Inicial').where('concluido', '==', 'true')
         const snapshot = await saraRef.get();
+        const all = [];
         let numeroSara = 0;
         snapshot.forEach(doc => {
             numeroSara++;
+            all.push(doc.data())
+            setSaraInicial(all);
         })
 
         setNumeroSara(numeroSara);
     }
 
+
+    async function getSaraFinal(){
+        const saraRef = db.collection('Questionário Sara Final').where('concluido', '==', 'true')
+        const snapshot = await saraRef.get();
+        const all = [];
+        snapshot.forEach(doc => {
+            all.push(doc.data())
+            setSaraFinal(all);
+        })
+    
+    }
+
+
+   
+
+
     async function getMarco(){
         const marcoRef = db.collection('Questionário Marco Inicial').where('concluido', '==', 'true')
         const snapshot = await marcoRef.get();
         let numeroMarco = 0;
+        const all = [];
         snapshot.forEach(doc => {
             numeroMarco++;
+            all.push(doc.data());
+            setMarcoInicial(all); 
+            
         })
 
+        
         setNumeroMarco(numeroMarco);
     }
 
+    async function getMarcoFinal(){
+        const marcoRef = db.collection('Questionário Marco Final').where('concluido', '==', 'true')
+        const snapshot = await marcoRef.get();
+        const all = [];
+        snapshot.forEach(doc => {
+            all.push(doc.data());
+            setMarcoFinal(all); 
+        })
 
-    var data = [{
-        "Estudantes Universitários": estudantes,
-        "Profissionais de Saúde": PDS,
-        "Questionários Respondidos Ferida Sara": numeroSara,
-        "Questionários Respondidos Marco": numeroMarco
-      },
-    ];
+        
+       
+    }
+
+
+    
+
+    var data = SaraInicial
+
+    var data2 = SaraFinal
+
+    var data3 = MarcoInicial
+
+    var data4 = MarcoFinal
+
 
     function exportData() {
         var ws = XLSX.utils.json_to_sheet(data);
+        var ws2 = XLSX.utils.json_to_sheet(data2);
+        var ws3 = XLSX.utils.json_to_sheet(data3);
+        var ws4 = XLSX.utils.json_to_sheet(data4);
         var wb = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, "Dados Brutos");
+        XLSX.utils.book_append_sheet(wb, ws, "Dados Brutos Sara Inicial");
+        XLSX.utils.book_append_sheet(wb, ws2, "Dados Brutos Sara Final");
+        XLSX.utils.book_append_sheet(wb, ws3, "Dados Brutos Marco Inicial");
+        XLSX.utils.book_append_sheet(wb, ws4, "Dados Brutos Marco Final");
         const wbout = XLSX.write(wb, {
         type: 'base64',
         bookType: "xlsx"
         });
         const uri = FileSystem.cacheDirectory + 'Dados Brutos.xlsx';
-        console.log(`Writing to ${JSON.stringify(uri)} with text: ${wbout}`);
         FileSystem.writeAsStringAsync(uri, wbout, {
         encoding: FileSystem.EncodingType.Base64
         });
