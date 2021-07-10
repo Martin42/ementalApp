@@ -25,8 +25,10 @@ function PainelControlo({ route, navigation }) {
 
     const [estudantes, setEstudantes] = useState();
     const [PDS, setPDS] = useState();
-    const [numeroSara, setNumeroSara] = useState();
-    const [numeroMarco, setNumeroMarco] = useState();
+    const [numeroSaraInicial, setNumeroSaraInicial] = useState();
+    const [numeroMarcoInicial, setNumeroMarcoInicial] = useState();
+    const [numeroSaraFinal, setNumeroSaraFinal] = useState();
+    const [numeroMarcoFinal, setNumeroMarcoFinal] = useState()
     const currentUser = auth.currentUser.uid;
 
     const [MarcoInicial, setMarcoInicial] = useState([]);
@@ -63,14 +65,14 @@ function PainelControlo({ route, navigation }) {
         const saraRef = db.collection('Questionário Sara Inicial').where('concluido', '==', 'true')
         const snapshot = await saraRef.get();
         const all = [];
-        let numeroSara = 0;
+        let numeroSaraInicial = 0;
         snapshot.forEach(doc => {
-            numeroSara++;
+            numeroSaraInicial++;
             all.push(doc.data())
             setSaraInicial(all);
         })
 
-        setNumeroSara(numeroSara);
+        setNumeroSaraInicial(numeroSaraInicial);
     }
 
 
@@ -78,11 +80,15 @@ function PainelControlo({ route, navigation }) {
         const saraRef = db.collection('Questionário Sara Final').where('concluido', '==', 'true')
         const snapshot = await saraRef.get();
         const all = [];
+        let numeroSaraFinal = 0;
         snapshot.forEach(doc => {
+            numeroSaraFinal++;
             all.push(doc.data())
             setSaraFinal(all);
         })
     
+        setNumeroSaraFinal(numeroSaraFinal);
+
     }
 
 
@@ -92,29 +98,31 @@ function PainelControlo({ route, navigation }) {
     async function getMarco(){
         const marcoRef = db.collection('Questionário Marco Inicial').where('concluido', '==', 'true')
         const snapshot = await marcoRef.get();
-        let numeroMarco = 0;
+        let numeroMarcoInicial = 0;
         const all = [];
         snapshot.forEach(doc => {
-            numeroMarco++;
+            numeroMarcoInicial++;
             all.push(doc.data());
             setMarcoInicial(all); 
             
         })
 
         
-        setNumeroMarco(numeroMarco);
+        setNumeroMarcoInicial(numeroMarcoInicial);
     }
 
     async function getMarcoFinal(){
         const marcoRef = db.collection('Questionário Marco Final').where('concluido', '==', 'true')
         const snapshot = await marcoRef.get();
         const all = [];
+        let numeroMarcoFinal = 0;
         snapshot.forEach(doc => {
+            numeroMarcoFinal++;
             all.push(doc.data());
             setMarcoFinal(all); 
         })
 
-        
+        setNumeroMarcoFinal(numeroMarcoFinal);
        
     }
 
@@ -214,25 +222,77 @@ function PainelControlo({ route, navigation }) {
 
                     <View style={styles.caixa}>
                             <Text style={styles.valor}>
-                                {numeroSara}
+                                {numeroSaraInicial}
                             </Text>
                             <Text style={styles.nome}>
                                 questionários
                             </Text>
                             <Text style={styles.nome}>
                                 respondidos
+                            </Text>
+                            <Text style={styles.nome}>
+                                Ferida Sara
+                            </Text>
+                            <Text style={styles.nome}>
+                                Inicial
                             </Text>
                         </View>
 
                         <View style={styles.caixa2}>
                             <Text style={styles.valor}>
-                            {numeroMarco}
+                            {numeroMarcoInicial}
                             </Text>
                             <Text style={styles.nome}>
                                 questionários
                             </Text>
                             <Text style={styles.nome}>
                                 respondidos
+                            </Text>
+                            <Text style={styles.nome}>
+                                Marco
+                            </Text>
+                            <Text style={styles.nome}>
+                                Inicial
+                            </Text>
+                        </View>
+
+                </View>
+
+                <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: '5%'}}>
+
+                    <View style={styles.caixa}>
+                            <Text style={styles.valor}>
+                                {numeroSaraFinal}
+                            </Text>
+                            <Text style={styles.nome}>
+                                questionários
+                            </Text>
+                            <Text style={styles.nome}>
+                                respondidos
+                            </Text>
+                            <Text style={styles.nome}>
+                                Ferida Sara
+                            </Text>
+                            <Text style={styles.nome}>
+                                Final
+                            </Text>
+                        </View>
+
+                        <View style={styles.caixa2}>
+                            <Text style={styles.valor}>
+                            {numeroMarcoFinal}
+                            </Text>
+                            <Text style={styles.nome}>
+                                questionários
+                            </Text>
+                            <Text style={styles.nome}>
+                                respondidos
+                            </Text>
+                            <Text style={styles.nome}>
+                                Marco
+                            </Text>
+                            <Text style={styles.nome}>
+                                Inicial
                             </Text>
                         </View>
 
@@ -327,7 +387,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginLeft: 'auto',
         marginRight: 'auto',
-        marginBottom: '5%',
+        marginBottom: '10%',
         marginTop: '15%',
 
     },
