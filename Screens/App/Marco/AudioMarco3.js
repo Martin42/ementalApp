@@ -20,14 +20,6 @@ function AudioMarco3({ route, navigation }) {
             getStatus ();
     }, [])
 
-
-    useEffect(() => {
-    
-    return sound ? () => {
-        console.log('Unloading Sound');
-        sound.unloadAsync();
-    } : undefined;
-    },[sound])
         
     const currentUser = auth.currentUser.uid;
 
@@ -36,7 +28,6 @@ function AudioMarco3({ route, navigation }) {
     const [modal2, setModal2] = useState(false);
     const [comments, setComments] = useState([]);
     const [commentsAdmin, setCommentsAdmin] = useState([]);
-    const [checkPause, setCheckPause] = useState(false);
     const [porAprovar, setPorAprovar] = useState();
     const [duration, setDuration] = useState(248);
     const [currentDuration, setCurrentDuration] =useState(0);
@@ -86,40 +77,45 @@ function AudioMarco3({ route, navigation }) {
     };
 
 
-
-    // validar 
-
-    function validate(){
-
-        if (checkPause === false) {
-            setCheckPause(true);
-         
-        } else {
-            setCheckPause(false);
-            
-        }
-    }
-
     // player 
 
-    const [sound, setSound] = useState();
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [playbackObject, setPlaybackObject] = useState(null);
+    const [playbackStatus, setPlaybackStatus] = useState(null);
 
-    async function playSound(){
-        console.log('Loading Sound');
-        const { sound } = await Audio.Sound.createAsync(
-            require('./Audios/Marco3.mp3')
-        );
-        setSound(sound);
+    useEffect(() => {
+        if (playbackObject === null) {
+        setPlaybackObject(new Audio.Sound());
+        }
+    }, []);
 
-        console.log('Playing Sound');
-        await sound.playAsync();
-        startStopwatch();
-    }
-
-    async function stopSound(){
-        await sound.pauseAsync();
-        resetStopwatch();
-    }
+    const handleAudioPlayPause = async () => {
+        if (playbackObject !== null && playbackStatus === null) {
+          const status = await playbackObject.loadAsync(
+            require('./Audios/Marco3.mp3'),
+            { shouldPlay: true }
+          );
+          startStopwatch();
+          setIsPlaying(true);
+          return setPlaybackStatus(status);
+        }
+    
+        // It will pause our audio
+        if (playbackStatus.isPlaying) {
+          const status = await playbackObject.pauseAsync();
+          setIsPlaying(false);
+          stopStopwatch();
+          return setPlaybackStatus(status);
+        }
+    
+        // It will resume our audio
+        if (!playbackStatus.isPlaying) {
+          const status = await playbackObject.playAsync();
+          startStopwatch();
+          setIsPlaying(true);
+          return setPlaybackStatus(status);
+        }
+      };
 
     
     function getStatus (){ db
@@ -283,29 +279,19 @@ function AudioMarco3({ route, navigation }) {
     
                  {/* PLAYER  */}
           
-                     {
-                         checkPause ? (
-                             <TouchableOpacity 
-                                  style={{marginTop: '25%', alignItems: 'center', width: '12%',  alignSelf: 'center'}}
-                                  onPress={() => {validate(), stopSound()}}
-                             >
-                              <Image 
-                                      style={{width: 50, height: 50, alignSelf: 'center'}}
-                                      source={require('../../../images/pause.png')}
-                              />
-                             </TouchableOpacity>
-                         ) : (
-                              <TouchableOpacity 
-                                  style={{marginTop: '25%',  width: '12%', alignSelf: 'center'}}
-                                  onPress={() => {validate(), playSound()}}
-                              >
-                                  <Image 
-                                          style={{width: 50, height: 50, alignSelf: 'center'}}
-                                          source={require('../../../images/play.png')}
-                                  />
-                           </TouchableOpacity>
-                         )
-                     } 
+                    <Ionicons
+                        style={{
+                            alignSelf: 'center',
+                            backgroundColor: '#8FBBFF',
+                            padding: 10,
+                            borderRadius: 50,
+                            marginTop: '15%'
+                        }}
+                        name={isPlaying ? 'pause' : 'play'}
+                        size={35}
+                        color='white'
+                        onPress={handleAudioPlayPause}
+                        />
           
                      {/* esconder botão quando slider está ativo */}
           
@@ -462,29 +448,19 @@ function AudioMarco3({ route, navigation }) {
     
                  {/* PLAYER  */}
           
-                     {
-                         checkPause ? (
-                             <TouchableOpacity 
-                                  style={{marginTop: '25%', alignItems: 'center', width: '12%',  alignSelf: 'center'}}
-                                  onPress={() => {validate(), stopSound()}}
-                             >
-                              <Image 
-                                      style={{width: 50, height: 50, alignSelf: 'center'}}
-                                      source={require('../../../images/pause.png')}
-                              />
-                             </TouchableOpacity>
-                         ) : (
-                              <TouchableOpacity 
-                                  style={{marginTop: '25%',  width: '12%', alignSelf: 'center'}}
-                                  onPress={() => {validate(), playSound()}}
-                              >
-                                  <Image 
-                                          style={{width: 50, height: 50, alignSelf: 'center'}}
-                                          source={require('../../../images/play.png')}
-                                  />
-                           </TouchableOpacity>
-                         )
-                     } 
+                    <Ionicons
+                        style={{
+                            alignSelf: 'center',
+                            backgroundColor: '#8FBBFF',
+                            padding: 10,
+                            borderRadius: 50,
+                            marginTop: '15%'
+                        }}
+                        name={isPlaying ? 'pause' : 'play'}
+                        size={35}
+                        color='white'
+                        onPress={handleAudioPlayPause}
+                        /> 
           
                      {/* esconder botão quando slider está ativo */}
           
