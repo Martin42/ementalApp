@@ -10,30 +10,7 @@ function PlaylistSara({ route, navigation }) {
 
     useEffect(() => {
         getStatus();
-        getEP1PSI();
-        getEP1SARA();
-        getEP2PSI();
-        getDES1();
-        getEP3PSI();
-        getEP3SARA();
-        getEP4PSI();
-        getDES2();
-        getEP4_2SARA()
-        getEP5PSI();
-        getDES3();
-        getEP6PSI();
-        getDES4();
-        getDES5();
-        getEP7PSI();
-        getDES6();
-        getEP8PSI();
-        getEP9SARA();
-        getEP9PSI();
-        getDES7();
-        getEP11SARA();
-        getDES8();
-        getEP10PSI();
-        getDES9();
+        getAll();
     }, []);
 
 
@@ -77,7 +54,7 @@ function PlaylistSara({ route, navigation }) {
     
 
 
-    async function getEP1PSI(){
+    async function getAll(){
 
         db
         .collection('users')
@@ -87,9 +64,7 @@ function PlaylistSara({ route, navigation }) {
             if ((doc.data().EP1PSI) != undefined) {
                 setEP1PSI(false);
                 if ((doc.data().EP1PSI.seconds + 10) <= currentTime) {
-              
                     setEP1SARA(true);
-
                         db.collection('Notificacoes').where('notiID', '==', 'EP1PSI').get().then(doc => {
                             if (doc.empty) {
                                 db
@@ -120,13 +95,10 @@ function PlaylistSara({ route, navigation }) {
                             }
                         })
                 }
-    
             } 
         })
-    }
+    
 
-
-    async function getEP1SARA(){
         db
         .collection('users')
         .doc(currentUser)
@@ -172,10 +144,8 @@ function PlaylistSara({ route, navigation }) {
                 }
             }
         })
-    }
+    
 
-
-    async function getEP2PSI(){
         db
         .collection('users')
         .doc(currentUser)
@@ -221,10 +191,8 @@ function PlaylistSara({ route, navigation }) {
                 } 
             }
         })
-    }
+    
 
-
-    async function getDES1(){
         db
         .collection('users')
         .doc(currentUser)
@@ -274,9 +242,8 @@ function PlaylistSara({ route, navigation }) {
                 } 
             }
         })
-    }
 
-    async function getEP3PSI(){
+  
         db
         .collection('users')
         .doc(currentUser)
@@ -323,10 +290,8 @@ function PlaylistSara({ route, navigation }) {
                 } 
             }
         })
-    }
+   
 
-
-    async function getEP3SARA(){
         db
         .collection('users')
         .doc(currentUser)
@@ -372,10 +337,8 @@ function PlaylistSara({ route, navigation }) {
                 } 
             }
         })
-    }
 
-    
-    async function getEP4PSI(){
+
         db
         .collection('users')
         .doc(currentUser)
@@ -422,10 +385,8 @@ function PlaylistSara({ route, navigation }) {
                 } 
             }
         })
-    }
 
 
-    async function getDES2(){
         db
         .collection('users')
         .doc(currentUser)
@@ -476,9 +437,8 @@ function PlaylistSara({ route, navigation }) {
                 } 
             }
         })
-    }
 
-    async function getEP4_2SARA(){
+
         db
         .collection('users')
         .doc(currentUser)
@@ -524,9 +484,8 @@ function PlaylistSara({ route, navigation }) {
                 } 
             }
         })
-    }
 
-    async function getEP5PSI(){
+
         db
         .collection('users')
         .doc(currentUser)
@@ -573,10 +532,10 @@ function PlaylistSara({ route, navigation }) {
                 } 
             }
         })
-    }
+ 
 
 
-    async function getDES3(){
+
         db
         .collection('users')
         .doc(currentUser)
@@ -627,9 +586,9 @@ function PlaylistSara({ route, navigation }) {
                 } 
             }
         })
-    }
 
-    async function getEP6PSI(){
+
+   
         db
         .collection('users')
         .doc(currentUser)
@@ -678,10 +637,10 @@ function PlaylistSara({ route, navigation }) {
                 } 
             }
         })
-    }
+ 
 
 
-    async function getDES4(){
+   
         db
         .collection('users')
         .doc(currentUser)
@@ -734,10 +693,10 @@ function PlaylistSara({ route, navigation }) {
                 }
             }
         })
-    }
+ 
 
 
-    async function getDES5(){
+
         db
         .collection('users')
         .doc(currentUser)
@@ -790,9 +749,9 @@ function PlaylistSara({ route, navigation }) {
                 } 
             }
         })
-    }
 
-    async function getEP7PSI(){
+
+ 
         db
         .collection('users')
         .doc(currentUser)
@@ -839,11 +798,11 @@ function PlaylistSara({ route, navigation }) {
                 }  
             }
         })
-    }
+ 
     
 
 
-    async function getDES6(){
+   
         db
         .collection('users')
         .doc(currentUser)
@@ -896,10 +855,10 @@ function PlaylistSara({ route, navigation }) {
                 }  
             }
         })
-    }
+  
 
 
-    async function getEP8PSI(){
+   
         db
         .collection('users')
         .doc(currentUser)
@@ -945,12 +904,12 @@ function PlaylistSara({ route, navigation }) {
                 }
             }
         })
-    }
+   
 
 
 
 
-    async function getEP9SARA(){
+    
         db
         .collection('users')
         .doc(currentUser)
@@ -996,9 +955,9 @@ function PlaylistSara({ route, navigation }) {
                 } 
             }
         })
-    }
+  
 
-    async function getEP9PSI(){
+  
         db
         .collection('users')
         .doc(currentUser)
@@ -1044,11 +1003,9 @@ function PlaylistSara({ route, navigation }) {
                 } 
             }
         })
-    }
+  
 
 
-    
-    async function getDES7(){
         db
         .collection('users')
         .doc(currentUser)
@@ -1100,10 +1057,8 @@ function PlaylistSara({ route, navigation }) {
                 } 
             }
         })
-    }
+  
 
-
-    async function getEP11SARA(){
         db
         .collection('users')
         .doc(currentUser)
@@ -1148,11 +1103,8 @@ function PlaylistSara({ route, navigation }) {
                 }
             }
         })
-    }
 
 
-
-    async function getDES8(){
         db
         .collection('users')
         .doc(currentUser)
@@ -1202,10 +1154,8 @@ function PlaylistSara({ route, navigation }) {
                 }
             }
         })
-    }
+ 
 
-
-    async function getEP10PSI(){
         db
         .collection('users')
         .doc(currentUser)
@@ -1251,11 +1201,8 @@ function PlaylistSara({ route, navigation }) {
                 } 
             }
         })
-    }
 
-  
-    
-   async function getDES9(){
+
         db
         .collection('users')
         .doc(currentUser)
@@ -1285,18 +1232,20 @@ function PlaylistSara({ route, navigation }) {
             }
         })
     }
-
     
 
+    async function getStatus(){
 
-  async function getStatus (){ db
+      db
         .collection('users')
         .doc(currentUser)
         .get()
         .then(doc => {
             setCurrentStatus(doc.data().status) 
         });
+
     }
+
 
 
     if ((currentStatus == 2) || (all == true)) {
