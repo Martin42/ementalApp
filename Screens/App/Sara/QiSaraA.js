@@ -97,9 +97,10 @@ const styles = StyleSheet.create({
     },
 
     seguinteContainer: {
-        width: '20%',
+        width: '25%',
         alignSelf: 'flex-end', 
-        marginRight: '10%', 
+        marginRight: '7%',
+        
     },
 
     texto: {

@@ -166,14 +166,14 @@ const styles = StyleSheet.create({
         fontSize: 17,
         fontWeight: 'bold',
         textAlign: 'center',
-        marginBottom: '50%',
+        marginBottom: '50%'
     },
 
     seguinteContainer: {
         width: '20%',
         alignSelf: 'flex-end', 
         marginRight: '8%', 
-        marginTop: '28%', 
+        marginTop: '10%', 
     },
 
 
