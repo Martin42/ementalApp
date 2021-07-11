@@ -171,7 +171,7 @@ function Apoio({ route, navigation }) {
                             </View>
 
                             <View style={styles.ticketRight}>
-                            <Text style={{fontSize: 12, fontWeight: 'bold'}}> Realizar pedido de esclarecimento</Text>
+                            <Text style={{fontSize: 12, fontWeight: 'bold'}}>Realizar pedido de esclarecimento</Text>
                             </View>
                         </View>
                   )

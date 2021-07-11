@@ -45,16 +45,22 @@ function Conversa({route, navigation}){
         return (
             <View style={styles.container}>
                 <View style={styles.header}>
-                   
-                   <TouchableOpacity
-                        style={styles.arrowLeft}
-                        onPress={() => navigation.navigate('Apoio')}
-                   >
-                        <Icon name='left' size={28} color={'black'} />
-                    </TouchableOpacity>
-    
-                    <Text style={styles.title}>Pedido de Esclarecimento</Text>
-    
+
+                    <View style={{flexDirection: 'row', alignSelf: 'center'}}>
+
+                        <View style={{position: 'relative', left: -30}}>
+                        <TouchableOpacity
+                                onPress={() => navigation.navigate('Apoio')}
+                                style={{flex: 1}}
+                        >
+                                <Icon name='left' size={28} color={'black'}/>
+                            </TouchableOpacity>
+                        </View>
+
+                        <View style={{}}>
+                            <Text style={styles.title}>Pedido de Esclarecimento</Text>
+                        </View>
+                    </View>
                 </View>
     
                 <ScrollView 
@@ -226,18 +232,24 @@ function Conversa({route, navigation}){
     } else {
         return (
             <View style={styles.container}>
-            <View style={styles.header}>
-               
-               <TouchableOpacity
-                    style={styles.arrowLeft}
-                    onPress={() => navigation.navigate('Apoio')}
-               >
-                    <Icon name='left' size={28} color={'black'} />
-                </TouchableOpacity>
+                <View style={styles.header}>
 
-                <Text style={styles.title}>Pedido de Esclarecimento</Text>
+                    <View style={{flexDirection: 'row', alignSelf: 'center'}}>
 
-            </View>
+                        <View style={{position: 'relative', left: -30}}>
+                        <TouchableOpacity
+                                onPress={() => navigation.navigate('Apoio')}
+                                style={{flex: 1}}
+                        >
+                                <Icon name='left' size={28} color={'black'}/>
+                            </TouchableOpacity>
+                        </View>
+
+                        <View style={{}}>
+                            <Text style={styles.title}>Pedido de Esclarecimento</Text>
+                        </View>
+                    </View>
+                </View>
 
             <ScrollView 
                 style={styles.container}
@@ -435,15 +447,12 @@ const styles = StyleSheet.create({
 
     header: {
         backgroundColor: '#CFE0FB', 
-        alignContent: 'center', 
-        justifyContent: 'center', 
         paddingTop: '10%', 
         paddingBottom: '5%', 
         borderWidth: 1, 
         borderColor: '#CFE0FB', 
         borderBottomLeftRadius: 50, 
         borderBottomRightRadius: 50,
-        flexDirection: 'row',
       },
 
       introText: {
