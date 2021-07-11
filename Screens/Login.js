@@ -20,6 +20,23 @@ function Login({navigation}){
   };
 
 
+ function forgotPassword(){
+
+  if (LoginEmail == '') {
+    alert('Por favor indique o seu email')
+  } else {
+    auth.sendPasswordResetEmail(LoginEmail)
+    .then(function () {
+      alert('Please check your email...')
+    }).catch(function (e) {
+      console.log(e)
+    })
+  }
+
+  
+  }
+
+
   return (
     // Front End Concluido 
     
@@ -45,7 +62,11 @@ function Login({navigation}){
           onChangeText={LoginPassword => setLoginPassword(LoginPassword)}
         />
 
-        <Text style={styles.subtitle2}> Esqueceste-te da palavra-passe? </Text>
+        <TouchableOpacity
+          onPress={() => forgotPassword()}
+        >
+          <Text style={styles.subtitle2}> Esqueceste-te da palavra-passe? </Text>
+        </TouchableOpacity>
 
       </View>
 
