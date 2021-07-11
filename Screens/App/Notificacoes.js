@@ -180,21 +180,21 @@ const styles = StyleSheet.create({
     title3: {
         fontSize: 20,
         fontWeight: 'bold',
-        marginBottom: '7%',
         marginLeft: '10%',
         marginRight: '10%',
-        marginTop: '13%',
+        marginTop: '8%',
         paddingRight:'6%',
-
+        marginBottom: '2%'
     },
 
     title4: {
         fontSize: 20,
-        marginBottom: '7%',
+        fontWeight: 'bold',
         marginLeft: '10%',
         marginRight: '10%',
-        marginTop: '13%',
+        marginTop: '8%',
         paddingRight:'6%',
+        marginBottom: '2%'
 
     },
 

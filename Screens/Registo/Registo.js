@@ -110,7 +110,7 @@ function Registo({navigation, route}){
                     
                           <TextInput 
                             secureTextEntry={true}
-                            placeholder='Palavra-Passe'
+                            placeholder='palavra-passe'
                             placeholderTextColor= '#D7D7D7'
                             style={styles.inputPassword}
                             onChangeText={passwordRegisto => setpasswordRegisto(passwordRegisto)}
@@ -119,7 +119,7 @@ function Registo({navigation, route}){
 
                             <TextInput 
                             secureTextEntry={true}
-                            placeholder='Confirme a Palavra-Passe'
+                            placeholder='confirme a palavra-passe'
                             placeholderTextColor= '#D7D7D7'
                             style={styles.inputConfirmacao}
                             onChangeText={passwordConfirmacao => setpasswordConfirmacao(passwordConfirmacao)}

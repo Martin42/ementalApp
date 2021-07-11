@@ -128,14 +128,16 @@ function Apoio({ route, navigation }) {
             informacao.map((item, key) => (
                 <View style={styles.ticketContainer} key={key}>
                     <View style={styles.ticketLeft}>
-                        <Text  style={styles.setLeft}>{item.dia}</Text>
-                        <Text  style={styles.setLeft}>{item.mês}</Text>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Conversa', {fulldata: item.fulldata})}
+                            >
+                            <Text  style={styles.setLeft}>{item.dia}</Text>
+                            <Text  style={styles.setLeft}>{item.mês}</Text>
+                            </TouchableOpacity>
                     </View>
 
                     <View style={styles.ticketRight}>
-                        <TouchableOpacity
-                        onPress={() => navigation.navigate('Conversa', {fulldata: item.fulldata})}
-                        >
+                      
 
                         {/* render condicional com data da firebase Estado a verde ou a vermelho  */}
                         
@@ -147,7 +149,7 @@ function Apoio({ route, navigation }) {
                         )}
                             
                         </Text>
-                        </TouchableOpacity>
+                        
                     </View>
                 </View>
 
@@ -171,7 +173,7 @@ function Apoio({ route, navigation }) {
                             </View>
 
                             <View style={styles.ticketRight}>
-                            <Text style={{fontSize: 12, fontWeight: 'bold'}}> Realizar pedido de esclarecimento</Text>
+                            <Text style={{fontSize: 12, fontWeight: 'bold'}}>Realizar pedido de esclarecimento</Text>
                             </View>
                         </View>
                   )
@@ -386,7 +388,7 @@ const styles = StyleSheet.create({
     ticketLeft: {
         flex: 1, 
         backgroundColor: '#CFE0FB', 
-        padding: '8%', 
+        padding: '5%', 
         borderWidth: 1, 
         borderTopLeftRadius: 30, 
         borderBottomLeftRadius: 30,
@@ -397,13 +399,14 @@ const styles = StyleSheet.create({
     ticketRight: {
         flex: 5, 
         backgroundColor: '#ECEDEF', 
-        padding: '6%', 
+        padding: '5%', 
         borderWidth: 1, 
         borderTopRightRadius: 30, 
         borderBottomRightRadius: 30, 
         borderColor: '#ECEDEF', 
         justifyContent: 'center',
     },
+    
 
     setLeft: {
        fontSize: 18, 

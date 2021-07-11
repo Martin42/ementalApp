@@ -754,7 +754,7 @@ const styles = StyleSheet.create({
 
     },
     title2: {
-        fontSize: 30,
+        fontSize: 25,
         fontWeight: 'bold',
         marginLeft: '10%',
         marginRight: '10%',

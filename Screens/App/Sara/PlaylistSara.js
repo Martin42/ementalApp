@@ -1271,7 +1271,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP1PSI', video: '3xFja2DpzNE', titulo: 'A Ferida Sara - Ep. 1 Psicoeducativo' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                            source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
         
                                         />
@@ -1293,7 +1293,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP1SARA', video: 'a_Po_QQWSa0', titulo: 'A Ferida Sara - Ep. 1 Webserie' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                        source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
@@ -1319,7 +1319,7 @@ function PlaylistSara({ route, navigation }) {
                                             onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP2PSI', video: 'HhoYc8vR9CY', titulo: 'A Ferida Sara - Ep. 2 Psicoeducativo' })}
                                         >
                                             <Image
-                                                source={require('../../../images/thumbnail.png')}
+                                                 source={require('../../../images/SaraOpen.png')}
                                                 style={styles.episodio}
 
                                             />
@@ -1341,7 +1341,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP2SARA', video: 'GEzKXcHighA', titulo: 'A Ferida Sara - Ep. 2 Webserie' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
         
                                         />
@@ -1366,7 +1366,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'DES1', video: 'thFvboH9RdQ', titulo: 'A Ferida Sara - Desafio 1' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
         
                                         />
@@ -1391,7 +1391,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP3PSI', video: 'xdaxmlnb318', titulo: 'A Ferida Sara - Ep. 3 Psicoeducativo' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
         
                                         />
@@ -1415,7 +1415,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP3SARA', video: '6-9817rZzZQ', titulo: 'A Ferida Sara - Ep. 3 Webserie' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                            source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
         
                                         />
@@ -1440,7 +1440,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP4PSI', video: '9EtDFX56b0Y', titulo: 'A Ferida Sara - Ep. 4 Psicoeducativo' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
         
                                         />
@@ -1463,7 +1463,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP4_1SARA', video: 'MeY9V2hoheY', titulo: 'A Ferida Sara - Ep. 4 parte I Webserie' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                            source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
 
                                         />
@@ -1484,7 +1484,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'DES2', video: '73tI-PF2Wts', titulo: 'A Ferida Sara - Desafio 2' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
         
                                         />
@@ -1506,7 +1506,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP4_2SARA', video: 'PFim1HS6UqU', titulo: 'A Ferida Sara - Ep. 4 parte II Webserie' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
         
                                         />
@@ -1528,7 +1528,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP5PSI', video: 'aKEnz8U0Rk0', titulo: 'A Ferida Sara - Ep. 5 Psicoeducativo' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                            source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
 
                                         />
@@ -1551,7 +1551,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP5SARA', video: 'qiRAt17222s', titulo: 'A Ferida Sara - Ep. 5 Webserie' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
         
                                         />
@@ -1574,7 +1574,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'DES3', video: 'B-XCGPRTYxc', titulo: 'A Ferida Sara - Desafio 3' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
 
                                         />
@@ -1597,7 +1597,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP6PSI', video: 'vNn8IsMLJCQ', titulo: 'A Ferida Sara - Ep. 6 Psicoeducativo' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
 
                                         />
@@ -1620,7 +1620,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP6SARA', video: 'ju6adpcXpZY', titulo: 'A Ferida Sara - Ep. 6 Webserie' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
 
                                         />
@@ -1643,7 +1643,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'DES4', video: 'BOE2CfddAIU', titulo: 'A Ferida Sara - Desafio 4' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
 
                                         />
@@ -1666,7 +1666,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP7SARA', video: 'svmo1kUByzs', titulo: 'A Ferida Sara - Ep. 7 Webserie' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
 
                                         />
@@ -1688,7 +1688,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'DES5', video: 'jHY0rSBumnI', titulo: 'A Ferida Sara - Desafio 5' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
 
                                         />
@@ -1711,7 +1711,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP7PSI', video: 'Rx5vYuJevPg', titulo: 'A Ferida Sara - Ep. 7 Psicoeducativo' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                         source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
@@ -1735,7 +1735,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP8SARA', video: 'VQlyrsG2SH0', titulo: 'A Ferida Sara - Ep. 8 Webserie' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                           source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
         
                                         />
@@ -1759,7 +1759,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'DES6', video: '5IWgzT7LO7Q', titulo: 'A Ferida Sara - Desafio 6' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                         source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
@@ -1783,7 +1783,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP8PSI', video: 'JgW2rzNwQpc', titulo: 'A Ferida Sara - Ep. 8 Psicoeducativo' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                         source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
@@ -1806,7 +1806,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP9SARA', video: '0B0WzdWMvDw', titulo: 'A Ferida Sara - Ep. 9 Webserie' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                        source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
@@ -1830,7 +1830,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP9PSI', video: '6pfnZXSHeKw', titulo: 'A Ferida Sara - Ep. 9 Psicoeducativo' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                         source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
@@ -1853,7 +1853,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP10SARA', video: '5hd0XjDv5pM', titulo: 'A Ferida Sara - Ep. 10 Webserie' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                         source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
@@ -1875,7 +1875,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'DES7', video: 'jN8QyY_-5lg', titulo: 'A Ferida Sara - Desafio 7' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                       source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
@@ -1897,7 +1897,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP11SARA', video: 'n5Sl7KeMa0Q', titulo: 'A Ferida Sara - Ep. 11 Webserie' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                         source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
@@ -1919,7 +1919,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP12SARA', video: 'CPLqqARxBb8', titulo: 'A Ferida Sara - Ep. 12 Webserie' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                         source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
@@ -1942,7 +1942,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'DES8', video: 'F3VfKFI7NHg', titulo: 'A Ferida Sara - Desafio 8' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                        source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
@@ -1966,7 +1966,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP10PSI', video: 'ZgAxypXcAe0', titulo: 'A Ferida Sara - Ep. 10 Psicoeducativo' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                            source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
         
                                         />
@@ -1991,7 +1991,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP13SARA', video: 'BWvXqDZQ0xQ', titulo: 'A Ferida Sara - Ep. 13 Webserie' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                         source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
@@ -2014,7 +2014,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'DES9', video: '4qRM3JG826U', titulo: 'A Ferida Sara - Desafio 9' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                         source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
@@ -2114,7 +2114,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP1PSI', video: '3xFja2DpzNE', titulo: 'A Ferida Sara - Ep. 1 Psicoeducativo' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
         
                                         />
@@ -2160,7 +2160,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP1SARA', video: 'a_Po_QQWSa0', titulo: 'A Ferida Sara - Ep. 1 Webserie' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                         source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
@@ -2208,7 +2208,7 @@ function PlaylistSara({ route, navigation }) {
                                             onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP2PSI', video: 'HhoYc8vR9CY', titulo: 'A Ferida Sara - Ep. 2 Psicoeducativo' })}
                                         >
                                             <Image
-                                                source={require('../../../images/thumbnail.png')}
+                                                 source={require('../../../images/SaraOpen.png')}
                                                 style={styles.episodio}
 
                                             />
@@ -2252,7 +2252,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP2SARA', video: 'GEzKXcHighA', titulo: 'A Ferida Sara - Ep. 2 Webserie' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                            source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
         
                                         />
@@ -2295,7 +2295,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'DES1', video: 'thFvboH9RdQ', titulo: 'A Ferida Sara - Desafio 1' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
         
                                         />
@@ -2339,7 +2339,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP3PSI', video: 'xdaxmlnb318', titulo: 'A Ferida Sara - Ep. 3 Psicoeducativo' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
         
                                         />
@@ -2382,7 +2382,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP3SARA', video: '6-9817rZzZQ', titulo: 'A Ferida Sara - Ep. 3 Webserie' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
         
                                         />
@@ -2426,7 +2426,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP4PSI', video: '9EtDFX56b0Y', titulo: 'A Ferida Sara - Ep. 4 Psicoeducativo' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                            source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
         
                                         />
@@ -2468,7 +2468,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP4_1SARA', video: 'MeY9V2hoheY', titulo: 'A Ferida Sara - Ep. 4 parte I Webserie' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
 
                                         />
@@ -2510,7 +2510,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'DES2', video: '73tI-PF2Wts', titulo: 'A Ferida Sara - Desafio 2' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
         
                                         />
@@ -2552,7 +2552,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP4_2SARA', video: 'PFim1HS6UqU', titulo: 'A Ferida Sara - Ep. 4 parte II Webserie' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
         
                                         />
@@ -2594,7 +2594,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP5PSI', video: 'aKEnz8U0Rk0', titulo: 'A Ferida Sara - Ep. 5 Psicoeducativo' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                            source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
 
                                         />
@@ -2636,7 +2636,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP5SARA', video: 'qiRAt17222s', titulo: 'A Ferida Sara - Ep. 5 Webserie' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
         
                                         />
@@ -2679,7 +2679,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'DES3', video: 'B-XCGPRTYxc', titulo: 'A Ferida Sara - Desafio 3' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                            source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
 
                                         />
@@ -2722,7 +2722,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP6PSI', video: 'vNn8IsMLJCQ', titulo: 'A Ferida Sara - Ep. 6 Psicoeducativo' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
 
                                         />
@@ -2764,7 +2764,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP6SARA', video: 'ju6adpcXpZY', titulo: 'A Ferida Sara - Ep. 6 Webserie' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
 
                                         />
@@ -2806,7 +2806,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'DES4', video: 'BOE2CfddAIU', titulo: 'A Ferida Sara - Desafio 4' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
 
                                         />
@@ -2848,7 +2848,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP7SARA', video: 'svmo1kUByzs', titulo: 'A Ferida Sara - Ep. 7 Webserie' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
 
                                         />
@@ -2890,7 +2890,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'DES5', video: 'jHY0rSBumnI', titulo: 'A Ferida Sara - Desafio 5' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
 
                                         />
@@ -2933,7 +2933,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP7PSI', video: 'Rx5vYuJevPg', titulo: 'A Ferida Sara - Ep. 7 Psicoeducativo' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                         source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
@@ -2976,7 +2976,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP8SARA', video: 'VQlyrsG2SH0', titulo: 'A Ferida Sara - Ep. 8 Webserie' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
         
                                         />
@@ -3019,7 +3019,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'DES6', video: '5IWgzT7LO7Q', titulo: 'A Ferida Sara - Desafio 6' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                         source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
@@ -3063,7 +3063,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP8PSI', video: 'JgW2rzNwQpc', titulo: 'A Ferida Sara - Ep. 8 Psicoeducativo' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                         source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
@@ -3105,7 +3105,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP9SARA', video: '0B0WzdWMvDw', titulo: 'A Ferida Sara - Ep. 9 Webserie' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                         source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
@@ -3148,7 +3148,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP9PSI', video: '6pfnZXSHeKw', titulo: 'A Ferida Sara - Ep. 9 Psicoeducativo' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                         source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
@@ -3191,7 +3191,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP10SARA', video: '5hd0XjDv5pM', titulo: 'A Ferida Sara - Ep. 10 Webserie' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                         source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
@@ -3233,7 +3233,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'DES7', video: 'jN8QyY_-5lg', titulo: 'A Ferida Sara - Desafio 7' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                         source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
@@ -3275,7 +3275,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP11SARA', video: 'n5Sl7KeMa0Q', titulo: 'A Ferida Sara - Ep. 11 Webserie' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                         source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
@@ -3317,7 +3317,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP12SARA', video: 'CPLqqARxBb8', titulo: 'A Ferida Sara - Ep. 12 Webserie' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                         source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
@@ -3359,7 +3359,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'DES8', video: 'F3VfKFI7NHg', titulo: 'A Ferida Sara - Desafio 8' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                         source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
@@ -3402,7 +3402,7 @@ function PlaylistSara({ route, navigation }) {
                                         onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP10PSI', video: 'ZgAxypXcAe0', titulo: 'A Ferida Sara - Ep. 10 Psicoeducativo' })}
                                     >
                                         <Image
-                                            source={require('../../../images/thumbnail.png')}
+                                             source={require('../../../images/SaraOpen.png')}
                                             style={styles.episodio}
         
                                         />
@@ -3446,7 +3446,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP13SARA', video: 'BWvXqDZQ0xQ', titulo: 'A Ferida Sara - Ep. 13 Webserie' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                         source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
@@ -3488,7 +3488,7 @@ function PlaylistSara({ route, navigation }) {
                                     onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'DES9', video: '4qRM3JG826U', titulo: 'A Ferida Sara - Desafio 9' })}
                                 >
                                     <Image
-                                        source={require('../../../images/thumbnail.png')}
+                                        source={require('../../../images/SaraOpen.png')}
                                         style={styles.episodio}
 
                                     />
