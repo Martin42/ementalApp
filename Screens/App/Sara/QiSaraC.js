@@ -45,12 +45,19 @@ function QiSaraC({route, navigation}){
                 .set({
                     pergunta9: 'Tratamento Medicamentoso e Psicológico'
                 }, {merge: true})
-            } else {
+            } else if (botao3 == true){
                 db
                 .collection(collection)
                 .doc(currentUser)
                 .set({
                     pergunta9: 'Terapias alternativas'
+                }, {merge: true})
+            } else {
+                db
+                .collection(collection)
+                .doc(currentUser)
+                .set({
+                    pergunta9: ''
                 }, {merge: true})
             }
 
