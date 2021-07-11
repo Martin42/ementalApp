@@ -27,7 +27,7 @@ function Login({navigation}){
   } else {
     auth.sendPasswordResetEmail(LoginEmail)
     .then(function () {
-      alert('Please check your email...')
+      alert('Por favor verifique a sua caixa de correio')
     }).catch(function (e) {
       console.log(e)
     })

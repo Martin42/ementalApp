@@ -103,8 +103,7 @@ const styles = StyleSheet.create({
     next: {
         fontSize: 17,
         fontWeight: 'bold',
-        marginTop: '40%'
-
+        marginTop: '10%',
     },
 
     touchable: {
@@ -113,6 +112,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         right: 0,
         top: '83%',
+        
   
     },
 

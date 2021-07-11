@@ -15,7 +15,7 @@ function Info5({route, navigation}){
                 <Text style={styles.text}>Caso queiras entrar em contacto com um profissional de saúde, na página 'Linhas de Apoio' existe uma secção de contactos de emergência e a possibilidade de enviar um pedido de esclarecimento à nossa equipa de profissionais de saúde. Para isto basta apenas redigir o assunto e a mensagem e, por fim, aguardar pela resposta.</Text>
 
                 <Image 
-                        source={require('../../images/ex4.png')}
+                        source={require('../../images/esclarecimento.png')}
                         style={styles.example}
                     />
 
