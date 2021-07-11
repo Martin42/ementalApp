@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
     },
 
     title3: {
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: 'bold',
         marginLeft: '10%',
         marginRight: '10%',
@@ -192,8 +192,8 @@ const styles = StyleSheet.create({
     },
 
     title4: {
-        fontSize: 20,
-        fontWeight: 'bold',
+        fontSize: 18,
+        fontWeight: '200',
         marginLeft: '10%',
         marginRight: '10%',
         marginTop: '8%',
