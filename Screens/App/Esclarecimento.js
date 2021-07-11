@@ -159,16 +159,17 @@ function Esclarecimento({route, navigation}){
 
                 <View style={{flexDirection: 'row', alignSelf: 'center'}}>
 
-                    <View style={{position: 'relative', left: -30}}>
+                    <View style={{position: 'absolute', left: 30}}>
                     <TouchableOpacity
                             onPress={() => navigation.navigate('Apoio')}
                             style={{flex: 1}}
                     >
                             <Icon name='left' size={28} color={'black'}/>
+                            <Text style={{fontSize: 9, alignSelf: 'center', color: '#CFE0FB'}}>Voltar</Text>
                         </TouchableOpacity>
                     </View>
 
-                    <View style={{}}>
+                    <View style={{flex: 1}}>
                         <Text style={styles.title}>Pedido de Esclarecimento</Text>
                     </View>
                 </View>

@@ -92,9 +92,10 @@ const styles = StyleSheet.create({
 
     seguinteContainer: {
         width: '20%',
-        alignSelf: 'flex-end', 
-        marginRight: '10%', 
-        marginTop: '35%', 
+        alignSelf: 'flex-end',
+        position: 'absolute',
+        bottom: 50,
+        right: 40 
     },
 
 });

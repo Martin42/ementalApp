@@ -66,10 +66,14 @@ function Info2({route, navigation}){
 
                     <Text style={estilos.text}>Pode ser útil para trabalhar em contexto clínico ou em grupos de apoio.</Text>
 
-                    <Image 
-                        source={require('../../images/40.png')}
-                        style={estilos.segundos}
-                    />
+                        <View style={{marginTop: '10%', justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
+                            <YoutubePlayer
+                                width={'80%'}
+                                height={250}
+                                play={playing}
+                                videoId='Yai_548zDZg'
+                            />
+                        </View>
             
 
                         <Text style={estilos.titleSara}>A Ferida Sara</Text>
@@ -77,11 +81,14 @@ function Info2({route, navigation}){
                         <Text style={estilos.text}>"DEEP" É uma intervenção psicoeducativa de formato audiovisual, estruturada numa web-série designada "A Ferida Sara", de base narrativa, sobre a vida da estudante universitária Sara, intercalados com episódios psicoeducativos.</Text>
                     
                     
-                        <Image 
-                            source={require('../../images/Sara.png')}
-                            style={estilos.sara2}
-                        
-                        />
+                        <View style={{marginTop: '10%', justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
+                            <YoutubePlayer
+                                width={'80%'}
+                                height={250}
+                                play={playing}
+                                videoId='ct0yVqr4emE'
+                            />
+                        </View>
                 
                         <Text style={estilos.titleMarco}>Um Marco na Vida</Text>
 
@@ -194,14 +201,14 @@ const estilos = StyleSheet.create({
         fontSize: 22,
         fontWeight: 'bold',
         marginLeft: '10%',
-        marginTop: '10%',   
+       
     },
 
     titleMarco:{
         fontSize: 22,
         fontWeight: 'bold',
         marginLeft: '10%',
-        marginTop: '10%'
+       
     },
 
     sara2: {

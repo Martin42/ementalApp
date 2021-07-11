@@ -65,10 +65,10 @@ const styles = StyleSheet.create({
 
     seguinteContainer: {
         width: '20%',
-        alignSelf: 'flex-end', 
-        marginRight: '7%', 
-        marginTop: '1.5%', 
-
+        alignSelf: 'flex-end',
+        position: 'absolute',
+        bottom: 50,
+        right: 40 
     },
 
     example: {
