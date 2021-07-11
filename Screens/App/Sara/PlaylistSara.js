@@ -2130,7 +2130,7 @@ function PlaylistSara({ route, navigation }) {
 
                                     <View style={styles.container3}>
                                         <TouchableOpacity
-                                            onPress={() => alert('Só pode visualizar cada conteúdo uma vez. Depois de concluir a websérie poderá voltar a rever todos os episódios sem impedimento')}
+                                            onPress={() => alert('Conteúdo Bloqueado')}
                                         >
                                             <Image
                                                 source={require('../../../images/thumbnailBloqueada.png')}
@@ -2176,7 +2176,7 @@ function PlaylistSara({ route, navigation }) {
 
                                 <View style={styles.container3}>
                                     <TouchableOpacity
-                                        onPress={() => alert('Já viste')}
+                                        onPress={() => alert('Conteúdo Bloqueado')}
                                     >
                                         <Image
                                             source={require('../../../images/thumbnailBloqueada.png')}
@@ -2222,7 +2222,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                     <View style={styles.container3}>
                                         <TouchableOpacity
-                                            onPress={() => alert('Já viste')}
+                                            onPress={() => alert('Conteúdo Bloqueado')}
                                         >
                                             <Image
                                                 source={require('../../../images/thumbnailBloqueada.png')}
@@ -2267,7 +2267,7 @@ function PlaylistSara({ route, navigation }) {
 
                                     <View style={styles.container3}>
                                     <TouchableOpacity
-                                        onPress={() => alert('Já viste')}
+                                        onPress={() => alert('Conteúdo Bloqueado')}
                                     >
                                         <Image
                                             source={require('../../../images/thumbnailBloqueada.png')}
@@ -2309,7 +2309,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                     <View style={styles.container3}>
                                     <TouchableOpacity
-                                        onPress={() => alert('Já viste')}
+                                        onPress={() => alert('Conteúdo Bloqueado')}
                                     >
                                         <Image
                                             source={require('../../../images/thumbnailBloqueada.png')}
@@ -2353,7 +2353,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                 <View style={styles.container3}>
                                     <TouchableOpacity
-                                        onPress={() => alert('Já viste')}
+                                        onPress={() => alert('Conteúdo Bloqueado')}
                                     >
                                         <Image
                                             source={require('../../../images/thumbnailBloqueada.png')}
@@ -2396,7 +2396,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                     <View style={styles.container3}>
                                     <TouchableOpacity
-                                        onPress={() => alert('Já viste')}
+                                        onPress={() => alert('Conteúdo Bloqueado')}
                                     >
                                         <Image
                                             source={require('../../../images/thumbnailBloqueada.png')}
@@ -2440,7 +2440,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                     <View style={styles.container3}>
                                     <TouchableOpacity
-                                        onPress={() => alert('Já viste')}
+                                        onPress={() => alert('Conteúdo Bloqueado')}
                                     >
                                         <Image
                                             source={require('../../../images/thumbnailBloqueada.png')}
@@ -2483,7 +2483,7 @@ function PlaylistSara({ route, navigation }) {
 
                                     <View style={styles.container3}>
                                     <TouchableOpacity
-                                        onPress={() => alert('Já viste')}
+                                        onPress={() => alert('Conteúdo Bloqueado')}
                                     >
                                         <Image
                                             source={require('../../../images/thumbnailBloqueada.png')}
@@ -2524,7 +2524,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                     <View style={styles.container3}>
                                     <TouchableOpacity
-                                        onPress={() => alert('Já viste')}
+                                        onPress={() => alert('Conteúdo Bloqueado')}
                                     >
                                         <Image
                                             source={require('../../../images/thumbnailBloqueada.png')}
@@ -2566,7 +2566,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                     <View style={styles.container3}>
                                     <TouchableOpacity
-                                        onPress={() => alert('Já viste')}
+                                        onPress={() => alert('Conteúdo Bloqueado')}
                                     >
                                         <Image
                                             source={require('../../../images/thumbnailBloqueada.png')}
@@ -2608,7 +2608,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                 <View style={styles.container3}>
                                     <TouchableOpacity
-                                        onPress={() => alert('Já viste')}
+                                        onPress={() => alert('Conteúdo Bloqueado')}
                                     >
                                         <Image
                                             source={require('../../../images/thumbnailBloqueada.png')}
@@ -2650,7 +2650,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                     <View style={styles.container3}>
                                         <TouchableOpacity
-                                            onPress={() => alert('Já viste')}
+                                            onPress={() => alert('Conteúdo Bloqueado')}
                                         >
                                             <Image
                                                 source={require('../../../images/thumbnailBloqueada.png')}
@@ -2693,7 +2693,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                 <View style={styles.container3}>
                                     <TouchableOpacity
-                                        onPress={() => alert('Já sei')}
+                                        onPress={() => alert('Conteúdo Bloqueado')}
                                     >
                                         <Image
                                             source={require('../../../images/thumbnailBloqueada.png')}
@@ -2736,7 +2736,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                 <View style={styles.container3}>
                                     <TouchableOpacity
-                                        onPress={() => alert('Já viste')}
+                                        onPress={() => alert('Conteúdo Bloqueado')}
                                     >
                                         <Image
                                             source={require('../../../images/thumbnailBloqueada.png')}
@@ -2778,7 +2778,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                 <View style={styles.container3}>
                                     <TouchableOpacity
-                                        onPress={() => alert('Já viste')}
+                                        onPress={() => alert('Conteúdo Bloqueado')}
                                     >
                                         <Image
                                             source={require('../../../images/thumbnailBloqueada.png')}
@@ -2820,7 +2820,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                 <View style={styles.container3}>
                                     <TouchableOpacity
-                                        onPress={() => alert('Já viste')}
+                                        onPress={() => alert('Conteúdo Bloqueado')}
                                     >
                                         <Image
                                             source={require('../../../images/thumbnailBloqueada.png')}
@@ -2862,7 +2862,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                 <View style={styles.container3}>
                                     <TouchableOpacity
-                                        onPress={() => navigation.navigate('Ep1_Sara', { episodio: 'EP7SARA', video: 'svmo1kUByzs', titulo: 'A Ferida Sara - Ep. 7 Webserie' })}
+                                        onPress={() => alert('Conteúdo Bloqueado')}
                                     >
                                         <Image
                                             source={require('../../../images/thumbnailBloqueada.png')}
@@ -2904,7 +2904,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                     <View style={styles.container3}>
                                         <TouchableOpacity
-                                            onPress={() => alert('Já viste')}
+                                           onPress={() => alert('Conteúdo Bloqueado')}
                                         >
                                             <Image
                                                 source={require('../../../images/thumbnailBloqueada.png')}
@@ -2947,7 +2947,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                     <View style={styles.container3}>
                                     <TouchableOpacity
-                                        onPress={() => alert('Já viste')}
+                                        onPress={() => alert('Conteúdo Bloqueado')}
                                     >
                                         <Image
                                             source={require('../../../images/thumbnailBloqueada.png')}
@@ -2990,7 +2990,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                 <View style={styles.container3}>
                                     <TouchableOpacity
-                                        onPress={() => alert('Já viste')}
+                                        onPress={() => alert('Conteúdo Bloqueado')}
                                     >
                                         <Image
                                             source={require('../../../images/thumbnailBloqueada.png')}
@@ -3033,7 +3033,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                 <View style={styles.container3}>
                                     <TouchableOpacity
-                                        onPress={() => alert('Já viste')}
+                                        onPress={() => alert('Conteúdo Bloqueado')}
                                     >
                                         <Image
                                             source={require('../../../images/thumbnailBloqueada.png')}
@@ -3077,7 +3077,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                 <View style={styles.container3}>
                                     <TouchableOpacity
-                                        onPress={() => alert('Já viste')}
+                                        onPress={() => alert('Conteúdo Bloqueado')}
                                     >
                                         <Image
                                             source={require('../../../images/thumbnailBloqueada.png')}
@@ -3119,7 +3119,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                     <View style={styles.container3}>
                                 <TouchableOpacity
-                                    onPress={() => alert('Já viste')}
+                                    onPress={() => alert('Conteúdo Bloqueado')}
                                 >
                                     <Image
                                         source={require('../../../images/thumbnailBloqueada.png')}
@@ -3162,7 +3162,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                     <View style={styles.container3}>
                                 <TouchableOpacity
-                                    onPress={() => alert('Já viste')}
+                                    onPress={() => alert('Conteúdo Bloqueado')}
                                 >
                                     <Image
                                         source={require('../../../images/thumbnailBloqueada.png')}
@@ -3205,7 +3205,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                     <View style={styles.container3}>
                                 <TouchableOpacity
-                                    onPress={() => alert('Já sei')}
+                                    onPress={() => alert('Conteúdo Bloqueado')}
                                 >
                                     <Image
                                         source={require('../../../images/thumbnailBloqueada.png')}
@@ -3247,7 +3247,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                     <View style={styles.container3}>
                                 <TouchableOpacity
-                                    onPress={() => alert('Já sei')}
+                                    onPress={() => alert('Conteúdo Bloqueado')}
                                 >
                                     <Image
                                         source={require('../../../images/thumbnailBloqueada.png')}
@@ -3289,7 +3289,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                     <View style={styles.container3}>
                                 <TouchableOpacity
-                                    onPress={() => alert('Já viste')}
+                                    onPress={() => alert('Conteúdo Bloqueado')}
                                 >
                                     <Image
                                         source={require('../../../images/thumbnailBloqueada.png')}
@@ -3331,7 +3331,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                     <View style={styles.container3}>
                                 <TouchableOpacity
-                                    onPress={() => alert('Já sei')}
+                                    onPress={() => alert('Conteúdo Bloqueado')}
                                 >
                                     <Image
                                         source={require('../../../images/thumbnailBloqueada.png')}
@@ -3373,7 +3373,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                     <View style={styles.container3}>
                                 <TouchableOpacity
-                                    onPress={() => alert('Já sei')}
+                                   onPress={() => alert('Conteúdo Bloqueado')}
                                 >
                                     <Image
                                         source={require('../../../images/thumbnailBloqueada.png')}
@@ -3417,7 +3417,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                     <View style={styles.container3}>
                                 <TouchableOpacity
-                                    onPress={() => alert('Já sei')}
+                                   onPress={() => alert('Conteúdo Bloqueado')}
                                 >
                                     <Image
                                         source={require('../../../images/thumbnailBloqueada.png')}
@@ -3460,7 +3460,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                     <View style={styles.container3}>
                                 <TouchableOpacity
-                                    onPress={() => alert('Já viste')}
+                                   onPress={() => alert('Conteúdo Bloqueado')}
                                 >
                                     <Image
                                         source={require('../../../images/thumbnailBloqueada.png')}
@@ -3502,7 +3502,7 @@ function PlaylistSara({ route, navigation }) {
                                 ) : (
                                     <View style={styles.container3}>
                                 <TouchableOpacity
-                                    onPress={() => alert('Já viste')}
+                                    onPress={() => alert('Conteúdo Bloqueado')}
                                 >
                                     <Image
                                         source={require('../../../images/thumbnailBloqueada.png')}

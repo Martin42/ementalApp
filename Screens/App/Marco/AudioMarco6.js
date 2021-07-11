@@ -120,6 +120,15 @@ function AudioMarco6({ route, navigation }) {
         }
       };
 
+      const PauseAudio = async () => {
+        if (playbackStatus.isPlaying) {
+            const status = await playbackObject.pauseAsync();
+            setIsPlaying(false);
+            stopStopwatch();
+            return setPlaybackStatus(status);
+          }
+      }
+
     
     function getStatus (){ db
         .collection('users')
@@ -232,17 +241,21 @@ function AudioMarco6({ route, navigation }) {
         if (isPanelActive == false) {
             return (
                 <View style={styles.container}>
-                    <View style={{ flexDirection: 'row', height: 40, marginTop: '7.5%', alignItems: 'center', marginBottom: '2.5%' }}>
-                        <TouchableOpacity
-                            onPress={() => {navigation.navigate('PlaylistMarco'); handleAudioPlayPause()}}
-                            style={styles.icon}>
-                            <Entypo name="chevron-thin-left" size={24} color="black" />
-                        </TouchableOpacity>
+                    <View style={{ flexDirection: 'row', height: 40, marginTop: '9%', alignSelf: 'center'}}>
+                        <View>
+                            <TouchableOpacity
+                                onPress={() => {navigation.navigate('PlaylistMarco'); PauseAudio()}}
+                                style={{position: 'absolute', left: 20}}
+                                >
+                                <Entypo name="chevron-thin-left" size={24} color="black" />
+                            </TouchableOpacity>
+                        </View>
           
-          
-                        <Text style={{ fontSize: 20, marginLeft: '3%' }}>
-                            {route.params.titulo}
-                        </Text>
+                        <View style={{ flex: 1, alignItems: 'center'}}>
+                            <Text style={{fontSize: 20}}>
+                                {route.params.titulo}
+                            </Text>
+                        </View>
                     </View>
           
                     <Image
@@ -257,7 +270,7 @@ function AudioMarco6({ route, navigation }) {
                         {route.params.serie}
                     </Text>
     
-                    <View style={{flexDirection: 'row', alignContent: 'center', justifyContent: 'center'}}>
+                    <View style={{flexDirection: 'row', alignContent: 'center', justifyContent: 'center', marginTop: '10%'}}>
                         <Stopwatch 
                         start={stopwatchStart}
                         reset={stopwatchReset}
@@ -266,7 +279,7 @@ function AudioMarco6({ route, navigation }) {
                         <Text style={styles.sliderTimers}>00:03:40</Text>
                     </View>
                     
-                    <View style={{justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
+                    <View style={{justifyContent: 'center', alignItems: 'center'}}>
                     <Slider
                         style={styles.slider}
                         minimumValue={0}
@@ -282,16 +295,20 @@ function AudioMarco6({ route, navigation }) {
     
                  {/* PLAYER  */}
           
-                    <Ionicons
+                 <Ionicons
                         style={{
                             alignSelf: 'center',
+                            alignContent: 'center',
                             backgroundColor: '#8FBBFF',
-                            padding: 10,
-                            borderRadius: 50,
-                            marginTop: '15%'
+                            paddingLeft: 10,
+                            paddingRight: 8,
+                            paddingBottom: 10,
+                            paddingTop: 10,
+                            borderRadius: 25,
+                            marginTop: '5%'
                         }}
                         name={isPlaying ? 'pause' : 'play'}
-                        size={35}
+                        size={30}
                         color='white'
                         onPress={handleAudioPlayPause}
                         />
@@ -303,8 +320,8 @@ function AudioMarco6({ route, navigation }) {
                    
                     <View style={styles.container}>
                     <View style={{ flex: 1}}>
-                        <AntDesign name="up" size={24} color="#6578B3" style={{alignSelf: 'center', position: 'absolute', top: 80}} onPress={openPanel}/>
-                    <Text style={styles.subtitulo, {marginTop: '22.5%', alignSelf: 'center', color: '#6578B3', fontWeight: 'bold'}} onPress={openPanel}>
+                        
+                    <Text style={styles.subtitulo, {alignSelf: 'center', color: '#6578B3', fontWeight: 'bold', position: 'absolute', bottom: 20}} onPress={openPanel}>
                         Comentários      
                     </Text>
                 
@@ -401,17 +418,21 @@ function AudioMarco6({ route, navigation }) {
         if (isPanelActive == false) {
             return (
                 <View style={styles.container}>
-                    <View style={{ flexDirection: 'row', height: 40, marginTop: '7.5%', alignItems: 'center', marginBottom: '2.5%' }}>
-                        <TouchableOpacity
-                            onPress={() => navigation.navigate('PlaylistMarco')}
-                            style={styles.icon}>
-                            <Entypo name="chevron-thin-left" size={24} color="black" />
-                        </TouchableOpacity>
+                    <View style={{ flexDirection: 'row', height: 40, marginTop: '9%', alignSelf: 'center'}}>
+                        <View>
+                            <TouchableOpacity
+                                onPress={() => {navigation.navigate('PlaylistMarco'); PauseAudio()}}
+                                style={{position: 'absolute', left: 20}}
+                                >
+                                <Entypo name="chevron-thin-left" size={24} color="black" />
+                            </TouchableOpacity>
+                        </View>
           
-          
-                        <Text style={{ fontSize: 20, marginLeft: '3%'}}>
-                            {route.params.titulo}
-                        </Text>
+                        <View style={{ flex: 1, alignItems: 'center'}}>
+                            <Text style={{fontSize: 20}}>
+                                {route.params.titulo}
+                            </Text>
+                        </View>
                     </View>
           
                     <Image
@@ -426,7 +447,7 @@ function AudioMarco6({ route, navigation }) {
                         {route.params.serie}
                     </Text>
     
-                    <View style={{flexDirection: 'row', alignContent: 'center', justifyContent: 'center'}}>
+                    <View style={{flexDirection: 'row', alignContent: 'center', justifyContent: 'center', marginTop: '10%'}}>
                         <Stopwatch 
                         start={stopwatchStart}
                         reset={stopwatchReset}
@@ -435,7 +456,7 @@ function AudioMarco6({ route, navigation }) {
                         <Text style={styles.sliderTimers}>00:03:40</Text>
                     </View>
                     
-                    <View style={{justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
+                    <View style={{justifyContent: 'center', alignItems: 'center'}}>
                     <Slider
                         style={styles.slider}
                         minimumValue={0}
@@ -451,16 +472,20 @@ function AudioMarco6({ route, navigation }) {
     
                  {/* PLAYER  */}
           
-                    <Ionicons
+                 <Ionicons
                         style={{
                             alignSelf: 'center',
+                            alignContent: 'center',
                             backgroundColor: '#8FBBFF',
-                            padding: 10,
-                            borderRadius: 50,
-                            marginTop: '15%'
+                            paddingLeft: 10,
+                            paddingRight: 8,
+                            paddingBottom: 10,
+                            paddingTop: 10,
+                            borderRadius: 25,
+                            marginTop: '5%'
                         }}
                         name={isPlaying ? 'pause' : 'play'}
-                        size={35}
+                        size={30}
                         color='white'
                         onPress={handleAudioPlayPause}
                         />
@@ -472,8 +497,8 @@ function AudioMarco6({ route, navigation }) {
                    
                     <View style={styles.container}>
                     <View style={{ flex: 1}}>
-                    <AntDesign name="up" size={24} color="#6578B3" style={{alignSelf: 'center', position: 'absolute', top: 80}} onPress={openPanel}/>
-                    <Text style={styles.subtitulo, {marginTop: '22.5%', alignSelf: 'center', color: '#6578B3', fontWeight: 'bold'}} onPress={openPanel}>
+                    
+                    <Text style={styles.subtitulo, {alignSelf: 'center', color: '#6578B3', fontWeight: 'bold', position: 'absolute', bottom: 20}} onPress={openPanel}>
                         Comentários      
                     </Text>
                 

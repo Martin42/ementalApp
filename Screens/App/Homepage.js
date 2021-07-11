@@ -22,9 +22,24 @@ function Homepage({ route, navigation }) {
     const [modal2, setModal2] = useState(false);
     const [notificacao, setNotificacao] = useState([])
     const [visto, setVisto ] = useState(false)
+    const [marcoOpen, setMarcoOpen] = useState(false);
 
     const currentUser = auth.currentUser.uid;
     let codigo = 'A6B2C4P';
+
+    async function getMarco(){
+        db
+        .collection('users')
+        .doc(currentUser)
+        .get()
+        .then(doc => {
+            if (((doc.data().DES9) == undefined) || (doc.data().DES9) == '') {
+                setMarcoOpen(false);
+            } else {
+                setMarcoOpen(true);
+            }
+        })
+    }
 
     function comparar(){
         if (code === codigo) {
@@ -147,6 +162,7 @@ function Homepage({ route, navigation }) {
         getNotificacoes();
         getQuestionarioFinalMarco();
         getQuestionarioFinalSara();
+        getMarco();
     },[])
 
 
@@ -343,21 +359,39 @@ if (currentStatus == 2) {
                 <Text style={styles.title2}>Podcast</Text>
                 <Text style={styles.title3}>Um Marco na Vida</Text>
 
-                <TouchableOpacity
-                     style={{alignSelf: 'center'}}
-                     onPress={() => { if ((questionarioMarcoStatus == true) || (questionarioMarcoFinal == true)) {
-                         navigation.navigate('PlaylistMarco');
-                     } else {
-                         navigation.navigate('QiMarcoA');
-                        }
-                    }}
-                    >
-                    <Image
-                        source={require('../../images/marco.png')}
-                        style={styles.conteudo}
+                {
+                    marcoOpen == true ? (
+                        <TouchableOpacity
+                        style={{alignSelf: 'center'}}
+                        onPress={() => { if ((questionarioMarcoStatus == true) || (questionarioMarcoFinal == true)) {
+                            navigation.navigate('PlaylistMarco');
+                        } else {
+                            navigation.navigate('QiMarcoA');
+                           }
+                       }}
+                       >
+                        <Image
+                            source={require('../../images/marco.png')}
+                            style={styles.conteudo}
+    
+                        />
+                        </TouchableOpacity>
+                    ) : (
 
-                    />
-                </TouchableOpacity>
+                        <TouchableOpacity
+                        style={{alignSelf: 'center'}}
+                        onPress={() => alert('Deve terminar A Ferida Sara para poder aceder a este conteúdo')}
+                       >
+                       <Image
+                           source={require('../../images/conteudoBloqueado.png')}
+                           style={styles.conteudo}
+   
+                       />
+                   </TouchableOpacity>
+                    )
+                }
+
+               
 
                 <Text style={styles.title2}>Vídeos</Text>
 
@@ -561,21 +595,37 @@ if (currentStatus == 2) {
                 <Text style={styles.title2}>Podcast</Text>
                 <Text style={styles.title3}>Um Marco na Vida</Text>
 
-                <TouchableOpacity
-                     style={{alignSelf: 'center', marginBottom: '10%'}}
-                     onPress={() => { if ((questionarioMarcoStatus == true) || (questionarioMarcoFinal == true)) {
-                        navigation.navigate('PlaylistMarco');
-                    } else {
-                        navigation.navigate('QiMarcoA');
-                       }
-                   }}
-                >
-                    <Image
-                        source={require('../../images/marco.png')}
-                        style={styles.conteudo}
+                {
+                    marcoOpen == true ? (
+                        <TouchableOpacity
+                        style={{alignSelf: 'center'}}
+                        onPress={() => { if ((questionarioMarcoStatus == true) || (questionarioMarcoFinal == true)) {
+                            navigation.navigate('PlaylistMarco');
+                        } else {
+                            navigation.navigate('QiMarcoA');
+                           }
+                       }}
+                       >
+                        <Image
+                            source={require('../../images/marco.png')}
+                            style={styles.conteudo}
+    
+                        />
+                        </TouchableOpacity>
+                    ) : (
 
-                    />
-                </TouchableOpacity>
+                        <TouchableOpacity
+                        style={{alignSelf: 'center'}}
+                        onPress={() => alert('Deve terminar A Ferida Sara para poder aceder a este conteúdo')}
+                       >
+                       <Image
+                           source={require('../../images/conteudoBloqueado.png')}
+                           style={styles.conteudo}
+   
+                       />
+                   </TouchableOpacity>
+                    )
+                }
 
 
             </View>

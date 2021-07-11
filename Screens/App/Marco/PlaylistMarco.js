@@ -844,6 +844,7 @@ const styles = StyleSheet.create({
         height: '100%',
         width: '100%',
         marginTop: '10%',
+        paddingBottom: '10%'
         
 
     },
