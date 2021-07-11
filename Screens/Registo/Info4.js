@@ -14,11 +14,23 @@ function Info4({route, navigation}){
                 
                 <Text style={styles.text}>Em cada episódio existe uma zona de comentários onde poderás sempre deixar as tuas observações ou dúvidas. Todos os comentários serão primeiro aprovados pela equipa de profissionais de saúde antes de se tornarem visíveis.</Text>
 
-                <Image 
-                        source={require('../../images/ex3.png')}
+                {
+                   ( route.params.status == 0) ? (
+                    <Image 
+                    source={require('../../images/saraVideo.png')}
+                    style={styles.example}
+                    />
+
+                    ) : (
+                        <Image 
+                        source={require('../../images/40sVideo.png')}
                         style={styles.example}
                     />
 
+                    )
+                }
+
+               
                 <View style={styles.seguinteContainer}>
                     <TouchableOpacity
             
@@ -73,12 +85,11 @@ const styles = StyleSheet.create({
 
     example: {
         marginTop: '10%',
-        marginBottom: '15%',
         borderWidth: 1,
         borderColor: 'black',
         resizeMode: 'contain',
         width: '50%',
-        height: '50%',
+        height: '52%',
         alignSelf: 'center',
     },
 

@@ -181,9 +181,10 @@ const styles = StyleSheet.create({
     loginText: {
       color: 'white',
       textAlign: 'center',
-      margin: '3%',
+      marginTop: '3.4%',
       fontWeight: 'bold',
       fontSize: 18, 
+
     },
   
     subtitle: {

@@ -16,11 +16,22 @@ function Info3({route, navigation}){
                 <Text style={styles.text}>A intervenção é composta por um conjunto de episódios. Durante a intervenção cada episódio só poderá ser visualizado uma única vez. Será disponibilizado apenas um episódio de cada vez e receberás uma notificação sempre que um novo se desbloqueia.</Text>
                 <Text style={styles.texto}>Terás de responder a um questionário anónimo antes e após cada intervenção.</Text>
 
-                <Image 
-                        source={require('../../images/ex2.png')}
+
+                {
+                    (route.params.status == 0) ? (
+                        <Image 
+                        source={require('../../images/saraPL.png')}
                         style={styles.example}
                     />
 
+                    ) : (
+                        <Image 
+                        source={require('../../images/40sPL.png')}
+                        style={styles.example}
+                    />
+
+                    )
+                }
                
 
                     <View style={styles.seguinteContainer}>
@@ -86,12 +97,11 @@ const styles = StyleSheet.create({
 
     example: {
         marginTop: '10%',
-        marginBottom: '10%',
         borderWidth: 1,
         borderColor: 'black',
         resizeMode: 'contain',
-        width: '40%',
-        height: '40%',
+        width: '45%',
+        height: '45%',
         alignSelf: 'center',
     },
 

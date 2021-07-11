@@ -18,7 +18,7 @@ function Notificacoes({ route, navigation }) {
     }, [])
 
     async function getNotificacoes(){
-      const NotificacoesRef = db.collection('Notificacoes').where('User', '==', currentUser).orderBy('fulldata', 'asc');
+      const NotificacoesRef = db.collection('Notificacoes').where('User', '==', currentUser).orderBy('fulldata', 'desc');
       const snapshot = await NotificacoesRef.get();
       const Notificacao = [];
       snapshot.forEach(doc => { 

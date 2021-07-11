@@ -233,7 +233,7 @@ function PlaylistMarco({ route, navigation }) {
                                 Visto: false,
                                 fulldata: new Date(),
                                 Destino: 'PlaylistMarco',
-                                notiID: 'EP66MARCO'
+                                notiID: 'EP6MARCO'
                             })
                         } else {
                             db.collection('Notificacoes').where('notiID', '==', 'EP6MARCO').where('User', '==', currentUser).get().then(doc => {
