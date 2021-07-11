@@ -67,8 +67,8 @@ const styles = StyleSheet.create({
     seguinteContainer: {
         width: '20%',
         alignSelf: 'flex-end', 
-        marginRight: '8%', 
-        marginTop: '12%', 
+        marginRight: '7%', 
+        marginTop: '8.5%', 
 
     },
 
