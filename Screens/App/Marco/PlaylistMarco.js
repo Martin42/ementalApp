@@ -41,7 +41,7 @@ function PlaylistMarco({ route, navigation }) {
 
                 setAll(true);
 
-                if (doc.data().EP7MARCO.seconds + 30 <= currentTime) {
+                if (doc.data().EP7MARCO.seconds + 75600 <= currentTime) {
                         db
                         .collection('Questionário Marco Final')
                         .doc(currentUser)
@@ -62,7 +62,7 @@ function PlaylistMarco({ route, navigation }) {
         .then(doc => {
             if ((doc.data().EP1MARCO) != undefined) {
                 setEP1MARCO(false);
-                if ((doc.data().EP1MARCO.seconds + 10) <= currentTime) {
+                if ((doc.data().EP1MARCO.seconds + 180000) <= currentTime) {
                     setEP2MARCO(true);
 
                     db.collection('Notificacoes').where('notiID', '==', 'EP2MARCO').get().then(doc => {
@@ -108,7 +108,7 @@ function PlaylistMarco({ route, navigation }) {
         .then(doc => {
             if ((doc.data().EP2MARCO) != undefined) {
                 setEP2MARCO(false);
-                if ((doc.data().EP2MARCO.seconds + 10) <= currentTime) {
+                if ((doc.data().EP2MARCO.seconds + 162000) <= currentTime) {
                     setEP3MARCO(true);
                     db.collection('Notificacoes').where('notiID', '==', 'EP3MARCO').get().then(doc => {
                         if (doc.empty) {
@@ -154,7 +154,7 @@ function PlaylistMarco({ route, navigation }) {
         .then(doc => {
             if ((doc.data().EP3MARCO) != undefined) {
                 setEP3MARCO(false);
-                if ((doc.data().EP3MARCO.seconds + 10) <= currentTime) {
+                if ((doc.data().EP3MARCO.seconds + 183600) <= currentTime) {
                     setEP4MARCO(true);
                     db.collection('Notificacoes').where('notiID', '==', 'EP4MARCO').get().then(doc => {
                         if (doc.empty) {
@@ -200,7 +200,7 @@ function PlaylistMarco({ route, navigation }) {
         .then(doc => {
             if ((doc.data().EP4MARCO) != undefined) {
                 setEP4MARCO(false);
-                if ((doc.data().EP4MARCO.seconds + 10) <= currentTime) {
+                if ((doc.data().EP4MARCO.seconds + 82800) <= currentTime) {
                     setEP5MARCO(true);
                     db.collection('Notificacoes').where('notiID', '==', 'EP5MARCO').get().then(doc => {
                         if (doc.empty) {
@@ -245,7 +245,7 @@ function PlaylistMarco({ route, navigation }) {
         .then(doc => {
             if ((doc.data().EP5MARCO) != undefined) {
                 setEP5MARCO(false);
-                if ((doc.data().EP5MARCO.seconds + 10) <= currentTime) {
+                if ((doc.data().EP5MARCO.seconds + 180000) <= currentTime) {
                     setEP6MARCO(true);
                     db.collection('Notificacoes').where('notiID', '==', 'EP6MARCO').get().then(doc => {
                         if (doc.empty) {
@@ -289,7 +289,7 @@ function PlaylistMarco({ route, navigation }) {
         .then(doc => {
             if ((doc.data().EP6MARCO) != undefined) {
                 setEP6MARCO(false);
-                if ((doc.data().EP6MARCO.seconds + 10) <= currentTime) {
+                if ((doc.data().EP6MARCO.seconds + 90000) <= currentTime) {
                     setEP7MARCO(true);
                     db.collection('Notificacoes').where('notiID', '==', 'EP7MARCO').get().then(doc => {
                         if (doc.empty) {
