@@ -108,7 +108,7 @@ function Conversa({route, navigation}){
                                                         <Icon2 name='person-circle' size={50} color={'black'} />
                                                         <View style={{paddingLeft: '2%', paddingTop: '3%'}}>
                                                             
-                                                            {(encarregue == '0tPylHnZykWeGHN0Xft4b4De9Nk1') ? (
+                                                            {(encarregue == 'GumsoaomXxdKSagQiPDCRFxuTFE2') ? (
                                                                 <Text style={{fontWeight: 'bold', fontSize: 13}}> Dra Margarida Braga </Text>
                                                             ): (
                                                                 <Text style={{fontWeight: 'bold', fontSize: 13}}> Dra Ana Cristina </Text>
@@ -175,7 +175,7 @@ function Conversa({route, navigation}){
                                                         <Icon2 name='person-circle' size={50} color={'black'} />
                                                         <View style={{paddingLeft: '2%', paddingTop: '3%'}}>
                                                             
-                                                        {(encarregue == '0tPylHnZykWeGHN0Xft4b4De9Nk1') ? (
+                                                        {(encarregue == 'GumsoaomXxdKSagQiPDCRFxuTFE2') ? (
                                                                 <Text style={{fontWeight: 'bold', fontSize: 13}}> Dra Margarida Braga </Text>
                                                             ): (
                                                                 <Text style={{fontWeight: 'bold', fontSize: 13}}> Dra Ana Cristina </Text>
@@ -297,7 +297,7 @@ function Conversa({route, navigation}){
                                                 <View style={{flexDirection: 'row'}}>
                                                     <View style={{paddingRight: '2%', paddingTop: '3%'}}>
                                                         
-                                                        {(encarregue == '0tPylHnZykWeGHN0Xft4b4De9Nk1') ? (
+                                                        {(encarregue == 'GumsoaomXxdKSagQiPDCRFxuTFE2') ? (
                                                                 <Text style={{fontWeight: 'bold', fontSize: 13, textAlign: 'right'}}> Dra Margarida Braga </Text>
                                                             ): (
                                                                 <Text style={{fontWeight: 'bold', fontSize: 13, textAlign: 'right'}}> Dra Ana Cristina </Text>
@@ -366,7 +366,7 @@ function Conversa({route, navigation}){
                                                 <View style={{flexDirection: 'row'}}>
                                                 <View style={{paddingRight: '2%', paddingTop: '3%'}}>
                                                         
-                                                        {(encarregue == '0tPylHnZykWeGHN0Xft4b4De9Nk1') ? (
+                                                        {(encarregue == 'GumsoaomXxdKSagQiPDCRFxuTFE2') ? (
                                                                     <Text style={{fontWeight: 'bold', fontSize: 13, textAlign: 'right'}}> Dra Margarida Braga </Text>
                                                                 ): (
                                                                     <Text style={{fontWeight: 'bold', fontSize: 13, textAlign: 'right'}}> Dra Ana Cristina </Text>
