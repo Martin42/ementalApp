@@ -61,9 +61,30 @@ function PlaylistSara({ route, navigation }) {
         .doc(currentUser)
         .get()
         .then(doc => {
+            if ((doc.data().completadoSara) == true) {
+                setAll(true);
+
+                db
+                .collection('Questionário Sara Final')
+                .doc(currentUser)
+                .get()
+                .then(doc => {
+                    if ((doc.data().concluido) == 'false') {
+                        navigation.navigate('QiSaraAFinal');
+                    }
+
+                })
+            } else if ((doc.data().completadoSara) == null) {
+  
+
+        db
+        .collection('users')
+        .doc(currentUser)
+        .get()
+        .then(doc => {
             if ((doc.data().EP1PSI) != undefined) {
                 setEP1PSI(false);
-                if ((doc.data().EP1PSI.seconds + 10) <= currentTime) {
+                if ((doc.data().EP1PSI.seconds + 93600) <= currentTime) {
                     setEP1SARA(true);
                         db.collection('Notificacoes').where('notiID', '==', 'EP1PSI').get().then(doc => {
                             if (doc.empty) {
@@ -108,7 +129,7 @@ function PlaylistSara({ route, navigation }) {
                 setEP1SARA(false);
                 
 
-                if ((doc.data().EP1SARA.seconds + 10) <= currentTime) {
+                if ((doc.data().EP1SARA.seconds + 262800) <= currentTime) {
                 
                     setEP2PSI(true);
                     db.collection('Notificacoes').where('notiID', '==', 'EP2PSI').get().then(doc => {
@@ -154,7 +175,7 @@ function PlaylistSara({ route, navigation }) {
             if ((doc.data().EP2PSI) != undefined) {
                 setEP2PSI(false);
                
-                if ((doc.data().EP2PSI.seconds + 10) <= currentTime ) {
+                if ((doc.data().EP2PSI.seconds + 165600) <= currentTime ) {
                    
                     setEP2SARA(true);
                     setDES1(true);
@@ -206,7 +227,7 @@ function PlaylistSara({ route, navigation }) {
             if ((doc.data().DES1) != undefined) {
                 setDES1(false);
               
-                if ((doc.data().DES1.seconds + 10) <= currentTime) {
+                if ((doc.data().DES1.seconds + 169200) <= currentTime) {
            
                     setEP3PSI(true);
                     db.collection('Notificacoes').where('notiID', '==', 'EP3PSI').get().then(doc => {
@@ -253,7 +274,7 @@ function PlaylistSara({ route, navigation }) {
 
                 setEP3PSI(false);
                 
-                if ((doc.data().EP3PSI.seconds + 10) <= currentTime) {
+                if ((doc.data().EP3PSI.seconds + 93600) <= currentTime) {
                 
                     setEP3SARA(true);
                     db.collection('Notificacoes').where('notiID', '==', 'EP3SARA').get().then(doc => {
@@ -301,7 +322,7 @@ function PlaylistSara({ route, navigation }) {
 
                 setEP3SARA(false);
               
-                if ((doc.data().EP3SARA.seconds + 10) <= currentTime) {
+                if ((doc.data().EP3SARA.seconds + 90000) <= currentTime) {
 
                     setEP4PSI(true);
                     db.collection('Notificacoes').where('notiID', '==', 'EP4PSI').get().then(doc => {
@@ -348,7 +369,7 @@ function PlaylistSara({ route, navigation }) {
 
                 setEP4PSI(false);
             
-                if ((doc.data().EP4PSI.seconds + 10) <= currentTime) {
+                if ((doc.data().EP4PSI.seconds + 169200) <= currentTime) {
 
                     setEP4_1SARA(true);
                     setDES2(true);
@@ -401,7 +422,7 @@ function PlaylistSara({ route, navigation }) {
 
                 setDES2(false);
               
-                if ((doc.data().DES2.seconds + 10) <= currentTime) {
+                if ((doc.data().DES2.seconds + 90000) <= currentTime) {
 
                     setEP4_2SARA(true);
                     db.collection('Notificacoes').where('notiID', '==', 'EP4_2SARA').get().then(doc => {
@@ -448,7 +469,7 @@ function PlaylistSara({ route, navigation }) {
 
                 setEP4_2SARA(false);
                 
-                if ((doc.data().EP4_2SARA.seconds + 10) <= currentTime) {
+                if ((doc.data().EP4_2SARA.seconds + 248400) <= currentTime) {
 
                     setEP5PSI(true);
                     db.collection('Notificacoes').where('notiID', '==', 'EP5PSI').get().then(doc => {
@@ -495,7 +516,7 @@ function PlaylistSara({ route, navigation }) {
  
                 setEP5PSI(false);
               
-                if ((doc.data().EP5PSI.seconds + 10) <= currentTime) {
+                if ((doc.data().EP5PSI.seconds + 270000) <= currentTime) {
 
                     setEP5SARA(true);
                     setDES3(true);
@@ -550,7 +571,7 @@ function PlaylistSara({ route, navigation }) {
 
                 setDES3(false);
                
-                if ((doc.data().DES3.seconds + 10) <= currentTime) {
+                if ((doc.data().DES3.seconds + 79200) <= currentTime) {
 
                     setEP6PSI(true);
                     db.collection('Notificacoes').where('notiID', '==', 'EP6PSI').get().then(doc => {
@@ -600,7 +621,7 @@ function PlaylistSara({ route, navigation }) {
 
                 setEP6PSI(false);
             
-                if ((doc.data().EP6PSI.seconds + 10) <= currentTime) {
+                if ((doc.data().EP6PSI.seconds + 169200) <= currentTime) {
 
                     setEP6SARA(true);
                     setDES4(true);
@@ -656,7 +677,7 @@ function PlaylistSara({ route, navigation }) {
 
                 setDES4(false);
            
-                if ((doc.data().DES4.seconds + 10) <= currentTime) {
+                if ((doc.data().DES4.seconds + 93600) <= currentTime) {
 
                     setEP7SARA(true);
                     setDES5(true);
@@ -713,7 +734,7 @@ function PlaylistSara({ route, navigation }) {
 
                 setDES5(false);
               
-                if ((doc.data().DES5.seconds + 10) <= currentTime) {
+                if ((doc.data().DES5.seconds + 255600) <= currentTime) {
 
                     setEP7PSI(true);
                     db.collection('Notificacoes').where('notiID', '==', 'EP7PSI').get().then(doc => {
@@ -761,7 +782,7 @@ function PlaylistSara({ route, navigation }) {
 
                 setEP7PSI(false);
                 
-                if ((doc.data().EP7PSI.seconds + 10) <= currentTime) {
+                if ((doc.data().EP7PSI.seconds + 93600) <= currentTime) {
 
                     setEP8SARA(true);
                     setDES6(true);
@@ -819,7 +840,7 @@ function PlaylistSara({ route, navigation }) {
 
                 setDES6(false);
               
-                if ((doc.data().DES6.seconds + 10) <= currentTime) {
+                if ((doc.data().DES6.seconds + 158400) <= currentTime) {
 
                     setEP8PSI(true);
                     db.collection('Notificacoes').where('notiID', '==', 'EP8PSI').get().then(doc => {
@@ -868,7 +889,7 @@ function PlaylistSara({ route, navigation }) {
 
                 setEP8PSI(false);
             
-                if ((doc.data().EP8PSI.seconds + 10) <= currentTime) {
+                if ((doc.data().EP8PSI.seconds + 97200) <= currentTime) {
 
                     setEP9SARA(true);
                     db.collection('Notificacoes').where('notiID', '==', 'EP9SARA').get().then(doc => {
@@ -919,7 +940,7 @@ function PlaylistSara({ route, navigation }) {
 
                 setEP9SARA(false);
                
-                if ((doc.data().EP9SARA.seconds + 10) <= currentTime) {
+                if ((doc.data().EP9SARA.seconds + 252000) <= currentTime) {
 
                     setEP9PSI(true);
                     db.collection('Notificacoes').where('notiID', '==', 'EP9PSI').get().then(doc => {
@@ -967,7 +988,7 @@ function PlaylistSara({ route, navigation }) {
 
                 setEP9PSI(false);
               
-                if ((doc.data().EP9PSI.seconds + 10) <= currentTime) {
+                if ((doc.data().EP9PSI.seconds + 90000) <= currentTime) {
                     setEP10SARA(true);
                     setDES7(true);
                     db.collection('Notificacoes').where('notiID', '==', 'EP10SARA').get().then(doc => {
@@ -1021,7 +1042,7 @@ function PlaylistSara({ route, navigation }) {
 
                 setDES7(false);
              
-                if ((doc.data().DES7.seconds + 10) <= currentTime) {
+                if ((doc.data().DES7.seconds + 165600) <= currentTime) {
     
                     setEP11SARA(true);
                     db.collection('Notificacoes').where('notiID', '==', 'EP11SARA').get().then(doc => {
@@ -1067,7 +1088,7 @@ function PlaylistSara({ route, navigation }) {
             if ((doc.data().EP11SARA) != undefined) {
                 setEP11SARA(false);
                
-                if ((doc.data().EP11SARA.seconds + 10) <= currentTime) {
+                if ((doc.data().EP11SARA.seconds + 97200) <= currentTime) {
                     setEP12SARA(true);
                     setDES8(true);
                     db.collection('Notificacoes').where('notiID', '==', 'EP12SARA').get().then(doc => {
@@ -1118,7 +1139,7 @@ function PlaylistSara({ route, navigation }) {
             if ((doc.data().DES8) != undefined) {
                 setDES8(false);
           
-                if ((doc.data().DES8.seconds + 10) <= currentTime) {
+                if ((doc.data().DES8.seconds + 165600) <= currentTime) {
 
                     setEP10PSI(true);
                     db.collection('Notificacoes').where('notiID', '==', 'EP10PSI').get().then(doc => {
@@ -1165,7 +1186,7 @@ function PlaylistSara({ route, navigation }) {
 
                 setEP10PSI(false);
      
-                if ((doc.data().EP10PSI.seconds + 10) <= currentTime) {
+                if ((doc.data().EP10PSI.seconds + 180000) <= currentTime) {
                     setEP13SARA(true);
                     setDES9(true);
                     db.collection('Notificacoes').where('notiID', '==', 'EP13SARA').get().then(doc => {
@@ -1216,22 +1237,23 @@ function PlaylistSara({ route, navigation }) {
             if ((doc.data().DES9) != undefined) {
                 setDES9(false);
                 if (EP13SARA == false) {
-                    setAll(true);
 
                     db
-                    .collection('Questionário Sara Final')
+                    .collection('users')
                     .doc(currentUser)
-                    .get()
-                    .then(doc => {
-                        if ((doc.data().concluido) == 'false') {
-                            navigation.navigate('QiSaraAFinal');
-                        }
- 
-                    })
+                    .set({
+                        completadoSara: true
+                    }, {merge: true})
+                    
                 }
             }
         })
-    }
+
+        }
+    })
+
+
+}
     
 
     async function getStatus(){

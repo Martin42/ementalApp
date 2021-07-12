@@ -31,6 +31,30 @@ function PlaylistMarco({ route, navigation }) {
 
     async function getAll(){
 
+
+        db
+        .collection('users')
+        .doc(currentUser)
+        .get()
+        .then(doc => {
+            if ((doc.data().completadoMarco) == true) {
+
+                setAll(true);
+
+                if (doc.data().EP7MARCO.seconds + 30 <= currentTime) {
+                        db
+                        .collection('Questionário Marco Final')
+                        .doc(currentUser)
+                        .get()
+                        .then(doc => {
+                            if ((doc.data().concluido) == 'false') {
+                                navigation.navigate('QiMarcoAFinal');
+                            }
+
+                        })
+                }
+            } else if ((doc.data().completadoMarco) == null) {
+
         db
         .collection('users')
         .doc(currentUser)
@@ -308,21 +332,20 @@ function PlaylistMarco({ route, navigation }) {
         .get()
         .then(doc => {
             if ((doc.data().EP7MARCO) != undefined) {
-                setAll(true);
                 db
-                    .collection('Questionário Marco Final')
+                    .collection('users')
                     .doc(currentUser)
-                    .get()
-                    .then(doc => {
-                        if ((doc.data().concluido) == 'false') {
-                            navigation.navigate('QiMarcoAFinal');
-                        }
- 
-                    })
+                    .set({
+                        completadoMarco: true
+                    }, {merge: true})
+
             }
         })
+
+        }
+    })
   
-    }
+}
 
   async function getStatus (){ db
         .collection('users')

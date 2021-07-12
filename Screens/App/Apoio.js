@@ -15,7 +15,7 @@ function Apoio({ route, navigation }) {
     const [assegurado, setAssegurado] = useState(false);
     const [currentStatus, setCurrentStatus] = useState('');
 
-    if ((currentUser == '0tPylHnZykWeGHN0Xft4b4De9Nk1' || currentUser == 'FydfT0GfIdeAHeU5Et9UbgzNk852')) {
+    if ((currentUser == 'GumsoaomXxdKSagQiPDCRFxuTFE2' || currentUser == 'kXYAlb6ocHNIQxQXefmG2QtvPqw1')) {
 
 
             useEffect(() => {
@@ -159,7 +159,7 @@ function Apoio({ route, navigation }) {
 
               
               {
-                  (currentUser == '0tPylHnZykWeGHN0Xft4b4De9Nk1') || (currentUser == 'FydfT0GfIdeAHeU5Et9UbgzNk852') ? (
+                  (currentUser == 'GumsoaomXxdKSagQiPDCRFxuTFE2') || (currentUser == 'kXYAlb6ocHNIQxQXefmG2QtvPqw1') ? (
                       <Text></Text>
                   ) : (
                         <View style={styles.ticketContainer}>
