@@ -292,7 +292,7 @@ function PainelControlo({ route, navigation }) {
                                 Marco
                             </Text>
                             <Text style={styles.nome}>
-                                Inicial
+                                Final
                             </Text>
                         </View>
 
